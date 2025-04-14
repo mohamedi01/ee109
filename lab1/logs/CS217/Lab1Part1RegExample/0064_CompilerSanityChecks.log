@@ -1,0 +1,17 @@
+  Stms:
+    x101 = FixAdd(x100,x99)
+    x102 = RegWrite(x96,x101,Set())
+    x97 = RegRead(x90)
+    x98 = RegRead(x91)
+    x99 = RegRead(x92)
+    x100 = FixAdd(x97,x98)
+  Used:
+    x101 = FixAdd(x100,x99) [Made: true]
+    x92 = ArgInNew(Const(0)) [Made: false]
+    x97 = RegRead(x90) [Made: true]
+    x96 = ArgOutNew(Const(0)) [Made: false]
+    x98 = RegRead(x91) [Made: true]
+    x91 = ArgInNew(Const(0)) [Made: false]
+    x99 = RegRead(x92) [Made: true]
+    x90 = ArgInNew(Const(0)) [Made: false]
+    x100 = FixAdd(x97,x98) [Made: true]

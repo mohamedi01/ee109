@@ -1,0 +1,100 @@
+  Advancing blk
+     From: Host
+     To: Host
+    x83 = InputArguments() [Host]
+    Updating x83 since there are no subst rules for it
+    x84 = ArrayApply(x83,Const(0)) [Host]
+    Updating x84 since there are no subst rules for it
+    x85 = TextToFix(x84,TRUE,_32,_0) [Host]
+    Updating x85 since there are no subst rules for it
+    x86 = ArrayApply(x83,Const(1)) [Host]
+    Updating x86 since there are no subst rules for it
+    x87 = TextToFix(x86,TRUE,_32,_0) [Host]
+    Updating x87 since there are no subst rules for it
+    x88 = ArrayApply(x83,Const(2)) [Host]
+    Updating x88 since there are no subst rules for it
+    x89 = TextToFix(x88,TRUE,_32,_0) [Host]
+    Updating x89 since there are no subst rules for it
+    x90 = ArgInNew(Const(0)) [Host]
+    Updating x90 since there are no subst rules for it
+    x91 = ArgInNew(Const(0)) [Host]
+    Updating x91 since there are no subst rules for it
+    x92 = ArgInNew(Const(0)) [Host]
+    Updating x92 since there are no subst rules for it
+    x93 = SetReg(x90,x85) [Host]
+    Updating x93 since there are no subst rules for it
+    x94 = SetReg(x91,x87) [Host]
+    Updating x94 since there are no subst rules for it
+    x95 = SetReg(x92,x89) [Host]
+    Updating x95 since there are no subst rules for it
+    x96 = ArgOutNew(Const(0)) [Host]
+    Updating x96 since there are no subst rules for it
+    x59 = AccelScope(Block(Const(()))) [x59 (block: -1)]
+    Updating x59 since there are no subst rules for it
+    Advancing blk
+       From: x59 (block: -1)
+       To: x59 (block: 0)
+    node: (x59,x59 (block: -1)), block: (x59,x59 (block: 0))
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x97 = RegRead(x90) [stateless]
+       - users: Set(User(x100,x59 (block: 0)))
+       - ctrl:  x59 (block: 0)
+      x97 = RegRead(x90) [x59 (block: 0)]
+      Updating x97 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x98 = RegRead(x91) [stateless]
+       - users: Set(User(x100,x59 (block: 0)))
+       - ctrl:  x59 (block: 0)
+      x98 = RegRead(x91) [x59 (block: 0)]
+      Updating x98 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x99 = RegRead(x92) [stateless]
+       - users: Set(User(x101,x59 (block: 0)))
+       - ctrl:  x59 (block: 0)
+      x99 = RegRead(x92) [x59 (block: 0)]
+      Updating x99 since there are no subst rules for it
+      x100 = FixAdd(x97,x98) [x59 (block: 0)]
+      Updating x100 since there are no subst rules for it
+      x101 = FixAdd(x100,x99) [x59 (block: 0)]
+      Updating x101 since there are no subst rules for it
+      
+      x102 = RegWrite(x96,x101,Set()) [reg write]
+      x102 = RegWrite(x96,x101,Set()) [x59 (block: 0)]
+      Updating x102 since there are no subst rules for it
+    x103 = GetReg(x96) [Host]
+    Updating x103 since there are no subst rules for it
+    x104 = FixToText(x103,None) [Host]
+    Updating x104 since there are no subst rules for it
+    x105 = TextConcat(List(Const("Result = "), x104)) [Host]
+    Updating x105 since there are no subst rules for it
+    x106 = TextConcat(List(x105, Const("\n"))) [Host]
+    Updating x106 since there are no subst rules for it
+    x107 = PrintIf(Set(),x106) [Host]
+    Updating x107 since there are no subst rules for it
+    x108 = FixAdd(x87,x85) [Host]
+    Updating x108 since there are no subst rules for it
+    x109 = FixAdd(x108,x89) [Host]
+    Updating x109 since there are no subst rules for it
+    x110 = FixToText(x109,None) [Host]
+    Updating x110 since there are no subst rules for it
+    x111 = TextConcat(List(Const("Gold = "), x110)) [Host]
+    Updating x111 since there are no subst rules for it
+    x112 = TextConcat(List(x111, Const("\n"))) [Host]
+    Updating x112 since there are no subst rules for it
+    x113 = PrintIf(Set(),x112) [Host]
+    Updating x113 since there are no subst rules for it
+    x114 = FixEql(x109,x103) [Host]
+    Updating x114 since there are no subst rules for it
+    x115 = BitToText(x114) [Host]
+    Updating x115 since there are no subst rules for it
+    x116 = TextConcat(List(Const("PASS = "), x115)) [Host]
+    Updating x116 since there are no subst rules for it
+    x117 = TextConcat(List(x116, Const("\n"))) [Host]
+    Updating x117 since there are no subst rules for it
+    x118 = PrintIf(Set(),x117) [Host]
+    Updating x118 since there are no subst rules for it
+    x119 = AssertIf(Set(),x114,Some(Const("Lab1.scala:62:15: Assertion failure"))) [Host]
+    Updating x119 since there are no subst rules for it

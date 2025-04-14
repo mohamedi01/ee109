@@ -1,0 +1,397 @@
+  x39 = InputArguments()
+   - Aliases: 0035: x0
+   - Type: Array[Text]
+   - SrcCtx: Spatial.scala:52:17
+   - class argon.Consumers: Consumers(Set(x40, x42, x44))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x39))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x40 = ArrayApply(x39,Const(0))
+   - Aliases: 0035: x1
+   - Type: Text
+   - SrcCtx: Lab1.scala:14:21
+   - class argon.Consumers: Consumers(Set(x41))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x40))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x41 = TextToFix(x40,TRUE,_32,_0)
+   - Name: N
+   - Aliases: 0035: x2
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:14:27
+   - class argon.Consumers: Consumers(Set(x49, x65))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x41))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x42 = ArrayApply(x39,Const(1))
+   - Aliases: 0035: x3
+   - Type: Text
+   - SrcCtx: Lab1.scala:15:21
+   - class argon.Consumers: Consumers(Set(x43))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x42))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x43 = TextToFix(x42,TRUE,_32,_0)
+   - Name: M
+   - Aliases: 0035: x4
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:15:27
+   - class argon.Consumers: Consumers(Set(x50, x65))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x43))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x44 = ArrayApply(x39,Const(2))
+   - Aliases: 0035: x5
+   - Type: Text
+   - SrcCtx: Lab1.scala:16:21
+   - class argon.Consumers: Consumers(Set(x45))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x44))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x45 = TextToFix(x44,TRUE,_32,_0)
+   - Name: K
+   - Aliases: 0035: x6
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:16:27
+   - class argon.Consumers: Consumers(Set(x51, x66))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x45))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x46 = ArgInNew(Const(0))
+   - Name: argRegIn0
+   - Aliases: 0035: x7
+   - Type: Reg[Fix[TRUE,_32,_0]]
+   - SrcCtx: Lab1.scala:21:30
+   - class argon.Consumers: Consumers(Set(x49, x53))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Mutable
+   - class argon.ShallowAliases: ShallowAliases(Set(x46))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+   - class spatial.metadata.memory.Readers: Readers(Set(x53))
+   - class spatial.metadata.memory.Writers: Writers(Set(x49))
+  x47 = ArgInNew(Const(0))
+   - Name: argRegIn1
+   - Aliases: 0035: x8
+   - Type: Reg[Fix[TRUE,_32,_0]]
+   - SrcCtx: Lab1.scala:22:30
+   - class argon.Consumers: Consumers(Set(x50, x54))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Mutable
+   - class argon.ShallowAliases: ShallowAliases(Set(x47))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+   - class spatial.metadata.memory.Readers: Readers(Set(x54))
+   - class spatial.metadata.memory.Writers: Writers(Set(x50))
+  x48 = ArgInNew(Const(0))
+   - Name: argRegIn2
+   - Aliases: 0035: x9
+   - Type: Reg[Fix[TRUE,_32,_0]]
+   - SrcCtx: Lab1.scala:23:30
+   - class argon.Consumers: Consumers(Set(x51, x55))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Mutable
+   - class argon.ShallowAliases: ShallowAliases(Set(x48))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+   - class spatial.metadata.memory.Readers: Readers(Set(x55))
+   - class spatial.metadata.memory.Writers: Writers(Set(x51))
+  x49 = SetReg(x46,x41)
+   - Aliases: 0035: x10
+   - Type: Void
+   - SrcCtx: Lab1.scala:26:15
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (reads={x46}, writes={x46})
+   - class argon.ShallowAliases: ShallowAliases(Set(x49))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x50 = SetReg(x47,x43)
+   - Aliases: 0035: x11
+   - Type: Void
+   - SrcCtx: Lab1.scala:27:15
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (reads={x47}, writes={x47})
+   - class argon.ShallowAliases: ShallowAliases(Set(x50))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x51 = SetReg(x48,x45)
+   - Aliases: 0035: x12
+   - Type: Void
+   - SrcCtx: Lab1.scala:28:15
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (reads={x48}, writes={x48})
+   - class argon.ShallowAliases: ShallowAliases(Set(x51))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x52 = ArgOutNew(Const(0))
+   - Name: argRegOut
+   - Aliases: 0035: x13
+   - Type: Reg[Fix[TRUE,_32,_0]]
+   - SrcCtx: Lab1.scala:32:31
+   - class argon.Consumers: Consumers(Set(x58, x60))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Mutable
+   - class argon.ShallowAliases: ShallowAliases(Set(x52))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+   - class spatial.metadata.memory.Readers: Readers(Set(x60))
+   - class spatial.metadata.memory.Writers: Writers(Set(x58))
+  x59 = AccelScope(Block(Const(()))) {
+   - Aliases: 0035: x20
+   - Type: Void
+   - SrcCtx: Lab1.scala:37:15
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (unique=true, simple=true, reads={x46,x47,x48,x52}, writes={x52})
+   - class argon.ShallowAliases: ShallowAliases(Set(x59))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x53, x54, x55))
+   - class spatial.metadata.control.BodyLatency: BodyLatency(List(3.0))
+   - class spatial.metadata.control.Children: Children(ArrayBuffer())
+   - class spatial.metadata.control.CompilerII: CompilerII(1.0)
+   - class spatial.metadata.control.ControlLevel: ControlLevel(InnerControl)
+   - class spatial.metadata.control.InitiationInterval: InitiationInterval(1.0)
+   - class spatial.metadata.control.ReadMems: ReadMems(Set(x46, x47, x48))
+   - class spatial.metadata.control.TransientReadMems: TransientReadMems(Set())
+   - class spatial.metadata.control.WrittenMems: WrittenMems(Set(x52))
+  binds: 
+    block 0: Block(Const(())) {
+      effects:  (unique=true, reads={x46,x47,x48,x52}, writes={x52})
+        x53 = RegRead(x46)
+         - Name: argRegIn0Value
+         - Aliases: 0035: x14
+         - Type: Fix[TRUE,_32,_0]
+         - SrcCtx: Lab1.scala:39:44
+         - class argon.Consumers: Consumers(Set(x56, x59))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: (unique=true, reads={x46})
+         - class argon.ShallowAliases: ShallowAliases(Set(x53))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x53))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(0.0)
+        x54 = RegRead(x47)
+         - Name: argRegIn1Value
+         - Aliases: 0035: x15
+         - Type: Fix[TRUE,_32,_0]
+         - SrcCtx: Lab1.scala:40:44
+         - class argon.Consumers: Consumers(Set(x56, x59))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: (unique=true, reads={x47})
+         - class argon.ShallowAliases: ShallowAliases(Set(x54))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x54))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(0.0)
+        x55 = RegRead(x48)
+         - Name: argRegIn2Value
+         - Aliases: 0035: x16
+         - Type: Fix[TRUE,_32,_0]
+         - SrcCtx: Lab1.scala:41:44
+         - class argon.Consumers: Consumers(Set(x57, x59))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: (unique=true, reads={x48})
+         - class argon.ShallowAliases: ShallowAliases(Set(x55))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x55))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(0.0)
+        x56 = FixAdd(x53,x54)
+         - Aliases: 0035: x17
+         - Type: Fix[TRUE,_32,_0]
+         - SrcCtx: Lab1.scala:44:41
+         - class argon.Consumers: Consumers(Set(x57))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: Pure
+         - class argon.ShallowAliases: ShallowAliases(Set(x56))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x53, x54))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(0.0)
+        x57 = FixAdd(x56,x55)
+         - Aliases: 0035: x18
+         - Type: Fix[TRUE,_32,_0]
+         - SrcCtx: Lab1.scala:44:58
+         - class argon.Consumers: Consumers(Set(x58))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: Pure
+         - class argon.ShallowAliases: ShallowAliases(Set(x57))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x53, x54, x55))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(1.0)
+        x58 = RegWrite(x52,x57,Set())
+         - Aliases: 0035: x19
+         - Type: Void
+         - SrcCtx: Lab1.scala:44:23
+         - class argon.Consumers: Consumers(Set(x59))
+         - class argon.DeepAliases: DeepAliases(Set())
+         - class argon.Effects: (reads={x52}, writes={x52})
+         - class argon.ShallowAliases: ShallowAliases(Set(x58))
+         - class spatial.metadata.access.ReadUses: ReadUses(Set(x53, x54, x55))
+         - class spatial.metadata.control.DefiningBlk: DefiningBlk(x59 (block: 0))
+         - class spatial.metadata.control.ParentCtrl: ParentCtrl(x59 (stage: -1))
+         - class spatial.metadata.control.ScopeCtrl: ScopeCtrl(x59 (scope: 0, 0))
+         - class spatial.metadata.retiming.FullDelay: FullDelay(2.0)
+    } // End of x59 block #0
+  } // End of x59
+  x60 = GetReg(x52)
+   - Name: argRegOutResult
+   - Aliases: 0035: x21
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:48:37
+   - class argon.Consumers: Consumers(Set(x61, x71))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (reads={x52})
+   - class argon.ShallowAliases: ShallowAliases(Set(x60))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x61 = FixToText(x60,None)
+   - Aliases: 0035: x22
+   - Type: Text
+   - SrcCtx: Lab1.scala:51:29
+   - class argon.Consumers: Consumers(Set(x62))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x61))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x62 = TextConcat(List(Const("Result = "), x61))
+   - Aliases: 0035: x23
+   - Type: Text
+   - SrcCtx: Lab1.scala:51:29
+   - class argon.Consumers: Consumers(Set(x63))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x62))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x63 = TextConcat(List(x62, Const("\n")))
+   - Aliases: 0035: x24
+   - Type: Text
+   - SrcCtx: Lab1.scala:51:16
+   - class argon.Consumers: Consumers(Set(x64))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x63))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x64 = PrintIf(Set(),x63)
+   - Aliases: 0035: x25
+   - Type: Void
+   - SrcCtx: Lab1.scala:51:16
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (simple=true)
+   - class argon.ShallowAliases: ShallowAliases(Set(x64))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x65 = FixAdd(x43,x41)
+   - Aliases: 0035: x26
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:54:22
+   - class argon.Consumers: Consumers(Set(x66))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x65))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x66 = FixAdd(x65,x45)
+   - Name: gold
+   - Aliases: 0035: x27
+   - Type: Fix[TRUE,_32,_0]
+   - SrcCtx: Lab1.scala:54:26
+   - class argon.Consumers: Consumers(Set(x67, x71))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x66))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x67 = FixToText(x66,None)
+   - Aliases: 0035: x28
+   - Type: Text
+   - SrcCtx: Lab1.scala:55:27
+   - class argon.Consumers: Consumers(Set(x68))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x67))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x68 = TextConcat(List(Const("Gold = "), x67))
+   - Aliases: 0035: x29
+   - Type: Text
+   - SrcCtx: Lab1.scala:55:27
+   - class argon.Consumers: Consumers(Set(x69))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x68))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x69 = TextConcat(List(x68, Const("\n")))
+   - Aliases: 0035: x30
+   - Type: Text
+   - SrcCtx: Lab1.scala:55:16
+   - class argon.Consumers: Consumers(Set(x70))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x69))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x70 = PrintIf(Set(),x69)
+   - Aliases: 0035: x31
+   - Type: Void
+   - SrcCtx: Lab1.scala:55:16
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (simple=true)
+   - class argon.ShallowAliases: ShallowAliases(Set(x70))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set())
+  x71 = FixEql(x66,x60)
+   - Name: cksum
+   - Aliases: 0035: x32
+   - Type: Bit
+   - SrcCtx: Lab1.scala:56:26
+   - class argon.Consumers: Consumers(Set(x72, x76))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x71))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x72 = BitToText(x71)
+   - Aliases: 0035: x33
+   - Type: Text
+   - SrcCtx: Lab1.scala:59:27
+   - class argon.Consumers: Consumers(Set(x73))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x72))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x73 = TextConcat(List(Const("PASS = "), x72))
+   - Aliases: 0035: x34
+   - Type: Text
+   - SrcCtx: Lab1.scala:59:27
+   - class argon.Consumers: Consumers(Set(x74))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x73))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x74 = TextConcat(List(x73, Const("\n")))
+   - Aliases: 0035: x35
+   - Type: Text
+   - SrcCtx: Lab1.scala:59:16
+   - class argon.Consumers: Consumers(Set(x75))
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: Pure
+   - class argon.ShallowAliases: ShallowAliases(Set(x74))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x75 = PrintIf(Set(),x74)
+   - Aliases: 0035: x36
+   - Type: Void
+   - SrcCtx: Lab1.scala:59:16
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (simple=true)
+   - class argon.ShallowAliases: ShallowAliases(Set(x75))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+  x76 = AssertIf(Set(),x71,Some(Const("Lab1.scala:62:15: Assertion failure")))
+   - Aliases: 0035: x38
+   - Type: Void
+   - SrcCtx: Lab1.scala:62:15
+   - class argon.DeepAliases: DeepAliases(Set())
+   - class argon.Effects: (global=true)
+   - class argon.ShallowAliases: ShallowAliases(Set(x76))
+   - class spatial.metadata.access.ReadUses: ReadUses(Set(x60))
+
+Global Metadata
+---------------
+class spatial.metadata.CLIArgs: CLIArgs(Map(0 -> N, 1 -> M, 2 -> K))
+class spatial.metadata.memory.LocalMemories: LocalMemories(Set(x46, x47, x48, x52))

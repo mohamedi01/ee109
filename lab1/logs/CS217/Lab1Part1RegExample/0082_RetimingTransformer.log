@@ -1,0 +1,36 @@
+  Transforming Block Block(Const(())) [List() => false, List() => false]
+    Transforming Block Block(Const(())) [List() => true, List() => false]
+    Retiming block Block(Const(())):
+      x97 = RegRead(x90) (0.0)
+      x98 = RegRead(x91) (0.0)
+      x99 = RegRead(x92) (0.0)
+      x100 = FixAdd(x97,x98) (0.0)
+      x101 = FixAdd(x100,x99) (1.0)
+      x102 = RegWrite(x96,x101,Set()) (2.0)
+    Working on pipeLatencies of result Vector(Const(()), x102, x97, x98, x99), schedule Vector(x97, x98, x99, x100, x101, x102)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    Computing fullDFS: Const(())
+    Computing fullDFS: x102
+    Computing fullDFS: x101
+    Computing fullDFS: x99
+    cur: x99, inReduce: false, latency: 0.0
+    Computing fullDFS: x100
+    Computing fullDFS: x97
+    cur: x97, inReduce: false, latency: 0.0
+    Computing fullDFS: x98
+    cur: x98, inReduce: false, latency: 0.0
+    Cycles: Map()
+    computing delay lines for Vector(x97, x98, x99, x100, x101, x102) Map(x101 -> 2.0, x102 -> 3.0, x97 -> 0.0, x98 -> 0.0, x99 -> 0.0, x100 -> 1.0) Map() List()
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x97 = RegRead(x90)
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x98 = RegRead(x91)
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x99 = RegRead(x92)
+    [Arrive = Dly - Lat: 0.0 = 1.0 - 1.0] x100 = FixAdd(x97,x98)
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x97 = RegRead(x90)
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x98 = RegRead(x91)
+    [Arrive = Dly - Lat: 1.0 = 2.0 - 1.0] x101 = FixAdd(x100,x99)
+    ..[0.0 (-> 0) = 1.0 - (1.0 - 0.0) (-> 1 - 1)] x100 = FixAdd(x97,x98)
+    ..[1.0 (-> 1) = 1.0 - (0.0 - 0.0) (-> 1 - 0)] x99 = RegRead(x92)
+    [Arrive = Dly - Lat: 2.0 = 3.0 - 1.0] x102 = RegWrite(x96,x101,Set())
+    ..[0.0 (-> 0) = 2.0 - (2.0 - 0.0) (-> 2 - 2)] x101 = FixAdd(x100,x99)
+      Creating value delay on x99 for reader x101 with delay 1: 

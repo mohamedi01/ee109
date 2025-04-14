@@ -1,0 +1,36 @@
+  x59 = AccelScope(Block(Const(())))
+    Working on pipeLatencies of result Vector(Const(()), x102, x97, x98, x99), schedule Vector(x97, x98, x99, x100, x101, x102)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    ----------------------------------
+    Computing pipeLatencies for scope:
+      x97 = RegRead(x90)
+      x98 = RegRead(x91)
+      x99 = RegRead(x92)
+      x100 = FixAdd(x97,x98)
+      x101 = FixAdd(x100,x99)
+      x102 = RegWrite(x96,x101,Set())
+    Computing fullDFS: Const(())
+    Computing fullDFS: x102
+    Computing fullDFS: x101
+    Computing fullDFS: x99
+    cur: x99, inReduce: false, latency: 0.0
+    [0.0 = max(0) + 0.0] x99 = RegRead(x92)
+    Computing fullDFS: x100
+    Computing fullDFS: x97
+    cur: x97, inReduce: false, latency: 0.0
+    [0.0 = max(0) + 0.0] x97 = RegRead(x90)
+    Computing fullDFS: x98
+    cur: x98, inReduce: false, latency: 0.0
+    [0.0 = max(0) + 0.0] x98 = RegRead(x91)
+    [1.0 = max(0.0, 0.0) + 1.0] x100 = FixAdd(x97,x98)
+    [2.0 = max(0.0, 1.0) + 1.0] x101 = FixAdd(x100,x99)
+    [3.0 = max(2.0) + 1.0] x102 = RegWrite(x96,x101,Set())
+    Cycles: Map()
+      Schedule after pipeLatencies calculation:
+      [0.0] x97 = RegRead(x90)
+      [0.0] x98 = RegRead(x91)
+      [0.0] x99 = RegRead(x92)
+      [1.0] x100 = FixAdd(x97,x98)
+      [2.0] x101 = FixAdd(x100,x99)
+      [3.0] x102 = RegWrite(x96,x101,Set())

@@ -1,0 +1,67 @@
+Visiting Block Block(Const(())) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => true, List() => false]
+  Retiming block Block(Const(())):
+    x53 = RegRead(x46)
+    x54 = RegRead(x47)
+    x55 = RegRead(x48)
+    x56 = FixAdd(x53,x54)
+    x57 = FixAdd(x56,x55)
+    x58 = RegWrite(x52,x57,Set())
+  Result: 
+    ()
+    x53 = RegRead(x46)
+    x54 = RegRead(x47)
+    x55 = RegRead(x48)
+    x58 = RegWrite(x52,x57,Set())
+  Working on pipeLatencies of result Vector(Const(()), x53, x54, x55, x58), schedule Vector(x53, x54, x55, x56, x57, x58)
+  Memories with both reads and writes in this scope: Set()
+  Done finding cycles: Vector(), Map()
+  ----------------------------------
+  Computing pipeLatencies for scope:
+    x53 = RegRead(x46)
+    x54 = RegRead(x47)
+    x55 = RegRead(x48)
+    x56 = FixAdd(x53,x54)
+    x57 = FixAdd(x56,x55)
+    x58 = RegWrite(x52,x57,Set())
+  Computing fullDFS: Const(())
+  Computing fullDFS: x53
+  cur: x53, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x53 = RegRead(x46)
+  Computing fullDFS: x54
+  cur: x54, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x54 = RegRead(x47)
+  Computing fullDFS: x55
+  cur: x55, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x55 = RegRead(x48)
+  Computing fullDFS: x58
+  Computing fullDFS: x57
+  Computing fullDFS: x56
+  [1.0 = max(0.0, 0.0) + 1.0] x56 = FixAdd(x53,x54)
+  [2.0 = max(0.0, 1.0) + 1.0] x57 = FixAdd(x56,x55)
+  [3.0 = max(2.0) + 1.0] x58 = RegWrite(x52,x57,Set())
+  Cycles: Map()
+    Schedule after pipeLatencies calculation:
+    [0.0] x53 = RegRead(x46)
+    [0.0] x54 = RegRead(x47)
+    [0.0] x55 = RegRead(x48)
+    [1.0] x56 = FixAdd(x53,x54)
+    [2.0] x57 = FixAdd(x56,x55)
+    [3.0] x58 = RegWrite(x52,x57,Set())
+  [0.0] ()
+  [0.0] x53 = RegRead(x46)
+  [0.0] x54 = RegRead(x47)
+  [0.0] x55 = RegRead(x48)
+  [1.0] x56 = FixAdd(x53,x54)
+  [2.0] x57 = FixAdd(x56,x55)
+  [3.0] x58 = RegWrite(x52,x57,Set())
+  
+  
+  Sym Delays:
+    [0.0 = 0.0 - 0.0]: () [cycle = false]
+    [0.0 = 1.0 - 1.0]: x56 = FixAdd(x53,x54) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x53 = RegRead(x46) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x54 = RegRead(x47) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x55 = RegRead(x48) [cycle = false]
+    [1.0 = 2.0 - 1.0]: x57 = FixAdd(x56,x55) [cycle = false]
+    [2.0 = 3.0 - 1.0]: x58 = RegWrite(x52,x57,Set()) [cycle = false]

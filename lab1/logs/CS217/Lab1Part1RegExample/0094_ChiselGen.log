@@ -1,0 +1,49 @@
+Stms:
+  x101 = FixAdd(x100,x120)
+  x120 = DelayLine(1,x99)
+  x102 = RegWrite(x96,x101,Set())
+  x97 = RegRead(x90)
+  x98 = RegRead(x91)
+  x99 = RegRead(x92)
+  x100 = FixAdd(x97,x98)
+Used:
+  x101 = FixAdd(x100,x120) [Made: true]
+  x120 = DelayLine(1,x99) [Made: true]
+  x92 = ArgInNew(Const(0)) [Made: false]
+  x97 = RegRead(x90) [Made: true]
+  x96 = ArgOutNew(Const(0)) [Made: false]
+  x98 = RegRead(x91) [Made: true]
+  x91 = ArgInNew(Const(0)) [Made: false]
+  x99 = RegRead(x92) [Made: true]
+  x90 = ArgInNew(Const(0)) [Made: false]
+  x100 = FixAdd(x97,x98) [Made: true]
+Inputs for x59 are (Set(x92, x96, x91, x90) ++ Set() ++ Set() ++ Set()) diff Set(x97, x98, x99, x102) ++ Set()
+Stms:
+  x101 = FixAdd(x100,x120)
+  x120 = DelayLine(1,x99)
+  x102 = RegWrite(x96,x101,Set())
+  x97 = RegRead(x90)
+  x98 = RegRead(x91)
+  x99 = RegRead(x92)
+  x100 = FixAdd(x97,x98)
+Used:
+  x101 = FixAdd(x100,x120) [Made: true]
+  x120 = DelayLine(1,x99) [Made: true]
+  x92 = ArgInNew(Const(0)) [Made: false]
+  x97 = RegRead(x90) [Made: true]
+  x96 = ArgOutNew(Const(0)) [Made: false]
+  x98 = RegRead(x91) [Made: true]
+  x91 = ArgInNew(Const(0)) [Made: false]
+  x99 = RegRead(x92) [Made: true]
+  x90 = ArgInNew(Const(0)) [Made: false]
+  x100 = FixAdd(x97,x98) [Made: true]
+Inputs for x59 are (Set(x92, x96, x91, x90) ++ Set() ++ Set() ++ Set()) diff Set(x97, x98, x99, x102) ++ Set()
+x59 = AccelScope(Block(Const(())))
+ - x92 = ArgInNew(Const(0))
+ - x96 = ArgOutNew(Const(0))
+ - x91 = ArgInNew(Const(0))
+ - x90 = ArgInNew(Const(0))
+ - x92_argRegIn2
+ - x96_argRegOut
+ - x91_argRegIn1
+ - x90_argRegIn0

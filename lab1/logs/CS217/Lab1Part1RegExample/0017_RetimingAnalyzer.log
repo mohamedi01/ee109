@@ -1,0 +1,67 @@
+Visiting Block Block(x38) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => true, List() => false]
+  Retiming block Block(Const(())):
+    x14 = RegRead(x7)
+    x15 = RegRead(x8)
+    x16 = RegRead(x9)
+    x17 = FixAdd(x14,x15)
+    x18 = FixAdd(x17,x16)
+    x19 = RegWrite(x13,x18,Set())
+  Result: 
+    ()
+    x14 = RegRead(x7)
+    x15 = RegRead(x8)
+    x16 = RegRead(x9)
+    x19 = RegWrite(x13,x18,Set())
+  Working on pipeLatencies of result Vector(Const(()), x14, x15, x16, x19), schedule Vector(x14, x15, x16, x17, x18, x19)
+  Memories with both reads and writes in this scope: Set()
+  Done finding cycles: Vector(), Map()
+  ----------------------------------
+  Computing pipeLatencies for scope:
+    x14 = RegRead(x7)
+    x15 = RegRead(x8)
+    x16 = RegRead(x9)
+    x17 = FixAdd(x14,x15)
+    x18 = FixAdd(x17,x16)
+    x19 = RegWrite(x13,x18,Set())
+  Computing fullDFS: Const(())
+  Computing fullDFS: x14
+  cur: x14, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x14 = RegRead(x7)
+  Computing fullDFS: x15
+  cur: x15, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x15 = RegRead(x8)
+  Computing fullDFS: x16
+  cur: x16, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x16 = RegRead(x9)
+  Computing fullDFS: x19
+  Computing fullDFS: x18
+  Computing fullDFS: x17
+  [1.0 = max(0.0, 0.0) + 1.0] x17 = FixAdd(x14,x15)
+  [2.0 = max(0.0, 1.0) + 1.0] x18 = FixAdd(x17,x16)
+  [3.0 = max(2.0) + 1.0] x19 = RegWrite(x13,x18,Set())
+  Cycles: Map()
+    Schedule after pipeLatencies calculation:
+    [0.0] x14 = RegRead(x7)
+    [0.0] x15 = RegRead(x8)
+    [0.0] x16 = RegRead(x9)
+    [1.0] x17 = FixAdd(x14,x15)
+    [2.0] x18 = FixAdd(x17,x16)
+    [3.0] x19 = RegWrite(x13,x18,Set())
+  [0.0] ()
+  [0.0] x14 = RegRead(x7)
+  [0.0] x16 = RegRead(x9)
+  [0.0] x15 = RegRead(x8)
+  [1.0] x17 = FixAdd(x14,x15)
+  [2.0] x18 = FixAdd(x17,x16)
+  [3.0] x19 = RegWrite(x13,x18,Set())
+  
+  
+  Sym Delays:
+    [0.0 = 0.0 - 0.0]: () [cycle = false]
+    [0.0 = 0.0 - 0.0]: x14 = RegRead(x7) [cycle = false]
+    [0.0 = 1.0 - 1.0]: x17 = FixAdd(x14,x15) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x16 = RegRead(x9) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x15 = RegRead(x8) [cycle = false]
+    [1.0 = 2.0 - 1.0]: x18 = FixAdd(x17,x16) [cycle = false]
+    [2.0 = 3.0 - 1.0]: x19 = RegWrite(x13,x18,Set()) [cycle = false]

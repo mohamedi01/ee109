@@ -1,0 +1,179 @@
+    Unrolling x39 = InputArguments()
+    x83 = InputArguments()
+    [x39] 0: x83
+    Unrolling x40 = ArrayApply(x39,Const(0))
+    x84 = ArrayApply(x83,Const(0))
+    [x40] 0: x84
+    Unrolling x41 = TextToFix(x40,TRUE,_32,_0)
+    x85 = TextToFix(x84,TRUE,_32,_0)
+    [x41] 0: x85
+    Unrolling x42 = ArrayApply(x39,Const(1))
+    x86 = ArrayApply(x83,Const(1))
+    [x42] 0: x86
+    Unrolling x43 = TextToFix(x42,TRUE,_32,_0)
+    x87 = TextToFix(x86,TRUE,_32,_0)
+    [x43] 0: x87
+    Unrolling x44 = ArrayApply(x39,Const(2))
+    x88 = ArrayApply(x83,Const(2))
+    [x44] 0: x88
+    Unrolling x45 = TextToFix(x44,TRUE,_32,_0)
+    x89 = TextToFix(x88,TRUE,_32,_0)
+    [x45] 0: x89
+    Access: x49
+    Memory: x46
+    Iterators between x49 and x46: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x49 = SetReg(x46,x41)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x93 = SetReg(x90,x85)
+    Access: x50
+    Memory: x47
+    Iterators between x50 and x47: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x50 = SetReg(x47,x43)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x94 = SetReg(x91,x87)
+    Access: x51
+    Memory: x48
+    Iterators between x51 and x48: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x51 = SetReg(x48,x45)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x95 = SetReg(x92,x89)
+      Access: x53
+      Memory: x46
+      Iterators between x53 and x46: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x53 = RegRead(x46)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x97 = RegRead(x90)
+      Access: x54
+      Memory: x47
+      Iterators between x54 and x47: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x54 = RegRead(x47)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x98 = RegRead(x91)
+      Access: x55
+      Memory: x48
+      Iterators between x55 and x48: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x55 = RegRead(x48)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x99 = RegRead(x92)
+      Unrolling x56 = FixAdd(x53,x54)
+      x100 = FixAdd(x97,x98)
+      [x56] 0: x100
+      Unrolling x57 = FixAdd(x56,x55)
+      x101 = FixAdd(x100,x99)
+      [x57] 0: x101
+      Access: x58
+      Memory: x52
+      Iterators between x58 and x52: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x58 = RegWrite(x52,x57,Set())
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x102 = RegWrite(x96,x101,Set())
+    Access: x60
+    Memory: x52
+    Iterators between x60 and x52: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x60 = GetReg(x52)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x103 = GetReg(x96)
+    Unrolling x61 = FixToText(x60,None)
+    x104 = FixToText(x103,None)
+    [x61] 0: x104
+    Unrolling x62 = TextConcat(List(Const("Result = "), x61))
+    x105 = TextConcat(List(Const("Result = "), x104))
+    [x62] 0: x105
+    Unrolling x63 = TextConcat(List(x62, Const("\n")))
+    x106 = TextConcat(List(x105, Const("\n")))
+    [x63] 0: x106
+    Unrolling x64 = PrintIf(Set(),x63)
+    x107 = PrintIf(Set(),x106)
+    [x64] 0: x107
+    Unrolling x65 = FixAdd(x43,x41)
+    x108 = FixAdd(x87,x85)
+    [x65] 0: x108
+    Unrolling x66 = FixAdd(x65,x45)
+    x109 = FixAdd(x108,x89)
+    [x66] 0: x109
+    Unrolling x67 = FixToText(x66,None)
+    x110 = FixToText(x109,None)
+    [x67] 0: x110
+    Unrolling x68 = TextConcat(List(Const("Gold = "), x67))
+    x111 = TextConcat(List(Const("Gold = "), x110))
+    [x68] 0: x111
+    Unrolling x69 = TextConcat(List(x68, Const("\n")))
+    x112 = TextConcat(List(x111, Const("\n")))
+    [x69] 0: x112
+    Unrolling x70 = PrintIf(Set(),x69)
+    x113 = PrintIf(Set(),x112)
+    [x70] 0: x113
+    Unrolling x71 = FixEql(x66,x60)
+    x114 = FixEql(x109,x103)
+    [x71] 0: x114
+    Unrolling x72 = BitToText(x71)
+    x115 = BitToText(x114)
+    [x72] 0: x115
+    Unrolling x73 = TextConcat(List(Const("PASS = "), x72))
+    x116 = TextConcat(List(Const("PASS = "), x115))
+    [x73] 0: x116
+    Unrolling x74 = TextConcat(List(x73, Const("\n")))
+    x117 = TextConcat(List(x116, Const("\n")))
+    [x74] 0: x117
+    Unrolling x75 = PrintIf(Set(),x74)
+    x118 = PrintIf(Set(),x117)
+    [x75] 0: x118
+    Unrolling x76 = AssertIf(Set(),x71,Some(Const("Lab1.scala:62:15: Assertion failure")))
+    x119 = AssertIf(Set(),x114,Some(Const("Lab1.scala:62:15: Assertion failure")))
+    [x76] 0: x119

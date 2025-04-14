@@ -5,7 +5,7 @@ import spatial.dsl._
     type T = Int
 
     // Sets the runtime arguments for args(0) and args(1). These can be overridden later via command line, but are used for simulation.
-    override def runtimeArgs = "3 5"
+    override def runtimeArgs = "3 5 7"
 
     def main(args: Array[String]): Unit = {
         // Part 1: Read in arguments

@@ -1,0 +1,21 @@
+Adding x7 -> x2 to mostRecentWrite map (Map(x7 -> x2))
+Adding x8 -> x4 to mostRecentWrite map (Map(x7 -> x2, x8 -> x4))
+Adding x9 -> x6 to mostRecentWrite map (Map(x7 -> x2, x8 -> x4, x9 -> x6))
+    Stms:
+      x14 = RegRead(x7)
+      x17 = FixAdd(x14,x15)
+      x18 = FixAdd(x17,x16)
+      x16 = RegRead(x9)
+      x19 = RegWrite(x13,x18,Set())
+      x15 = RegRead(x8)
+    Used:
+      x14 = RegRead(x7) [Made: true]
+      x9 = ArgInNew(Const(0)) [Made: false]
+      x13 = ArgOutNew(Const(0)) [Made: false]
+      x17 = FixAdd(x14,x15) [Made: true]
+      x7 = ArgInNew(Const(0)) [Made: false]
+      x18 = FixAdd(x17,x16) [Made: true]
+      x16 = RegRead(x9) [Made: true]
+      x8 = ArgInNew(Const(0)) [Made: false]
+      x15 = RegRead(x8) [Made: true]
+Adding x13 -> x18 to mostRecentWrite map (Map(x7 -> x2, x8 -> x4, x9 -> x6, x13 -> x18))

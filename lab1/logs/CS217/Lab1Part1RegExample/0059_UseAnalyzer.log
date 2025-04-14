@@ -1,0 +1,90 @@
+  x83 = InputArguments() [ctrl: Host, inner: false]
+  x84 = ArrayApply(x83,Const(0)) [ctrl: Host, inner: false]
+  x85 = TextToFix(x84,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x86 = ArrayApply(x83,Const(1)) [ctrl: Host, inner: false]
+  x87 = TextToFix(x86,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x88 = ArrayApply(x83,Const(2)) [ctrl: Host, inner: false]
+  x89 = TextToFix(x88,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x90 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x91 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x92 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x93 = SetReg(x90,x85) [ctrl: Host, inner: false]
+  x94 = SetReg(x91,x87) [ctrl: Host, inner: false]
+  x95 = SetReg(x92,x89) [ctrl: Host, inner: false]
+  x96 = ArgOutNew(Const(0)) [ctrl: Host, inner: false]
+  x59 = AccelScope(Block(Const(()))) [ctrl: x59 (stage: -1), inner: true]
+    Pending: 
+    Inputs:  
+    Uses:    
+    Transient: false
+    Outer: true
+    x97 = RegRead(x90) [ctrl: x59 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  x90
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x97 [ctrl: x59 (stage: -1), block: x59 (block: 0)]
+    x98 = RegRead(x91) [ctrl: x59 (stage: -1), inner: true]
+      Pending: x97 -> Set(x97)
+      Inputs:  x91
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x98 [ctrl: x59 (stage: -1), block: x59 (block: 0)]
+    x99 = RegRead(x92) [ctrl: x59 (stage: -1), inner: true]
+      Pending: x98 -> Set(x98), x97 -> Set(x97)
+      Inputs:  x92
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x99 [ctrl: x59 (stage: -1), block: x59 (block: 0)]
+    x100 = FixAdd(x97,x98) [ctrl: x59 (stage: -1), inner: true]
+      Pending: x98 -> Set(x98), x97 -> Set(x97), x99 -> Set(x99)
+      Inputs:  x97, x98
+      Uses:    x97, x98
+      Transient: false
+      Outer: false
+      Uses [Block: x59 (block: 0)]:
+        consumer x100
+        used Set(x97, x98)
+        
+      - x97 = RegRead(x90)
+      - x98 = RegRead(x91)
+      Adding direct (x100 x59 (block: 0)) to uses for x97
+      Adding direct (x100 x59 (block: 0)) to uses for x98
+    x101 = FixAdd(x100,x99) [ctrl: x59 (stage: -1), inner: true]
+      Pending: x98 -> Set(x98), x97 -> Set(x97), x99 -> Set(x99)
+      Inputs:  x100, x99
+      Uses:    x99
+      Transient: false
+      Outer: false
+      Uses [Block: x59 (block: 0)]:
+        consumer x101
+        used Set(x99)
+        
+      - x99 = RegRead(x92)
+      Adding direct (x101 x59 (block: 0)) to uses for x99
+    x102 = RegWrite(x96,x101,Set()) [ctrl: x59 (stage: -1), inner: true]
+      Pending: x98 -> Set(x98), x97 -> Set(x97), x99 -> Set(x99)
+      Inputs:  x96, x101
+      Uses:    
+      Transient: false
+      Outer: false
+  x103 = GetReg(x96) [ctrl: Host, inner: false]
+  x104 = FixToText(x103,None) [ctrl: Host, inner: false]
+  x105 = TextConcat(List(Const("Result = "), x104)) [ctrl: Host, inner: false]
+  x106 = TextConcat(List(x105, Const("\n"))) [ctrl: Host, inner: false]
+  x107 = PrintIf(Set(),x106) [ctrl: Host, inner: false]
+  x108 = FixAdd(x87,x85) [ctrl: Host, inner: false]
+  x109 = FixAdd(x108,x89) [ctrl: Host, inner: false]
+  x110 = FixToText(x109,None) [ctrl: Host, inner: false]
+  x111 = TextConcat(List(Const("Gold = "), x110)) [ctrl: Host, inner: false]
+  x112 = TextConcat(List(x111, Const("\n"))) [ctrl: Host, inner: false]
+  x113 = PrintIf(Set(),x112) [ctrl: Host, inner: false]
+  x114 = FixEql(x109,x103) [ctrl: Host, inner: false]
+  x115 = BitToText(x114) [ctrl: Host, inner: false]
+  x116 = TextConcat(List(Const("PASS = "), x115)) [ctrl: Host, inner: false]
+  x117 = TextConcat(List(x116, Const("\n"))) [ctrl: Host, inner: false]
+  x118 = PrintIf(Set(),x117) [ctrl: Host, inner: false]
+  x119 = AssertIf(Set(),x114,Some(Const("Lab1.scala:62:15: Assertion failure"))) [ctrl: Host, inner: false]
