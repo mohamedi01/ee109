@@ -66,9 +66,9 @@ import spatial.dsl._
 
 @spatial class Lab1Part2DramSramExample extends SpatialTest {
     /* ============================== [EE109 Studnets TODO] ==============================
-        * Total Cycles:
-        * Latency of the inner foreach loop in the simpleLoadStore function:
-        * Initiation interval (II) of the inner foreach loop in the simpleLoadStore function:
+        * Total Cycles: 556 cylces/itr
+        * Latency of the inner foreach loop in the simpleLoadStore function: 13
+        * Initiation interval (II) of the inner foreach loop in the simpleLoadStore function: 1
         =======================================================================================*/
         
     val N = 32
