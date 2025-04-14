@@ -13,16 +13,19 @@ import spatial.dsl._
         // We need to cast it as type T because we use T as the type of the values throughout the whole app. 
         val N = args(0).to[T]
         val M = args(1).to[T]
+        val K = args(2).to[T]
 
         // Part 2: Create & Set registers on the CPU side
         // Input Registers
-        // Create two ArgIn registers
+        // Create three ArgIn registers
         val argRegIn0 = ArgIn[T]
         val argRegIn1 = ArgIn[T]
+        val argRegIn2 = ArgIn[T]
 
-        // Set two ArgIn registers with N and M
+        // Set three ArgIn registers with N, M, K
         setArg(argRegIn0, N)
         setArg(argRegIn1, M)
+        setArg(argRegIn2, K)
         
         // Output Register
         // Create one ArgOut register
@@ -30,14 +33,15 @@ import spatial.dsl._
         
 
         // Part 3: Accelerator design
-        // fetch two values from the CPU side and passes their sum back to the CPU
+        // fetch three values from the CPU side and passes their sum back to the CPU
         Accel {
-            // Get values of the two argIn registers. We get the value of a register by using .value. 
+            // Get values of the three argIn registers. We get the value of a register by using .value. 
             val argRegIn0Value = argRegIn0.value
             val argRegIn1Value = argRegIn1.value
+            val argRegIn2Value = argRegIn2.value
 
             // Perform the addition, then set the output register with the result. The := sign is used to assign a value to a register.
-            argRegOut := argRegIn0Value + argRegIn1Value
+            argRegOut := argRegIn0Value + argRegIn1Value + argRegIn2Value
         }
 
         // Get the result from the accelerator.
@@ -47,7 +51,7 @@ import spatial.dsl._
         println("Result = " + argRegOutResult)
 
         // Calculate the reference result. Make sure that it matches the accelerator output.
-        val gold = M + N
+        val gold = M + N + K
         println("Gold = " + gold)
         val cksum = gold == argRegOutResult
 
