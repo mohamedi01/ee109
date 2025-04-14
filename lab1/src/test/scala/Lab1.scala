@@ -110,7 +110,7 @@ import spatial.dsl._
             }
         }
 
-        // 5. Intruct the host to fetch data from DRAM
+        // 5. Instruct the host to fetch data from DRAM
         getMem(dstFPGA)
     }
 
@@ -148,11 +148,6 @@ import spatial.dsl._
 }
 
 @spatial class Lab1Part4FIFOExample extends SpatialTest {
-    /* ============================== [EE109 Students TODO] ==============================
-        * Total Cycles: 556 cycles/itr
-        * Latency of the inner foreach loop in the simpleLoadStore function: 13
-        * Initiation interval (II) of the inner foreach loop in the simpleLoadStore function: 1
-        =======================================================================================*/
         
     val N = 32
     type T = Int
@@ -177,23 +172,26 @@ import spatial.dsl._
         Accel {
 
             Sequential.Foreach(N by tileSize) { i =>
-                val b1 = SRAM[T](tileSize)
+                // 1. Create a FIFO called f1 with type T and with size tileSize
+                val f1 = FIFO[T](tileSize)
 
-                b1 load srcFPGA(i::i+tileSize)
+                // 2. Load a tile from DRAM into the FIFO
+                f1 load srcFPGA(i :: i+tileSize)
 
-                // 2. Bring the elements into the accelerator
-                val b2 = SRAM[T](tileSize)
-                Foreach(tileSize by 1) { ii =>
-                    // 3. Multiply each element by a factor of x
-                    b2(ii) = b1(ii) * x
+                // 3. Process tileSize elements
+                Foreach(tileSize by 1){ ii =>
+                    val data = f1.deq()
+                    val out_data = data * x
+                    f1.enq(out_data)
                 }
+            
+            //4. Store the result back to DRAM
+            dstFPGA(i :: i+tileSize) store f1
 
-                // 4. Store the result back to DRAM
-                dstFPGA(i::i+tileSize) store b2
             }
         }
 
-        // 5. Intruct the host to fetch data from DRAM
+        // 5. Instruct the host to fetch data from DRAM
         getMem(dstFPGA)
     }
 
