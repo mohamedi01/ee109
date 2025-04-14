@@ -65,8 +65,8 @@ import spatial.dsl._
 
 
 @spatial class Lab1Part2DramSramExample extends SpatialTest {
-    /* ============================== [EE109 Studnets TODO] ==============================
-        * Total Cycles: 556 cylces/itr
+    /* ============================== [EE109 Students TODO] ==============================
+        * Total Cycles: 556 cycles/itr
         * Latency of the inner foreach loop in the simpleLoadStore function: 13
         * Initiation interval (II) of the inner foreach loop in the simpleLoadStore function: 1
         =======================================================================================*/
@@ -147,6 +147,88 @@ import spatial.dsl._
   }
 }
 
+@spatial class Lab1Part4FIFOExample extends SpatialTest {
+    /* ============================== [EE109 Students TODO] ==============================
+        * Total Cycles: 556 cycles/itr
+        * Latency of the inner foreach loop in the simpleLoadStore function: 13
+        * Initiation interval (II) of the inner foreach loop in the simpleLoadStore function: 1
+        =======================================================================================*/
+        
+    val N = 32
+    type T = Int
+
+    // Sets the runtime arguments for args(0) and args(1). These can be overridden later via command line, but are used for simulation.
+    override def runtimeArgs = "3"
+
+    // In this example, we write the accelerator code in a function.
+    // [T:Type:Num] means that this function takes in a type T.
+    // The operator "=" means that this function is returning a value.
+    def simpleLoadStore(srcHost: Array[T], value: T) = {
+        val tileSize = 16
+
+        val srcFPGA = DRAM[T](N)
+        val dstFPGA = DRAM[T](N)
+
+        // 1. Bring the N elements from the host side into DRAM
+        setMem(srcFPGA, srcHost)
+
+        val x = ArgIn[T]
+        setArg(x, value)
+        Accel {
+
+            Sequential.Foreach(N by tileSize) { i =>
+                val b1 = SRAM[T](tileSize)
+
+                b1 load srcFPGA(i::i+tileSize)
+
+                // 2. Bring the elements into the accelerator
+                val b2 = SRAM[T](tileSize)
+                Foreach(tileSize by 1) { ii =>
+                    // 3. Multiply each element by a factor of x
+                    b2(ii) = b1(ii) * x
+                }
+
+                // 4. Store the result back to DRAM
+                dstFPGA(i::i+tileSize) store b2
+            }
+        }
+
+        // 5. Intruct the host to fetch data from DRAM
+        getMem(dstFPGA)
+    }
+
+  def main(args: Array[String]): Unit = {
+    val arraySize = N
+    val value = args(0).to[Int]
+
+    // This line means that we are creating an array of size "arraySize", where each 
+    // element is an integer. "i => i % 256" means that for each index i, populate an 
+    // element with value i % 256. 
+    // tabulate is a function that returns an immutable Array with the given size and elements defined by func.
+    // more array methods can be found in https://spatial-lang.org/
+    val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+    val dst = simpleLoadStore(src, value)
+
+    // This line means that for each element in src, generate an element using 
+    // the function "_ * value". Map is an operator that maps a function to 
+    // every single element of an array.
+    val gold = src.map { _ * value }
+
+    println("Sent in: ")
+    (0 until arraySize) foreach { i => print(gold(i) + " ") }
+    println("Got out: ")
+    (0 until arraySize) foreach { i => print(dst(i) + " ") }
+    println("")
+
+    // This line means that for every pair of elements in dst, gold, check if each 
+    // pair contains equal elements. Reduce coalesces all the pairs by using the 
+    // function "_&&_".
+    val cksum = dst.zip(gold){_ == _}.reduce{_&&_}
+    println("PASS: " + cksum)
+
+    assert(cksum == 1)
+  }
+}
 
 @spatial class Lab1Part6ReduceExample extends SpatialTest {
     val N = 32
