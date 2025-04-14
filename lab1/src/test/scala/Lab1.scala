@@ -270,3 +270,39 @@ import spatial.dsl._
     }
 }
 
+@spatial class Lab1Part6FoldExample extends SpatialTest {
+    val N = 32
+    val tileSize = 16
+    type T = Int
+
+    def main(args: Array[String]): Unit = {
+        val arraySize = N
+        val srcFPGA = DRAM[T](N)
+        val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+        setMem(srcFPGA, src)
+        val destArg = ArgOut[T]
+
+        Accel {
+            val a = Reg[T](0)
+            Fold(a)(N by tileSize){ i => // Fold will read the data stored in a, and use that as the starting value for accumulation.
+                val b1 = SRAM[T](tileSize)
+                b1 load srcFPGA(i::i+tileSize)
+                Fold(0)(tileSize by 1) { ii => b1(ii) }{_+_}
+            }{_+_}
+
+            destArg := a.value
+        }
+
+        val result = getArg(destArg)
+        val gold = src.reduce{_+_}
+        println("Gold: " + gold)
+        println("Result: : " + result)
+        println("")
+
+        val cksum = gold == result
+        println("PASS: " + cksum)
+
+        assert(cksum == 1)
+    }
+}
+
