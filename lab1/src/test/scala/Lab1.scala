@@ -1,6 +1,6 @@
 import spatial.dsl._
 
-@spatial class Lab1Part1RegExample extends SpatialTest {
+@spatial class Lab1Part1RegExample3 extends SpatialTest {
     // In this app, the type of numbers is Int.
     type T = Int
 
