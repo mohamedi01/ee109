@@ -1,0 +1,7 @@
+sbt -Dtest.CS217=true "; testOnly Lab2Part1SimpleMemReduce"
+# sbt -Dtest.CS217=true "; testOnly Lab2Part2SimpleMemFold"
+sbt -Dtest.CS217=true "; testOnly Lab2Part3BasicCondFSM"
+# sbt -Dtest.CS217=true "; testOnly Lab2Part3BasicCondFSMAlt"
+# sbt -Dtest.CS217=true "; testOnly Lab2Part4LUT"
+# sbt -Dtest.CS217=true "; testOnly Lab2Part5GEMM"
+# sbt -Dtest.CS217=true "; testOnly Lab2Part6GEMM"
