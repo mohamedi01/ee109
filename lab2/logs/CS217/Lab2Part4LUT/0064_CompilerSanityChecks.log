@@ -1,0 +1,21 @@
+  Stms:
+    x101 = RegRead(x89)
+    x106 = VecApply(x105,0)
+    x102 = RegRead(x90)
+    x109 = RegWrite(x88,x108,Set())
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    x108 = FixAdd(x106,x107)
+    x107 = RegRead(x87)
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+  Used:
+    x101 = RegRead(x89) [Made: true]
+    x88 = ArgOutNew(Const(0)) [Made: false]
+    x106 = VecApply(x105,0) [Made: true]
+    x89 = ArgInNew(Const(0)) [Made: false]
+    x102 = RegRead(x90) [Made: true]
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+    x108 = FixAdd(x106,x107) [Made: true]
+    x87 = ArgInNew(Const(0)) [Made: false]
+    x107 = RegRead(x87) [Made: true]
+    x90 = ArgInNew(Const(0)) [Made: false]
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [Made: true]

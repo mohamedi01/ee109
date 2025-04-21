@@ -1,0 +1,11 @@
+    x61 = AccelScope(Block(Const(())))
+    Placing nodes as either before or after cycles: Vector()
+      - x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x101 = RegRead(x89): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x102 = RegRead(x90): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x106 = VecApply(x105,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x107 = RegRead(x87): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x108 = FixAdd(x106,x107): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      - x109 = RegWrite(x88,x108,Set()): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+    Cycle groups: 

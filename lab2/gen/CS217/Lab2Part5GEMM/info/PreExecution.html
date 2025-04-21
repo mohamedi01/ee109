@@ -1,0 +1,570 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for Lab2Part5GEMM (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x810 -->
+<TD>
+<font size = "6"><a href=PreExecution_IR.html#x810 target=_blank>x810</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">Lab2GEMM.scala:36:11 <font color="grey">-     Accel {</font></font>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x809 -->
+  <TD>
+  <font size = "6"><a href=PreExecution_IR.html#x809 target=_blank>x809</a>: Pipelined OpForeach <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2GEMM.scala:37:28 <font color="grey">-         Foreach(K by tileK){kk => </font></font>
+  <br><font size = "1">Counter: <a href=PreExecution_IR.html#x538 target=_blank>x538</a> = CounterNew(Const(0),x536,Const(16),Const(1))</font>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x544 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x544 target=_blank>x544</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=PreExecution_IR.html#x539 target=_blank>x539</a> (FF "")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+
+    </TD>
+    <!-- End x544-->
+    <!-- Begin x808 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x808 target=_blank>x808</a>: Pipelined OpForeach <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">Lab2GEMM.scala:39:32 <font color="grey">-             Foreach(M by tileM){mm =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=PreExecution_IR.html#x539 target=_blank>x539</a> (FF "")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+    <br><font size = "1">Counter: <a href=PreExecution_IR.html#x547 target=_blank>x547</a> = CounterNew(Const(0),x545,Const(16),Const(1))</font>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x553 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x553 target=_blank>x553</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=PreExecution_IR.html#x548 target=_blank>x548</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+
+      </TD>
+      <!-- End x553-->
+      <!-- Begin x611 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x611 target=_blank>x611</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d1e0e0"><font size = "1"><a href=PreExecution_IR.html#x554 target=_blank>x554</a> (BankedSRAM "tileA_sram")
+        </font></div></p>
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=PreExecution_IR.html#x548 target=_blank>x548</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x583 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x583 target=_blank>x583</a>: Sequenced OpForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=12,  <b>II=12</b>, <b>CompilerII=1.0</b></font></mark></p>
+        <br><font size = "1">Counter: <a href=PreExecution_IR.html#x560 target=_blank>x560</a> = CounterNew(Const(0),x555,Const(1),Const(1))</font>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x557, x556)----->
+        </font></div>
+        </TD>
+        <!-- End x583-->
+        <!-- Begin x610 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x610 target=_blank>x610</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+        <br><font size = "1">Counter: <a href=PreExecution_IR.html#x586 target=_blank>x586</a> = CounterNew(Const(0),x555,Const(1),Const(1))</font>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x597 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x597 target=_blank>x597</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x557)
+          </font></div>
+          </TD>
+          <!-- End x597-->
+          <!-- Begin x609 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x609 target=_blank>x609</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x600 target=_blank>x600</a> = CounterNew(Const(0),x598,Const(1),Const(1))</font>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x558)
+          </font></div>
+          </TD>
+          <!-- End x609-->
+          </TABLE></div>
+        </TD>
+        <!-- End x610-->
+        </TABLE></div>
+      </TD>
+      <!-- End x611-->
+      <!-- Begin x807 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x807 target=_blank>x807</a>: Pipelined OpForeach <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">Lab2GEMM.scala:43:36 <font color="grey">-                 Foreach(N by tileN){nn =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d1e0e0"><font size = "1"><a href=PreExecution_IR.html#x554 target=_blank>x554</a> (BankedSRAM "tileA_sram")
+        </font></div></p>
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=PreExecution_IR.html#x548 target=_blank>x548</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+      <br><font size = "1">Counter: <a href=PreExecution_IR.html#x614 target=_blank>x614</a> = CounterNew(Const(0),x612,Const(16),Const(1))</font>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x620 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x620 target=_blank>x620</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+
+        </TD>
+        <!-- End x620-->
+        <!-- Begin x679 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x679 target=_blank>x679</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=PreExecution_IR.html#x621 target=_blank>x621</a> (BankedSRAM "tileB_sram")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x651 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x651 target=_blank>x651</a>: Sequenced OpForeach <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=12,  <b>II=12</b>, <b>CompilerII=1.0</b></font></mark></p>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x628 target=_blank>x628</a> = CounterNew(Const(0),x623,Const(1),Const(1))</font>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x625, x624)----->
+          </font></div>
+          </TD>
+          <!-- End x651-->
+          <!-- Begin x678 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x678 target=_blank>x678</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x654 target=_blank>x654</a> = CounterNew(Const(0),x623,Const(1),Const(1))</font>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x665 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x665 target=_blank>x665</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x625)
+            </font></div>
+            </TD>
+            <!-- End x665-->
+            <!-- Begin x677 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x677 target=_blank>x677</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+            <br><font size = "1">Counter: <a href=PreExecution_IR.html#x668 target=_blank>x668</a> = CounterNew(Const(0),x666,Const(1),Const(1))</font>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x626)
+            </font></div>
+            </TD>
+            <!-- End x677-->
+            </TABLE></div>
+          </TD>
+          <!-- End x678-->
+          </TABLE></div>
+        </TD>
+        <!-- End x679-->
+        <!-- Begin x736 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x736 target=_blank>x736</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=PreExecution_IR.html#x621 target=_blank>x621</a> (BankedSRAM "tileB_sram")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x708 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x708 target=_blank>x708</a>: Sequenced OpForeach <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=12,  <b>II=12</b>, <b>CompilerII=1.0</b></font></mark></p>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x685 target=_blank>x685</a> = CounterNew(Const(0),x680,Const(1),Const(1))</font>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x682, x681)----->
+          </font></div>
+          </TD>
+          <!-- End x708-->
+          <!-- Begin x735 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x735 target=_blank>x735</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x711 target=_blank>x711</a> = CounterNew(Const(0),x680,Const(1),Const(1))</font>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x722 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x722 target=_blank>x722</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x682)
+            </font></div>
+            </TD>
+            <!-- End x722-->
+            <!-- Begin x734 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x734 target=_blank>x734</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+            <br><font size = "1">Counter: <a href=PreExecution_IR.html#x725 target=_blank>x725</a> = CounterNew(Const(0),x723,Const(1),Const(1))</font>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x683)
+            </font></div>
+            </TD>
+            <!-- End x734-->
+            </TABLE></div>
+          </TD>
+          <!-- End x735-->
+          </TABLE></div>
+        </TD>
+        <!-- End x736-->
+        <!-- Begin x754 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x754 target=_blank>x754</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:51:43 <font color="grey">-                     Foreach(numel_m by 1) { m =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=PreExecution_IR.html#x621 target=_blank>x621</a> (BankedSRAM "tileB_sram")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+        <br><font size = "1">Counter: <a href=PreExecution_IR.html#x739 target=_blank>x739</a> = CounterNew(Const(0),x737,Const(1),Const(1))</font>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x753 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x753 target=_blank>x753</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:52:45 <font color="grey">-                       Foreach(numel_n by 1) { n =></font></font>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x742 target=_blank>x742</a> = CounterNew(Const(0),x740,Const(1),Const(1))</font>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x752 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x752 target=_blank>x752</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:53:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=14,  <b>II=8</b></font></mark></p>
+            <br><font size = "1">Counter: <a href=PreExecution_IR.html#x745 target=_blank>x745</a> = CounterNew(Const(0),x743,Const(1),Const(1))</font>
+
+            </TD>
+            <!-- End x752-->
+            </TABLE></div>
+          </TD>
+          <!-- End x753-->
+          </TABLE></div>
+        </TD>
+        <!-- End x754-->
+        <!-- Begin x806 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x806 target=_blank>x806</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x805 -->
+          <TD>
+          <font size = "6"><a href=PreExecution_IR.html#x805 target=_blank>x805</a>: Sequenced OpForeach <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <br><font size = "1">Counter: <a href=PreExecution_IR.html#x760 target=_blank>x760</a> = CounterNew(Const(0),x755,Const(1),Const(1))</font>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x801 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x801 target=_blank>x801</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x787 -->
+              <TD>
+              <font size = "6"><a href=PreExecution_IR.html#x787 target=_blank>x787</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=12,  II=1</font></mark></p>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x756)----->
+              </font></div>
+              </TD>
+              <!-- End x787-->
+              <!-- Begin x800 -->
+              <TD>
+              <font size = "6"><a href=PreExecution_IR.html#x800 target=_blank>x800</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=5,  II=1</font></mark></p>
+              <br><font size = "1">Counter: <a href=PreExecution_IR.html#x790 target=_blank>x790</a> = CounterNew(Const(0),x788,Const(1),Const(1))</font>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x757)----->
+              </font></div>
+              </TD>
+              <!-- End x800-->
+              </TABLE></div>
+            </TD>
+            <!-- End x801-->
+            <!-- Begin x804 -->
+            <TD>
+            <font size = "6"><a href=PreExecution_IR.html#x804 target=_blank>x804</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x758)
+            </font></div>
+            </TD>
+            <!-- End x804-->
+            </TABLE></div>
+          </TD>
+          <!-- End x805-->
+          </TABLE></div>
+        </TD>
+        <!-- End x806-->
+        </TABLE></div>
+      </TD>
+      <!-- End x807-->
+      </TABLE></div>
+    </TD>
+    <!-- End x808-->
+    </TABLE></div>
+  </TD>
+  <!-- End x809-->
+  </TABLE></div>
+</TD>
+<!-- End x810-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=PreExecution_IR.html#x621 target=_blank>x621</a> (BankedSRAM "tileB_sram")
+<br>lca = <a href=PreExecution_IR.html#x807 target=_blank>x807</a>
+<br>nBufs = 3
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 768
+<br>nBanks = List(1), B = List(1), a = List(1, 1), p = List(1, 1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d1e0e0"><font size = "1"><a href=PreExecution_IR.html#x554 target=_blank>x554</a> (BankedSRAM "tileA_sram")
+<br>lca = <a href=PreExecution_IR.html#x808 target=_blank>x808</a>
+<br>nBufs = 2
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 512
+<br>nBanks = List(1), B = List(1), a = List(1, 1), p = List(1, 1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=PreExecution_IR.html#x615 target=_blank>x615</a> (FF "")
+<br>lca = <a href=PreExecution_IR.html#x807 target=_blank>x807</a>
+<br>nBufs = 5
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 5
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=PreExecution_IR.html#x548 target=_blank>x548</a> (FF "")
+<br>lca = <a href=PreExecution_IR.html#x808 target=_blank>x808</a>
+<br>nBufs = 3
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 3
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=PreExecution_IR.html#x539 target=_blank>x539</a> (FF "")
+<br>lca = <a href=PreExecution_IR.html#x809 target=_blank>x809</a>
+<br>nBufs = 2
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 2
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x682 target=_blank>x682</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x557 target=_blank>x557</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x625 target=_blank>x625</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x762 target=_blank>x762</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x588 target=_blank>x588</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x587 target=_blank>x587</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x761 target=_blank>x761</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x657 target=_blank>x657</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x656 target=_blank>x656</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x714 target=_blank>x714</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x713 target=_blank>x713</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x763 target=_blank>x763</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x712 target=_blank>x712</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x655 target=_blank>x655</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x589 target=_blank>x589</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

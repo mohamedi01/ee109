@@ -1,0 +1,115 @@
+  x86 = InputArguments() [ctrl: Host, inner: false]
+  x87 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x88 = ArgOutNew(Const(0)) [ctrl: Host, inner: false]
+  x89 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x90 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x91 = ArrayApply(x86,Const(0)) [ctrl: Host, inner: false]
+  x92 = TextToFix(x91,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x93 = ArrayApply(x86,Const(1)) [ctrl: Host, inner: false]
+  x94 = TextToFix(x93,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x95 = ArrayApply(x86,Const(2)) [ctrl: Host, inner: false]
+  x96 = TextToFix(x95,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x97 = SetReg(x87,x92) [ctrl: Host, inner: false]
+  x98 = SetReg(x89,x94) [ctrl: Host, inner: false]
+  x99 = SetReg(x90,x96) [ctrl: Host, inner: false]
+  x61 = AccelScope(Block(Const(()))) [ctrl: x61 (stage: -1), inner: true]
+    Pending: 
+    Inputs:  
+    Uses:    
+    Transient: false
+    Outer: true
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [ctrl: x61 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  Const(4), Const(5), Const(1), Const(3), Const(7), Const(9), Const(6), Const(2), Const(8)
+      Uses:    
+      Transient: false
+      Outer: false
+    x101 = RegRead(x89) [ctrl: x61 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  x89
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x101 [ctrl: x61 (stage: -1), block: x61 (block: 0)]
+    x102 = RegRead(x90) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101)
+      Inputs:  x90
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x102 [ctrl: x61 (stage: -1), block: x61 (block: 0)]
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101), x102 -> Set(x102)
+      Inputs:  x100, x101, x102, Const(0)
+      Uses:    x101, x102
+      Transient: false
+      Outer: false
+      Uses [Block: x61 (block: 0)]:
+        consumer x105
+        used Set(x101, x102)
+        
+      - x101 = RegRead(x89)
+      - x102 = RegRead(x90)
+      Adding direct (x105 x61 (block: 0)) to uses for x101
+      Adding direct (x105 x61 (block: 0)) to uses for x102
+    x106 = VecApply(x105,0) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101), x102 -> Set(x102)
+      Inputs:  x105
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x106 [ctrl: x61 (stage: -1), block: x61 (block: 0)]
+    x107 = RegRead(x87) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101), x106 -> Set(x106), x102 -> Set(x102)
+      Inputs:  x87
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x107 [ctrl: x61 (stage: -1), block: x61 (block: 0)]
+    x108 = FixAdd(x106,x107) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101), x107 -> Set(x107), x106 -> Set(x106), x102 -> Set(x102)
+      Inputs:  x106, x107
+      Uses:    x106, x107
+      Transient: false
+      Outer: false
+      Uses [Block: x61 (block: 0)]:
+        consumer x108
+        used Set(x106, x107)
+        
+      - x106 = VecApply(x105,0)
+      - x107 = RegRead(x87)
+      Adding direct (x108 x61 (block: 0)) to uses for x106
+      Adding direct (x108 x61 (block: 0)) to uses for x107
+    x109 = RegWrite(x88,x108,Set()) [ctrl: x61 (stage: -1), inner: true]
+      Pending: x101 -> Set(x101), x107 -> Set(x107), x106 -> Set(x106), x102 -> Set(x102)
+      Inputs:  x88, x108
+      Uses:    
+      Transient: false
+      Outer: false
+  x110 = GetReg(x88) [ctrl: Host, inner: false]
+  x112 = MapIndices(Const(9),Block((b23) => x111)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x112
+      used Set(b23)
+      
+    - b23
+    x111 = FixAdd(b23,Const(1)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x112
+      used Set()
+      
+  x113 = RegRead(x89) [ctrl: Host, inner: false]
+    Adding pending: x113 [ctrl: Host, block: Host]
+  x114 = FixMul(x113,Const(3)) [ctrl: Host, inner: false]
+  x115 = RegRead(x90) [ctrl: Host, inner: false]
+    Adding pending: x115 [ctrl: Host, block: Host]
+  x116 = FixAdd(x114,x115) [ctrl: Host, inner: false]
+  x117 = ArrayApply(x112,x116) [ctrl: Host, inner: false]
+  x118 = FixAdd(x92,x117) [ctrl: Host, inner: false]
+  x119 = FixEql(x118,x110) [ctrl: Host, inner: false]
+  x120 = BitToText(x119) [ctrl: Host, inner: false]
+  x121 = TextConcat(List(Const("PASS: "), x120)) [ctrl: Host, inner: false]
+  x122 = TextConcat(List(x121, Const("(Lab2Part4LUT)"))) [ctrl: Host, inner: false]
+  x123 = TextConcat(List(x122, Const("\n"))) [ctrl: Host, inner: false]
+  x124 = PrintIf(Set(),x123) [ctrl: Host, inner: false]
+  x125 = AssertIf(Set(),x119,Some(Const("Lab2Part4.scala:35:11: Assertion failure"))) [ctrl: Host, inner: false]

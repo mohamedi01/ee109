@@ -1,0 +1,3866 @@
+x877 = InputArguments()
+ - Type: Array[Text]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x878 = ArgInNew(Const(0))
+ - Name: M
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x879 = ArgInNew(Const(0))
+ - Name: N
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x880 = ArgInNew(Const(0))
+ - Name: K
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x881 = ArrayApply(x877,Const(0))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x882 = TextToFix(x881,TRUE,_32,_0)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x883 = SetReg(x878,x882)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x884 = ArrayApply(x877,Const(1))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x885 = TextToFix(x884,TRUE,_32,_0)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x886 = SetReg(x879,x885)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x887 = ArrayApply(x877,Const(2))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x888 = TextToFix(x887,TRUE,_32,_0)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x889 = SetReg(x880,x888)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x890 = FixMul(x882,x888)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          6.0
+ - Reduce Latency:   6.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x892 = MapIndices(x890,Block((b16) => x891)) {
+ - Type: Array[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b16) => x891) {
+    x891 = FixRandom(Some(Const(3)))
+     - Type: Fix[TRUE,_24,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x892 block #0
+} // End of x892
+x893 = FixMul(x888,x885)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          6.0
+ - Reduce Latency:   6.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x895 = MapIndices(x893,Block((b24) => x894)) {
+ - Type: Array[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b24) => x894) {
+    x894 = FixRandom(Some(Const(3)))
+     - Type: Fix[TRUE,_24,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x895 block #0
+} // End of x895
+x896 = FixMul(x882,x885)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          6.0
+ - Reduce Latency:   6.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x897 = MapIndices(x896,Block((b31) => Const(0))) {
+ - Type: Array[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b31) => Const(0)) {
+  } // End of x897 block #0
+} // End of x897
+x898 = RegRead(x878)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x899 = RegRead(x880)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x900 = DRAMHostNew(List(x898, x899),Const(0))
+ - Name: a
+ - Type: DRAM2[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x901 = RegRead(x880)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x902 = RegRead(x879)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x903 = DRAMHostNew(List(x901, x902),Const(0))
+ - Name: b
+ - Type: DRAM2[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x904 = RegRead(x878)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x905 = RegRead(x879)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x906 = DRAMHostNew(List(x904, x905),Const(0))
+ - Name: c
+ - Type: DRAM2[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x907 = SetMem(x900,x892)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x908 = SetMem(x903,x895)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x909 = SetMem(x906,x897)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x810 = AccelScope(Block(Const(()))) {
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block(Const(())) {
+    x1305 = RegRead(x880)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x911 = CounterNew(Const(0),x1305,Const(16),Const(1))
+     - Type: Counter[Fix[TRUE,_32,_0]]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x912 = CounterChainNew(List(x911))
+     - Type: CounterChain
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x1251 = UnrolledForeach(Set(),x912,Block(Const(())),List(List(b913)),List(List(b914)),None) {
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block(Const(())) {
+        x916 = RegNew(Const(0))
+         - Type: Reg[Fix[TRUE,_32,_0]]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x921 = UnitPipe(Set(b914),Block(Const(())),None) {
+         - Type: Void
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+          block 0: Block(Const(())) {
+            x917 = RegRead(x880)
+             - Type: Fix[TRUE,_32,_0]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x918 = FixSub(x917,b913)
+             - Type: Fix[TRUE,_32,_0]
+             - Cycle: <no cycle>
+             - Latency:          1.0
+             - Reduce Latency:   1.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x919 = FixMin(Const(16),x918)
+             - Name: numel_k
+             - Type: Fix[TRUE,_32,_0]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x920 = RegWrite(x916,x919,Set())
+             - Type: Void
+             - Cycle: <no cycle>
+             - Latency:          1.0
+             - Reduce Latency:   1.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+          } // End of x921 block #0
+        } // End of x921
+        x1306 = RegRead(x878)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x922 = CounterNew(Const(0),x1306,Const(16),Const(1))
+         - Type: Counter[Fix[TRUE,_32,_0]]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x923 = CounterChainNew(List(x922))
+         - Type: CounterChain
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1250 = UnrolledForeach(Set(b914),x923,Block(Const(())),List(List(b924)),List(List(b925)),None) {
+         - Type: Void
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+          block 0: Block(Const(())) {
+            x927 = RegNew(Const(0))
+             - Type: Reg[Fix[TRUE,_32,_0]]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x932 = UnitPipe(Set(b925, b914),Block(Const(())),None) {
+             - Type: Void
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+              block 0: Block(Const(())) {
+                x928 = RegRead(x878)
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x929 = FixSub(x928,b924)
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          1.0
+                 - Reduce Latency:   1.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x930 = FixMin(Const(16),x929)
+                 - Name: numel_m
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x931 = RegWrite(x927,x930,Set())
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          1.0
+                 - Reduce Latency:   1.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+              } // End of x932 block #0
+            } // End of x932
+            x934 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+             - Name: tileA_sram_0
+             - Type: SRAM2[Fix[TRUE,_24,_8]]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x1001 = UnitPipe(Set(b925, b914),Block(Const(())),None) {
+             - Name: DenseTransfer
+             - Type: Void
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+              block 0: Block(Const(())) {
+                x935 = StreamOutNew(BurstCmdBus)
+                 - Type: StreamOut[BurstCmd]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x936 = FIFONew(Const(16))
+                 - Type: FIFO[IssuedCmd]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x937 = StreamInNew(BurstDataBus())
+                 - Type: StreamIn[Fix[TRUE,_24,_8]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1307 = RegRead(x927)
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x938 = CounterNew(Const(0),x1307,Const(1),Const(1))
+                 - Type: Counter[Fix[TRUE,_32,_0]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x939 = CounterChainNew(List(x938))
+                 - Type: CounterChain
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x964 = UnrolledForeach(Set(),x939,Block(Const(())),List(List(b940)),List(List(b941)),None) {
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x942 = FixAdd(b924,b940)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x943 = RegRead(x880)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1336 = DelayLine(1,x943)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1337 = DelayLine(1,b913)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1322 = FixFMA(x942,x1336,x1337)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          6.0
+                     - Reduce Latency:   6.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x946 = FixDivSRA(x1322,Const(4))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x947 = FixSLA(x946,Const(4))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1323 = FixSLA(x946,Const(6))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x949 = FixSub(x1322,x947)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x950 = RegRead(x916)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1338 = DelayLine(8,x950)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x951 = FixAdd(x949,x1338)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x952 = FixAdd(x951,Const(15))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x953 = FixDivSRA(x952,Const(4))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x954 = FixSLA(x953,Const(4))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1324 = FixSLA(x953,Const(6))
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.2
+                     - Reduce Latency:   0.2
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x956 = FixToFix(x1323,TRUE,_64,_0)
+                     - Type: Fix[TRUE,_64,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x957 = DRAMAddress(x900)
+                     - Type: Fix[TRUE,_64,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1339 = DelayLine(7,x957)
+                     - Type: Fix[TRUE,_64,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x958 = FixAdd(x956,x1339)
+                     - Type: Fix[TRUE,_64,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          2.0
+                     - Reduce Latency:   2.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1340 = DelayLine(1,x958)
+                     - Type: Fix[TRUE,_64,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x959 = SimpleStruct(ArrayBuffer((offset,x1340), (size,x1324), (isLoad,Const(true))))
+                     - Type: BurstCmd
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x960 = DRAMIsAlloc(x900)
+                     - Type: Bit
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1341 = DelayLine(10,x960)
+                     - Type: Bit
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1342 = DelayLine(10,b941)
+                     - Type: Bit
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x961 = StreamOutBankedWrite(x935,ArrayBuffer(x959),ArrayBuffer(Set(x1341, x1342)))
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1343 = DelayLine(1,x951)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1344 = DelayLine(2,x949)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x962 = SimpleStruct(ArrayBuffer((size,x954), (start,x1344), (end,x1343)))
+                     - Type: IssuedCmd
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x963 = FIFOBankedEnq(x936,ArrayBuffer(x962),ArrayBuffer(Set(Const(true), x1342)))
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                  } // End of x964 block #0
+                } // End of x964
+                x965 = FringeDenseLoad(x900,x935,x937)
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1308 = RegRead(x927)
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x966 = CounterNew(Const(0),x1308,Const(1),Const(1))
+                 - Type: Counter[Fix[TRUE,_32,_0]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x967 = CounterChainNew(List(x966))
+                 - Type: CounterChain
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1000 = UnrolledForeach(Set(),x967,Block(Const(())),List(List(b968)),List(List(b969)),None) {
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x970 = RegNew(Const(0))
+                     - Type: Reg[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x971 = RegNew(Const(0))
+                     - Type: Reg[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x972 = RegNew(Const(0))
+                     - Type: Reg[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x981 = UnitPipe(Set(b969),Block(Const(())),None) {
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x973 = FIFOBankedDeq(x936,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                         - Type: Vec[IssuedCmd]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    true
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x974 = VecApply(x973,0)
+                         - Type: IssuedCmd
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x975 = FieldApply(x974,start)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x976 = RegWrite(x970,x975,Set())
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x977 = FieldApply(x974,end)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x978 = RegWrite(x971,x977,Set())
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x979 = FieldApply(x974,size)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x980 = RegWrite(x972,x979,Set())
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                      } // End of x981 block #0
+                    } // End of x981
+                    x1309 = RegRead(x972)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x983 = CounterNew(Const(0),x1309,Const(1),Const(1))
+                     - Type: Counter[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x984 = CounterChainNew(List(x983))
+                     - Type: CounterChain
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x999 = UnrolledForeach(Set(b969),x984,Block(Const(())),List(List(b985)),List(List(b986)),None) {
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x987 = RegRead(x970)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x988 = FixLeq(x987,b985)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.4
+                         - Reduce Latency:   0.4
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x989 = RegRead(x971)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x990 = FixLst(b985,x989)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.4
+                         - Reduce Latency:   0.4
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x991 = And(x988,x990)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.2
+                         - Reduce Latency:   0.2
+                         - Requires Regs:    true
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x992 = FixSub(b985,x987)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x993 = StreamInBankedRead(x937,ArrayBuffer(Set(b986, b969)))
+                         - Type: Vec[Fix[TRUE,_24,_8]]
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    true
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1345 = DelayLine(1,x993)
+                         - Type: Vec[Fix[TRUE,_24,_8]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x994 = VecApply(x1345,0)
+                         - Type: Fix[TRUE,_24,_8]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x996 = FixSLA(b968,Const(4))
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.2
+                         - Reduce Latency:   0.2
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1346 = DelayLine(1,x996)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x997 = FixAdd(x1346,x992)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1347 = DelayLine(1,x994)
+                         - Type: Fix[TRUE,_24,_8]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1348 = DelayLine(2,b969)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1349 = DelayLine(2,b986)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1350 = DelayLine(2,x991)
+                         - Type: Bit
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x998 = SRAMBankedWrite(x934,Vector(x1347),Vector(List(Const(0))),Vector(x997),Vector(Set(x1350, x1349, x1348)))
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          1.0
+                         - Reduce Latency:   1.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                      } // End of x999 block #0
+                    } // End of x999
+                  } // End of x1000 block #0
+                } // End of x1000
+              } // End of x1001 block #0
+            } // End of x1001
+            x1310 = RegRead(x879)
+             - Type: Fix[TRUE,_32,_0]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x1002 = CounterNew(Const(0),x1310,Const(16),Const(1))
+             - Type: Counter[Fix[TRUE,_32,_0]]
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x1003 = CounterChainNew(List(x1002))
+             - Type: CounterChain
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+            x1335 = UnrolledForeach(Set(b925, b914),x1003,Block(Const(())),List(List(b1004)),List(List(b1005)),None) {
+             - Type: Void
+             - Cycle: <no cycle>
+             - Latency:          0.0
+             - Reduce Latency:   0.0
+             - Requires Regs:    false
+             - Built-In Latency: 0.0
+             - Delays: <none>
+              block 0: Block(Const(())) {
+                x1010 = RegNew(Const(0))
+                 - Type: Reg[Fix[TRUE,_32,_0]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1015 = UnitPipe(Set(b1005, b925, b914),Block(Const(())),None) {
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x1011 = RegRead(x879)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1012 = FixSub(x1011,b1004)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1013 = FixMin(Const(16),x1012)
+                     - Name: numel_n
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1014 = RegWrite(x1010,x1013,Set())
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          1.0
+                     - Reduce Latency:   1.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                  } // End of x1015 block #0
+                } // End of x1015
+                x1016 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+                 - Name: tileB_sram_0
+                 - Type: SRAM2[Fix[TRUE,_24,_8]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1017 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+                 - Name: tileC_sram_0
+                 - Type: SRAM2[Fix[TRUE,_24,_8]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1018 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+                 - Name: tileC_sram_1
+                 - Type: SRAM2[Fix[TRUE,_24,_8]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1334 = ParallelPipe(Set(),Block(Const(()))) {
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x1085 = UnitPipe(Set(b1005, b925, b914),Block(Const(())),None) {
+                     - Name: DenseTransfer
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x1019 = StreamOutNew(BurstCmdBus)
+                         - Type: StreamOut[BurstCmd]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1020 = FIFONew(Const(16))
+                         - Type: FIFO[IssuedCmd]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1021 = StreamInNew(BurstDataBus())
+                         - Type: StreamIn[Fix[TRUE,_24,_8]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1311 = RegRead(x916)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1022 = CounterNew(Const(0),x1311,Const(1),Const(1))
+                         - Type: Counter[Fix[TRUE,_32,_0]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1023 = CounterChainNew(List(x1022))
+                         - Type: CounterChain
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1048 = UnrolledForeach(Set(),x1023,Block(Const(())),List(List(b1024)),List(List(b1025)),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1026 = FixAdd(b913,b1024)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1027 = RegRead(x879)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1351 = DelayLine(1,b1004)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1352 = DelayLine(1,x1027)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1325 = FixFMA(x1026,x1352,x1351)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          6.0
+                             - Reduce Latency:   6.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1030 = FixDivSRA(x1325,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1031 = FixSLA(x1030,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1326 = FixSLA(x1030,Const(6))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1033 = FixSub(x1325,x1031)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1034 = RegRead(x1010)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1353 = DelayLine(8,x1034)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1035 = FixAdd(x1033,x1353)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1036 = FixAdd(x1035,Const(15))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1037 = FixDivSRA(x1036,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1038 = FixSLA(x1037,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1327 = FixSLA(x1037,Const(6))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1040 = FixToFix(x1326,TRUE,_64,_0)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1041 = DRAMAddress(x903)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1354 = DelayLine(7,x1041)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1042 = FixAdd(x1040,x1354)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          2.0
+                             - Reduce Latency:   2.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1355 = DelayLine(1,x1042)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1043 = SimpleStruct(ArrayBuffer((offset,x1355), (size,x1327), (isLoad,Const(true))))
+                             - Type: BurstCmd
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1044 = DRAMIsAlloc(x903)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1356 = DelayLine(10,b1025)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1357 = DelayLine(10,x1044)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1045 = StreamOutBankedWrite(x1019,ArrayBuffer(x1043),ArrayBuffer(Set(x1357, x1356)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1358 = DelayLine(2,x1033)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1359 = DelayLine(1,x1035)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1046 = SimpleStruct(ArrayBuffer((size,x1038), (start,x1358), (end,x1359)))
+                             - Type: IssuedCmd
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1047 = FIFOBankedEnq(x1020,ArrayBuffer(x1046),ArrayBuffer(Set(Const(true), x1356)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                          } // End of x1048 block #0
+                        } // End of x1048
+                        x1049 = FringeDenseLoad(x903,x1019,x1021)
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1312 = RegRead(x916)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1050 = CounterNew(Const(0),x1312,Const(1),Const(1))
+                         - Type: Counter[Fix[TRUE,_32,_0]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1051 = CounterChainNew(List(x1050))
+                         - Type: CounterChain
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1084 = UnrolledForeach(Set(),x1051,Block(Const(())),List(List(b1052)),List(List(b1053)),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1054 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1055 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1056 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1065 = UnitPipe(Set(b1053),Block(Const(())),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1057 = FIFOBankedDeq(x1020,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                                 - Type: Vec[IssuedCmd]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1058 = VecApply(x1057,0)
+                                 - Type: IssuedCmd
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1059 = FieldApply(x1058,start)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1060 = RegWrite(x1054,x1059,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1061 = FieldApply(x1058,end)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1062 = RegWrite(x1055,x1061,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1063 = FieldApply(x1058,size)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1064 = RegWrite(x1056,x1063,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1065 block #0
+                            } // End of x1065
+                            x1313 = RegRead(x1056)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1067 = CounterNew(Const(0),x1313,Const(1),Const(1))
+                             - Type: Counter[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1068 = CounterChainNew(List(x1067))
+                             - Type: CounterChain
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1083 = UnrolledForeach(Set(b1053),x1068,Block(Const(())),List(List(b1069)),List(List(b1070)),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1071 = RegRead(x1054)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1072 = FixLeq(x1071,b1069)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1073 = RegRead(x1055)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1074 = FixLst(b1069,x1073)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1075 = And(x1072,x1074)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1076 = FixSub(b1069,x1071)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1077 = StreamInBankedRead(x1021,ArrayBuffer(Set(b1070, b1053)))
+                                 - Type: Vec[Fix[TRUE,_24,_8]]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1360 = DelayLine(1,x1077)
+                                 - Type: Vec[Fix[TRUE,_24,_8]]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1078 = VecApply(x1360,0)
+                                 - Type: Fix[TRUE,_24,_8]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1080 = FixSLA(b1052,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1361 = DelayLine(1,x1080)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1081 = FixAdd(x1361,x1076)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1362 = DelayLine(1,x1078)
+                                 - Type: Fix[TRUE,_24,_8]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1363 = DelayLine(2,x1075)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1364 = DelayLine(2,b1070)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1365 = DelayLine(2,b1053)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1082 = SRAMBankedWrite(x1016,Vector(x1362),Vector(List(Const(0))),Vector(x1081),Vector(Set(x1363, x1364, x1365)))
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1083 block #0
+                            } // End of x1083
+                          } // End of x1084 block #0
+                        } // End of x1084
+                      } // End of x1085 block #0
+                    } // End of x1085
+                    x1153 = UnitPipe(Set(b1005, b925, b914),Block(Const(())),None) {
+                     - Name: DenseTransfer
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x1086 = StreamOutNew(BurstCmdBus)
+                         - Type: StreamOut[BurstCmd]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1087 = FIFONew(Const(16))
+                         - Type: FIFO[IssuedCmd]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1088 = StreamInNew(BurstDataBus())
+                         - Type: StreamIn[Fix[TRUE,_24,_8]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1314 = RegRead(x927)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1089 = CounterNew(Const(0),x1314,Const(1),Const(1))
+                         - Type: Counter[Fix[TRUE,_32,_0]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1090 = CounterChainNew(List(x1089))
+                         - Type: CounterChain
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1115 = UnrolledForeach(Set(),x1090,Block(Const(())),List(List(b1091)),List(List(b1092)),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1093 = FixAdd(b924,b1091)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1094 = RegRead(x879)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1366 = DelayLine(1,b1004)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1367 = DelayLine(1,x1094)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1328 = FixFMA(x1093,x1367,x1366)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          6.0
+                             - Reduce Latency:   6.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1097 = FixDivSRA(x1328,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1098 = FixSLA(x1097,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1329 = FixSLA(x1097,Const(6))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1100 = FixSub(x1328,x1098)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1101 = RegRead(x1010)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1368 = DelayLine(8,x1101)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1102 = FixAdd(x1100,x1368)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1103 = FixAdd(x1102,Const(15))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1104 = FixDivSRA(x1103,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1105 = FixSLA(x1104,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1330 = FixSLA(x1104,Const(6))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1107 = FixToFix(x1329,TRUE,_64,_0)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1108 = DRAMAddress(x906)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1369 = DelayLine(7,x1108)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1109 = FixAdd(x1107,x1369)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          2.0
+                             - Reduce Latency:   2.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1370 = DelayLine(1,x1109)
+                             - Type: Fix[TRUE,_64,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1110 = SimpleStruct(ArrayBuffer((offset,x1370), (size,x1330), (isLoad,Const(true))))
+                             - Type: BurstCmd
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1111 = DRAMIsAlloc(x906)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1371 = DelayLine(10,b1092)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1372 = DelayLine(10,x1111)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1112 = StreamOutBankedWrite(x1086,ArrayBuffer(x1110),ArrayBuffer(Set(x1372, x1371)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1373 = DelayLine(1,x1102)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1374 = DelayLine(2,x1100)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1113 = SimpleStruct(ArrayBuffer((size,x1105), (start,x1374), (end,x1373)))
+                             - Type: IssuedCmd
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1114 = FIFOBankedEnq(x1087,ArrayBuffer(x1113),ArrayBuffer(Set(Const(true), x1371)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                          } // End of x1115 block #0
+                        } // End of x1115
+                        x1116 = FringeDenseLoad(x906,x1086,x1088)
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1315 = RegRead(x927)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1117 = CounterNew(Const(0),x1315,Const(1),Const(1))
+                         - Type: Counter[Fix[TRUE,_32,_0]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1118 = CounterChainNew(List(x1117))
+                         - Type: CounterChain
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1152 = UnrolledForeach(Set(),x1118,Block(Const(())),List(List(b1119)),List(List(b1120)),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1121 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1122 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1123 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1132 = UnitPipe(Set(b1120),Block(Const(())),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1124 = FIFOBankedDeq(x1087,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                                 - Type: Vec[IssuedCmd]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1125 = VecApply(x1124,0)
+                                 - Type: IssuedCmd
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1126 = FieldApply(x1125,start)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1127 = RegWrite(x1121,x1126,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1128 = FieldApply(x1125,end)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1129 = RegWrite(x1122,x1128,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1130 = FieldApply(x1125,size)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1131 = RegWrite(x1123,x1130,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1132 block #0
+                            } // End of x1132
+                            x1316 = RegRead(x1123)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1134 = CounterNew(Const(0),x1316,Const(1),Const(1))
+                             - Type: Counter[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1135 = CounterChainNew(List(x1134))
+                             - Type: CounterChain
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1151 = UnrolledForeach(Set(b1120),x1135,Block(Const(())),List(List(b1136)),List(List(b1137)),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1138 = RegRead(x1121)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1139 = FixLeq(x1138,b1136)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1140 = RegRead(x1122)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1141 = FixLst(b1136,x1140)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1142 = And(x1139,x1141)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1143 = FixSub(b1136,x1138)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1144 = StreamInBankedRead(x1088,ArrayBuffer(Set(b1137, b1120)))
+                                 - Type: Vec[Fix[TRUE,_24,_8]]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1375 = DelayLine(1,x1144)
+                                 - Type: Vec[Fix[TRUE,_24,_8]]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1145 = VecApply(x1375,0)
+                                 - Type: Fix[TRUE,_24,_8]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1147 = FixSLA(b1119,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1376 = DelayLine(1,x1147)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1148 = FixAdd(x1376,x1143)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1377 = DelayLine(2,x1142)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1378 = DelayLine(2,b1137)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1379 = DelayLine(1,x1145)
+                                 - Type: Fix[TRUE,_24,_8]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1380 = DelayLine(2,b1120)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1149 = SRAMBankedWrite(x1018,Vector(x1379),Vector(List(Const(0))),Vector(x1148),Vector(Set(x1377, x1378, x1380)))
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1150 = SRAMBankedWrite(x1017,Vector(x1379),Vector(List(Const(0))),Vector(x1148),Vector(Set(x1377, x1378, x1380)))
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1151 block #0
+                            } // End of x1151
+                          } // End of x1152 block #0
+                        } // End of x1152
+                      } // End of x1153 block #0
+                    } // End of x1153
+                  } // End of x1334 block #0
+                } // End of x1334
+                x1317 = RegRead(x927)
+                 - Type: Fix[TRUE,_32,_0]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1154 = CounterNew(Const(0),x1317,Const(1),Const(1))
+                 - Type: Counter[Fix[TRUE,_32,_0]]
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1155 = CounterChainNew(List(x1154))
+                 - Type: CounterChain
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x1188 = UnrolledForeach(Set(b1005, b925, b914),x1155,Block(Const(())),List(List(b1156)),List(List(b1157)),None) {
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x1318 = RegRead(x1010)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1159 = CounterNew(Const(0),x1318,Const(1),Const(1))
+                     - Type: Counter[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1160 = CounterChainNew(List(x1159))
+                     - Type: CounterChain
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1187 = UnrolledForeach(Set(b1157, b1005, b925, b914),x1160,Block(Const(())),List(List(b1161)),List(List(b1162)),None) {
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x1319 = RegRead(x916)
+                         - Type: Fix[TRUE,_32,_0]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1164 = CounterNew(Const(0),x1319,Const(1),Const(1))
+                         - Type: Counter[Fix[TRUE,_32,_0]]
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1165 = CounterChainNew(List(x1164))
+                         - Type: CounterChain
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1186 = UnrolledForeach(Set(b1005, b925, b1162, b1157, b914),x1165,Block(Const(())),List(List(b1166)),List(List(b1167)),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1169 = FixSLA(b1156,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1170 = FixAdd(x1169,b1161)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1381 = DelayLine(7,b1005)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1382 = DelayLine(7,b925)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1383 = DelayLine(6,x1170)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1384 = DelayLine(7,b1167)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1385 = DelayLine(7,b1162)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1386 = DelayLine(7,b1157)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1387 = DelayLine(7,b914)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1171 = SRAMBankedRead(x1017,Vector(List(Const(0))),Vector(x1383),Vector(Set(x1386, x1387, x1382, x1381, x1385, x1384)),Vec[Fix[TRUE,_24,_8]])
+                             - Type: Vec[Fix[TRUE,_24,_8]]
+                             - Cycle: <no cycle>
+                             - Latency:          2.0
+                             - Reduce Latency:   2.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1172 = VecApply(x1171,0)
+                             - Type: Fix[TRUE,_24,_8]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1174 = FixAdd(x1169,b1166)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1388 = DelayLine(1,b1005)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1389 = DelayLine(1,b925)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1390 = DelayLine(1,b1167)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1391 = DelayLine(1,b1162)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1392 = DelayLine(1,b1157)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1393 = DelayLine(1,b914)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1175 = SRAMBankedRead(x934,Vector(List(Const(0))),Vector(x1174),Vector(Set(x1391, x1392, x1393, x1389, x1388, x1390)),Vec[Fix[TRUE,_24,_8]])
+                             - Type: Vec[Fix[TRUE,_24,_8]]
+                             - Cycle: <no cycle>
+                             - Latency:          2.0
+                             - Reduce Latency:   2.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1176 = VecApply(x1175,0)
+                             - Type: Fix[TRUE,_24,_8]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1178 = FixSLA(b1166,Const(4))
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.2
+                             - Reduce Latency:   0.2
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1179 = FixAdd(x1178,b1161)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1180 = SRAMBankedRead(x1016,Vector(List(Const(0))),Vector(x1179),Vector(Set(x1391, x1392, x1393, x1389, x1388, x1390)),Vec[Fix[TRUE,_24,_8]])
+                             - Type: Vec[Fix[TRUE,_24,_8]]
+                             - Cycle: <no cycle>
+                             - Latency:          2.0
+                             - Reduce Latency:   2.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1181 = VecApply(x1180,0)
+                             - Type: Fix[TRUE,_24,_8]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1182 = FixMul(x1176,x1181)
+                             - Type: Fix[TRUE,_24,_8]
+                             - Cycle: <no cycle>
+                             - Latency:          6.0
+                             - Reduce Latency:   6.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1183 = FixAdd(x1172,x1182)
+                             - Type: Fix[TRUE,_24,_8]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1394 = DelayLine(10,b1005)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1395 = DelayLine(10,b925)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1396 = DelayLine(9,x1170)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1397 = DelayLine(10,b1167)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1398 = DelayLine(10,b1162)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1399 = DelayLine(10,b1157)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1400 = DelayLine(10,b914)
+                             - Type: Bit
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1184 = SRAMBankedWrite(x1018,Vector(x1183),Vector(List(Const(0))),Vector(x1396),Vector(Set(x1398, x1394, x1397, x1400, x1395, x1399)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1185 = SRAMBankedWrite(x1017,Vector(x1183),Vector(List(Const(0))),Vector(x1396),Vector(Set(x1398, x1394, x1397, x1400, x1395, x1399)))
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                          } // End of x1186 block #0
+                        } // End of x1186
+                      } // End of x1187 block #0
+                    } // End of x1187
+                  } // End of x1188 block #0
+                } // End of x1188
+                x1248 = UnitPipe(Set(b1005, b925, b914),Block(Const(())),None) {
+                 - Name: DenseTransfer
+                 - Type: Void
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                  block 0: Block(Const(())) {
+                    x1189 = StreamOutNew(BurstCmdBus)
+                     - Type: StreamOut[BurstCmd]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1190 = StreamOutNew(BurstFullDataBus())
+                     - Type: StreamOut[Tup2[Fix[TRUE,_24,_8],Bit]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1191 = StreamInNew(BurstAckBus)
+                     - Type: StreamIn[Bit]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1320 = RegRead(x927)
+                     - Type: Fix[TRUE,_32,_0]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1192 = CounterNew(Const(0),x1320,Const(1),Const(1))
+                     - Type: Counter[Fix[TRUE,_32,_0]]
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1193 = CounterChainNew(List(x1192))
+                     - Type: CounterChain
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                    x1247 = UnrolledForeach(Set(),x1193,Block(Const(())),List(List(b1194)),List(List(b1195)),None) {
+                     - Type: Void
+                     - Cycle: <no cycle>
+                     - Latency:          0.0
+                     - Reduce Latency:   0.0
+                     - Requires Regs:    false
+                     - Built-In Latency: 0.0
+                     - Delays: <none>
+                      block 0: Block(Const(())) {
+                        x1242 = UnitPipe(Set(b1195),Block(Const(())),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1196 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1197 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1198 = RegNew(Const(0))
+                             - Type: Reg[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1222 = UnitPipe(Set(),Block(Const(())),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1199 = FixAdd(b924,b1194)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1200 = RegRead(x879)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1401 = DelayLine(1,b1004)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1402 = DelayLine(1,x1200)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1331 = FixFMA(x1199,x1402,x1401)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          6.0
+                                 - Reduce Latency:   6.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1203 = FixDivSRA(x1331,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1204 = FixSLA(x1203,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1332 = FixSLA(x1203,Const(6))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1206 = FixSub(x1331,x1204)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1207 = RegRead(x1010)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1403 = DelayLine(8,x1207)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1208 = FixAdd(x1206,x1403)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1209 = FixAdd(x1208,Const(15))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1210 = FixDivSRA(x1209,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1211 = FixSLA(x1210,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1333 = FixSLA(x1210,Const(6))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1213 = FixToFix(x1332,TRUE,_64,_0)
+                                 - Type: Fix[TRUE,_64,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1214 = DRAMAddress(x906)
+                                 - Type: Fix[TRUE,_64,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1404 = DelayLine(7,x1214)
+                                 - Type: Fix[TRUE,_64,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1215 = FixAdd(x1213,x1404)
+                                 - Type: Fix[TRUE,_64,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          2.0
+                                 - Reduce Latency:   2.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1405 = DelayLine(1,x1215)
+                                 - Type: Fix[TRUE,_64,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1216 = SimpleStruct(ArrayBuffer((offset,x1405), (size,x1333), (isLoad,Const(false))))
+                                 - Type: BurstCmd
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1217 = DRAMIsAlloc(x906)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1406 = DelayLine(10,x1217)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1218 = StreamOutBankedWrite(x1189,ArrayBuffer(x1216),ArrayBuffer(Set(x1406)))
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1219 = RegWrite(x1196,x1206,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1220 = RegWrite(x1197,x1208,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1221 = RegWrite(x1198,x1211,Set())
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1222 block #0
+                            } // End of x1222
+                            x1321 = RegRead(x1198)
+                             - Type: Fix[TRUE,_32,_0]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1224 = CounterNew(Const(0),x1321,Const(1),Const(1))
+                             - Type: Counter[Fix[TRUE,_32,_0]]
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1225 = CounterChainNew(List(x1224))
+                             - Type: CounterChain
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                            x1241 = UnrolledForeach(Set(),x1225,Block(Const(())),List(List(b1226)),List(List(b1227)),None) {
+                             - Type: Void
+                             - Cycle: <no cycle>
+                             - Latency:          0.0
+                             - Reduce Latency:   0.0
+                             - Requires Regs:    false
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                              block 0: Block(Const(())) {
+                                x1228 = RegRead(x1196)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1229 = FixLeq(x1228,b1226)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1230 = RegRead(x1197)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1231 = FixLst(b1226,x1230)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.4
+                                 - Reduce Latency:   0.4
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1232 = And(x1229,x1231)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    true
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1233 = FixSub(b1226,x1228)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1235 = FixSLA(b1194,Const(4))
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.2
+                                 - Reduce Latency:   0.2
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1407 = DelayLine(1,x1235)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1236 = FixAdd(x1407,x1233)
+                                 - Type: Fix[TRUE,_32,_0]
+                                 - Cycle: <no cycle>
+                                 - Latency:          1.0
+                                 - Reduce Latency:   1.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1408 = DelayLine(2,x1232)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1409 = DelayLine(2,b1227)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1237 = SRAMBankedRead(x1018,Vector(List(Const(0))),Vector(x1236),Vector(Set(x1408, x1409)),Vec[Fix[TRUE,_24,_8]])
+                                 - Type: Vec[Fix[TRUE,_24,_8]]
+                                 - Cycle: <no cycle>
+                                 - Latency:          2.0
+                                 - Reduce Latency:   2.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1238 = VecApply(x1237,0)
+                                 - Type: Fix[TRUE,_24,_8]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1410 = DelayLine(4,x1232)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1239 = SimpleStruct(ArrayBuffer((_1,x1238), (_2,x1410)))
+                                 - Type: Tup2[Fix[TRUE,_24,_8],Bit]
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1411 = DelayLine(4,b1227)
+                                 - Type: Bit
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                                x1240 = StreamOutBankedWrite(x1190,ArrayBuffer(x1239),ArrayBuffer(Set(x1411)))
+                                 - Type: Void
+                                 - Cycle: <no cycle>
+                                 - Latency:          0.0
+                                 - Reduce Latency:   0.0
+                                 - Requires Regs:    false
+                                 - Built-In Latency: 0.0
+                                 - Delays: <none>
+                              } // End of x1241 block #0
+                            } // End of x1241
+                          } // End of x1242 block #0
+                        } // End of x1242
+                        x1243 = FringeDenseStore(x906,x1189,x1190,x1191)
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                        x1246 = UnitPipe(Set(b1195),Block(Const(())),None) {
+                         - Type: Void
+                         - Cycle: <no cycle>
+                         - Latency:          0.0
+                         - Reduce Latency:   0.0
+                         - Requires Regs:    false
+                         - Built-In Latency: 0.0
+                         - Delays: <none>
+                          block 0: Block(Const(())) {
+                            x1244 = StreamInBankedRead(x1191,ArrayBuffer(Set()))
+                             - Type: Vec[Bit]
+                             - Cycle: <no cycle>
+                             - Latency:          1.0
+                             - Reduce Latency:   1.0
+                             - Requires Regs:    true
+                             - Built-In Latency: 0.0
+                             - Delays: <none>
+                          } // End of x1246 block #0
+                        } // End of x1246
+                      } // End of x1247 block #0
+                    } // End of x1247
+                  } // End of x1248 block #0
+                } // End of x1248
+              } // End of x1335 block #0
+            } // End of x1335
+          } // End of x1250 block #0
+        } // End of x1250
+      } // End of x1251 block #0
+    } // End of x1251
+  } // End of x810 block #0
+} // End of x810
+x1252 = FixMul(x904,x905)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          6.0
+ - Reduce Latency:   6.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1253 = ArrayNew(x1252)
+ - Type: Array[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1254 = GetMem(x906,x1253)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1270 = MapIndices(x896,Block((b111) => x1269)) {
+ - Type: Array[Fix[TRUE,_24,_8]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b111) => x1269) {
+    x1255 = FixDiv(b111,x885)
+     - Name: i
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          20.0
+     - Reduce Latency:   20.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x1256 = FixMod(b111,x885)
+     - Name: j
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          16.0
+     - Reduce Latency:   16.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x1257 = ArrayApply(x877,Const(2))
+     - Type: Text
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x1258 = TextToFix(x1257,TRUE,_32,_0)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x1266 = MapIndices(x1258,Block((b116) => x1265)) {
+     - Type: Array[Fix[TRUE,_24,_8]]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block((b116) => x1265) {
+        x1259 = FixMul(x1255,x888)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          6.0
+         - Reduce Latency:   6.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1260 = FixAdd(x1259,b116)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          1.0
+         - Reduce Latency:   1.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1261 = ArrayApply(x892,x1260)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1262 = FixMul(b116,x885)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          6.0
+         - Reduce Latency:   6.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1263 = FixAdd(x1262,x1256)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          1.0
+         - Reduce Latency:   1.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1264 = ArrayApply(x895,x1263)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1265 = FixMul(x1261,x1264)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          6.0
+         - Reduce Latency:   6.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x1266 block #0
+    } // End of x1266
+    x1269 = ArrayReduce(x1266,Block((x1266,b125) => x1267),Block((b126,b127) => x1268)) {
+     - Type: Fix[TRUE,_24,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block((x1266,b125) => x1267) {
+        x1267 = ArrayApply(x1266,b125)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x1269 block #0
+      block 1: Block((b126,b127) => x1268) {
+        x1268 = FixAdd(b126,b127)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          1.0
+         - Reduce Latency:   1.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x1269 block #1
+    } // End of x1269
+  } // End of x1270 block #0
+} // End of x1270
+x1271 = TextConcat(List(Const("Received: "), Const("\n")))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1272 = PrintIf(Set(),x1271)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1281 = SeriesForeach(Const(0),x904,Const(1),Block((b135) => Const(()))) {
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b135) => Const(())) {
+    x1279 = SeriesForeach(Const(0),x905,Const(1),Block((b136) => Const(()))) {
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block((b136) => Const(())) {
+        x1273 = FixMul(b135,x905)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          6.0
+         - Reduce Latency:   6.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1274 = FixAdd(x1273,b136)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          1.0
+         - Reduce Latency:   1.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1275 = ArrayApply(x1253,x1274)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1276 = FixToText(x1275,None)
+         - Type: Text
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1277 = TextConcat(List(x1276, Const("\t")))
+         - Type: Text
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1278 = PrintIf(Set(),x1277)
+         - Type: Void
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x1279 block #0
+    } // End of x1279
+    x1280 = PrintIf(Set(),Const("\n"))
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1281 block #0
+} // End of x1281
+x1282 = TextConcat(List(Const("Wanted: "), Const("\n")))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1283 = PrintIf(Set(),x1282)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1292 = SeriesForeach(Const(0),x882,Const(1),Block((b148) => Const(()))) {
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b148) => Const(())) {
+    x1290 = SeriesForeach(Const(0),x885,Const(1),Block((b149) => Const(()))) {
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block((b149) => Const(())) {
+        x1284 = FixMul(b148,x885)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          6.0
+         - Reduce Latency:   6.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1285 = FixAdd(x1284,b149)
+         - Type: Fix[TRUE,_32,_0]
+         - Cycle: <no cycle>
+         - Latency:          1.0
+         - Reduce Latency:   1.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1286 = ArrayApply(x1270,x1285)
+         - Type: Fix[TRUE,_24,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1287 = FixToText(x1286,None)
+         - Type: Text
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1288 = TextConcat(List(x1287, Const("\t")))
+         - Type: Text
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x1289 = PrintIf(Set(),x1288)
+         - Type: Void
+         - Cycle: <no cycle>
+         - Latency:          0.0
+         - Reduce Latency:   0.0
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x1290 block #0
+    } // End of x1290
+    x1291 = PrintIf(Set(),Const("\n"))
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1292 block #0
+} // End of x1292
+x1296 = ArrayZip(x1253,x1270,Block((x1253,b159) => x1293),Block((x1270,b159) => x1294),Block((x1293,x1294) => x1295)) {
+ - Type: Array[Bit]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((x1253,b159) => x1293) {
+    x1293 = ArrayApply(x1253,b159)
+     - Name: x$19
+     - Type: Fix[TRUE,_24,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1296 block #0
+  block 1: Block((x1270,b159) => x1294) {
+    x1294 = ArrayApply(x1270,b159)
+     - Name: x$20
+     - Type: Fix[TRUE,_24,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1296 block #1
+  block 2: Block((x1293,x1294) => x1295) {
+    x1295 = FixEql(x1293,x1294)
+     - Type: Bit
+     - Cycle: <no cycle>
+     - Latency:          0.2
+     - Reduce Latency:   0.2
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1296 block #2
+} // End of x1296
+x1299 = ArrayReduce(x1296,Block((x1296,b165) => x1297),Block((b166,b167) => x1298)) {
+ - Name: cksum
+ - Type: Bit
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((x1296,b165) => x1297) {
+    x1297 = ArrayApply(x1296,b165)
+     - Type: Bit
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1299 block #0
+  block 1: Block((b166,b167) => x1298) {
+    x1298 = And(b166,b167)
+     - Type: Bit
+     - Cycle: <no cycle>
+     - Latency:          0.2
+     - Reduce Latency:   0.2
+     - Requires Regs:    true
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x1299 block #1
+} // End of x1299
+x1300 = BitToText(x1299)
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1301 = TextConcat(List(Const("Pass? "), x1300))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1302 = TextConcat(List(x1301, Const("\n")))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1303 = PrintIf(Set(),x1302)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x1304 = AssertIf(Set(),x1299,Some(Const("Lab2GEMM.scala:75:12: Assertion failure")))
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>

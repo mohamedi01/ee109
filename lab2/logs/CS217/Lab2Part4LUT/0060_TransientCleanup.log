@@ -1,0 +1,110 @@
+  Advancing blk
+     From: Host
+     To: Host
+    x86 = InputArguments() [Host]
+    Updating x86 since there are no subst rules for it
+    x87 = ArgInNew(Const(0)) [Host]
+    Updating x87 since there are no subst rules for it
+    x88 = ArgOutNew(Const(0)) [Host]
+    Updating x88 since there are no subst rules for it
+    x89 = ArgInNew(Const(0)) [Host]
+    Updating x89 since there are no subst rules for it
+    x90 = ArgInNew(Const(0)) [Host]
+    Updating x90 since there are no subst rules for it
+    x91 = ArrayApply(x86,Const(0)) [Host]
+    Updating x91 since there are no subst rules for it
+    x92 = TextToFix(x91,TRUE,_32,_0) [Host]
+    Updating x92 since there are no subst rules for it
+    x93 = ArrayApply(x86,Const(1)) [Host]
+    Updating x93 since there are no subst rules for it
+    x94 = TextToFix(x93,TRUE,_32,_0) [Host]
+    Updating x94 since there are no subst rules for it
+    x95 = ArrayApply(x86,Const(2)) [Host]
+    Updating x95 since there are no subst rules for it
+    x96 = TextToFix(x95,TRUE,_32,_0) [Host]
+    Updating x96 since there are no subst rules for it
+    x97 = SetReg(x87,x92) [Host]
+    Updating x97 since there are no subst rules for it
+    x98 = SetReg(x89,x94) [Host]
+    Updating x98 since there are no subst rules for it
+    x99 = SetReg(x90,x96) [Host]
+    Updating x99 since there are no subst rules for it
+    x61 = AccelScope(Block(Const(()))) [x61 (block: -1)]
+    Updating x61 since there are no subst rules for it
+    Advancing blk
+       From: x61 (block: -1)
+       To: x61 (block: 0)
+    node: (x61,x61 (block: -1)), block: (x61,x61 (block: 0))
+      x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [x61 (block: 0)]
+      Updating x100 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x101 = RegRead(x89) [stateless]
+       - users: Set(User(x105,x61 (block: 0)))
+       - ctrl:  x61 (block: 0)
+      x101 = RegRead(x89) [x61 (block: 0)]
+      Updating x101 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x102 = RegRead(x90) [stateless]
+       - users: Set(User(x105,x61 (block: 0)))
+       - ctrl:  x61 (block: 0)
+      x102 = RegRead(x90) [x61 (block: 0)]
+      Updating x102 since there are no subst rules for it
+      x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) [x61 (block: 0)]
+      Updating x105 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x106 = VecApply(x105,0) [stateless]
+       - users: Set(User(x108,x61 (block: 0)))
+       - ctrl:  x61 (block: 0)
+      x106 = VecApply(x105,0) [x61 (block: 0)]
+      Updating x106 since there are no subst rules for it
+      
+      Transforming node that is primitive, is inHw, and is transient
+      x107 = RegRead(x87) [stateless]
+       - users: Set(User(x108,x61 (block: 0)))
+       - ctrl:  x61 (block: 0)
+      x107 = RegRead(x87) [x61 (block: 0)]
+      Updating x107 since there are no subst rules for it
+      x108 = FixAdd(x106,x107) [x61 (block: 0)]
+      Updating x108 since there are no subst rules for it
+      
+      x109 = RegWrite(x88,x108,Set()) [reg write]
+      x109 = RegWrite(x88,x108,Set()) [x61 (block: 0)]
+      Updating x109 since there are no subst rules for it
+    x110 = GetReg(x88) [Host]
+    Updating x110 since there are no subst rules for it
+    x112 = MapIndices(Const(9),Block((b23) => x111)) [Host]
+    Updating x112 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x111 = FixAdd(b23,Const(1)) [Host]
+      Updating x111 since there are no subst rules for it
+    x113 = RegRead(x89) [Host]
+    Updating x113 since there are no subst rules for it
+    x114 = FixMul(x113,Const(3)) [Host]
+    Updating x114 since there are no subst rules for it
+    x115 = RegRead(x90) [Host]
+    Updating x115 since there are no subst rules for it
+    x116 = FixAdd(x114,x115) [Host]
+    Updating x116 since there are no subst rules for it
+    x117 = ArrayApply(x112,x116) [Host]
+    Updating x117 since there are no subst rules for it
+    x118 = FixAdd(x92,x117) [Host]
+    Updating x118 since there are no subst rules for it
+    x119 = FixEql(x118,x110) [Host]
+    Updating x119 since there are no subst rules for it
+    x120 = BitToText(x119) [Host]
+    Updating x120 since there are no subst rules for it
+    x121 = TextConcat(List(Const("PASS: "), x120)) [Host]
+    Updating x121 since there are no subst rules for it
+    x122 = TextConcat(List(x121, Const("(Lab2Part4LUT)"))) [Host]
+    Updating x122 since there are no subst rules for it
+    x123 = TextConcat(List(x122, Const("\n"))) [Host]
+    Updating x123 since there are no subst rules for it
+    x124 = PrintIf(Set(),x123) [Host]
+    Updating x124 since there are no subst rules for it
+    x125 = AssertIf(Set(),x119,Some(Const("Lab2Part4.scala:35:11: Assertion failure"))) [Host]
+    Updating x125 since there are no subst rules for it

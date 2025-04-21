@@ -1,0 +1,213 @@
+    Unrolling x40 = InputArguments()
+    x86 = InputArguments()
+    [x40] 0: x86
+    Unrolling x45 = ArrayApply(x40,Const(0))
+    x91 = ArrayApply(x86,Const(0))
+    [x45] 0: x91
+    Unrolling x46 = TextToFix(x45,TRUE,_32,_0)
+    x92 = TextToFix(x91,TRUE,_32,_0)
+    [x46] 0: x92
+    Unrolling x47 = ArrayApply(x40,Const(1))
+    x93 = ArrayApply(x86,Const(1))
+    [x47] 0: x93
+    Unrolling x48 = TextToFix(x47,TRUE,_32,_0)
+    x94 = TextToFix(x93,TRUE,_32,_0)
+    [x48] 0: x94
+    Unrolling x49 = ArrayApply(x40,Const(2))
+    x95 = ArrayApply(x86,Const(2))
+    [x49] 0: x95
+    Unrolling x50 = TextToFix(x49,TRUE,_32,_0)
+    x96 = TextToFix(x95,TRUE,_32,_0)
+    [x50] 0: x96
+    Access: x51
+    Memory: x41
+    Iterators between x51 and x41: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x51 = SetReg(x41,x46)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x97 = SetReg(x87,x92)
+    Access: x52
+    Memory: x43
+    Iterators between x52 and x43: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x52 = SetReg(x43,x48)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x98 = SetReg(x89,x94)
+    Access: x53
+    Memory: x44
+    Iterators between x53 and x44: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x53 = SetReg(x44,x50)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x99 = SetReg(x90,x96)
+      Duplicating x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+        #0: Memory(List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),1,List(0, 0),None)
+        x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+        Registering duplicates for memory: x54
+        (x54,0) -> x100
+      Access: x55
+      Memory: x43
+      Iterators between x55 and x43: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x55 = RegRead(x43)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x101 = RegRead(x89)
+      Access: x56
+      Memory: x44
+      Iterators between x56 and x44: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x56 = RegRead(x44)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x102 = RegRead(x90)
+      Access: x57
+      Memory: x54
+      Iterators between x57 and x54: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x57 = LUTRead(x54,List(x55, x56),Set())
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      a2 = 
+        lane 0 (castgrp/broadcast 0/0) = List(x101, x102)
+        Masters: Vector(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+      Access: x58
+      Memory: x41
+      Iterators between x58 and x41: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x58 = RegRead(x41)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x107 = RegRead(x87)
+      Unrolling x59 = FixAdd(x57,x58)
+      x108 = FixAdd(x106,x107)
+      [x59] 0: x108
+      Access: x60
+      Memory: x42
+      Iterators between x60 and x42: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x60 = RegWrite(x42,x59,Set())
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+        x109 = RegWrite(x88,x108,Set())
+    Access: x62
+    Memory: x42
+    Iterators between x62 and x42: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x62 = GetReg(x42)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x110 = GetReg(x88)
+    Unrolling x64 = MapIndices(Const(9),Block((b23) => x63))
+      Unrolling x63 = FixAdd(b23,Const(1))
+      x111 = FixAdd(b23,Const(1))
+      [x63] 0: x111
+    x112 = MapIndices(Const(9),Block((b23) => x111))
+    [x64] 0: x112
+    Access: x65
+    Memory: x43
+    Iterators between x65 and x43: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x65 = RegRead(x43)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x113 = RegRead(x89)
+    Unrolling x66 = FixMul(x65,Const(3))
+    x114 = FixMul(x113,Const(3))
+    [x66] 0: x114
+    Access: x67
+    Memory: x44
+    Iterators between x67 and x44: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x67 = RegRead(x44)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x115 = RegRead(x90)
+    Unrolling x68 = FixAdd(x66,x67)
+    x116 = FixAdd(x114,x115)
+    [x68] 0: x116
+    Unrolling x69 = ArrayApply(x64,x68)
+    x117 = ArrayApply(x112,x116)
+    [x69] 0: x117
+    Unrolling x70 = FixAdd(x46,x69)
+    x118 = FixAdd(x92,x117)
+    [x70] 0: x118
+    Unrolling x71 = FixEql(x70,x62)
+    x119 = FixEql(x118,x110)
+    [x71] 0: x119
+    Unrolling x72 = BitToText(x71)
+    x120 = BitToText(x119)
+    [x72] 0: x120
+    Unrolling x73 = TextConcat(List(Const("PASS: "), x72))
+    x121 = TextConcat(List(Const("PASS: "), x120))
+    [x73] 0: x121
+    Unrolling x74 = TextConcat(List(x73, Const("(Lab2Part4LUT)")))
+    x122 = TextConcat(List(x121, Const("(Lab2Part4LUT)")))
+    [x74] 0: x122
+    Unrolling x75 = TextConcat(List(x74, Const("\n")))
+    x123 = TextConcat(List(x122, Const("\n")))
+    [x75] 0: x123
+    Unrolling x76 = PrintIf(Set(),x75)
+    x124 = PrintIf(Set(),x123)
+    [x76] 0: x124
+    Unrolling x77 = AssertIf(Set(),x71,Some(Const("Lab2Part4.scala:35:11: Assertion failure")))
+    x125 = AssertIf(Set(),x119,Some(Const("Lab2Part4.scala:35:11: Assertion failure")))
+    [x77] 0: x125

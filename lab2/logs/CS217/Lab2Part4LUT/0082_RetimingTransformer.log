@@ -1,0 +1,56 @@
+  Transforming Block Block(Const(())) [List() => false, List() => false]
+    Transforming Block Block(Const(())) [List() => true, List() => false]
+    Retiming block Block(Const(())):
+      x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) (0.0)
+      x101 = RegRead(x89) (0.0)
+      x102 = RegRead(x90) (0.0)
+      x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) (0.0)
+      x106 = VecApply(x105,0) (1.0)
+      x107 = RegRead(x87) (0.0)
+      x108 = FixAdd(x106,x107) (1.0)
+      x109 = RegWrite(x88,x108,Set()) (2.0)
+    Working on pipeLatencies of result Vector(x101, Const(()), x102, x109, x105, x107, x100), schedule Vector(x100, x101, x102, x105, x106, x107, x108, x109)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    Computing fullDFS: x101
+    cur: x101, inReduce: false, latency: 0.0
+    Computing fullDFS: Const(())
+    Computing fullDFS: x102
+    cur: x102, inReduce: false, latency: 0.0
+    Computing fullDFS: x109
+    Computing fullDFS: x108
+    Computing fullDFS: x106
+    Computing fullDFS: x105
+    Computing fullDFS: x100
+    cur: x100, inReduce: false, latency: 0.0
+    Computing fullDFS: x107
+    cur: x107, inReduce: false, latency: 0.0
+    Cycles: Map()
+    computing delay lines for Vector(x100, x101, x102, x105, x106, x107, x108, x109) Map(x101 -> 0.0, x106 -> 1.0, x102 -> 0.0, x109 -> 3.0, x105 -> 1.0, x108 -> 2.0, x107 -> 0.0, x100 -> 0.0) Map() List()
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 4
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 5
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 1
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 3
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 7
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 9
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 6
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 2
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 8
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x101 = RegRead(x89)
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x102 = RegRead(x90)
+    [Arrive = Dly - Lat: 0.0 = 1.0 - 1.0] x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x101 = RegRead(x89)
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x102 = RegRead(x90)
+    ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 0
+    [Arrive = Dly - Lat: 1.0 = 1.0 - 0.0] x106 = VecApply(x105,0)
+    ..[1.0 (-> 1) = 1.0 - (1.0 - 1.0) (-> 1 - 0)] x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x107 = RegRead(x87)
+    [Arrive = Dly - Lat: 1.0 = 2.0 - 1.0] x108 = FixAdd(x106,x107)
+    ..[0.0 (-> 0) = 1.0 - (1.0 - 0.0) (-> 1 - 1)] x106 = VecApply(x105,0)
+    ..[1.0 (-> 1) = 1.0 - (0.0 - 0.0) (-> 1 - 0)] x107 = RegRead(x87)
+    [Arrive = Dly - Lat: 2.0 = 3.0 - 1.0] x109 = RegWrite(x88,x108,Set())
+    ..[0.0 (-> 0) = 2.0 - (2.0 - 0.0) (-> 2 - 2)] x108 = FixAdd(x106,x107)
+      Creating value delay on x107 for reader x108 with delay 1: 
+      Creating value delay on x105 for reader x106 with delay 1: 
+    Transforming Block Block((b23) => x111) [List() => false, List() => false]

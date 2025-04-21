@@ -1,0 +1,1948 @@
+    Unrolling x503 = InputArguments()
+    x877 = InputArguments()
+    [x503] 0: x877
+    Unrolling x507 = ArrayApply(x503,Const(0))
+    x881 = ArrayApply(x877,Const(0))
+    [x507] 0: x881
+    Unrolling x508 = TextToFix(x507,TRUE,_32,_0)
+    x882 = TextToFix(x881,TRUE,_32,_0)
+    [x508] 0: x882
+    Access: x509
+    Memory: x504
+    Iterators between x509 and x504: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x509 = SetReg(x504,x508)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x883 = SetReg(x878,x882)
+    Unrolling x510 = ArrayApply(x503,Const(1))
+    x884 = ArrayApply(x877,Const(1))
+    [x510] 0: x884
+    Unrolling x511 = TextToFix(x510,TRUE,_32,_0)
+    x885 = TextToFix(x884,TRUE,_32,_0)
+    [x511] 0: x885
+    Access: x512
+    Memory: x505
+    Iterators between x512 and x505: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x512 = SetReg(x505,x511)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x886 = SetReg(x879,x885)
+    Unrolling x513 = ArrayApply(x503,Const(2))
+    x887 = ArrayApply(x877,Const(2))
+    [x513] 0: x887
+    Unrolling x514 = TextToFix(x513,TRUE,_32,_0)
+    x888 = TextToFix(x887,TRUE,_32,_0)
+    [x514] 0: x888
+    Access: x515
+    Memory: x506
+    Iterators between x515 and x506: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x515 = SetReg(x506,x514)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x889 = SetReg(x880,x888)
+    Unrolling x516 = FixMul(x508,x514)
+    x890 = FixMul(x882,x888)
+    [x516] 0: x890
+    Unrolling x518 = MapIndices(x516,Block((b16) => x517))
+      Unrolling x517 = FixRandom(Some(Const(3)))
+      x891 = FixRandom(Some(Const(3)))
+      [x517] 0: x891
+    x892 = MapIndices(x890,Block((b16) => x891))
+    [x518] 0: x892
+    Unrolling x519 = FixMul(x514,x511)
+    x893 = FixMul(x888,x885)
+    [x519] 0: x893
+    Unrolling x521 = MapIndices(x519,Block((b24) => x520))
+      Unrolling x520 = FixRandom(Some(Const(3)))
+      x894 = FixRandom(Some(Const(3)))
+      [x520] 0: x894
+    x895 = MapIndices(x893,Block((b24) => x894))
+    [x521] 0: x895
+    Unrolling x522 = FixMul(x508,x511)
+    x896 = FixMul(x882,x885)
+    [x522] 0: x896
+    Unrolling x523 = MapIndices(x522,Block((b31) => Const(0)))
+    x897 = MapIndices(x896,Block((b31) => Const(0)))
+    [x523] 0: x897
+    Access: x524
+    Memory: x504
+    Iterators between x524 and x504: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x524 = RegRead(x504)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(1))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+      x898 = RegRead(x878)
+    Access: x525
+    Memory: x506
+    Iterators between x525 and x506: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x525 = RegRead(x506)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x899 = RegRead(x880)
+    Access: x527
+    Memory: x506
+    Iterators between x527 and x506: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x527 = RegRead(x506)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(1))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+      x901 = RegRead(x880)
+    Access: x528
+    Memory: x505
+    Iterators between x528 and x505: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x528 = RegRead(x505)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x902 = RegRead(x879)
+    Access: x530
+    Memory: x504
+    Iterators between x530 and x504: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x530 = RegRead(x504)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+      x904 = RegRead(x878)
+    Access: x531
+    Memory: x505
+    Iterators between x531 and x505: 
+    Unroll: Map()
+    uids:List(List())
+    Unrolling x531 = RegRead(x505)
+      Dispatch: ArrayBuffer(0)
+      Lane IDs: ArrayBuffer(0)
+      Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(1))
+      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+      Locks: None
+    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+      x905 = RegRead(x879)
+    Unrolling x533 = SetMem(x526,x518)
+    x907 = SetMem(x900,x892)
+    [x533] 0: x907
+    Unrolling x534 = SetMem(x529,x521)
+    x908 = SetMem(x903,x895)
+    [x534] 0: x908
+    Unrolling x535 = SetMem(x532,x523)
+    x909 = SetMem(x906,x897)
+    [x535] 0: x909
+      Access: x536
+      Memory: x506
+      Iterators between x536 and x506: 
+      Unroll: Map()
+      uids:List(List())
+      Unrolling x536 = RegRead(x506)
+        Dispatch: ArrayBuffer(0)
+        Lane IDs: ArrayBuffer(0)
+        Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(1))
+        Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+        Locks: None
+      laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+        x910 = RegRead(x880)
+      Unrolling x537 = CounterNew(Const(0),x536,Const(16),Const(1))
+      x911 = CounterNew(Const(0),x910,Const(16),Const(1))
+      [x537] 0: x911
+      Unrolling x538 = CounterChainNew(List(x537))
+      x912 = CounterChainNew(List(x911))
+      [x538] 0: x912
+      Unrolling x809 = OpForeach(Set(),x538,Block(Const(())),List(b50),None)
+      x809 = OpForeach(Set(),x538,Block(Const(())),List(b50),None) [duplicate 1/1] in lanes UnitUnroller(Accel,false)
+      Unrolling foreach x809
+        Access: x545
+        Memory: x504
+        Iterators between x545 and x504: 
+        Unroll: Map()
+        uids:List(List())
+        Unrolling x545 = RegRead(x504)
+          Dispatch: ArrayBuffer(0)
+          Lane IDs: ArrayBuffer(0)
+          Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(1))
+          Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+          Locks: None
+        laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+          x915 = RegRead(x878)
+        Duplicating x539 = RegNew(Const(0))
+          #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),2,List(),None)
+          x916 = RegNew(Const(0))
+          Registering duplicates for memory: x539
+          (x539,0) -> x916
+        Unrolling x544 = UnitPipe(Set(),Block(Const(())),None)
+        x544 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x809,x912,List(b50),false,true)
+          Access: x540
+          Memory: x506
+          Iterators between x540 and x506: b50
+          Unroll: Map(b50 -> List(0))
+          uids:List(List(0))
+          Unrolling x540 = RegRead(x506)
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x917 = RegRead(x880)
+          Unrolling x541 = FixSub(x540,b50)
+          x918 = FixSub(x917,b913)
+          [x541] 0: x918
+          Unrolling x542 = FixMin(Const(16),x541)
+          x919 = FixMin(Const(16),x918)
+          [x542] 0: x919
+          Access: x543
+          Memory: x539
+          Iterators between x543 and x539: 
+          Unroll: Map(b50 -> List(0))
+          uids:List(List())
+          Unrolling x543 = RegWrite(x539,x542,Set())
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x920 = RegWrite(x916,x919,Set())
+        [x544] 0: Const(())
+        Unrolling x546 = CounterNew(Const(0),x545,Const(16),Const(1))
+        x922 = CounterNew(Const(0),x915,Const(16),Const(1))
+        [x546] 0: x922
+        Unrolling x547 = CounterChainNew(List(x546))
+        x923 = CounterChainNew(List(x922))
+        [x547] 0: x923
+        Unrolling x808 = OpForeach(Set(),x547,Block(Const(())),List(b57),None)
+        x808 = OpForeach(Set(),x547,Block(Const(())),List(b57),None) [duplicate 1/1] in lanes PartialUnroller(x809,x912,List(b50),false,true)
+        Unrolling foreach x808
+          Access: x612
+          Memory: x505
+          Iterators between x612 and x505: b50
+          Unroll: Map(b50 -> List(0))
+          uids:List(List(0))
+          Unrolling x612 = RegRead(x505)
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(4))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(4)
+            x926 = RegRead(x879)
+          Duplicating x548 = RegNew(Const(0))
+            #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),3,List(),None)
+            x927 = RegNew(Const(0))
+            Registering duplicates for memory: x548
+            (x548,0) -> x927
+          Unrolling x553 = UnitPipe(Set(),Block(Const(())),None)
+          x553 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x808,x923,List(b57),false,true)
+            Access: x549
+            Memory: x504
+            Iterators between x549 and x504: b50, b57
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List(0, 0))
+            Unrolling x549 = RegRead(x504)
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+              x928 = RegRead(x878)
+            Unrolling x550 = FixSub(x549,b57)
+            x929 = FixSub(x928,b924)
+            [x550] 0: x929
+            Unrolling x551 = FixMin(Const(16),x550)
+            x930 = FixMin(Const(16),x929)
+            [x551] 0: x930
+            Access: x552
+            Memory: x548
+            Iterators between x552 and x548: 
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List())
+            Unrolling x552 = RegWrite(x548,x551,Set())
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+              x931 = RegWrite(x927,x930,Set())
+          [x553] 0: Const(())
+          Access: x555
+          Memory: x548
+          Iterators between x555 and x548: 
+          Unroll: Map(b50 -> List(0))
+          uids:List(List())
+          Unrolling x555 = RegRead(x548)
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x933 = RegRead(x927)
+          Duplicating x554 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+            #0: Memory(List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)),2,List(0, 0),None)
+            x934 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+            Registering duplicates for memory: x554
+            (x554,0) -> x934
+          Unrolling x611 = UnitPipe(Set(),Block(Const(())),None)
+          x611 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x808,x923,List(b57),false,true)
+            Duplicating x557 = FIFONew(Const(16))
+              #0: Memory(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),1,List(0),None)
+              x936 = FIFONew(Const(16))
+              Registering duplicates for memory: x557
+              (x557,0) -> x936
+            Unrolling x559 = CounterNew(Const(0),x555,Const(1),Const(1))
+            x938 = CounterNew(Const(0),x933,Const(1),Const(1))
+            [x559] 0: x938
+            Unrolling x560 = CounterChainNew(List(x559))
+            x939 = CounterChainNew(List(x938))
+            [x560] 0: x939
+            Unrolling x583 = OpForeach(Set(),x560,Block(Const(())),List(b473),None)
+            x583 = OpForeach(Set(),x560,Block(Const(())),List(b473),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x611),false)
+            Unrolling foreach x583
+              Unrolling x561 = FixAdd(b57,b473)
+              x942 = FixAdd(b924,b940)
+              [x561] 0: x942
+              Access: x562
+              Memory: x506
+              Iterators between x562 and x506: b50, b57, b473
+              Unroll: Map(b50 -> List(0), b57 -> List(0))
+              uids:List(List(0, 0, 0))
+              Unrolling x562 = RegRead(x506)
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(2))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(2)
+                x943 = RegRead(x880)
+              Unrolling x563 = FixMul(x561,x562)
+              x944 = FixMul(x942,x943)
+              [x563] 0: x944
+              Unrolling x564 = FixAdd(x563,b50)
+              x945 = FixAdd(x944,b913)
+              [x564] 0: x945
+              Unrolling x565 = FixDivSRA(x564,Const(4))
+              x946 = FixDivSRA(x945,Const(4))
+              [x565] 0: x946
+              Unrolling x566 = FixSLA(x565,Const(4))
+              x947 = FixSLA(x946,Const(4))
+              [x566] 0: x947
+              Unrolling x567 = FixSLA(x566,Const(2))
+              x948 = FixSLA(x947,Const(2))
+              [x567] 0: x948
+              Unrolling x568 = FixSub(x564,x566)
+              x949 = FixSub(x945,x947)
+              [x568] 0: x949
+              Access: x569
+              Memory: x539
+              Iterators between x569 and x539: b57, b473
+              Unroll: Map(b50 -> List(0), b57 -> List(0))
+              uids:List(List(0, 0))
+              Unrolling x569 = RegRead(x539)
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(1),0,2,ArrayBuffer(2),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(2) broadcast:List(0)
+                x950 = RegRead(x916)
+              Unrolling x570 = FixAdd(x568,x569)
+              x951 = FixAdd(x949,x950)
+              [x570] 0: x951
+              Unrolling x571 = FixAdd(x570,Const(15))
+              x952 = FixAdd(x951,Const(15))
+              [x571] 0: x952
+              Unrolling x572 = FixDivSRA(x571,Const(4))
+              x953 = FixDivSRA(x952,Const(4))
+              [x572] 0: x953
+              Unrolling x573 = FixSLA(x572,Const(4))
+              x954 = FixSLA(x953,Const(4))
+              [x573] 0: x954
+              Unrolling x574 = FixSLA(x573,Const(2))
+              x955 = FixSLA(x954,Const(2))
+              [x574] 0: x955
+              Unrolling x575 = FixToFix(x567,TRUE,_64,_0)
+              x956 = FixToFix(x948,TRUE,_64,_0)
+              [x575] 0: x956
+              Unrolling x576 = DRAMAddress(x526)
+              x957 = DRAMAddress(x900)
+              [x576] 0: x957
+              Unrolling x577 = FixAdd(x575,x576)
+              x958 = FixAdd(x956,x957)
+              [x577] 0: x958
+              Unrolling x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+              x959 = SimpleStruct(ArrayBuffer((offset,x958), (size,x955), (isLoad,Const(true))))
+              [x578] 0: x959
+              Unrolling x579 = DRAMIsAlloc(x526)
+              x960 = DRAMIsAlloc(x900)
+              [x579] 0: x960
+              Access: x580
+              Memory: x556
+              Iterators between x580 and x556: b473
+              Unroll: Map(b50 -> List(0), b57 -> List(0))
+              uids:List(List(0))
+              Unrolling x580 = StreamOutWrite(x556,x578,Set(x579))
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                x961 = StreamOutBankedWrite(x935,ArrayBuffer(x959),ArrayBuffer(Set(x960, b941)))
+              Unrolling x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+              x962 = SimpleStruct(ArrayBuffer((size,x954), (start,x949), (end,x951)))
+              [x581] 0: x962
+              Access: x582
+              Memory: x557
+              Iterators between x582 and x557: b473
+              Unroll: Map(b50 -> List(0), b57 -> List(0))
+              uids:List(List(0))
+              Unrolling x582 = FIFOEnq(x557,x581,Set(Const(true)))
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                x963 = FIFOBankedEnq(x936,ArrayBuffer(x962),ArrayBuffer(Set(Const(true), b941)))
+            Created foreach x964 = UnrolledForeach(Set(),x939,Block(Const(())),List(List(b940)),List(List(b941)),None)
+            [x583] 0: Const(())
+            Unrolling x584 = FringeDenseLoad(x526,x556,x558)
+            x965 = FringeDenseLoad(x900,x935,x937)
+            [x584] 0: x965
+            Unrolling x585 = CounterNew(Const(0),x555,Const(1),Const(1))
+            x966 = CounterNew(Const(0),x933,Const(1),Const(1))
+            [x585] 0: x966
+            Unrolling x586 = CounterChainNew(List(x585))
+            x967 = CounterChainNew(List(x966))
+            [x586] 0: x967
+            Unrolling x610 = OpForeach(Set(),x586,Block(Const(())),List(b477),None)
+            x610 = OpForeach(Set(),x586,Block(Const(())),List(b477),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x611),false)
+            Unrolling foreach x610
+              Duplicating x587 = RegNew(Const(0))
+                #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                x970 = RegNew(Const(0))
+                Registering duplicates for memory: x587
+                (x587,0) -> x970
+              Duplicating x588 = RegNew(Const(0))
+                #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                x971 = RegNew(Const(0))
+                Registering duplicates for memory: x588
+                (x588,0) -> x971
+              Duplicating x589 = RegNew(Const(0))
+                #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                x972 = RegNew(Const(0))
+                Registering duplicates for memory: x589
+                (x589,0) -> x972
+              Unrolling x597 = UnitPipe(Set(),Block(Const(())),None)
+              x597 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x610,x967,List(b477),false,true)
+                Access: x590
+                Memory: x557
+                Iterators between x590 and x557: b477
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List(0))
+                Unrolling x590 = FIFODeq(x557,Set(Const(true)))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x973 = FIFOBankedDeq(x936,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                Unrolling x591 = FieldApply(x590,start)
+                x975 = FieldApply(x974,start)
+                [x591] 0: x975
+                Access: x592
+                Memory: x587
+                Iterators between x592 and x587: 
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List())
+                Unrolling x592 = RegWrite(x587,x591,Set())
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x976 = RegWrite(x970,x975,Set())
+                Unrolling x593 = FieldApply(x590,end)
+                x977 = FieldApply(x974,end)
+                [x593] 0: x977
+                Access: x594
+                Memory: x588
+                Iterators between x594 and x588: 
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List())
+                Unrolling x594 = RegWrite(x588,x593,Set())
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x978 = RegWrite(x971,x977,Set())
+                Unrolling x595 = FieldApply(x590,size)
+                x979 = FieldApply(x974,size)
+                [x595] 0: x979
+                Access: x596
+                Memory: x589
+                Iterators between x596 and x589: 
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List())
+                Unrolling x596 = RegWrite(x589,x595,Set())
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x980 = RegWrite(x972,x979,Set())
+              [x597] 0: Const(())
+              Access: x598
+              Memory: x589
+              Iterators between x598 and x589: 
+              Unroll: Map(b50 -> List(0), b57 -> List(0))
+              uids:List(List())
+              Unrolling x598 = RegRead(x589)
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                x982 = RegRead(x972)
+              Unrolling x599 = CounterNew(Const(0),x598,Const(1),Const(1))
+              x983 = CounterNew(Const(0),x982,Const(1),Const(1))
+              [x599] 0: x983
+              Unrolling x600 = CounterChainNew(List(x599))
+              x984 = CounterChainNew(List(x983))
+              [x600] 0: x984
+              Unrolling x609 = OpForeach(Set(),x600,Block(Const(())),List(b223),None)
+              x609 = OpForeach(Set(),x600,Block(Const(())),List(b223),None) [duplicate 1/1] in lanes PartialUnroller(x610,x967,List(b477),false,true)
+              Unrolling foreach x609
+                Access: x601
+                Memory: x587
+                Iterators between x601 and x587: b223
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List(0))
+                Unrolling x601 = RegRead(x587)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x987 = RegRead(x970)
+                Unrolling x602 = FixLeq(x601,b223)
+                x988 = FixLeq(x987,b985)
+                [x602] 0: x988
+                Access: x603
+                Memory: x588
+                Iterators between x603 and x588: b223
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List(0))
+                Unrolling x603 = RegRead(x588)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x989 = RegRead(x971)
+                Unrolling x604 = FixLst(b223,x603)
+                x990 = FixLst(b985,x989)
+                [x604] 0: x990
+                Unrolling x605 = And(x602,x604)
+                x991 = And(x988,x990)
+                [x605] 0: x991
+                Unrolling x606 = FixSub(b223,x601)
+                x992 = FixSub(b985,x987)
+                [x606] 0: x992
+                Access: x607
+                Memory: x558
+                Iterators between x607 and x558: b477, b223
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List(0, 0))
+                Unrolling x607 = StreamInRead(x558,Set())
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x993 = StreamInBankedRead(x937,ArrayBuffer(Set(b986, b969)))
+                Access: x608
+                Memory: x554
+                Iterators between x608 and x554: b477, b223
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b477 -> List(0))
+                uids:List(List(0, 0))
+                Unrolling x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                a2 = 
+                  lane 0 (castgrp/broadcast 0/0) = List(b968, x992)
+                  Masters: Vector(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x998 = SRAMBankedWrite(x934,Vector(x994),Vector(List(Const(0))),Vector(x997),Vector(Set(x991, b986, b969)))
+              Created foreach x999 = UnrolledForeach(Set(b969),x984,Block(Const(())),List(List(b985)),List(List(b986)),None)
+              [x609] 0: Const(())
+            Created foreach x1000 = UnrolledForeach(Set(),x967,Block(Const(())),List(List(b968)),List(List(b969)),None)
+            [x610] 0: Const(())
+          [x611] 0: Const(())
+          Unrolling x613 = CounterNew(Const(0),x612,Const(16),Const(1))
+          x1002 = CounterNew(Const(0),x926,Const(16),Const(1))
+          [x613] 0: x1002
+          Unrolling x614 = CounterChainNew(List(x613))
+          x1003 = CounterChainNew(List(x1002))
+          [x614] 0: x1003
+          Unrolling x807 = OpForeach(Set(),x614,Block(Const(())),List(b69),None)
+          x807 = OpForeach(Set(),x614,Block(Const(())),List(b69),None) [duplicate 1/1] in lanes PartialUnroller(x808,x923,List(b57),false,true)
+          Unrolling foreach x807
+            Access: x623
+            Memory: x539
+            Iterators between x623 and x539: b57, b69
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List(0, 0))
+            Unrolling x623 = RegRead(x539)
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(1),0,1,ArrayBuffer(1),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(1) broadcast:List(0)
+              x1006 = RegRead(x916)
+            Access: x680
+            Memory: x548
+            Iterators between x680 and x548: b69
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List(0))
+            Unrolling x680 = RegRead(x548)
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(2),0,2,ArrayBuffer(2),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(2) broadcast:List(0)
+              x1007 = RegRead(x927)
+            Access: x737
+            Memory: x548
+            Iterators between x737 and x548: 
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List())
+            Unrolling x737 = RegRead(x548)
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(2),0,0,ArrayBuffer(0),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+              x1008 = RegRead(x927)
+            Access: x755
+            Memory: x548
+            Iterators between x755 and x548: b69
+            Unroll: Map(b50 -> List(0), b57 -> List(0))
+            uids:List(List(0))
+            Unrolling x755 = RegRead(x548)
+              Dispatch: ArrayBuffer(0)
+              Lane IDs: ArrayBuffer(0)
+              Port:     Port(Some(2),0,1,ArrayBuffer(1),ArrayBuffer(0))
+              Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+              Locks: None
+            laneid : 0 lanes:List(0) castgroup:List(1) broadcast:List(0)
+              x1009 = RegRead(x927)
+            Duplicating x615 = RegNew(Const(0))
+              #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),5,List(),None)
+              x1010 = RegNew(Const(0))
+              Registering duplicates for memory: x615
+              (x615,0) -> x1010
+            Unrolling x620 = UnitPipe(Set(),Block(Const(())),None)
+            x620 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x807,x1003,List(b69),false,true)
+              Access: x616
+              Memory: x505
+              Iterators between x616 and x505: b50, b57, b69
+              Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+              uids:List(List(0, 0, 0))
+              Unrolling x616 = RegRead(x505)
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(3))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(3)
+                x1011 = RegRead(x879)
+              Unrolling x617 = FixSub(x616,b69)
+              x1012 = FixSub(x1011,b1004)
+              [x617] 0: x1012
+              Unrolling x618 = FixMin(Const(16),x617)
+              x1013 = FixMin(Const(16),x1012)
+              [x618] 0: x1013
+              Access: x619
+              Memory: x615
+              Iterators between x619 and x615: 
+              Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+              uids:List(List())
+              Unrolling x619 = RegWrite(x615,x618,Set())
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                x1014 = RegWrite(x1010,x1013,Set())
+            [x620] 0: Const(())
+            Duplicating x621 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+              #0: Memory(List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)),3,List(0, 0),None)
+              x1016 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+              Registering duplicates for memory: x621
+              (x621,0) -> x1016
+            Duplicating x622 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+              #0: Memory(List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)),2,List(0, 0),Fold)
+              x1017 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+              #1: Memory(List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)),3,List(0, 0),Fold)
+              x1018 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+              Registering duplicates for memory: x622
+              (x622,0) -> x1017
+              (x622,1) -> x1018
+            Unrolling x679 = UnitPipe(Set(),Block(Const(())),None)
+            x679 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x807,x1003,List(b69),false,true)
+              Duplicating x625 = FIFONew(Const(16))
+                #0: Memory(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),1,List(0),None)
+                x1020 = FIFONew(Const(16))
+                Registering duplicates for memory: x625
+                (x625,0) -> x1020
+              Unrolling x627 = CounterNew(Const(0),x623,Const(1),Const(1))
+              x1022 = CounterNew(Const(0),x1006,Const(1),Const(1))
+              [x627] 0: x1022
+              Unrolling x628 = CounterChainNew(List(x627))
+              x1023 = CounterChainNew(List(x1022))
+              [x628] 0: x1023
+              Unrolling x651 = OpForeach(Set(),x628,Block(Const(())),List(b482),None)
+              x651 = OpForeach(Set(),x628,Block(Const(())),List(b482),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x679),false)
+              Unrolling foreach x651
+                Unrolling x629 = FixAdd(b50,b482)
+                x1026 = FixAdd(b913,b1024)
+                [x629] 0: x1026
+                Access: x630
+                Memory: x505
+                Iterators between x630 and x505: b50, b57, b69, b482
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0, 0, 0, 0))
+                Unrolling x630 = RegRead(x505)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(1))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(1)
+                  x1027 = RegRead(x879)
+                Unrolling x631 = FixMul(x629,x630)
+                x1028 = FixMul(x1026,x1027)
+                [x631] 0: x1028
+                Unrolling x632 = FixAdd(x631,b69)
+                x1029 = FixAdd(x1028,b1004)
+                [x632] 0: x1029
+                Unrolling x633 = FixDivSRA(x632,Const(4))
+                x1030 = FixDivSRA(x1029,Const(4))
+                [x633] 0: x1030
+                Unrolling x634 = FixSLA(x633,Const(4))
+                x1031 = FixSLA(x1030,Const(4))
+                [x634] 0: x1031
+                Unrolling x635 = FixSLA(x634,Const(2))
+                x1032 = FixSLA(x1031,Const(2))
+                [x635] 0: x1032
+                Unrolling x636 = FixSub(x632,x634)
+                x1033 = FixSub(x1029,x1031)
+                [x636] 0: x1033
+                Access: x637
+                Memory: x615
+                Iterators between x637 and x615: b482
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x637 = RegRead(x615)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1034 = RegRead(x1010)
+                Unrolling x638 = FixAdd(x636,x637)
+                x1035 = FixAdd(x1033,x1034)
+                [x638] 0: x1035
+                Unrolling x639 = FixAdd(x638,Const(15))
+                x1036 = FixAdd(x1035,Const(15))
+                [x639] 0: x1036
+                Unrolling x640 = FixDivSRA(x639,Const(4))
+                x1037 = FixDivSRA(x1036,Const(4))
+                [x640] 0: x1037
+                Unrolling x641 = FixSLA(x640,Const(4))
+                x1038 = FixSLA(x1037,Const(4))
+                [x641] 0: x1038
+                Unrolling x642 = FixSLA(x641,Const(2))
+                x1039 = FixSLA(x1038,Const(2))
+                [x642] 0: x1039
+                Unrolling x643 = FixToFix(x635,TRUE,_64,_0)
+                x1040 = FixToFix(x1032,TRUE,_64,_0)
+                [x643] 0: x1040
+                Unrolling x644 = DRAMAddress(x529)
+                x1041 = DRAMAddress(x903)
+                [x644] 0: x1041
+                Unrolling x645 = FixAdd(x643,x644)
+                x1042 = FixAdd(x1040,x1041)
+                [x645] 0: x1042
+                Unrolling x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+                x1043 = SimpleStruct(ArrayBuffer((offset,x1042), (size,x1039), (isLoad,Const(true))))
+                [x646] 0: x1043
+                Unrolling x647 = DRAMIsAlloc(x529)
+                x1044 = DRAMIsAlloc(x903)
+                [x647] 0: x1044
+                Access: x648
+                Memory: x624
+                Iterators between x648 and x624: b482
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x648 = StreamOutWrite(x624,x646,Set(x647))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1045 = StreamOutBankedWrite(x1019,ArrayBuffer(x1043),ArrayBuffer(Set(x1044, b1025)))
+                Unrolling x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+                x1046 = SimpleStruct(ArrayBuffer((size,x1038), (start,x1033), (end,x1035)))
+                [x649] 0: x1046
+                Access: x650
+                Memory: x625
+                Iterators between x650 and x625: b482
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x650 = FIFOEnq(x625,x649,Set(Const(true)))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1047 = FIFOBankedEnq(x1020,ArrayBuffer(x1046),ArrayBuffer(Set(Const(true), b1025)))
+              Created foreach x1048 = UnrolledForeach(Set(),x1023,Block(Const(())),List(List(b1024)),List(List(b1025)),None)
+              [x651] 0: Const(())
+              Unrolling x652 = FringeDenseLoad(x529,x624,x626)
+              x1049 = FringeDenseLoad(x903,x1019,x1021)
+              [x652] 0: x1049
+              Unrolling x653 = CounterNew(Const(0),x623,Const(1),Const(1))
+              x1050 = CounterNew(Const(0),x1006,Const(1),Const(1))
+              [x653] 0: x1050
+              Unrolling x654 = CounterChainNew(List(x653))
+              x1051 = CounterChainNew(List(x1050))
+              [x654] 0: x1051
+              Unrolling x678 = OpForeach(Set(),x654,Block(Const(())),List(b486),None)
+              x678 = OpForeach(Set(),x654,Block(Const(())),List(b486),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x679),false)
+              Unrolling foreach x678
+                Duplicating x655 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1054 = RegNew(Const(0))
+                  Registering duplicates for memory: x655
+                  (x655,0) -> x1054
+                Duplicating x656 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1055 = RegNew(Const(0))
+                  Registering duplicates for memory: x656
+                  (x656,0) -> x1055
+                Duplicating x657 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1056 = RegNew(Const(0))
+                  Registering duplicates for memory: x657
+                  (x657,0) -> x1056
+                Unrolling x665 = UnitPipe(Set(),Block(Const(())),None)
+                x665 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x678,x1051,List(b486),false,true)
+                  Access: x658
+                  Memory: x625
+                  Iterators between x658 and x625: b486
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x658 = FIFODeq(x625,Set(Const(true)))
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1057 = FIFOBankedDeq(x1020,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                  Unrolling x659 = FieldApply(x658,start)
+                  x1059 = FieldApply(x1058,start)
+                  [x659] 0: x1059
+                  Access: x660
+                  Memory: x655
+                  Iterators between x660 and x655: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List())
+                  Unrolling x660 = RegWrite(x655,x659,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1060 = RegWrite(x1054,x1059,Set())
+                  Unrolling x661 = FieldApply(x658,end)
+                  x1061 = FieldApply(x1058,end)
+                  [x661] 0: x1061
+                  Access: x662
+                  Memory: x656
+                  Iterators between x662 and x656: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List())
+                  Unrolling x662 = RegWrite(x656,x661,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1062 = RegWrite(x1055,x1061,Set())
+                  Unrolling x663 = FieldApply(x658,size)
+                  x1063 = FieldApply(x1058,size)
+                  [x663] 0: x1063
+                  Access: x664
+                  Memory: x657
+                  Iterators between x664 and x657: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List())
+                  Unrolling x664 = RegWrite(x657,x663,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1064 = RegWrite(x1056,x1063,Set())
+                [x665] 0: Const(())
+                Access: x666
+                Memory: x657
+                Iterators between x666 and x657: 
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List())
+                Unrolling x666 = RegRead(x657)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1066 = RegRead(x1056)
+                Unrolling x667 = CounterNew(Const(0),x666,Const(1),Const(1))
+                x1067 = CounterNew(Const(0),x1066,Const(1),Const(1))
+                [x667] 0: x1067
+                Unrolling x668 = CounterChainNew(List(x667))
+                x1068 = CounterChainNew(List(x1067))
+                [x668] 0: x1068
+                Unrolling x677 = OpForeach(Set(),x668,Block(Const(())),List(b289),None)
+                x677 = OpForeach(Set(),x668,Block(Const(())),List(b289),None) [duplicate 1/1] in lanes PartialUnroller(x678,x1051,List(b486),false,true)
+                Unrolling foreach x677
+                  Access: x669
+                  Memory: x655
+                  Iterators between x669 and x655: b289
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x669 = RegRead(x655)
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1071 = RegRead(x1054)
+                  Unrolling x670 = FixLeq(x669,b289)
+                  x1072 = FixLeq(x1071,b1069)
+                  [x670] 0: x1072
+                  Access: x671
+                  Memory: x656
+                  Iterators between x671 and x656: b289
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x671 = RegRead(x656)
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1073 = RegRead(x1055)
+                  Unrolling x672 = FixLst(b289,x671)
+                  x1074 = FixLst(b1069,x1073)
+                  [x672] 0: x1074
+                  Unrolling x673 = And(x670,x672)
+                  x1075 = And(x1072,x1074)
+                  [x673] 0: x1075
+                  Unrolling x674 = FixSub(b289,x669)
+                  x1076 = FixSub(b1069,x1071)
+                  [x674] 0: x1076
+                  Access: x675
+                  Memory: x626
+                  Iterators between x675 and x626: b486, b289
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List(0, 0))
+                  Unrolling x675 = StreamInRead(x626,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1077 = StreamInBankedRead(x1021,ArrayBuffer(Set(b1070, b1053)))
+                  Access: x676
+                  Memory: x621
+                  Iterators between x676 and x621: b486, b289
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b486 -> List(0))
+                  uids:List(List(0, 0))
+                  Unrolling x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1052, x1076)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1082 = SRAMBankedWrite(x1016,Vector(x1078),Vector(List(Const(0))),Vector(x1081),Vector(Set(x1075, b1070, b1053)))
+                Created foreach x1083 = UnrolledForeach(Set(b1053),x1068,Block(Const(())),List(List(b1069)),List(List(b1070)),None)
+                [x677] 0: Const(())
+              Created foreach x1084 = UnrolledForeach(Set(),x1051,Block(Const(())),List(List(b1052)),List(List(b1053)),None)
+              [x678] 0: Const(())
+            [x679] 0: Const(())
+            Unrolling x736 = UnitPipe(Set(),Block(Const(())),None)
+            x736 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x807,x1003,List(b69),false,true)
+              Duplicating x682 = FIFONew(Const(16))
+                #0: Memory(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),1,List(0),None)
+                x1087 = FIFONew(Const(16))
+                Registering duplicates for memory: x682
+                (x682,0) -> x1087
+              Unrolling x684 = CounterNew(Const(0),x680,Const(1),Const(1))
+              x1089 = CounterNew(Const(0),x1007,Const(1),Const(1))
+              [x684] 0: x1089
+              Unrolling x685 = CounterChainNew(List(x684))
+              x1090 = CounterChainNew(List(x1089))
+              [x685] 0: x1090
+              Unrolling x708 = OpForeach(Set(),x685,Block(Const(())),List(b491),None)
+              x708 = OpForeach(Set(),x685,Block(Const(())),List(b491),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x736),false)
+              Unrolling foreach x708
+                Unrolling x686 = FixAdd(b57,b491)
+                x1093 = FixAdd(b924,b1091)
+                [x686] 0: x1093
+                Access: x687
+                Memory: x505
+                Iterators between x687 and x505: b50, b57, b69, b491
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0, 0, 0, 0))
+                Unrolling x687 = RegRead(x505)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1094 = RegRead(x879)
+                Unrolling x688 = FixMul(x686,x687)
+                x1095 = FixMul(x1093,x1094)
+                [x688] 0: x1095
+                Unrolling x689 = FixAdd(x688,b69)
+                x1096 = FixAdd(x1095,b1004)
+                [x689] 0: x1096
+                Unrolling x690 = FixDivSRA(x689,Const(4))
+                x1097 = FixDivSRA(x1096,Const(4))
+                [x690] 0: x1097
+                Unrolling x691 = FixSLA(x690,Const(4))
+                x1098 = FixSLA(x1097,Const(4))
+                [x691] 0: x1098
+                Unrolling x692 = FixSLA(x691,Const(2))
+                x1099 = FixSLA(x1098,Const(2))
+                [x692] 0: x1099
+                Unrolling x693 = FixSub(x689,x691)
+                x1100 = FixSub(x1096,x1098)
+                [x693] 0: x1100
+                Access: x694
+                Memory: x615
+                Iterators between x694 and x615: b491
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x694 = RegRead(x615)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(2),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1101 = RegRead(x1010)
+                Unrolling x695 = FixAdd(x693,x694)
+                x1102 = FixAdd(x1100,x1101)
+                [x695] 0: x1102
+                Unrolling x696 = FixAdd(x695,Const(15))
+                x1103 = FixAdd(x1102,Const(15))
+                [x696] 0: x1103
+                Unrolling x697 = FixDivSRA(x696,Const(4))
+                x1104 = FixDivSRA(x1103,Const(4))
+                [x697] 0: x1104
+                Unrolling x698 = FixSLA(x697,Const(4))
+                x1105 = FixSLA(x1104,Const(4))
+                [x698] 0: x1105
+                Unrolling x699 = FixSLA(x698,Const(2))
+                x1106 = FixSLA(x1105,Const(2))
+                [x699] 0: x1106
+                Unrolling x700 = FixToFix(x692,TRUE,_64,_0)
+                x1107 = FixToFix(x1099,TRUE,_64,_0)
+                [x700] 0: x1107
+                Unrolling x701 = DRAMAddress(x532)
+                x1108 = DRAMAddress(x906)
+                [x701] 0: x1108
+                Unrolling x702 = FixAdd(x700,x701)
+                x1109 = FixAdd(x1107,x1108)
+                [x702] 0: x1109
+                Unrolling x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+                x1110 = SimpleStruct(ArrayBuffer((offset,x1109), (size,x1106), (isLoad,Const(true))))
+                [x703] 0: x1110
+                Unrolling x704 = DRAMIsAlloc(x532)
+                x1111 = DRAMIsAlloc(x906)
+                [x704] 0: x1111
+                Access: x705
+                Memory: x681
+                Iterators between x705 and x681: b491
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x705 = StreamOutWrite(x681,x703,Set(x704))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1112 = StreamOutBankedWrite(x1086,ArrayBuffer(x1110),ArrayBuffer(Set(x1111, b1092)))
+                Unrolling x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+                x1113 = SimpleStruct(ArrayBuffer((size,x1105), (start,x1100), (end,x1102)))
+                [x706] 0: x1113
+                Access: x707
+                Memory: x682
+                Iterators between x707 and x682: b491
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List(0))
+                Unrolling x707 = FIFOEnq(x682,x706,Set(Const(true)))
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1114 = FIFOBankedEnq(x1087,ArrayBuffer(x1113),ArrayBuffer(Set(Const(true), b1092)))
+              Created foreach x1115 = UnrolledForeach(Set(),x1090,Block(Const(())),List(List(b1091)),List(List(b1092)),None)
+              [x708] 0: Const(())
+              Unrolling x709 = FringeDenseLoad(x532,x681,x683)
+              x1116 = FringeDenseLoad(x906,x1086,x1088)
+              [x709] 0: x1116
+              Unrolling x710 = CounterNew(Const(0),x680,Const(1),Const(1))
+              x1117 = CounterNew(Const(0),x1007,Const(1),Const(1))
+              [x710] 0: x1117
+              Unrolling x711 = CounterChainNew(List(x710))
+              x1118 = CounterChainNew(List(x1117))
+              [x711] 0: x1118
+              Unrolling x735 = OpForeach(Set(),x711,Block(Const(())),List(b495),None)
+              x735 = OpForeach(Set(),x711,Block(Const(())),List(b495),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x736),false)
+              Unrolling foreach x735
+                Duplicating x712 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1121 = RegNew(Const(0))
+                  Registering duplicates for memory: x712
+                  (x712,0) -> x1121
+                Duplicating x713 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1122 = RegNew(Const(0))
+                  Registering duplicates for memory: x713
+                  (x713,0) -> x1122
+                Duplicating x714 = RegNew(Const(0))
+                  #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                  x1123 = RegNew(Const(0))
+                  Registering duplicates for memory: x714
+                  (x714,0) -> x1123
+                Unrolling x722 = UnitPipe(Set(),Block(Const(())),None)
+                x722 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x735,x1118,List(b495),false,true)
+                  Access: x715
+                  Memory: x682
+                  Iterators between x715 and x682: b495
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x715 = FIFODeq(x682,Set(Const(true)))
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1124 = FIFOBankedDeq(x1087,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                  Unrolling x716 = FieldApply(x715,start)
+                  x1126 = FieldApply(x1125,start)
+                  [x716] 0: x1126
+                  Access: x717
+                  Memory: x712
+                  Iterators between x717 and x712: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List())
+                  Unrolling x717 = RegWrite(x712,x716,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1127 = RegWrite(x1121,x1126,Set())
+                  Unrolling x718 = FieldApply(x715,end)
+                  x1128 = FieldApply(x1125,end)
+                  [x718] 0: x1128
+                  Access: x719
+                  Memory: x713
+                  Iterators between x719 and x713: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List())
+                  Unrolling x719 = RegWrite(x713,x718,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1129 = RegWrite(x1122,x1128,Set())
+                  Unrolling x720 = FieldApply(x715,size)
+                  x1130 = FieldApply(x1125,size)
+                  [x720] 0: x1130
+                  Access: x721
+                  Memory: x714
+                  Iterators between x721 and x714: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List())
+                  Unrolling x721 = RegWrite(x714,x720,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1131 = RegWrite(x1123,x1130,Set())
+                [x722] 0: Const(())
+                Access: x723
+                Memory: x714
+                Iterators between x723 and x714: 
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+                uids:List(List())
+                Unrolling x723 = RegRead(x714)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1133 = RegRead(x1123)
+                Unrolling x724 = CounterNew(Const(0),x723,Const(1),Const(1))
+                x1134 = CounterNew(Const(0),x1133,Const(1),Const(1))
+                [x724] 0: x1134
+                Unrolling x725 = CounterChainNew(List(x724))
+                x1135 = CounterChainNew(List(x1134))
+                [x725] 0: x1135
+                Unrolling x734 = OpForeach(Set(),x725,Block(Const(())),List(b352),None)
+                x734 = OpForeach(Set(),x725,Block(Const(())),List(b352),None) [duplicate 1/1] in lanes PartialUnroller(x735,x1118,List(b495),false,true)
+                Unrolling foreach x734
+                  Access: x726
+                  Memory: x712
+                  Iterators between x726 and x712: b352
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x726 = RegRead(x712)
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1138 = RegRead(x1121)
+                  Unrolling x727 = FixLeq(x726,b352)
+                  x1139 = FixLeq(x1138,b1136)
+                  [x727] 0: x1139
+                  Access: x728
+                  Memory: x713
+                  Iterators between x728 and x713: b352
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x728 = RegRead(x713)
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1140 = RegRead(x1122)
+                  Unrolling x729 = FixLst(b352,x728)
+                  x1141 = FixLst(b1136,x1140)
+                  [x729] 0: x1141
+                  Unrolling x730 = And(x727,x729)
+                  x1142 = And(x1139,x1141)
+                  [x730] 0: x1142
+                  Unrolling x731 = FixSub(b352,x726)
+                  x1143 = FixSub(b1136,x1138)
+                  [x731] 0: x1143
+                  Access: x732
+                  Memory: x683
+                  Iterators between x732 and x683: b495, b352
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List(0, 0))
+                  Unrolling x732 = StreamInRead(x683,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1144 = StreamInBankedRead(x1088,ArrayBuffer(Set(b1137, b1120)))
+                  Access: x733
+                  Memory: x622
+                  Iterators between x733 and x622: b495, b352
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b495 -> List(0))
+                  uids:List(List(0, 0))
+                  Unrolling x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+                    Dispatch: ArrayBuffer(1)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1119, x1143)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1149 = SRAMBankedWrite(x1018,Vector(x1145),Vector(List(Const(0))),Vector(x1148),Vector(Set(x1142, b1137, b1120)))
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1119, x1143)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1150 = SRAMBankedWrite(x1017,Vector(x1145),Vector(List(Const(0))),Vector(x1148),Vector(Set(x1142, b1137, b1120)))
+                Created foreach x1151 = UnrolledForeach(Set(b1120),x1135,Block(Const(())),List(List(b1136)),List(List(b1137)),None)
+                [x734] 0: Const(())
+              Created foreach x1152 = UnrolledForeach(Set(),x1118,Block(Const(())),List(List(b1119)),List(List(b1120)),None)
+              [x735] 0: Const(())
+            [x736] 0: Const(())
+            Unrolling x738 = CounterNew(Const(0),x737,Const(1),Const(1))
+            x1154 = CounterNew(Const(0),x1008,Const(1),Const(1))
+            [x738] 0: x1154
+            Unrolling x739 = CounterChainNew(List(x738))
+            x1155 = CounterChainNew(List(x1154))
+            [x739] 0: x1155
+            Unrolling x754 = OpForeach(Set(),x739,Block(Const(())),List(b84),None)
+            x754 = OpForeach(Set(),x739,Block(Const(())),List(b84),None) [duplicate 1/1] in lanes PartialUnroller(x807,x1003,List(b69),false,true)
+            Unrolling foreach x754
+              Access: x740
+              Memory: x615
+              Iterators between x740 and x615: 
+              Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0))
+              uids:List(List())
+              Unrolling x740 = RegRead(x615)
+                Dispatch: ArrayBuffer(0)
+                Lane IDs: ArrayBuffer(0)
+                Port:     Port(Some(3),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                Locks: None
+              laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                x1158 = RegRead(x1010)
+              Unrolling x741 = CounterNew(Const(0),x740,Const(1),Const(1))
+              x1159 = CounterNew(Const(0),x1158,Const(1),Const(1))
+              [x741] 0: x1159
+              Unrolling x742 = CounterChainNew(List(x741))
+              x1160 = CounterChainNew(List(x1159))
+              [x742] 0: x1160
+              Unrolling x753 = OpForeach(Set(),x742,Block(Const(())),List(b87),None)
+              x753 = OpForeach(Set(),x742,Block(Const(())),List(b87),None) [duplicate 1/1] in lanes PartialUnroller(x754,x1155,List(b84),false,true)
+              Unrolling foreach x753
+                Access: x743
+                Memory: x539
+                Iterators between x743 and x539: b57, b69, b84
+                Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b84 -> List(0))
+                uids:List(List(0, 0, 0))
+                Unrolling x743 = RegRead(x539)
+                  Dispatch: ArrayBuffer(0)
+                  Lane IDs: ArrayBuffer(0)
+                  Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                  Locks: None
+                laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                  x1163 = RegRead(x916)
+                Unrolling x744 = CounterNew(Const(0),x743,Const(1),Const(1))
+                x1164 = CounterNew(Const(0),x1163,Const(1),Const(1))
+                [x744] 0: x1164
+                Unrolling x745 = CounterChainNew(List(x744))
+                x1165 = CounterChainNew(List(x1164))
+                [x745] 0: x1165
+                Unrolling x752 = OpForeach(Set(),x745,Block(Const(())),List(b90),None)
+                x752 = OpForeach(Set(),x745,Block(Const(())),List(b90),None) [duplicate 1/1] in lanes PartialUnroller(x753,x1160,List(b87),false,true)
+                Unrolling foreach x752
+                  Access: x746
+                  Memory: x622
+                  Iterators between x746 and x622: b84, b87, b90
+                  Unroll: Map(b69 -> List(0), b57 -> List(0), b84 -> List(0), b50 -> List(0), b87 -> List(0))
+                  uids:List(List(0, 0, 0))
+                  Unrolling x746 = SRAMRead(x622,List(b84, b87),Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1156, b1161)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1171 = SRAMBankedRead(x1017,Vector(List(Const(0))),Vector(x1170),Vector(Set(b1005, b925, b1167, b1162, b1157, b914)),Vec[Fix[TRUE,_24,_8]])
+                  Access: x747
+                  Memory: x554
+                  Iterators between x747 and x554: b69, b84, b87, b90
+                  Unroll: Map(b69 -> List(0), b57 -> List(0), b84 -> List(0), b50 -> List(0), b87 -> List(0))
+                  uids:List(List(0, 0, 0, 0))
+                  Unrolling x747 = SRAMRead(x554,List(b84, b90),Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1156, b1166)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1175 = SRAMBankedRead(x934,Vector(List(Const(0))),Vector(x1174),Vector(Set(b1005, b925, b1167, b1162, b1157, b914)),Vec[Fix[TRUE,_24,_8]])
+                  Access: x748
+                  Memory: x621
+                  Iterators between x748 and x621: b84, b87, b90
+                  Unroll: Map(b69 -> List(0), b57 -> List(0), b84 -> List(0), b50 -> List(0), b87 -> List(0))
+                  uids:List(List(0, 0, 0))
+                  Unrolling x748 = SRAMRead(x621,List(b90, b87),Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(2),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1166, b1161)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1180 = SRAMBankedRead(x1016,Vector(List(Const(0))),Vector(x1179),Vector(Set(b1005, b925, b1167, b1162, b1157, b914)),Vec[Fix[TRUE,_24,_8]])
+                  Unrolling x749 = FixMul(x747,x748)
+                  x1182 = FixMul(x1176,x1181)
+                  [x749] 0: x1182
+                  Unrolling x750 = FixAdd(x746,x749)
+                  x1183 = FixAdd(x1172,x1182)
+                  [x750] 0: x1183
+                  Access: x751
+                  Memory: x622
+                  Iterators between x751 and x622: b84, b87, b90
+                  Unroll: Map(b69 -> List(0), b57 -> List(0), b84 -> List(0), b50 -> List(0), b87 -> List(0))
+                  uids:List(List(0, 0, 0))
+                  Unrolling x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+                    Dispatch: ArrayBuffer(1)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1156, b1161)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1184 = SRAMBankedWrite(x1018,Vector(x1183),Vector(List(Const(0))),Vector(x1170),Vector(Set(b1005, b925, b1167, b1162, b1157, b914)))
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                  a2 = 
+                    lane 0 (castgrp/broadcast 0/0) = List(b1156, b1161)
+                    Masters: Vector(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1185 = SRAMBankedWrite(x1017,Vector(x1183),Vector(List(Const(0))),Vector(x1170),Vector(Set(b1005, b925, b1167, b1162, b1157, b914)))
+                Created foreach x1186 = UnrolledForeach(Set(b1005, b925, b1162, b1157, b914),x1165,Block(Const(())),List(List(b1166)),List(List(b1167)),None)
+                [x752] 0: Const(())
+              Created foreach x1187 = UnrolledForeach(Set(b1157, b1005, b925, b914),x1160,Block(Const(())),List(List(b1161)),List(List(b1162)),None)
+              [x753] 0: Const(())
+            Created foreach x1188 = UnrolledForeach(Set(b1005, b925, b914),x1155,Block(Const(())),List(List(b1156)),List(List(b1157)),None)
+            [x754] 0: Const(())
+            Unrolling x806 = UnitPipe(Set(),Block(Const(())),None)
+            x806 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x807,x1003,List(b69),false,true)
+              Unrolling x759 = CounterNew(Const(0),x755,Const(1),Const(1))
+              x1192 = CounterNew(Const(0),x1009,Const(1),Const(1))
+              [x759] 0: x1192
+              Unrolling x760 = CounterChainNew(List(x759))
+              x1193 = CounterChainNew(List(x1192))
+              [x760] 0: x1193
+              Unrolling x805 = OpForeach(Set(),x760,Block(Const(())),List(b500),None)
+              x805 = OpForeach(Set(),x760,Block(Const(())),List(b500),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x806),false)
+              Unrolling foreach x805
+                Unrolling x801 = UnitPipe(Set(),Block(Const(())),None)
+                x801 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x805,x1193,List(b500),false,true)
+                  Duplicating x761 = RegNew(Const(0))
+                    #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                    x1196 = RegNew(Const(0))
+                    Registering duplicates for memory: x761
+                    (x761,0) -> x1196
+                  Duplicating x762 = RegNew(Const(0))
+                    #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                    x1197 = RegNew(Const(0))
+                    Registering duplicates for memory: x762
+                    (x762,0) -> x1197
+                  Duplicating x763 = RegNew(Const(0))
+                    #0: Memory(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)),1,List(),None)
+                    x1198 = RegNew(Const(0))
+                    Registering duplicates for memory: x763
+                    (x763,0) -> x1198
+                  Unrolling x787 = UnitPipe(Set(),Block(Const(())),None)
+                  x787 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes UnitUnroller(x801,false)
+                    Unrolling x764 = FixAdd(b57,b500)
+                    x1199 = FixAdd(b924,b1194)
+                    [x764] 0: x1199
+                    Access: x765
+                    Memory: x505
+                    Iterators between x765 and x505: b50, b57, b69, b500
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0, 0, 0, 0))
+                    Unrolling x765 = RegRead(x505)
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(2))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(2)
+                      x1200 = RegRead(x879)
+                    Unrolling x766 = FixMul(x764,x765)
+                    x1201 = FixMul(x1199,x1200)
+                    [x766] 0: x1201
+                    Unrolling x767 = FixAdd(x766,b69)
+                    x1202 = FixAdd(x1201,b1004)
+                    [x767] 0: x1202
+                    Unrolling x768 = FixDivSRA(x767,Const(4))
+                    x1203 = FixDivSRA(x1202,Const(4))
+                    [x768] 0: x1203
+                    Unrolling x769 = FixSLA(x768,Const(4))
+                    x1204 = FixSLA(x1203,Const(4))
+                    [x769] 0: x1204
+                    Unrolling x770 = FixSLA(x769,Const(2))
+                    x1205 = FixSLA(x1204,Const(2))
+                    [x770] 0: x1205
+                    Unrolling x771 = FixSub(x767,x769)
+                    x1206 = FixSub(x1202,x1204)
+                    [x771] 0: x1206
+                    Access: x772
+                    Memory: x615
+                    Iterators between x772 and x615: b500
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0))
+                    Unrolling x772 = RegRead(x615)
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(4),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1207 = RegRead(x1010)
+                    Unrolling x773 = FixAdd(x771,x772)
+                    x1208 = FixAdd(x1206,x1207)
+                    [x773] 0: x1208
+                    Unrolling x774 = FixAdd(x773,Const(15))
+                    x1209 = FixAdd(x1208,Const(15))
+                    [x774] 0: x1209
+                    Unrolling x775 = FixDivSRA(x774,Const(4))
+                    x1210 = FixDivSRA(x1209,Const(4))
+                    [x775] 0: x1210
+                    Unrolling x776 = FixSLA(x775,Const(4))
+                    x1211 = FixSLA(x1210,Const(4))
+                    [x776] 0: x1211
+                    Unrolling x777 = FixSLA(x776,Const(2))
+                    x1212 = FixSLA(x1211,Const(2))
+                    [x777] 0: x1212
+                    Unrolling x778 = FixToFix(x770,TRUE,_64,_0)
+                    x1213 = FixToFix(x1205,TRUE,_64,_0)
+                    [x778] 0: x1213
+                    Unrolling x779 = DRAMAddress(x532)
+                    x1214 = DRAMAddress(x906)
+                    [x779] 0: x1214
+                    Unrolling x780 = FixAdd(x778,x779)
+                    x1215 = FixAdd(x1213,x1214)
+                    [x780] 0: x1215
+                    Unrolling x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                    x1216 = SimpleStruct(ArrayBuffer((offset,x1215), (size,x1212), (isLoad,Const(false))))
+                    [x781] 0: x1216
+                    Unrolling x782 = DRAMIsAlloc(x532)
+                    x1217 = DRAMIsAlloc(x906)
+                    [x782] 0: x1217
+                    Access: x783
+                    Memory: x756
+                    Iterators between x783 and x756: b500
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0))
+                    Unrolling x783 = StreamOutWrite(x756,x781,Set(x782))
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1218 = StreamOutBankedWrite(x1189,ArrayBuffer(x1216),ArrayBuffer(Set(x1217)))
+                    Access: x784
+                    Memory: x761
+                    Iterators between x784 and x761: 
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List())
+                    Unrolling x784 = RegWrite(x761,x771,Set())
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1219 = RegWrite(x1196,x1206,Set())
+                    Access: x785
+                    Memory: x762
+                    Iterators between x785 and x762: 
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List())
+                    Unrolling x785 = RegWrite(x762,x773,Set())
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1220 = RegWrite(x1197,x1208,Set())
+                    Access: x786
+                    Memory: x763
+                    Iterators between x786 and x763: 
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List())
+                    Unrolling x786 = RegWrite(x763,x776,Set())
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1221 = RegWrite(x1198,x1211,Set())
+                  [x787] 0: Const(())
+                  Access: x788
+                  Memory: x763
+                  Iterators between x788 and x763: 
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                  uids:List(List())
+                  Unrolling x788 = RegRead(x763)
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1223 = RegRead(x1198)
+                  Unrolling x789 = CounterNew(Const(0),x788,Const(1),Const(1))
+                  x1224 = CounterNew(Const(0),x1223,Const(1),Const(1))
+                  [x789] 0: x1224
+                  Unrolling x790 = CounterChainNew(List(x789))
+                  x1225 = CounterChainNew(List(x1224))
+                  [x790] 0: x1225
+                  Unrolling x800 = OpForeach(Set(),x790,Block(Const(())),List(b405),None)
+                  x800 = OpForeach(Set(),x790,Block(Const(())),List(b405),None) [duplicate 1/1] in lanes UnitUnroller(x801,false)
+                  Unrolling foreach x800
+                    Access: x791
+                    Memory: x761
+                    Iterators between x791 and x761: b405
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0))
+                    Unrolling x791 = RegRead(x761)
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1228 = RegRead(x1196)
+                    Unrolling x792 = FixLeq(x791,b405)
+                    x1229 = FixLeq(x1228,b1226)
+                    [x792] 0: x1229
+                    Access: x793
+                    Memory: x762
+                    Iterators between x793 and x762: b405
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0))
+                    Unrolling x793 = RegRead(x762)
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1230 = RegRead(x1197)
+                    Unrolling x794 = FixLst(b405,x793)
+                    x1231 = FixLst(b1226,x1230)
+                    [x794] 0: x1231
+                    Unrolling x795 = And(x792,x794)
+                    x1232 = And(x1229,x1231)
+                    [x795] 0: x1232
+                    Unrolling x796 = FixSub(b405,x791)
+                    x1233 = FixSub(b1226,x1228)
+                    [x796] 0: x1233
+                    Access: x797
+                    Memory: x622
+                    Iterators between x797 and x622: b500, b405
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0, 0))
+                    Unrolling x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                      Dispatch: ArrayBuffer(1)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(2),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    a2 = 
+                      lane 0 (castgrp/broadcast 0/0) = List(b1194, x1233)
+                      Masters: Vector(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1237 = SRAMBankedRead(x1018,Vector(List(Const(0))),Vector(x1236),Vector(Set(x1232, b1227)),Vec[Fix[TRUE,_24,_8]])
+                    Unrolling x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                    x1239 = SimpleStruct(ArrayBuffer((_1,x1238), (_2,x1232)))
+                    [x798] 0: x1239
+                    Access: x799
+                    Memory: x757
+                    Iterators between x799 and x757: b500, b405
+                    Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                    uids:List(List(0, 0))
+                    Unrolling x799 = StreamOutWrite(x757,x798,Set())
+                      Dispatch: ArrayBuffer(0)
+                      Lane IDs: ArrayBuffer(0)
+                      Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                      Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                      Locks: None
+                    laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                      x1240 = StreamOutBankedWrite(x1190,ArrayBuffer(x1239),ArrayBuffer(Set(b1227)))
+                  Created foreach x1241 = UnrolledForeach(Set(),x1225,Block(Const(())),List(List(b1226)),List(List(b1227)),None)
+                  [x800] 0: Const(())
+                [x801] 0: Const(())
+                Unrolling x802 = FringeDenseStore(x532,x756,x757,x758)
+                x1243 = FringeDenseStore(x906,x1189,x1190,x1191)
+                [x802] 0: x1243
+                Unrolling x804 = UnitPipe(Set(),Block(Const(())),None)
+                x804 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes PartialUnroller(x805,x1193,List(b500),false,true)
+                  Access: x803
+                  Memory: x758
+                  Iterators between x803 and x758: b500
+                  Unroll: Map(b50 -> List(0), b57 -> List(0), b69 -> List(0), b500 -> List(0))
+                  uids:List(List(0))
+                  Unrolling x803 = StreamInRead(x758,Set())
+                    Dispatch: ArrayBuffer(0)
+                    Lane IDs: ArrayBuffer(0)
+                    Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+                    Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+                    Locks: None
+                  laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+                    x1244 = StreamInBankedRead(x1191,ArrayBuffer(Set()))
+                [x804] 0: Const(())
+              Created foreach x1247 = UnrolledForeach(Set(),x1193,Block(Const(())),List(List(b1194)),List(List(b1195)),None)
+              [x805] 0: Const(())
+            [x806] 0: Const(())
+          Created foreach x1249 = UnrolledForeach(Set(b925, b914),x1003,Block(Const(())),List(List(b1004)),List(List(b1005)),None)
+          [x807] 0: Const(())
+        Created foreach x1250 = UnrolledForeach(Set(b914),x923,Block(Const(())),List(List(b924)),List(List(b925)),None)
+        [x808] 0: Const(())
+      Created foreach x1251 = UnrolledForeach(Set(),x912,Block(Const(())),List(List(b913)),List(List(b914)),None)
+      [x809] 0: Const(())
+    Unrolling x811 = FixMul(x530,x531)
+    x1252 = FixMul(x904,x905)
+    [x811] 0: x1252
+    Unrolling x812 = ArrayNew(x811)
+    x1253 = ArrayNew(x1252)
+    [x812] 0: x1253
+    Unrolling x813 = GetMem(x532,x812)
+    x1254 = GetMem(x906,x1253)
+    [x813] 0: x1254
+    Unrolling x829 = MapIndices(x522,Block((b111) => x828))
+      Unrolling x814 = FixDiv(b111,x511)
+      x1255 = FixDiv(b111,x885)
+      [x814] 0: x1255
+      Unrolling x815 = FixMod(b111,x511)
+      x1256 = FixMod(b111,x885)
+      [x815] 0: x1256
+      Unrolling x816 = ArrayApply(x503,Const(2))
+      x1257 = ArrayApply(x877,Const(2))
+      [x816] 0: x1257
+      Unrolling x817 = TextToFix(x816,TRUE,_32,_0)
+      x1258 = TextToFix(x1257,TRUE,_32,_0)
+      [x817] 0: x1258
+      Unrolling x825 = MapIndices(x817,Block((b116) => x824))
+        Unrolling x818 = FixMul(x814,x514)
+        x1259 = FixMul(x1255,x888)
+        [x818] 0: x1259
+        Unrolling x819 = FixAdd(x818,b116)
+        x1260 = FixAdd(x1259,b116)
+        [x819] 0: x1260
+        Unrolling x820 = ArrayApply(x518,x819)
+        x1261 = ArrayApply(x892,x1260)
+        [x820] 0: x1261
+        Unrolling x821 = FixMul(b116,x511)
+        x1262 = FixMul(b116,x885)
+        [x821] 0: x1262
+        Unrolling x822 = FixAdd(x821,x815)
+        x1263 = FixAdd(x1262,x1256)
+        [x822] 0: x1263
+        Unrolling x823 = ArrayApply(x521,x822)
+        x1264 = ArrayApply(x895,x1263)
+        [x823] 0: x1264
+        Unrolling x824 = FixMul(x820,x823)
+        x1265 = FixMul(x1261,x1264)
+        [x824] 0: x1265
+      x1266 = MapIndices(x1258,Block((b116) => x1265))
+      [x825] 0: x1266
+      Unrolling x828 = ArrayReduce(x825,Block((x825,b125) => x826),Block((b126,b127) => x827))
+        Unrolling x826 = ArrayApply(x825,b125)
+        x1267 = ArrayApply(x1266,b125)
+        [x826] 0: x1267
+        Unrolling x827 = FixAdd(b126,b127)
+        x1268 = FixAdd(b126,b127)
+        [x827] 0: x1268
+      x1269 = ArrayReduce(x1266,Block((x1266,b125) => x1267),Block((b126,b127) => x1268))
+      [x828] 0: x1269
+    x1270 = MapIndices(x896,Block((b111) => x1269))
+    [x829] 0: x1270
+    Unrolling x830 = TextConcat(List(Const("Received: "), Const("\n")))
+    x1271 = TextConcat(List(Const("Received: "), Const("\n")))
+    [x830] 0: x1271
+    Unrolling x831 = PrintIf(Set(),x830)
+    x1272 = PrintIf(Set(),x1271)
+    [x831] 0: x1272
+    Unrolling x840 = SeriesForeach(Const(0),x530,Const(1),Block((b135) => Const(())))
+      Unrolling x838 = SeriesForeach(Const(0),x531,Const(1),Block((b136) => Const(())))
+        Unrolling x832 = FixMul(b135,x531)
+        x1273 = FixMul(b135,x905)
+        [x832] 0: x1273
+        Unrolling x833 = FixAdd(x832,b136)
+        x1274 = FixAdd(x1273,b136)
+        [x833] 0: x1274
+        Unrolling x834 = ArrayApply(x812,x833)
+        x1275 = ArrayApply(x1253,x1274)
+        [x834] 0: x1275
+        Unrolling x835 = FixToText(x834,None)
+        x1276 = FixToText(x1275,None)
+        [x835] 0: x1276
+        Unrolling x836 = TextConcat(List(x835, Const("\t")))
+        x1277 = TextConcat(List(x1276, Const("\t")))
+        [x836] 0: x1277
+        Unrolling x837 = PrintIf(Set(),x836)
+        x1278 = PrintIf(Set(),x1277)
+        [x837] 0: x1278
+      x1279 = SeriesForeach(Const(0),x905,Const(1),Block((b136) => Const(())))
+      [x838] 0: x1279
+      Unrolling x839 = PrintIf(Set(),Const("\n"))
+      x1280 = PrintIf(Set(),Const("\n"))
+      [x839] 0: x1280
+    x1281 = SeriesForeach(Const(0),x904,Const(1),Block((b135) => Const(())))
+    [x840] 0: x1281
+    Unrolling x841 = TextConcat(List(Const("Wanted: "), Const("\n")))
+    x1282 = TextConcat(List(Const("Wanted: "), Const("\n")))
+    [x841] 0: x1282
+    Unrolling x842 = PrintIf(Set(),x841)
+    x1283 = PrintIf(Set(),x1282)
+    [x842] 0: x1283
+    Unrolling x851 = SeriesForeach(Const(0),x508,Const(1),Block((b148) => Const(())))
+      Unrolling x849 = SeriesForeach(Const(0),x511,Const(1),Block((b149) => Const(())))
+        Unrolling x843 = FixMul(b148,x511)
+        x1284 = FixMul(b148,x885)
+        [x843] 0: x1284
+        Unrolling x844 = FixAdd(x843,b149)
+        x1285 = FixAdd(x1284,b149)
+        [x844] 0: x1285
+        Unrolling x845 = ArrayApply(x829,x844)
+        x1286 = ArrayApply(x1270,x1285)
+        [x845] 0: x1286
+        Unrolling x846 = FixToText(x845,None)
+        x1287 = FixToText(x1286,None)
+        [x846] 0: x1287
+        Unrolling x847 = TextConcat(List(x846, Const("\t")))
+        x1288 = TextConcat(List(x1287, Const("\t")))
+        [x847] 0: x1288
+        Unrolling x848 = PrintIf(Set(),x847)
+        x1289 = PrintIf(Set(),x1288)
+        [x848] 0: x1289
+      x1290 = SeriesForeach(Const(0),x885,Const(1),Block((b149) => Const(())))
+      [x849] 0: x1290
+      Unrolling x850 = PrintIf(Set(),Const("\n"))
+      x1291 = PrintIf(Set(),Const("\n"))
+      [x850] 0: x1291
+    x1292 = SeriesForeach(Const(0),x882,Const(1),Block((b148) => Const(())))
+    [x851] 0: x1292
+    Unrolling x855 = ArrayZip(x812,x829,Block((x812,b159) => x852),Block((x829,b159) => x853),Block((x852,x853) => x854))
+      Unrolling x852 = ArrayApply(x812,b159)
+      x1293 = ArrayApply(x1253,b159)
+      [x852] 0: x1293
+      Unrolling x853 = ArrayApply(x829,b159)
+      x1294 = ArrayApply(x1270,b159)
+      [x853] 0: x1294
+      Unrolling x854 = FixEql(x852,x853)
+      x1295 = FixEql(x1293,x1294)
+      [x854] 0: x1295
+    x1296 = ArrayZip(x1253,x1270,Block((x1253,b159) => x1293),Block((x1270,b159) => x1294),Block((x1293,x1294) => x1295))
+    [x855] 0: x1296
+    Unrolling x858 = ArrayReduce(x855,Block((x855,b165) => x856),Block((b166,b167) => x857))
+      Unrolling x856 = ArrayApply(x855,b165)
+      x1297 = ArrayApply(x1296,b165)
+      [x856] 0: x1297
+      Unrolling x857 = And(b166,b167)
+      x1298 = And(b166,b167)
+      [x857] 0: x1298
+    x1299 = ArrayReduce(x1296,Block((x1296,b165) => x1297),Block((b166,b167) => x1298))
+    [x858] 0: x1299
+    Unrolling x859 = BitToText(x858)
+    x1300 = BitToText(x1299)
+    [x859] 0: x1300
+    Unrolling x860 = TextConcat(List(Const("Pass? "), x859))
+    x1301 = TextConcat(List(Const("Pass? "), x1300))
+    [x860] 0: x1301
+    Unrolling x861 = TextConcat(List(x860, Const("\n")))
+    x1302 = TextConcat(List(x1301, Const("\n")))
+    [x861] 0: x1302
+    Unrolling x862 = PrintIf(Set(),x861)
+    x1303 = PrintIf(Set(),x1302)
+    [x862] 0: x1303
+    Unrolling x863 = AssertIf(Set(),x858,Some(Const("Lab2GEMM.scala:75:12: Assertion failure")))
+    x1304 = AssertIf(Set(),x1299,Some(Const("Lab2GEMM.scala:75:12: Assertion failure")))
+    [x863] 0: x1304

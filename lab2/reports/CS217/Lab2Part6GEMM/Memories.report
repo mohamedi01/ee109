@@ -1,0 +1,2437 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 4.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: x935
+Type: StreamOut[BurstCmd]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x935 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x961 = StreamOutBankedWrite(x935,ArrayBuffer(x959),ArrayBuffer(Set(x1818, x1819))) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x964: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+  x961: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1088
+Type: StreamOut[BurstCmd]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1088 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1114 = StreamOutBankedWrite(x1088,ArrayBuffer(x1112),ArrayBuffer(Set(x1851, x1850))) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1117: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+  x1114: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: tileA_sram_0 (x934)
+Type: SRAM2[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:118:41
+Src:                  val tileA_sram = SRAM[T](tileM, tileK)
+---------------------------------------------------------------------
+Symbol:     x934 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    2
+     Padding:  List(0, 0)
+     Accum:    None
+     Banks:    4, 1 <Hierarchical>
+       Dims {0}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+       Dims {1}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x999 = SRAMBankedWrite(x934,Vector(x1824),Vector(List(x1826, Const(0))),Vector(x998),Vector(Set(x1828, x1827, x1825))) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1601 = SRAMBankedRead(x934,Vector(List(Const(3), Const(0))),Vector(x1600),Vector(Set(x2154, x2150, x2153, x2149, x2151, x2152)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (2)>
+
+             x1236 = SRAMBankedRead(x934,Vector(List(Const(0), Const(0))),Vector(x1235),Vector(Set(x1892, x1890, x1889, x1894, x1893, x1891)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x1510 = SRAMBankedRead(x934,Vector(List(Const(2), Const(0))),Vector(x1509),Vector(Set(x2094, x2090, x2093, x2089, x2092, x2091)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (3)>
+
+             x1624 = SRAMBankedRead(x934,Vector(List(Const(3), Const(0))),Vector(x1623),Vector(Set(x2173, x2169, x2172, x2171, x2174, x2170)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (3)>
+
+             x1441 = SRAMBankedRead(x934,Vector(List(Const(2), Const(0))),Vector(x1440),Vector(Set(x2031, x2034, x2032, x2033, x2029, x2030)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1327 = SRAMBankedRead(x934,Vector(List(Const(1), Const(0))),Vector(x1326),Vector(Set(x1950, x1954, x1951, x1953, x1952, x1949)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1282 = SRAMBankedRead(x934,Vector(List(Const(0), Const(0))),Vector(x1281),Vector(Set(x1931, x1932, x1929, x1933, x1934, x1930)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (3)>
+
+             x1555 = SRAMBankedRead(x934,Vector(List(Const(3), Const(0))),Vector(x1554),Vector(Set(x2109, x2114, x2112, x2111, x2113, x2110)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (0)>
+
+             x1396 = SRAMBankedRead(x934,Vector(List(Const(1), Const(0))),Vector(x1395),Vector(Set(x2014, x2010, x2011, x2012, x2013, x2009)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (3)>
+
+             x1350 = SRAMBankedRead(x934,Vector(List(Const(1), Const(0))),Vector(x1349),Vector(Set(x1971, x1970, x1974, x1969, x1973, x1972)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (1)>
+
+             x1578 = SRAMBankedRead(x934,Vector(List(Const(3), Const(0))),Vector(x1577),Vector(Set(x2131, x2133, x2132, x2134, x2129, x2130)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (1)>
+
+             x1213 = SRAMBankedRead(x934,Vector(List(Const(0), Const(0))),Vector(x1212),Vector(Set(x1872, x1871, x1874, x1873, x1869, x1870)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1373 = SRAMBankedRead(x934,Vector(List(Const(1), Const(0))),Vector(x1372),Vector(Set(x1992, x1991, x1993, x1990, x1994, x1989)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (2)>
+
+             x1487 = SRAMBankedRead(x934,Vector(List(Const(2), Const(0))),Vector(x1486),Vector(Set(x2072, x2073, x2069, x2071, x2070, x2074)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (2)>
+
+             x1464 = SRAMBankedRead(x934,Vector(List(Const(2), Const(0))),Vector(x1463),Vector(Set(x2049, x2053, x2052, x2051, x2054, x2050)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (1)>
+
+             x1259 = SRAMBankedRead(x934,Vector(List(Const(0), Const(0))),Vector(x1258),Vector(Set(x1914, x1911, x1910, x1909, x1913, x1912)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:75)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1703: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1002: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1000: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x999: SRAMBankedWrite
+  x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+        x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+          x1293: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+            x1223: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1213: SRAMBankedRead
+            x1246: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1236: SRAMBankedRead
+            x1269: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1259: SRAMBankedRead
+            x1292: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1282: SRAMBankedRead
+        x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+          x1407: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+            x1337: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1327: SRAMBankedRead
+            x1360: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1350: SRAMBankedRead
+            x1383: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1373: SRAMBankedRead
+            x1406: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1396: SRAMBankedRead
+        x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+          x1521: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+            x1451: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1441: SRAMBankedRead
+            x1474: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1464: SRAMBankedRead
+            x1497: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1487: SRAMBankedRead
+            x1520: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1510: SRAMBankedRead
+        x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+          x1635: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+            x1565: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1555: SRAMBankedRead
+            x1588: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1578: SRAMBankedRead
+            x1611: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1601: SRAMBankedRead
+            x1634: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+              x1624: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: K (x880)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:91:18
+Src:      val K = ArgIn[Int]
+---------------------------------------------------------------------
+Symbol:     x880 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x889 = SetReg(x880,x888) {}
+             setArg(K,args(2).to[Int]) (Lab2GEMM.scala:94:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1758 = RegRead(x880) {}
+             Foreach(K by tileK){kk => (Lab2GEMM.scala:114:17)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x943 = RegRead(x880) {}
+             val a = DRAM[T](M, K) // input matrix 1 (Lab2GEMM.scala:100:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+             x917 = RegRead(x880) {}
+             val numel_k = min(tileK.to[Int], K - kk) (Lab2GEMM.scala:115:46)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x899 = RegRead(x880) {}
+             val a = DRAM[T](M, K) // input matrix 1 (Lab2GEMM.scala:100:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x901 = RegRead(x880) {}
+             val b = DRAM[T](K, N) // input matrix 2 (Lab2GEMM.scala:101:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x937
+Type: StreamIn[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x937 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x993 = StreamInBankedRead(x937,ArrayBuffer(Set(b986, b969))) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1000: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x993: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x936
+Type: FIFO[IssuedCmd]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x936 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x963 = FIFOBankedEnq(x936,ArrayBuffer(x962),ArrayBuffer(Set(Const(true), x1819))) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x973 = FIFOBankedDeq(x936,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1002: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x964: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+    x963: FIFOBankedEnq
+  x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x981: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x973: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x916
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:115:30
+Src:              val numel_k = min(tileK.to[Int], K - kk)(Pass 28)
+---------------------------------------------------------------------
+Symbol:     x916 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x920 = RegWrite(x916,x919,Set()) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1783 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+             x1790 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 3, castgroup: (0), broadcast: (3)>
+
+             x1781 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (0), broadcast: (1)>
+
+             x1786 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 3, castgroup: (0), broadcast: (2)>
+
+             x1776 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (0), broadcast: (0)>
+
+             x1778 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 3, castgroup: (0), broadcast: (0)>
+
+             x1785 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (0), broadcast: (2)>
+
+             x1775 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1788 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (0), broadcast: (3)>
+
+             x1777 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (0), broadcast: (0)>
+
+             x1782 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 3, castgroup: (0), broadcast: (1)>
+
+             x1780 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (0), broadcast: (1)>
+
+             x1779 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x1784 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (0), broadcast: (2)>
+
+             x1787 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (3)>
+
+             x1789 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (0), broadcast: (3)>
+
+             x1765 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x950 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+           - Mux Port #1: 
+             x1764 = RegRead(x916) {}
+             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)(Pass 28) (Lab2GEMM.scala:115:30)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1704: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x921: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x920: RegWrite
+  x1703: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1002: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x964: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+        x950: RegRead
+    x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+      x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+        x1087: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+          x1049: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+            x1764: RegRead
+          x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+            x1293: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+              x1223: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1775: RegRead
+              x1246: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1776: RegRead
+              x1269: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1777: RegRead
+              x1292: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1778: RegRead
+          x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+            x1407: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+              x1337: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1779: RegRead
+              x1360: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1780: RegRead
+              x1383: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1781: RegRead
+              x1406: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1782: RegRead
+          x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+            x1521: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+              x1451: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1783: RegRead
+              x1474: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1784: RegRead
+              x1497: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1785: RegRead
+              x1520: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1786: RegRead
+          x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+            x1635: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+              x1565: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1787: RegRead
+              x1588: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1788: RegRead
+              x1611: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1789: RegRead
+              x1634: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+                x1790: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: N (x879)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:90:18
+Src:      val N = ArgIn[Int]
+---------------------------------------------------------------------
+Symbol:     x879 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x886 = SetReg(x879,x885) {}
+             setArg(N,args(1).to[Int]) (Lab2GEMM.scala:93:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1763 = RegRead(x879) {}
+             Foreach(N by tileN){nn => (Lab2GEMM.scala:120:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (4)>
+
+             x1096 = RegRead(x879) {}
+             val c = DRAM[T](M, N) // an initial matrix for the result (Lab2GEMM.scala:102:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1650 = RegRead(x879) {}
+             val c = DRAM[T](M, N) // an initial matrix for the result (Lab2GEMM.scala:102:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+             x1028 = RegRead(x879) {}
+             val b = DRAM[T](K, N) // input matrix 2 (Lab2GEMM.scala:101:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x1012 = RegRead(x879) {}
+             val numel_n = min(tileN.to[Int], N - nn) (Lab2GEMM.scala:121:54)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (3)>
+
+           - Mux Port #1: 
+             x905 = RegRead(x879) {}
+             val c = DRAM[T](M, N) // an initial matrix for the result (Lab2GEMM.scala:102:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x902 = RegRead(x879) {}
+             val b = DRAM[T](K, N) // input matrix 2 (Lab2GEMM.scala:101:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x971
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x971 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x978 = RegWrite(x971,x977,Set()) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x989 = RegRead(x971) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x981: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x978: RegWrite
+  x1000: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x989: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1020
+Type: StreamOut[BurstCmd]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1020 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1046 = StreamOutBankedWrite(x1020,ArrayBuffer(x1044),ArrayBuffer(Set(x1834, x1835))) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1049: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+  x1046: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: tileC_sram_0 (x1018)
+Type: SRAM2[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:123:45
+Src:                      val tileC_sram = SRAM[T](tileM, tileN).buffer
+---------------------------------------------------------------------
+Symbol:     x1018 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List(0, 0)
+     Accum:    Fold
+     Banks:    4, 4 <Hierarchical>
+       Dims {0}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+       Dims {1}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1155 = SRAMBankedWrite(x1018,Vector(x1856),Vector(List(x1857, x1861)),Vector(x1153),Vector(Set(x1859, x1858, x1860))) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+           - Mux Port #0: 
+             x1405 = SRAMBankedWrite(x1018,Vector(x1403),Vector(List(Const(1), Const(3))),Vector(x2015),Vector(Set(x2020, x2017, x2016, x2019, x2021, x2018))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 7, castgroup: (7), broadcast: (0)>
+
+             x1633 = SRAMBankedWrite(x1018,Vector(x1631),Vector(List(Const(3), Const(3))),Vector(x2178),Vector(Set(x2179, x2181, x2176, x2180, x2175, x2177))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 15, castgroup: (15), broadcast: (0)>
+
+             x1496 = SRAMBankedWrite(x1018,Vector(x1494),Vector(List(Const(2), Const(2))),Vector(x2075),Vector(Set(x2077, x2080, x2076, x2079, x2078, x2081))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 10, castgroup: (10), broadcast: (0)>
+
+             x1291 = SRAMBankedWrite(x1018,Vector(x1289),Vector(List(Const(0), Const(3))),Vector(x1938),Vector(Set(x1939, x1935, x1936, x1937, x1941, x1940))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (0)>
+
+             x1564 = SRAMBankedWrite(x1018,Vector(x1562),Vector(List(Const(3), Const(0))),Vector(x2121),Vector(Set(x2117, x2118, x2115, x2119, x2116, x2120))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 12, castgroup: (12), broadcast: (0)>
+
+             x1245 = SRAMBankedWrite(x1018,Vector(x1243),Vector(List(Const(0), Const(1))),Vector(x1897),Vector(Set(x1899, x1896, x1900, x1895, x1901, x1898))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1610 = SRAMBankedWrite(x1018,Vector(x1608),Vector(List(Const(3), Const(2))),Vector(x2156),Vector(Set(x2158, x2157, x2161, x2160, x2155, x2159))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 14, castgroup: (14), broadcast: (0)>
+
+             x1268 = SRAMBankedWrite(x1018,Vector(x1266),Vector(List(Const(0), Const(2))),Vector(x1915),Vector(Set(x1919, x1921, x1920, x1916, x1918, x1917))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1519 = SRAMBankedWrite(x1018,Vector(x1517),Vector(List(Const(2), Const(3))),Vector(x2100),Vector(Set(x2099, x2097, x2101, x2096, x2098, x2095))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 11, castgroup: (11), broadcast: (0)>
+
+             x1336 = SRAMBankedWrite(x1018,Vector(x1334),Vector(List(Const(1), Const(0))),Vector(x1955),Vector(Set(x1956, x1960, x1959, x1958, x1961, x1957))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 4, castgroup: (4), broadcast: (0)>
+
+             x1359 = SRAMBankedWrite(x1018,Vector(x1357),Vector(List(Const(1), Const(1))),Vector(x1975),Vector(Set(x1978, x1979, x1980, x1981, x1977, x1976))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 5, castgroup: (5), broadcast: (0)>
+
+             x1473 = SRAMBankedWrite(x1018,Vector(x1471),Vector(List(Const(2), Const(1))),Vector(x2059),Vector(Set(x2058, x2061, x2057, x2055, x2060, x2056))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 9, castgroup: (9), broadcast: (0)>
+
+             x1587 = SRAMBankedWrite(x1018,Vector(x1585),Vector(List(Const(3), Const(1))),Vector(x2137),Vector(Set(x2141, x2136, x2140, x2139, x2135, x2138))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 13, castgroup: (13), broadcast: (0)>
+
+             x1450 = SRAMBankedWrite(x1018,Vector(x1448),Vector(List(Const(2), Const(0))),Vector(x2041),Vector(Set(x2035, x2039, x2038, x2037, x2036, x2040))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 8, castgroup: (8), broadcast: (0)>
+
+             x1222 = SRAMBankedWrite(x1018,Vector(x1220),Vector(List(Const(0), Const(0))),Vector(x1879),Vector(Set(x1875, x1878, x1877, x1881, x1876, x1880))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1382 = SRAMBankedWrite(x1018,Vector(x1380),Vector(List(Const(1), Const(2))),Vector(x2000),Vector(Set(x1995, x1999, x1996, x2001, x1997, x1998))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 6, castgroup: (6), broadcast: (0)>
+
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1369 = SRAMBankedRead(x1018,Vector(List(Const(1), Const(2))),Vector(x1987),Vector(Set(x1982, x1988, x1985, x1983, x1984, x1986)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 6, castgroup: (6), broadcast: (0)>
+
+             x1574 = SRAMBankedRead(x1018,Vector(List(Const(3), Const(1))),Vector(x2124),Vector(Set(x2126, x2122, x2125, x2128, x2123, x2127)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 13, castgroup: (13), broadcast: (0)>
+
+             x1209 = SRAMBankedRead(x1018,Vector(List(Const(0), Const(0))),Vector(x1866),Vector(Set(x1867, x1864, x1863, x1868, x1865, x1862)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1460 = SRAMBankedRead(x1018,Vector(List(Const(2), Const(1))),Vector(x2046),Vector(Set(x2042, x2047, x2043, x2048, x2044, x2045)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 9, castgroup: (9), broadcast: (0)>
+
+             x1232 = SRAMBankedRead(x1018,Vector(List(Const(0), Const(1))),Vector(x1884),Vector(Set(x1882, x1887, x1886, x1883, x1888, x1885)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1255 = SRAMBankedRead(x1018,Vector(List(Const(0), Const(2))),Vector(x1902),Vector(Set(x1904, x1907, x1906, x1905, x1903, x1908)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1506 = SRAMBankedRead(x1018,Vector(List(Const(2), Const(3))),Vector(x2087),Vector(Set(x2082, x2083, x2085, x2084, x2086, x2088)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 11, castgroup: (11), broadcast: (0)>
+
+             x1597 = SRAMBankedRead(x1018,Vector(List(Const(3), Const(2))),Vector(x2143),Vector(Set(x2146, x2147, x2144, x2148, x2145, x2142)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 14, castgroup: (14), broadcast: (0)>
+
+             x1392 = SRAMBankedRead(x1018,Vector(List(Const(1), Const(3))),Vector(x2002),Vector(Set(x2007, x2006, x2005, x2004, x2003, x2008)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 7, castgroup: (7), broadcast: (0)>
+
+             x1278 = SRAMBankedRead(x1018,Vector(List(Const(0), Const(3))),Vector(x1925),Vector(Set(x1924, x1922, x1928, x1927, x1926, x1923)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (0)>
+
+             x1483 = SRAMBankedRead(x1018,Vector(List(Const(2), Const(2))),Vector(x2062),Vector(Set(x2067, x2068, x2065, x2064, x2066, x2063)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 10, castgroup: (10), broadcast: (0)>
+
+             x1323 = SRAMBankedRead(x1018,Vector(List(Const(1), Const(0))),Vector(x1942),Vector(Set(x1946, x1943, x1947, x1948, x1944, x1945)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 4, castgroup: (4), broadcast: (0)>
+
+             x1620 = SRAMBankedRead(x1018,Vector(List(Const(3), Const(3))),Vector(x2165),Vector(Set(x2163, x2168, x2164, x2166, x2167, x2162)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 15, castgroup: (15), broadcast: (0)>
+
+             x1346 = SRAMBankedRead(x1018,Vector(List(Const(1), Const(1))),Vector(x1962),Vector(Set(x1967, x1963, x1968, x1964, x1965, x1966)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 5, castgroup: (5), broadcast: (0)>
+
+             x1551 = SRAMBankedRead(x1018,Vector(List(Const(3), Const(0))),Vector(x2108),Vector(Set(x2104, x2105, x2103, x2107, x2102, x2106)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 12, castgroup: (12), broadcast: (0)>
+
+             x1437 = SRAMBankedRead(x1018,Vector(List(Const(2), Const(0))),Vector(x2028),Vector(Set(x2024, x2027, x2023, x2025, x2022, x2026)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:56)
+               Directly Banked: true
+               Port: <offset: 8, castgroup: (8), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1158: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1155: SRAMBankedWrite
+  x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+      x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1293: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1223: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1222: SRAMBankedWrite
+            x1209: SRAMBankedRead
+          x1246: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1232: SRAMBankedRead
+            x1245: SRAMBankedWrite
+          x1269: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1255: SRAMBankedRead
+            x1268: SRAMBankedWrite
+          x1292: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1291: SRAMBankedWrite
+            x1278: SRAMBankedRead
+      x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1407: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1337: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1323: SRAMBankedRead
+            x1336: SRAMBankedWrite
+          x1360: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1359: SRAMBankedWrite
+            x1346: SRAMBankedRead
+          x1383: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1369: SRAMBankedRead
+            x1382: SRAMBankedWrite
+          x1406: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1405: SRAMBankedWrite
+            x1392: SRAMBankedRead
+      x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1521: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1451: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1437: SRAMBankedRead
+            x1450: SRAMBankedWrite
+          x1474: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1460: SRAMBankedRead
+            x1473: SRAMBankedWrite
+          x1497: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1483: SRAMBankedRead
+            x1496: SRAMBankedWrite
+          x1520: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1519: SRAMBankedWrite
+            x1506: SRAMBankedRead
+      x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1635: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1565: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1564: SRAMBankedWrite
+            x1551: SRAMBankedRead
+          x1588: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1587: SRAMBankedWrite
+            x1574: SRAMBankedRead
+          x1611: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1610: SRAMBankedWrite
+            x1597: SRAMBankedRead
+          x1634: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1633: SRAMBankedWrite
+            x1620: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1646
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1646 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1669 = RegWrite(x1646,x1656,Set()) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1678 = RegRead(x1646) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1695: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1672: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1669: RegWrite
+  x1694: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1678: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1641
+Type: StreamIn[Bit]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1641 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1697 = StreamInBankedRead(x1641,ArrayBuffer(Set())) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1699: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1697: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1124
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1124 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1131 = RegWrite(x1124,x1130,Set()) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1142 = RegRead(x1124) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1134: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1131: RegWrite
+  x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1142: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x970
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x970 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x976 = RegWrite(x970,x975,Set()) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x987 = RegRead(x970) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x981: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x976: RegWrite
+  x1000: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x987: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x972
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:119:28
+Src:                  tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)
+---------------------------------------------------------------------
+Symbol:     x972 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x980 = RegWrite(x972,x979,Set()) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1762 = RegRead(x972) {}
+             tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k) (Lab2GEMM.scala:119:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x981: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x980: RegWrite
+  x1000: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1762: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1123
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1123 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1129 = RegWrite(x1123,x1128,Set()) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1140 = RegRead(x1123) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1134: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1129: RegWrite
+  x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1140: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1089
+Type: FIFO[IssuedCmd]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1089 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1116 = FIFOBankedEnq(x1089,ArrayBuffer(x1115),ArrayBuffer(Set(Const(true), x1850))) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1126 = FIFOBankedDeq(x1089,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1158: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x1117: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+    x1116: FIFOBankedEnq
+  x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1134: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1126: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1648
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1648 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1671 = RegWrite(x1648,x1661,Set()) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1792 = RegRead(x1648) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1695: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1672: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1671: RegWrite
+  x1694: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1792: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1090
+Type: StreamIn[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1090 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1146 = StreamInBankedRead(x1090,ArrayBuffer(Set(b1139, b1122))) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x1146: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1022
+Type: StreamIn[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1022 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1078 = StreamInBankedRead(x1022,ArrayBuffer(Set(b1071, b1054))) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1085: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x1078: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1011
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:121:38
+Src:                      val numel_n = min(tileN.to[Int], N - nn)(Pass 28)
+---------------------------------------------------------------------
+Symbol:     x1011 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    4
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1015 = RegWrite(x1011,x1014,Set()) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1103 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x1035 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1773 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (0), broadcast: (0)>
+
+             x1774 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 3, castgroup: (0), broadcast: (0)>
+
+             x1772 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (0), broadcast: (0)>
+
+             x1771 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         3 [Type:WR]:
+         3 [Type:RD]:
+           - Mux Port #0: 
+             x1657 = RegRead(x1011) {}
+             val numel_n = min(tileN.to[Int], N - nn)(Pass 28)(Pass 28) (Lab2GEMM.scala:121:38)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1016: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1015: RegWrite
+  x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1087: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1049: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+        x1035: RegRead
+    x1158: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1117: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+        x1103: RegRead
+  x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+      x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1701: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x1700: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1695: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x1672: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+          x1657: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: M (x878)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:89:18
+Src:      val M = ArgIn[Int]
+---------------------------------------------------------------------
+Symbol:     x878 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x883 = SetReg(x878,x882) {}
+             setArg(M,args(0).to[Int]) (Lab2GEMM.scala:92:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1759 = RegRead(x878) {}
+             Foreach(M by tileM){mm => (Lab2GEMM.scala:116:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x928 = RegRead(x878) {}
+             val numel_m = min(tileM.to[Int], M - mm) (Lab2GEMM.scala:117:50)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x898 = RegRead(x878) {}
+             val a = DRAM[T](M, K) // input matrix 1 (Lab2GEMM.scala:100:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x904 = RegRead(x878) {}
+             val c = DRAM[T](M, N) // an initial matrix for the result (Lab2GEMM.scala:102:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1021
+Type: FIFO[IssuedCmd]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1021 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1048 = FIFOBankedEnq(x1021,ArrayBuffer(x1047),ArrayBuffer(Set(Const(true), x1835))) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1058 = FIFOBankedDeq(x1021,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1087: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x1049: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+    x1048: FIFOBankedEnq
+  x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1066: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1058: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1057
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1057 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1065 = RegWrite(x1057,x1064,Set()) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1766 = RegRead(x1057) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1066: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1065: RegWrite
+  x1085: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1766: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x927
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:117:34
+Src:                  val numel_m = min(tileM.to[Int], M - mm)(Pass 28)
+---------------------------------------------------------------------
+Symbol:     x927 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x931 = RegWrite(x927,x930,Set()) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1760 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #2: 
+             x1761 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1768 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1791 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1770 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x1767 = RegRead(x927) {}
+             val numel_m = min(tileM.to[Int], M - mm)(Pass 28)(Pass 28) (Lab2GEMM.scala:117:34)
+               Directly Banked: false
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1703: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x932: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x931: RegWrite
+  x1002: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x964: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+      x1760: RegRead
+    x1001: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+      x1158: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+        x1117: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+          x1767: RegRead
+        x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1701: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1700: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1640
+Type: StreamOut[Tup2[Fix[TRUE,_24,_8],Bit]]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1640 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1693 = StreamOutBankedWrite(x1640,ArrayBuffer(x1692),ArrayBuffer(Set(x2194))) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1694: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x1693: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1056
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1056 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1063 = RegWrite(x1056,x1062,Set()) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1074 = RegRead(x1056) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1066: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1063: RegWrite
+  x1085: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1074: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1055
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:124:32
+Src:                      tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1055 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1061 = RegWrite(x1055,x1060,Set()) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1072 = RegRead(x1055) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1066: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1061: RegWrite
+  x1085: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1072: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1639
+Type: StreamOut[BurstCmd]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1639 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1668 = StreamOutBankedWrite(x1639,ArrayBuffer(x1666),ArrayBuffer(Set(x2187))) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1672: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1668: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: tileC_sram_1 (x1019)
+Type: SRAM2[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:123:45
+Src:                      val tileC_sram = SRAM[T](tileM, tileN).buffer
+---------------------------------------------------------------------
+Symbol:     x1019 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List(0, 0)
+     Accum:    Fold
+     Banks:    4, 4 <Hierarchical>
+       Dims {0}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+       Dims {1}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1154 = SRAMBankedWrite(x1019,Vector(x1856),Vector(List(x1857, x1861)),Vector(x1153),Vector(Set(x1859, x1858, x1860))) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+           - Mux Port #0: 
+             x1495 = SRAMBankedWrite(x1019,Vector(x1494),Vector(List(Const(2), Const(2))),Vector(x2075),Vector(Set(x2077, x2080, x2076, x2079, x2078, x2081))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 10, castgroup: (10), broadcast: (0)>
+
+             x1518 = SRAMBankedWrite(x1019,Vector(x1517),Vector(List(Const(2), Const(3))),Vector(x2100),Vector(Set(x2099, x2097, x2101, x2096, x2098, x2095))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 11, castgroup: (11), broadcast: (0)>
+
+             x1472 = SRAMBankedWrite(x1019,Vector(x1471),Vector(List(Const(2), Const(1))),Vector(x2059),Vector(Set(x2058, x2061, x2057, x2055, x2060, x2056))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 9, castgroup: (9), broadcast: (0)>
+
+             x1221 = SRAMBankedWrite(x1019,Vector(x1220),Vector(List(Const(0), Const(0))),Vector(x1879),Vector(Set(x1875, x1878, x1877, x1881, x1876, x1880))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1290 = SRAMBankedWrite(x1019,Vector(x1289),Vector(List(Const(0), Const(3))),Vector(x1938),Vector(Set(x1939, x1935, x1936, x1937, x1941, x1940))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (0)>
+
+             x1563 = SRAMBankedWrite(x1019,Vector(x1562),Vector(List(Const(3), Const(0))),Vector(x2121),Vector(Set(x2117, x2118, x2115, x2119, x2116, x2120))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 12, castgroup: (12), broadcast: (0)>
+
+             x1244 = SRAMBankedWrite(x1019,Vector(x1243),Vector(List(Const(0), Const(1))),Vector(x1897),Vector(Set(x1899, x1896, x1900, x1895, x1901, x1898))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1381 = SRAMBankedWrite(x1019,Vector(x1380),Vector(List(Const(1), Const(2))),Vector(x2000),Vector(Set(x1995, x1999, x1996, x2001, x1997, x1998))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 6, castgroup: (6), broadcast: (0)>
+
+             x1335 = SRAMBankedWrite(x1019,Vector(x1334),Vector(List(Const(1), Const(0))),Vector(x1955),Vector(Set(x1956, x1960, x1959, x1958, x1961, x1957))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 4, castgroup: (4), broadcast: (0)>
+
+             x1404 = SRAMBankedWrite(x1019,Vector(x1403),Vector(List(Const(1), Const(3))),Vector(x2015),Vector(Set(x2020, x2017, x2016, x2019, x2021, x2018))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 7, castgroup: (7), broadcast: (0)>
+
+             x1267 = SRAMBankedWrite(x1019,Vector(x1266),Vector(List(Const(0), Const(2))),Vector(x1915),Vector(Set(x1919, x1921, x1920, x1916, x1918, x1917))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1358 = SRAMBankedWrite(x1019,Vector(x1357),Vector(List(Const(1), Const(1))),Vector(x1975),Vector(Set(x1978, x1979, x1980, x1981, x1977, x1976))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 5, castgroup: (5), broadcast: (0)>
+
+             x1586 = SRAMBankedWrite(x1019,Vector(x1585),Vector(List(Const(3), Const(1))),Vector(x2137),Vector(Set(x2141, x2136, x2140, x2139, x2135, x2138))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 13, castgroup: (13), broadcast: (0)>
+
+             x1609 = SRAMBankedWrite(x1019,Vector(x1608),Vector(List(Const(3), Const(2))),Vector(x2156),Vector(Set(x2158, x2157, x2161, x2160, x2155, x2159))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 14, castgroup: (14), broadcast: (0)>
+
+             x1632 = SRAMBankedWrite(x1019,Vector(x1631),Vector(List(Const(3), Const(3))),Vector(x2178),Vector(Set(x2179, x2181, x2176, x2180, x2175, x2177))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 15, castgroup: (15), broadcast: (0)>
+
+             x1449 = SRAMBankedWrite(x1019,Vector(x1448),Vector(List(Const(2), Const(0))),Vector(x2041),Vector(Set(x2035, x2039, x2038, x2037, x2036, x2040))) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:44)
+               Directly Banked: true
+               Port: <offset: 8, castgroup: (8), broadcast: (0)>
+
+         1 [Type:RD]:
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1690 = SRAMBankedRead(x1019,Vector(List(x2189, x2190)),Vector(x1689),Vector(Set(x2192, x2191)),Vec[Fix[TRUE,_24,_8]]) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1158: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1154: SRAMBankedWrite
+  x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+      x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1293: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1223: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1221: SRAMBankedWrite
+          x1246: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1244: SRAMBankedWrite
+          x1269: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1267: SRAMBankedWrite
+          x1292: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1290: SRAMBankedWrite
+      x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1407: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1337: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1335: SRAMBankedWrite
+          x1360: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1358: SRAMBankedWrite
+          x1383: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1381: SRAMBankedWrite
+          x1406: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1404: SRAMBankedWrite
+      x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1521: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1451: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1449: SRAMBankedWrite
+          x1474: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1472: SRAMBankedWrite
+          x1497: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1495: SRAMBankedWrite
+          x1520: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1518: SRAMBankedWrite
+      x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1635: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1565: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1563: SRAMBankedWrite
+          x1588: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1586: SRAMBankedWrite
+          x1611: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1609: SRAMBankedWrite
+          x1634: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1632: SRAMBankedWrite
+  x1701: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x1700: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x1695: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x1694: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1690: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1125
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:125:32
+Src:                      tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
+---------------------------------------------------------------------
+Symbol:     x1125 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1133 = RegWrite(x1125,x1132,Set()) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1769 = RegRead(x1125) {}
+             tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:125:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1157: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x1134: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1133: RegWrite
+  x1156: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1769: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: tileB_sram_0 (x1017)
+Type: SRAM2[Fix[TRUE,_24,_8]]
+Src:  Lab2GEMM.scala:122:45
+Src:                      val tileB_sram = SRAM[T](tileK, tileN)
+---------------------------------------------------------------------
+Symbol:     x1017 = SRAMNew(List(Const(16), Const(16)),SRAM2[Fix[TRUE,_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    2
+     Padding:  List(0, 0)
+     Accum:    None
+     Banks:    1, 4 <Hierarchical>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+       Dims {1}: Cyclic: N=4, B=1, alpha=<1>, P=<4> (30 solutions, 7 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1084 = SRAMBankedWrite(x1017,Vector(x1841),Vector(List(Const(0), x1840)),Vector(x1083),Vector(Set(x1844, x1843, x1842))) {}
+             tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM (Lab2GEMM.scala:124:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1286 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(3))),Vector(x1285),Vector(Set(x1931, x1932, x1929, x1933, x1934, x1930)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (0)>
+
+             x1468 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(1))),Vector(x1467),Vector(Set(x2049, x2053, x2052, x2051, x2054, x2050)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (2)>
+
+             x1605 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(2))),Vector(x1604),Vector(Set(x2154, x2150, x2153, x2149, x2151, x2152)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (3)>
+
+             x1400 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(3))),Vector(x1399),Vector(Set(x2014, x2010, x2011, x2012, x2013, x2009)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (1)>
+
+             x1217 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(0))),Vector(x1216),Vector(Set(x1872, x1871, x1874, x1873, x1869, x1870)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1377 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(2))),Vector(x1376),Vector(Set(x1992, x1991, x1993, x1990, x1994, x1989)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (1)>
+
+             x1240 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(1))),Vector(x1239),Vector(Set(x1892, x1890, x1889, x1894, x1893, x1891)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1445 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(0))),Vector(x1444),Vector(Set(x2031, x2034, x2032, x2033, x2029, x2030)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+             x1582 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(1))),Vector(x1581),Vector(Set(x2131, x2133, x2132, x2134, x2129, x2130)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (3)>
+
+             x1354 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(1))),Vector(x1353),Vector(Set(x1971, x1970, x1974, x1969, x1973, x1972)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 1, castgroup: (1), broadcast: (1)>
+
+             x1514 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(3))),Vector(x1513),Vector(Set(x2094, x2090, x2093, x2089, x2092, x2091)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (2)>
+
+             x1491 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(2))),Vector(x1490),Vector(Set(x2072, x2073, x2069, x2071, x2070, x2074)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (2)>
+
+             x1628 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(3))),Vector(x1627),Vector(Set(x2173, x2169, x2172, x2171, x2174, x2170)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 3, castgroup: (3), broadcast: (3)>
+
+             x1331 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(0))),Vector(x1330),Vector(Set(x1950, x1954, x1951, x1953, x1952, x1949)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x1263 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(2))),Vector(x1262),Vector(Set(x1914, x1911, x1910, x1909, x1913, x1912)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 2, castgroup: (2), broadcast: (0)>
+
+             x1559 = SRAMBankedRead(x1017,Vector(List(Const(0), Const(0))),Vector(x1558),Vector(Set(x2109, x2114, x2112, x2111, x2113, x2110)),Vec[Fix[TRUE,_24,_8]]) {}
+             tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n) (Lab2GEMM.scala:133:94)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (3)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1812: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1811: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1087: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x1086: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1085: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1084: SRAMBankedWrite
+  x1638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x1637: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+      x1294: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1293: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1223: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1217: SRAMBankedRead
+          x1246: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1240: SRAMBankedRead
+          x1269: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1263: SRAMBankedRead
+          x1292: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1286: SRAMBankedRead
+      x1408: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1407: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1337: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1331: SRAMBankedRead
+          x1360: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1354: SRAMBankedRead
+          x1383: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1377: SRAMBankedRead
+          x1406: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1400: SRAMBankedRead
+      x1522: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1521: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1451: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1445: SRAMBankedRead
+          x1474: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1468: SRAMBankedRead
+          x1497: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1491: SRAMBankedRead
+          x1520: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1514: SRAMBankedRead
+      x1636: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x1635: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+          x1565: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1559: SRAMBankedRead
+          x1588: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1582: SRAMBankedRead
+          x1611: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1605: SRAMBankedRead
+          x1634: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x1628: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1647
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2GEMM.scala:137:55
+Src:                      c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
+---------------------------------------------------------------------
+Symbol:     x1647 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1670 = RegWrite(x1647,x1658,Set()) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1680 = RegRead(x1647) {}
+             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM (Lab2GEMM.scala:137:55)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1695: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1672: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1670: RegWrite
+  x1694: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1680: RegRead
+---------------------------------------------------------------------
+
+
+
+

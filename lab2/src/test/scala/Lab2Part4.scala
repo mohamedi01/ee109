@@ -21,7 +21,9 @@ import spatial.dsl._
     setArg(j, ind_j)
 
     Accel {
-      // TODO: Your code here
+      val lut = LUT[Int](M, N)( 1, 2, 3, 4, 5, 6, 7, 8, 9 )
+      val output = lut(i, j) + in
+      out := output
     }
 
     val result = getArg(out)

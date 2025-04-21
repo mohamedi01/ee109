@@ -1,0 +1,1609 @@
+Visiting Block Block(Const(())) [List() => false, List() => false]
+  Visiting Block Block((b16) => x517) [List() => false, List() => false]
+  Visiting Block Block((b24) => x520) [List() => false, List() => false]
+  Visiting Block Block((b31) => Const(0)) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => false, List() => false]
+    Visiting Block Block(Const(())) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x540 = RegRead(x506)
+        x541 = FixSub(x540,b50)
+        x542 = FixMin(Const(16),x541)
+        x543 = RegWrite(x539,x542,Set())
+      Result: 
+        ()
+        x540 = RegRead(x506)
+        x543 = RegWrite(x539,x542,Set())
+      Working on pipeLatencies of result Vector(Const(()), x540, x543), schedule Vector(x540, x541, x542, x543)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x540 = RegRead(x506)
+        x541 = FixSub(x540,b50)
+        x542 = FixMin(Const(16),x541)
+        x543 = RegWrite(x539,x542,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x540
+      cur: x540, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x540 = RegRead(x506)
+      Computing fullDFS: x543
+      Computing fullDFS: x542
+      Computing fullDFS: x541
+      [1.0 = max(0.0) + 1.0] x541 = FixSub(x540,b50)
+      [1.0 = max(1.0) + 0.0] x542 = FixMin(Const(16),x541)
+      [2.0 = max(1.0) + 1.0] x543 = RegWrite(x539,x542,Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [0.0] x540 = RegRead(x506)
+        [1.0] x541 = FixSub(x540,b50)
+        [1.0] x542 = FixMin(Const(16),x541)
+        [2.0] x543 = RegWrite(x539,x542,Set())
+      [0.0] ()
+      [0.0] x540 = RegRead(x506)
+      [1.0] x542 = FixMin(Const(16),x541)
+      [1.0] x541 = FixSub(x540,b50)
+      [2.0] x543 = RegWrite(x539,x542,Set())
+      
+      
+      Sym Delays:
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [0.0 = 1.0 - 1.0]: x541 = FixSub(x540,b50) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x540 = RegRead(x506) [cycle = false]
+        [1.0 = 1.0 - 0.0]: x542 = FixMin(Const(16),x541) [cycle = false]
+        [1.0 = 2.0 - 1.0]: x543 = RegWrite(x539,x542,Set()) [cycle = false]
+      Visiting Block Block(Const(())) [List() => false, List() => false]
+        Visiting Block Block(Const(())) [List() => true, List() => false]
+        Retiming block Block(Const(())):
+          x549 = RegRead(x504)
+          x550 = FixSub(x549,b57)
+          x551 = FixMin(Const(16),x550)
+          x552 = RegWrite(x548,x551,Set())
+        Result: 
+          ()
+          x549 = RegRead(x504)
+          x552 = RegWrite(x548,x551,Set())
+        Working on pipeLatencies of result Vector(Const(()), x549, x552), schedule Vector(x549, x550, x551, x552)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        ----------------------------------
+        Computing pipeLatencies for scope:
+          x549 = RegRead(x504)
+          x550 = FixSub(x549,b57)
+          x551 = FixMin(Const(16),x550)
+          x552 = RegWrite(x548,x551,Set())
+        Computing fullDFS: Const(())
+        Computing fullDFS: x549
+        cur: x549, inReduce: false, latency: 0.0
+        [0.0 = max(0) + 0.0] x549 = RegRead(x504)
+        Computing fullDFS: x552
+        Computing fullDFS: x551
+        Computing fullDFS: x550
+        [1.0 = max(0.0) + 1.0] x550 = FixSub(x549,b57)
+        [1.0 = max(1.0) + 0.0] x551 = FixMin(Const(16),x550)
+        [2.0 = max(1.0) + 1.0] x552 = RegWrite(x548,x551,Set())
+        Cycles: Map()
+          Schedule after pipeLatencies calculation:
+          [0.0] x549 = RegRead(x504)
+          [1.0] x550 = FixSub(x549,b57)
+          [1.0] x551 = FixMin(Const(16),x550)
+          [2.0] x552 = RegWrite(x548,x551,Set())
+        [0.0] ()
+        [0.0] x549 = RegRead(x504)
+        [1.0] x550 = FixSub(x549,b57)
+        [1.0] x551 = FixMin(Const(16),x550)
+        [2.0] x552 = RegWrite(x548,x551,Set())
+        
+        
+        Sym Delays:
+          [0.0 = 0.0 - 0.0]: () [cycle = false]
+          [0.0 = 1.0 - 1.0]: x550 = FixSub(x549,b57) [cycle = false]
+          [0.0 = 0.0 - 0.0]: x549 = RegRead(x504) [cycle = false]
+          [1.0 = 1.0 - 0.0]: x551 = FixMin(Const(16),x550) [cycle = false]
+          [1.0 = 2.0 - 1.0]: x552 = RegWrite(x548,x551,Set()) [cycle = false]
+        Visiting Block Block(Const(())) [List() => false, List() => false]
+          Visiting Block Block(Const(())) [List() => true, List() => false]
+          Retiming block Block(Const(())):
+            x561 = FixAdd(b57,b473)
+            x562 = RegRead(x506)
+            x563 = FixMul(x561,x562)
+            x564 = FixAdd(x563,b50)
+            x565 = FixDivSRA(x564,Const(4))
+            x566 = FixSLA(x565,Const(4))
+            x567 = FixSLA(x566,Const(2))
+            x568 = FixSub(x564,x566)
+            x569 = RegRead(x539)
+            x570 = FixAdd(x568,x569)
+            x571 = FixAdd(x570,Const(15))
+            x572 = FixDivSRA(x571,Const(4))
+            x573 = FixSLA(x572,Const(4))
+            x574 = FixSLA(x573,Const(2))
+            x575 = FixToFix(x567,TRUE,_64,_0)
+            x576 = DRAMAddress(x526)
+            x577 = FixAdd(x575,x576)
+            x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+            x579 = DRAMIsAlloc(x526)
+            x580 = StreamOutWrite(x556,x578,Set(x579))
+            x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+            x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          Result: 
+            ()
+            x562 = RegRead(x506)
+            x569 = RegRead(x539)
+            x576 = DRAMAddress(x526)
+            x579 = DRAMIsAlloc(x526)
+            x580 = StreamOutWrite(x556,x578,Set(x579))
+            x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          Working on pipeLatencies of result Vector(Const(()), x562, x569, x576, x579, x580, x582), schedule Vector(x561, x562, x563, x564, x565, x566, x567, x568, x569, x570, x571, x572, x573, x574, x575, x576, x577, x578, x579, x580, x581, x582)
+          Memories with both reads and writes in this scope: Set()
+          Done finding cycles: Vector(), Map()
+          ----------------------------------
+          Computing pipeLatencies for scope:
+            x561 = FixAdd(b57,b473)
+            x562 = RegRead(x506)
+            x563 = FixMul(x561,x562)
+            x564 = FixAdd(x563,b50)
+            x565 = FixDivSRA(x564,Const(4))
+            x566 = FixSLA(x565,Const(4))
+            x567 = FixSLA(x566,Const(2))
+            x568 = FixSub(x564,x566)
+            x569 = RegRead(x539)
+            x570 = FixAdd(x568,x569)
+            x571 = FixAdd(x570,Const(15))
+            x572 = FixDivSRA(x571,Const(4))
+            x573 = FixSLA(x572,Const(4))
+            x574 = FixSLA(x573,Const(2))
+            x575 = FixToFix(x567,TRUE,_64,_0)
+            x576 = DRAMAddress(x526)
+            x577 = FixAdd(x575,x576)
+            x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+            x579 = DRAMIsAlloc(x526)
+            x580 = StreamOutWrite(x556,x578,Set(x579))
+            x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+            x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          Computing fullDFS: Const(())
+          Computing fullDFS: x562
+          cur: x562, inReduce: false, latency: 0.0
+          [0.0 = max(0) + 0.0] x562 = RegRead(x506)
+          Computing fullDFS: x569
+          cur: x569, inReduce: false, latency: 0.0
+          [0.0 = max(0) + 0.0] x569 = RegRead(x539)
+          Computing fullDFS: x576
+          cur: x576, inReduce: false, latency: 0.0
+          [0.0 = max(0) + 0.0] x576 = DRAMAddress(x526)
+          Computing fullDFS: x579
+          cur: x579, inReduce: false, latency: 0.0
+          [0.0 = max(0) + 0.0] x579 = DRAMIsAlloc(x526)
+          Computing fullDFS: x580
+          Computing fullDFS: x578
+          Computing fullDFS: x574
+          Computing fullDFS: x573
+          Computing fullDFS: x572
+          Computing fullDFS: x571
+          Computing fullDFS: x570
+          Computing fullDFS: x568
+          Computing fullDFS: x564
+          Computing fullDFS: x563
+          Computing fullDFS: x561
+          cur: x561, inReduce: false, latency: 1.0
+          [1.0 = max(0) + 1.0] x561 = FixAdd(b57,b473)
+          [7.0 = max(1.0, 0.0) + 6.0] x563 = FixMul(x561,x562)
+          [8.0 = max(7.0) + 1.0] x564 = FixAdd(x563,b50)
+          Computing fullDFS: x566
+          Computing fullDFS: x565
+          [8.2 = max(8.0) + 0.2] x565 = FixDivSRA(x564,Const(4))
+          [8.399999999999999 = max(8.2) + 0.2] x566 = FixSLA(x565,Const(4))
+          [9.4 = max(8.0, 8.4) + 1.0] x568 = FixSub(x564,x566)
+          [10.4 = max(9.4, 0.0) + 1.0] x570 = FixAdd(x568,x569)
+          [11.4 = max(10.4) + 1.0] x571 = FixAdd(x570,Const(15))
+          [11.6 = max(11.4) + 0.2] x572 = FixDivSRA(x571,Const(4))
+          [11.799999999999999 = max(11.6) + 0.2] x573 = FixSLA(x572,Const(4))
+          [12.0 = max(11.8) + 0.2] x574 = FixSLA(x573,Const(2))
+          Computing fullDFS: x577
+          Computing fullDFS: x575
+          Computing fullDFS: x567
+          [8.6 = max(8.4) + 0.2] x567 = FixSLA(x566,Const(2))
+          [8.6 = max(8.6) + 0.0] x575 = FixToFix(x567,TRUE,_64,_0)
+          [10.6 = max(8.6, 0.0) + 2.0] x577 = FixAdd(x575,x576)
+          [12.0 = max(12.0, 10.6) + 0.0] x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+          [12.0 = max(12.0, 0.0) + 0.0] x580 = StreamOutWrite(x556,x578,Set(x579))
+          Computing fullDFS: x582
+          Computing fullDFS: x581
+          [11.8 = max(9.4, 10.4, 11.8) + 0.0] x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+          [12.8 = max(11.8) + 1.0] x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          Cycles: Map()
+            Schedule after pipeLatencies calculation:
+            [0.0] x562 = RegRead(x506)
+            [0.0] x569 = RegRead(x539)
+            [0.0] x576 = DRAMAddress(x526)
+            [0.0] x579 = DRAMIsAlloc(x526)
+            [1.0] x561 = FixAdd(b57,b473)
+            [7.0] x563 = FixMul(x561,x562)
+            [8.0] x564 = FixAdd(x563,b50)
+            [8.2] x565 = FixDivSRA(x564,Const(4))
+            [8.4] x566 = FixSLA(x565,Const(4))
+            [8.6] x567 = FixSLA(x566,Const(2))
+            [8.6] x575 = FixToFix(x567,TRUE,_64,_0)
+            [9.4] x568 = FixSub(x564,x566)
+            [10.4] x570 = FixAdd(x568,x569)
+            [10.6] x577 = FixAdd(x575,x576)
+            [11.4] x571 = FixAdd(x570,Const(15))
+            [11.6] x572 = FixDivSRA(x571,Const(4))
+            [11.8] x573 = FixSLA(x572,Const(4))
+            [11.8] x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+            [12.0] x574 = FixSLA(x573,Const(2))
+            [12.0] x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+            [12.0] x580 = StreamOutWrite(x556,x578,Set(x579))
+            [12.8] x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          [0.0] ()
+          [0.0] x569 = RegRead(x539)
+          [0.0] x562 = RegRead(x506)
+          [0.0] x579 = DRAMIsAlloc(x526)
+          [0.0] x576 = DRAMAddress(x526)
+          [1.0] x561 = FixAdd(b57,b473)
+          [7.0] x563 = FixMul(x561,x562)
+          [8.0] x564 = FixAdd(x563,b50)
+          [8.2] x565 = FixDivSRA(x564,Const(4))
+          [8.4] x566 = FixSLA(x565,Const(4))
+          [8.6] x567 = FixSLA(x566,Const(2))
+          [8.6] x575 = FixToFix(x567,TRUE,_64,_0)
+          [9.4] x568 = FixSub(x564,x566)
+          [10.4] x570 = FixAdd(x568,x569)
+          [10.6] x577 = FixAdd(x575,x576)
+          [11.4] x571 = FixAdd(x570,Const(15))
+          [11.6] x572 = FixDivSRA(x571,Const(4))
+          [11.8] x573 = FixSLA(x572,Const(4))
+          [11.8] x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570)))
+          [12.0] x574 = FixSLA(x573,Const(2))
+          [12.0] x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true))))
+          [12.0] x580 = StreamOutWrite(x556,x578,Set(x579))
+          [12.8] x582 = FIFOEnq(x557,x581,Set(Const(true)))
+          
+          
+          Sym Delays:
+            [0.0 = 0.0 - 0.0]: () [cycle = false]
+            [0.0 = 1.0 - 1.0]: x561 = FixAdd(b57,b473) [cycle = false]
+            [0.0 = 0.0 - 0.0]: x569 = RegRead(x539) [cycle = false]
+            [0.0 = 0.0 - 0.0]: x562 = RegRead(x506) [cycle = false]
+            [0.0 = 0.0 - 0.0]: x579 = DRAMIsAlloc(x526) [cycle = false]
+            [0.0 = 0.0 - 0.0]: x576 = DRAMAddress(x526) [cycle = false]
+            [1.0 = 7.0 - 6.0]: x563 = FixMul(x561,x562) [cycle = false]
+            [7.0 = 8.0 - 1.0]: x564 = FixAdd(x563,b50) [cycle = false]
+            [8.0 = 8.2 - 0.2]: x565 = FixDivSRA(x564,Const(4)) [cycle = false]
+            [8.2 = 8.4 - 0.2]: x566 = FixSLA(x565,Const(4)) [cycle = false]
+            [8.4 = 8.6 - 0.2]: x567 = FixSLA(x566,Const(2)) [cycle = false]
+            [8.4 = 9.4 - 1.0]: x568 = FixSub(x564,x566) [cycle = false]
+            [8.6 = 10.6 - 2.0]: x577 = FixAdd(x575,x576) [cycle = false]
+            [8.6 = 8.6 - 0.0]: x575 = FixToFix(x567,TRUE,_64,_0) [cycle = false]
+            [9.4 = 10.4 - 1.0]: x570 = FixAdd(x568,x569) [cycle = false]
+            [10.4 = 11.4 - 1.0]: x571 = FixAdd(x570,Const(15)) [cycle = false]
+            [11.4 = 11.6 - 0.2]: x572 = FixDivSRA(x571,Const(4)) [cycle = false]
+            [11.6 = 11.8 - 0.2]: x573 = FixSLA(x572,Const(4)) [cycle = false]
+            [11.8 = 12.8 - 1.0]: x582 = FIFOEnq(x557,x581,Set(Const(true))) [cycle = false]
+            [11.8 = 12.0 - 0.2]: x574 = FixSLA(x573,Const(2)) [cycle = false]
+            [11.8 = 11.8 - 0.0]: x581 = SimpleStruct(ArrayBuffer((size,x573), (start,x568), (end,x570))) [cycle = false]
+            [12.0 = 12.0 - 0.0]: x578 = SimpleStruct(ArrayBuffer((offset,x577), (size,x574), (isLoad,Const(true)))) [cycle = false]
+            [12.0 = 12.0 - 0.0]: x580 = StreamOutWrite(x556,x578,Set(x579)) [cycle = false]
+          Visiting Block Block(Const(())) [List() => false, List() => false]
+            Visiting Block Block(Const(())) [List() => true, List() => false]
+            Retiming block Block(Const(())):
+              x590 = FIFODeq(x557,Set(Const(true)))
+              x591 = FieldApply(x590,start)
+              x592 = RegWrite(x587,x591,Set())
+              x593 = FieldApply(x590,end)
+              x594 = RegWrite(x588,x593,Set())
+              x595 = FieldApply(x590,size)
+              x596 = RegWrite(x589,x595,Set())
+            Result: 
+              ()
+              x590 = FIFODeq(x557,Set(Const(true)))
+              x592 = RegWrite(x587,x591,Set())
+              x594 = RegWrite(x588,x593,Set())
+              x596 = RegWrite(x589,x595,Set())
+            Working on pipeLatencies of result Vector(Const(()), x590, x592, x594, x596), schedule Vector(x590, x591, x592, x593, x594, x595, x596)
+            Memories with both reads and writes in this scope: Set(x557)
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x590 = FIFODeq(x557,Set(Const(true)))
+              x591 = FieldApply(x590,start)
+              x592 = RegWrite(x587,x591,Set())
+              x593 = FieldApply(x590,end)
+              x594 = RegWrite(x588,x593,Set())
+              x595 = FieldApply(x590,size)
+              x596 = RegWrite(x589,x595,Set())
+            Computing fullDFS: Const(())
+            Computing fullDFS: x590
+            cur: x590, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x590 = FIFODeq(x557,Set(Const(true)))
+            Computing fullDFS: x592
+            Computing fullDFS: x591
+            [0.0 = max(0.0) + 0.0] x591 = FieldApply(x590,start)
+            [1.0 = max(0.0) + 1.0] x592 = RegWrite(x587,x591,Set())
+            Computing fullDFS: x594
+            Computing fullDFS: x593
+            [0.0 = max(0.0) + 0.0] x593 = FieldApply(x590,end)
+            [1.0 = max(0.0) + 1.0] x594 = RegWrite(x588,x593,Set())
+            Computing fullDFS: x596
+            Computing fullDFS: x595
+            [0.0 = max(0.0) + 0.0] x595 = FieldApply(x590,size)
+            [1.0 = max(0.0) + 1.0] x596 = RegWrite(x589,x595,Set())
+            Cycles: Map()
+            pseudo cycles for x557:
+            Multiplexed accesses for memory x557: 
+              x590 = FIFODeq(x557,Set(Const(true)))
+            Multiplexed accesses for memory x557: 
+              x590 = FIFODeq(x557,Set(Const(true)))
+              Schedule after pipeLatencies calculation:
+              [0.0] x590 = FIFODeq(x557,Set(Const(true)))
+              [0.0] x591 = FieldApply(x590,start)
+              [0.0] x593 = FieldApply(x590,end)
+              [0.0] x595 = FieldApply(x590,size)
+              [1.0] x592 = RegWrite(x587,x591,Set())
+              [1.0] x594 = RegWrite(x588,x593,Set())
+              [1.0] x596 = RegWrite(x589,x595,Set())
+            [0.0] ()
+            [0.0] x591 = FieldApply(x590,start)
+            [0.0] x593 = FieldApply(x590,end)
+            [0.0] x590 = FIFODeq(x557,Set(Const(true)))
+            [0.0] x595 = FieldApply(x590,size)
+            [1.0] x594 = RegWrite(x588,x593,Set())
+            [1.0] x596 = RegWrite(x589,x595,Set())
+            [1.0] x592 = RegWrite(x587,x591,Set())
+            
+            
+            Sym Delays:
+              [0.0 = 0.0 - 0.0]: () [cycle = false]
+              [0.0 = 0.0 - 0.0]: x591 = FieldApply(x590,start) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x593 = FieldApply(x590,end) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x590 = FIFODeq(x557,Set(Const(true))) [cycle = false]
+              [0.0 = 1.0 - 1.0]: x594 = RegWrite(x588,x593,Set()) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x595 = FieldApply(x590,size) [cycle = false]
+              [0.0 = 1.0 - 1.0]: x596 = RegWrite(x589,x595,Set()) [cycle = false]
+              [0.0 = 1.0 - 1.0]: x592 = RegWrite(x587,x591,Set()) [cycle = false]
+            Visiting Block Block(Const(())) [List() => true, List() => false]
+            Retiming block Block(Const(())):
+              x601 = RegRead(x587)
+              x602 = FixLeq(x601,b223)
+              x603 = RegRead(x588)
+              x604 = FixLst(b223,x603)
+              x605 = And(x602,x604)
+              x606 = FixSub(b223,x601)
+              x607 = StreamInRead(x558,Set())
+              x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            Result: 
+              ()
+              x601 = RegRead(x587)
+              x603 = RegRead(x588)
+              x607 = StreamInRead(x558,Set())
+              x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            Working on pipeLatencies of result Vector(Const(()), x601, x603, x607, x608), schedule Vector(x601, x602, x603, x604, x605, x606, x607, x608)
+            Memories with both reads and writes in this scope: Set(x558)
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x601 = RegRead(x587)
+              x602 = FixLeq(x601,b223)
+              x603 = RegRead(x588)
+              x604 = FixLst(b223,x603)
+              x605 = And(x602,x604)
+              x606 = FixSub(b223,x601)
+              x607 = StreamInRead(x558,Set())
+              x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x601
+            cur: x601, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x601 = RegRead(x587)
+            Computing fullDFS: x603
+            cur: x603, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x603 = RegRead(x588)
+            Computing fullDFS: x607
+            cur: x607, inReduce: false, latency: 1.0
+            [1.0 = max(0) + 1.0] x607 = StreamInRead(x558,Set())
+            Computing fullDFS: x608
+            Computing fullDFS: x605
+            Computing fullDFS: x602
+            [0.4 = max(0.0) + 0.4] x602 = FixLeq(x601,b223)
+            Computing fullDFS: x604
+            [0.4 = max(0.0) + 0.4] x604 = FixLst(b223,x603)
+            [0.6000000000000001 = max(0.4, 0.4) + 0.2] x605 = And(x602,x604)
+            Computing fullDFS: x606
+            [1.0 = max(0.0) + 1.0] x606 = FixSub(b223,x601)
+            [4.0 = max(0.6, 1.0, 1.0) + 3.0] x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            Cycles: Map()
+            pseudo cycles for x558:
+            Multiplexed accesses for memory x558: 
+              x607 = StreamInRead(x558,Set())
+            Multiplexed accesses for memory x558: 
+              x607 = StreamInRead(x558,Set())
+              Schedule after pipeLatencies calculation:
+              [0.0] x601 = RegRead(x587)
+              [0.0] x603 = RegRead(x588)
+              [0.4] x602 = FixLeq(x601,b223)
+              [0.4] x604 = FixLst(b223,x603)
+              [0.6] x605 = And(x602,x604)
+              [1.0] x606 = FixSub(b223,x601)
+              [1.0] x607 = StreamInRead(x558,Set())
+              [4.0] x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            [0.0] ()
+            [0.0] x601 = RegRead(x587)
+            [0.0] x603 = RegRead(x588)
+            [0.4] x602 = FixLeq(x601,b223)
+            [0.4] x604 = FixLst(b223,x603)
+            [0.6] x605 = And(x602,x604)
+            [1.0] x606 = FixSub(b223,x601)
+            [1.0] x607 = StreamInRead(x558,Set())
+            [4.0] x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605))
+            
+            
+            Sym Delays:
+              [0.0 = 0.0 - 0.0]: () [cycle = false]
+              [0.0 = 1.0 - 1.0]: x606 = FixSub(b223,x601) [cycle = false]
+              [0.0 = 0.4 - 0.4]: x602 = FixLeq(x601,b223) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x601 = RegRead(x587) [cycle = false]
+              [0.0 = 0.4 - 0.4]: x604 = FixLst(b223,x603) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x603 = RegRead(x588) [cycle = false]
+              [0.0 = 1.0 - 1.0]: x607 = StreamInRead(x558,Set()) [cycle = false]
+              [0.4 = 0.6 - 0.2]: x605 = And(x602,x604) [cycle = false]
+              [1.0 = 4.0 - 3.0]: x608 = SRAMWrite(x554,x607,List(b477, x606),Set(x605)) [cycle = false]
+        Visiting Block Block(Const(())) [List() => false, List() => false]
+          Visiting Block Block(Const(())) [List() => true, List() => false]
+          Retiming block Block(Const(())):
+            x616 = RegRead(x505)
+            x617 = FixSub(x616,b69)
+            x618 = FixMin(Const(16),x617)
+            x619 = RegWrite(x615,x618,Set())
+          Result: 
+            ()
+            x616 = RegRead(x505)
+            x619 = RegWrite(x615,x618,Set())
+          Working on pipeLatencies of result Vector(Const(()), x616, x619), schedule Vector(x616, x617, x618, x619)
+          Memories with both reads and writes in this scope: Set()
+          Done finding cycles: Vector(), Map()
+          ----------------------------------
+          Computing pipeLatencies for scope:
+            x616 = RegRead(x505)
+            x617 = FixSub(x616,b69)
+            x618 = FixMin(Const(16),x617)
+            x619 = RegWrite(x615,x618,Set())
+          Computing fullDFS: Const(())
+          Computing fullDFS: x616
+          cur: x616, inReduce: false, latency: 0.0
+          [0.0 = max(0) + 0.0] x616 = RegRead(x505)
+          Computing fullDFS: x619
+          Computing fullDFS: x618
+          Computing fullDFS: x617
+          [1.0 = max(0.0) + 1.0] x617 = FixSub(x616,b69)
+          [1.0 = max(1.0) + 0.0] x618 = FixMin(Const(16),x617)
+          [2.0 = max(1.0) + 1.0] x619 = RegWrite(x615,x618,Set())
+          Cycles: Map()
+            Schedule after pipeLatencies calculation:
+            [0.0] x616 = RegRead(x505)
+            [1.0] x617 = FixSub(x616,b69)
+            [1.0] x618 = FixMin(Const(16),x617)
+            [2.0] x619 = RegWrite(x615,x618,Set())
+          [0.0] ()
+          [0.0] x616 = RegRead(x505)
+          [1.0] x618 = FixMin(Const(16),x617)
+          [1.0] x617 = FixSub(x616,b69)
+          [2.0] x619 = RegWrite(x615,x618,Set())
+          
+          
+          Sym Delays:
+            [0.0 = 0.0 - 0.0]: () [cycle = false]
+            [0.0 = 0.0 - 0.0]: x616 = RegRead(x505) [cycle = false]
+            [0.0 = 1.0 - 1.0]: x617 = FixSub(x616,b69) [cycle = false]
+            [1.0 = 2.0 - 1.0]: x619 = RegWrite(x615,x618,Set()) [cycle = false]
+            [1.0 = 1.0 - 0.0]: x618 = FixMin(Const(16),x617) [cycle = false]
+          Visiting Block Block(Const(())) [List() => false, List() => false]
+            Visiting Block Block(Const(())) [List() => true, List() => false]
+            Retiming block Block(Const(())):
+              x629 = FixAdd(b50,b482)
+              x630 = RegRead(x505)
+              x631 = FixMul(x629,x630)
+              x632 = FixAdd(x631,b69)
+              x633 = FixDivSRA(x632,Const(4))
+              x634 = FixSLA(x633,Const(4))
+              x635 = FixSLA(x634,Const(2))
+              x636 = FixSub(x632,x634)
+              x637 = RegRead(x615)
+              x638 = FixAdd(x636,x637)
+              x639 = FixAdd(x638,Const(15))
+              x640 = FixDivSRA(x639,Const(4))
+              x641 = FixSLA(x640,Const(4))
+              x642 = FixSLA(x641,Const(2))
+              x643 = FixToFix(x635,TRUE,_64,_0)
+              x644 = DRAMAddress(x529)
+              x645 = FixAdd(x643,x644)
+              x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+              x647 = DRAMIsAlloc(x529)
+              x648 = StreamOutWrite(x624,x646,Set(x647))
+              x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+              x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            Result: 
+              ()
+              x630 = RegRead(x505)
+              x637 = RegRead(x615)
+              x644 = DRAMAddress(x529)
+              x647 = DRAMIsAlloc(x529)
+              x648 = StreamOutWrite(x624,x646,Set(x647))
+              x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            Working on pipeLatencies of result Vector(Const(()), x630, x637, x644, x647, x648, x650), schedule Vector(x629, x630, x631, x632, x633, x634, x635, x636, x637, x638, x639, x640, x641, x642, x643, x644, x645, x646, x647, x648, x649, x650)
+            Memories with both reads and writes in this scope: Set()
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x629 = FixAdd(b50,b482)
+              x630 = RegRead(x505)
+              x631 = FixMul(x629,x630)
+              x632 = FixAdd(x631,b69)
+              x633 = FixDivSRA(x632,Const(4))
+              x634 = FixSLA(x633,Const(4))
+              x635 = FixSLA(x634,Const(2))
+              x636 = FixSub(x632,x634)
+              x637 = RegRead(x615)
+              x638 = FixAdd(x636,x637)
+              x639 = FixAdd(x638,Const(15))
+              x640 = FixDivSRA(x639,Const(4))
+              x641 = FixSLA(x640,Const(4))
+              x642 = FixSLA(x641,Const(2))
+              x643 = FixToFix(x635,TRUE,_64,_0)
+              x644 = DRAMAddress(x529)
+              x645 = FixAdd(x643,x644)
+              x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+              x647 = DRAMIsAlloc(x529)
+              x648 = StreamOutWrite(x624,x646,Set(x647))
+              x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+              x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x630
+            cur: x630, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x630 = RegRead(x505)
+            Computing fullDFS: x637
+            cur: x637, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x637 = RegRead(x615)
+            Computing fullDFS: x644
+            cur: x644, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x644 = DRAMAddress(x529)
+            Computing fullDFS: x647
+            cur: x647, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x647 = DRAMIsAlloc(x529)
+            Computing fullDFS: x648
+            Computing fullDFS: x646
+            Computing fullDFS: x642
+            Computing fullDFS: x641
+            Computing fullDFS: x640
+            Computing fullDFS: x639
+            Computing fullDFS: x638
+            Computing fullDFS: x636
+            Computing fullDFS: x632
+            Computing fullDFS: x631
+            Computing fullDFS: x629
+            cur: x629, inReduce: false, latency: 1.0
+            [1.0 = max(0) + 1.0] x629 = FixAdd(b50,b482)
+            [7.0 = max(1.0, 0.0) + 6.0] x631 = FixMul(x629,x630)
+            [8.0 = max(7.0) + 1.0] x632 = FixAdd(x631,b69)
+            Computing fullDFS: x634
+            Computing fullDFS: x633
+            [8.2 = max(8.0) + 0.2] x633 = FixDivSRA(x632,Const(4))
+            [8.399999999999999 = max(8.2) + 0.2] x634 = FixSLA(x633,Const(4))
+            [9.4 = max(8.0, 8.4) + 1.0] x636 = FixSub(x632,x634)
+            [10.4 = max(9.4, 0.0) + 1.0] x638 = FixAdd(x636,x637)
+            [11.4 = max(10.4) + 1.0] x639 = FixAdd(x638,Const(15))
+            [11.6 = max(11.4) + 0.2] x640 = FixDivSRA(x639,Const(4))
+            [11.799999999999999 = max(11.6) + 0.2] x641 = FixSLA(x640,Const(4))
+            [12.0 = max(11.8) + 0.2] x642 = FixSLA(x641,Const(2))
+            Computing fullDFS: x645
+            Computing fullDFS: x643
+            Computing fullDFS: x635
+            [8.6 = max(8.4) + 0.2] x635 = FixSLA(x634,Const(2))
+            [8.6 = max(8.6) + 0.0] x643 = FixToFix(x635,TRUE,_64,_0)
+            [10.6 = max(8.6, 0.0) + 2.0] x645 = FixAdd(x643,x644)
+            [12.0 = max(12.0, 10.6) + 0.0] x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+            [12.0 = max(12.0, 0.0) + 0.0] x648 = StreamOutWrite(x624,x646,Set(x647))
+            Computing fullDFS: x650
+            Computing fullDFS: x649
+            [11.8 = max(9.4, 10.4, 11.8) + 0.0] x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+            [12.8 = max(11.8) + 1.0] x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            Cycles: Map()
+              Schedule after pipeLatencies calculation:
+              [0.0] x630 = RegRead(x505)
+              [0.0] x637 = RegRead(x615)
+              [0.0] x644 = DRAMAddress(x529)
+              [0.0] x647 = DRAMIsAlloc(x529)
+              [1.0] x629 = FixAdd(b50,b482)
+              [7.0] x631 = FixMul(x629,x630)
+              [8.0] x632 = FixAdd(x631,b69)
+              [8.2] x633 = FixDivSRA(x632,Const(4))
+              [8.4] x634 = FixSLA(x633,Const(4))
+              [8.6] x635 = FixSLA(x634,Const(2))
+              [8.6] x643 = FixToFix(x635,TRUE,_64,_0)
+              [9.4] x636 = FixSub(x632,x634)
+              [10.4] x638 = FixAdd(x636,x637)
+              [10.6] x645 = FixAdd(x643,x644)
+              [11.4] x639 = FixAdd(x638,Const(15))
+              [11.6] x640 = FixDivSRA(x639,Const(4))
+              [11.8] x641 = FixSLA(x640,Const(4))
+              [11.8] x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+              [12.0] x642 = FixSLA(x641,Const(2))
+              [12.0] x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+              [12.0] x648 = StreamOutWrite(x624,x646,Set(x647))
+              [12.8] x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            [0.0] ()
+            [0.0] x630 = RegRead(x505)
+            [0.0] x637 = RegRead(x615)
+            [0.0] x647 = DRAMIsAlloc(x529)
+            [0.0] x644 = DRAMAddress(x529)
+            [1.0] x629 = FixAdd(b50,b482)
+            [7.0] x631 = FixMul(x629,x630)
+            [8.0] x632 = FixAdd(x631,b69)
+            [8.2] x633 = FixDivSRA(x632,Const(4))
+            [8.4] x634 = FixSLA(x633,Const(4))
+            [8.6] x643 = FixToFix(x635,TRUE,_64,_0)
+            [8.6] x635 = FixSLA(x634,Const(2))
+            [9.4] x636 = FixSub(x632,x634)
+            [10.4] x638 = FixAdd(x636,x637)
+            [10.6] x645 = FixAdd(x643,x644)
+            [11.4] x639 = FixAdd(x638,Const(15))
+            [11.6] x640 = FixDivSRA(x639,Const(4))
+            [11.8] x641 = FixSLA(x640,Const(4))
+            [11.8] x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638)))
+            [12.0] x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true))))
+            [12.0] x642 = FixSLA(x641,Const(2))
+            [12.0] x648 = StreamOutWrite(x624,x646,Set(x647))
+            [12.8] x650 = FIFOEnq(x625,x649,Set(Const(true)))
+            
+            
+            Sym Delays:
+              [0.0 = 1.0 - 1.0]: x629 = FixAdd(b50,b482) [cycle = false]
+              [0.0 = 0.0 - 0.0]: () [cycle = false]
+              [0.0 = 0.0 - 0.0]: x630 = RegRead(x505) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x637 = RegRead(x615) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x647 = DRAMIsAlloc(x529) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x644 = DRAMAddress(x529) [cycle = false]
+              [1.0 = 7.0 - 6.0]: x631 = FixMul(x629,x630) [cycle = false]
+              [7.0 = 8.0 - 1.0]: x632 = FixAdd(x631,b69) [cycle = false]
+              [8.0 = 8.2 - 0.2]: x633 = FixDivSRA(x632,Const(4)) [cycle = false]
+              [8.2 = 8.4 - 0.2]: x634 = FixSLA(x633,Const(4)) [cycle = false]
+              [8.4 = 9.4 - 1.0]: x636 = FixSub(x632,x634) [cycle = false]
+              [8.4 = 8.6 - 0.2]: x635 = FixSLA(x634,Const(2)) [cycle = false]
+              [8.6 = 10.6 - 2.0]: x645 = FixAdd(x643,x644) [cycle = false]
+              [8.6 = 8.6 - 0.0]: x643 = FixToFix(x635,TRUE,_64,_0) [cycle = false]
+              [9.4 = 10.4 - 1.0]: x638 = FixAdd(x636,x637) [cycle = false]
+              [10.4 = 11.4 - 1.0]: x639 = FixAdd(x638,Const(15)) [cycle = false]
+              [11.4 = 11.6 - 0.2]: x640 = FixDivSRA(x639,Const(4)) [cycle = false]
+              [11.6 = 11.8 - 0.2]: x641 = FixSLA(x640,Const(4)) [cycle = false]
+              [11.8 = 12.8 - 1.0]: x650 = FIFOEnq(x625,x649,Set(Const(true))) [cycle = false]
+              [11.8 = 12.0 - 0.2]: x642 = FixSLA(x641,Const(2)) [cycle = false]
+              [11.8 = 11.8 - 0.0]: x649 = SimpleStruct(ArrayBuffer((size,x641), (start,x636), (end,x638))) [cycle = false]
+              [12.0 = 12.0 - 0.0]: x646 = SimpleStruct(ArrayBuffer((offset,x645), (size,x642), (isLoad,Const(true)))) [cycle = false]
+              [12.0 = 12.0 - 0.0]: x648 = StreamOutWrite(x624,x646,Set(x647)) [cycle = false]
+            Visiting Block Block(Const(())) [List() => false, List() => false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x658 = FIFODeq(x625,Set(Const(true)))
+                x659 = FieldApply(x658,start)
+                x660 = RegWrite(x655,x659,Set())
+                x661 = FieldApply(x658,end)
+                x662 = RegWrite(x656,x661,Set())
+                x663 = FieldApply(x658,size)
+                x664 = RegWrite(x657,x663,Set())
+              Result: 
+                ()
+                x658 = FIFODeq(x625,Set(Const(true)))
+                x660 = RegWrite(x655,x659,Set())
+                x662 = RegWrite(x656,x661,Set())
+                x664 = RegWrite(x657,x663,Set())
+              Working on pipeLatencies of result Vector(Const(()), x658, x660, x662, x664), schedule Vector(x658, x659, x660, x661, x662, x663, x664)
+              Memories with both reads and writes in this scope: Set(x625)
+              Done finding cycles: Vector(), Map()
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x658 = FIFODeq(x625,Set(Const(true)))
+                x659 = FieldApply(x658,start)
+                x660 = RegWrite(x655,x659,Set())
+                x661 = FieldApply(x658,end)
+                x662 = RegWrite(x656,x661,Set())
+                x663 = FieldApply(x658,size)
+                x664 = RegWrite(x657,x663,Set())
+              Computing fullDFS: Const(())
+              Computing fullDFS: x658
+              cur: x658, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x658 = FIFODeq(x625,Set(Const(true)))
+              Computing fullDFS: x660
+              Computing fullDFS: x659
+              [0.0 = max(0.0) + 0.0] x659 = FieldApply(x658,start)
+              [1.0 = max(0.0) + 1.0] x660 = RegWrite(x655,x659,Set())
+              Computing fullDFS: x662
+              Computing fullDFS: x661
+              [0.0 = max(0.0) + 0.0] x661 = FieldApply(x658,end)
+              [1.0 = max(0.0) + 1.0] x662 = RegWrite(x656,x661,Set())
+              Computing fullDFS: x664
+              Computing fullDFS: x663
+              [0.0 = max(0.0) + 0.0] x663 = FieldApply(x658,size)
+              [1.0 = max(0.0) + 1.0] x664 = RegWrite(x657,x663,Set())
+              Cycles: Map()
+              pseudo cycles for x625:
+              Multiplexed accesses for memory x625: 
+                x658 = FIFODeq(x625,Set(Const(true)))
+              Multiplexed accesses for memory x625: 
+                x658 = FIFODeq(x625,Set(Const(true)))
+                Schedule after pipeLatencies calculation:
+                [0.0] x658 = FIFODeq(x625,Set(Const(true)))
+                [0.0] x659 = FieldApply(x658,start)
+                [0.0] x661 = FieldApply(x658,end)
+                [0.0] x663 = FieldApply(x658,size)
+                [1.0] x660 = RegWrite(x655,x659,Set())
+                [1.0] x662 = RegWrite(x656,x661,Set())
+                [1.0] x664 = RegWrite(x657,x663,Set())
+              [0.0] ()
+              [0.0] x661 = FieldApply(x658,end)
+              [0.0] x658 = FIFODeq(x625,Set(Const(true)))
+              [0.0] x663 = FieldApply(x658,size)
+              [0.0] x659 = FieldApply(x658,start)
+              [1.0] x660 = RegWrite(x655,x659,Set())
+              [1.0] x662 = RegWrite(x656,x661,Set())
+              [1.0] x664 = RegWrite(x657,x663,Set())
+              
+              
+              Sym Delays:
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+                [0.0 = 1.0 - 1.0]: x660 = RegWrite(x655,x659,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x661 = FieldApply(x658,end) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x662 = RegWrite(x656,x661,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x658 = FIFODeq(x625,Set(Const(true))) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x663 = FieldApply(x658,size) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x664 = RegWrite(x657,x663,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x659 = FieldApply(x658,start) [cycle = false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x669 = RegRead(x655)
+                x670 = FixLeq(x669,b289)
+                x671 = RegRead(x656)
+                x672 = FixLst(b289,x671)
+                x673 = And(x670,x672)
+                x674 = FixSub(b289,x669)
+                x675 = StreamInRead(x626,Set())
+                x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              Result: 
+                ()
+                x669 = RegRead(x655)
+                x671 = RegRead(x656)
+                x675 = StreamInRead(x626,Set())
+                x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              Working on pipeLatencies of result Vector(Const(()), x669, x671, x675, x676), schedule Vector(x669, x670, x671, x672, x673, x674, x675, x676)
+              Memories with both reads and writes in this scope: Set(x626)
+              Done finding cycles: Vector(), Map()
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x669 = RegRead(x655)
+                x670 = FixLeq(x669,b289)
+                x671 = RegRead(x656)
+                x672 = FixLst(b289,x671)
+                x673 = And(x670,x672)
+                x674 = FixSub(b289,x669)
+                x675 = StreamInRead(x626,Set())
+                x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              Computing fullDFS: Const(())
+              Computing fullDFS: x669
+              cur: x669, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x669 = RegRead(x655)
+              Computing fullDFS: x671
+              cur: x671, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x671 = RegRead(x656)
+              Computing fullDFS: x675
+              cur: x675, inReduce: false, latency: 1.0
+              [1.0 = max(0) + 1.0] x675 = StreamInRead(x626,Set())
+              Computing fullDFS: x676
+              Computing fullDFS: x673
+              Computing fullDFS: x670
+              [0.4 = max(0.0) + 0.4] x670 = FixLeq(x669,b289)
+              Computing fullDFS: x672
+              [0.4 = max(0.0) + 0.4] x672 = FixLst(b289,x671)
+              [0.6000000000000001 = max(0.4, 0.4) + 0.2] x673 = And(x670,x672)
+              Computing fullDFS: x674
+              [1.0 = max(0.0) + 1.0] x674 = FixSub(b289,x669)
+              [4.0 = max(0.6, 1.0, 1.0) + 3.0] x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              Cycles: Map()
+              pseudo cycles for x626:
+              Multiplexed accesses for memory x626: 
+                x675 = StreamInRead(x626,Set())
+              Multiplexed accesses for memory x626: 
+                x675 = StreamInRead(x626,Set())
+                Schedule after pipeLatencies calculation:
+                [0.0] x669 = RegRead(x655)
+                [0.0] x671 = RegRead(x656)
+                [0.4] x670 = FixLeq(x669,b289)
+                [0.4] x672 = FixLst(b289,x671)
+                [0.6] x673 = And(x670,x672)
+                [1.0] x674 = FixSub(b289,x669)
+                [1.0] x675 = StreamInRead(x626,Set())
+                [4.0] x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              [0.0] ()
+              [0.0] x669 = RegRead(x655)
+              [0.0] x671 = RegRead(x656)
+              [0.4] x670 = FixLeq(x669,b289)
+              [0.4] x672 = FixLst(b289,x671)
+              [0.6] x673 = And(x670,x672)
+              [1.0] x674 = FixSub(b289,x669)
+              [1.0] x675 = StreamInRead(x626,Set())
+              [4.0] x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673))
+              
+              
+              Sym Delays:
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+                [0.0 = 0.4 - 0.4]: x670 = FixLeq(x669,b289) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x669 = RegRead(x655) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x674 = FixSub(b289,x669) [cycle = false]
+                [0.0 = 0.4 - 0.4]: x672 = FixLst(b289,x671) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x675 = StreamInRead(x626,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x671 = RegRead(x656) [cycle = false]
+                [0.4 = 0.6 - 0.2]: x673 = And(x670,x672) [cycle = false]
+                [1.0 = 4.0 - 3.0]: x676 = SRAMWrite(x621,x675,List(b486, x674),Set(x673)) [cycle = false]
+          Visiting Block Block(Const(())) [List() => false, List() => false]
+            Visiting Block Block(Const(())) [List() => true, List() => false]
+            Retiming block Block(Const(())):
+              x686 = FixAdd(b57,b491)
+              x687 = RegRead(x505)
+              x688 = FixMul(x686,x687)
+              x689 = FixAdd(x688,b69)
+              x690 = FixDivSRA(x689,Const(4))
+              x691 = FixSLA(x690,Const(4))
+              x692 = FixSLA(x691,Const(2))
+              x693 = FixSub(x689,x691)
+              x694 = RegRead(x615)
+              x695 = FixAdd(x693,x694)
+              x696 = FixAdd(x695,Const(15))
+              x697 = FixDivSRA(x696,Const(4))
+              x698 = FixSLA(x697,Const(4))
+              x699 = FixSLA(x698,Const(2))
+              x700 = FixToFix(x692,TRUE,_64,_0)
+              x701 = DRAMAddress(x532)
+              x702 = FixAdd(x700,x701)
+              x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+              x704 = DRAMIsAlloc(x532)
+              x705 = StreamOutWrite(x681,x703,Set(x704))
+              x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+              x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            Result: 
+              ()
+              x687 = RegRead(x505)
+              x694 = RegRead(x615)
+              x701 = DRAMAddress(x532)
+              x704 = DRAMIsAlloc(x532)
+              x705 = StreamOutWrite(x681,x703,Set(x704))
+              x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            Working on pipeLatencies of result Vector(Const(()), x687, x694, x701, x704, x705, x707), schedule Vector(x686, x687, x688, x689, x690, x691, x692, x693, x694, x695, x696, x697, x698, x699, x700, x701, x702, x703, x704, x705, x706, x707)
+            Memories with both reads and writes in this scope: Set()
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x686 = FixAdd(b57,b491)
+              x687 = RegRead(x505)
+              x688 = FixMul(x686,x687)
+              x689 = FixAdd(x688,b69)
+              x690 = FixDivSRA(x689,Const(4))
+              x691 = FixSLA(x690,Const(4))
+              x692 = FixSLA(x691,Const(2))
+              x693 = FixSub(x689,x691)
+              x694 = RegRead(x615)
+              x695 = FixAdd(x693,x694)
+              x696 = FixAdd(x695,Const(15))
+              x697 = FixDivSRA(x696,Const(4))
+              x698 = FixSLA(x697,Const(4))
+              x699 = FixSLA(x698,Const(2))
+              x700 = FixToFix(x692,TRUE,_64,_0)
+              x701 = DRAMAddress(x532)
+              x702 = FixAdd(x700,x701)
+              x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+              x704 = DRAMIsAlloc(x532)
+              x705 = StreamOutWrite(x681,x703,Set(x704))
+              x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+              x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x687
+            cur: x687, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x687 = RegRead(x505)
+            Computing fullDFS: x694
+            cur: x694, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x694 = RegRead(x615)
+            Computing fullDFS: x701
+            cur: x701, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x701 = DRAMAddress(x532)
+            Computing fullDFS: x704
+            cur: x704, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x704 = DRAMIsAlloc(x532)
+            Computing fullDFS: x705
+            Computing fullDFS: x703
+            Computing fullDFS: x699
+            Computing fullDFS: x698
+            Computing fullDFS: x697
+            Computing fullDFS: x696
+            Computing fullDFS: x695
+            Computing fullDFS: x693
+            Computing fullDFS: x689
+            Computing fullDFS: x688
+            Computing fullDFS: x686
+            cur: x686, inReduce: false, latency: 1.0
+            [1.0 = max(0) + 1.0] x686 = FixAdd(b57,b491)
+            [7.0 = max(1.0, 0.0) + 6.0] x688 = FixMul(x686,x687)
+            [8.0 = max(7.0) + 1.0] x689 = FixAdd(x688,b69)
+            Computing fullDFS: x691
+            Computing fullDFS: x690
+            [8.2 = max(8.0) + 0.2] x690 = FixDivSRA(x689,Const(4))
+            [8.399999999999999 = max(8.2) + 0.2] x691 = FixSLA(x690,Const(4))
+            [9.4 = max(8.0, 8.4) + 1.0] x693 = FixSub(x689,x691)
+            [10.4 = max(9.4, 0.0) + 1.0] x695 = FixAdd(x693,x694)
+            [11.4 = max(10.4) + 1.0] x696 = FixAdd(x695,Const(15))
+            [11.6 = max(11.4) + 0.2] x697 = FixDivSRA(x696,Const(4))
+            [11.799999999999999 = max(11.6) + 0.2] x698 = FixSLA(x697,Const(4))
+            [12.0 = max(11.8) + 0.2] x699 = FixSLA(x698,Const(2))
+            Computing fullDFS: x702
+            Computing fullDFS: x700
+            Computing fullDFS: x692
+            [8.6 = max(8.4) + 0.2] x692 = FixSLA(x691,Const(2))
+            [8.6 = max(8.6) + 0.0] x700 = FixToFix(x692,TRUE,_64,_0)
+            [10.6 = max(8.6, 0.0) + 2.0] x702 = FixAdd(x700,x701)
+            [12.0 = max(12.0, 10.6) + 0.0] x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+            [12.0 = max(12.0, 0.0) + 0.0] x705 = StreamOutWrite(x681,x703,Set(x704))
+            Computing fullDFS: x707
+            Computing fullDFS: x706
+            [11.8 = max(9.4, 10.4, 11.8) + 0.0] x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+            [12.8 = max(11.8) + 1.0] x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            Cycles: Map()
+              Schedule after pipeLatencies calculation:
+              [0.0] x687 = RegRead(x505)
+              [0.0] x694 = RegRead(x615)
+              [0.0] x701 = DRAMAddress(x532)
+              [0.0] x704 = DRAMIsAlloc(x532)
+              [1.0] x686 = FixAdd(b57,b491)
+              [7.0] x688 = FixMul(x686,x687)
+              [8.0] x689 = FixAdd(x688,b69)
+              [8.2] x690 = FixDivSRA(x689,Const(4))
+              [8.4] x691 = FixSLA(x690,Const(4))
+              [8.6] x692 = FixSLA(x691,Const(2))
+              [8.6] x700 = FixToFix(x692,TRUE,_64,_0)
+              [9.4] x693 = FixSub(x689,x691)
+              [10.4] x695 = FixAdd(x693,x694)
+              [10.6] x702 = FixAdd(x700,x701)
+              [11.4] x696 = FixAdd(x695,Const(15))
+              [11.6] x697 = FixDivSRA(x696,Const(4))
+              [11.8] x698 = FixSLA(x697,Const(4))
+              [11.8] x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+              [12.0] x699 = FixSLA(x698,Const(2))
+              [12.0] x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+              [12.0] x705 = StreamOutWrite(x681,x703,Set(x704))
+              [12.8] x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            [0.0] ()
+            [0.0] x687 = RegRead(x505)
+            [0.0] x701 = DRAMAddress(x532)
+            [0.0] x694 = RegRead(x615)
+            [0.0] x704 = DRAMIsAlloc(x532)
+            [1.0] x686 = FixAdd(b57,b491)
+            [7.0] x688 = FixMul(x686,x687)
+            [8.0] x689 = FixAdd(x688,b69)
+            [8.2] x690 = FixDivSRA(x689,Const(4))
+            [8.4] x691 = FixSLA(x690,Const(4))
+            [8.6] x692 = FixSLA(x691,Const(2))
+            [8.6] x700 = FixToFix(x692,TRUE,_64,_0)
+            [9.4] x693 = FixSub(x689,x691)
+            [10.4] x695 = FixAdd(x693,x694)
+            [10.6] x702 = FixAdd(x700,x701)
+            [11.4] x696 = FixAdd(x695,Const(15))
+            [11.6] x697 = FixDivSRA(x696,Const(4))
+            [11.8] x698 = FixSLA(x697,Const(4))
+            [11.8] x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695)))
+            [12.0] x705 = StreamOutWrite(x681,x703,Set(x704))
+            [12.0] x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true))))
+            [12.0] x699 = FixSLA(x698,Const(2))
+            [12.8] x707 = FIFOEnq(x682,x706,Set(Const(true)))
+            
+            
+            Sym Delays:
+              [0.0 = 0.0 - 0.0]: () [cycle = false]
+              [0.0 = 0.0 - 0.0]: x687 = RegRead(x505) [cycle = false]
+              [0.0 = 1.0 - 1.0]: x686 = FixAdd(b57,b491) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x701 = DRAMAddress(x532) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x694 = RegRead(x615) [cycle = false]
+              [0.0 = 0.0 - 0.0]: x704 = DRAMIsAlloc(x532) [cycle = false]
+              [1.0 = 7.0 - 6.0]: x688 = FixMul(x686,x687) [cycle = false]
+              [7.0 = 8.0 - 1.0]: x689 = FixAdd(x688,b69) [cycle = false]
+              [8.0 = 8.2 - 0.2]: x690 = FixDivSRA(x689,Const(4)) [cycle = false]
+              [8.2 = 8.4 - 0.2]: x691 = FixSLA(x690,Const(4)) [cycle = false]
+              [8.4 = 8.6 - 0.2]: x692 = FixSLA(x691,Const(2)) [cycle = false]
+              [8.4 = 9.4 - 1.0]: x693 = FixSub(x689,x691) [cycle = false]
+              [8.6 = 10.6 - 2.0]: x702 = FixAdd(x700,x701) [cycle = false]
+              [8.6 = 8.6 - 0.0]: x700 = FixToFix(x692,TRUE,_64,_0) [cycle = false]
+              [9.4 = 10.4 - 1.0]: x695 = FixAdd(x693,x694) [cycle = false]
+              [10.4 = 11.4 - 1.0]: x696 = FixAdd(x695,Const(15)) [cycle = false]
+              [11.4 = 11.6 - 0.2]: x697 = FixDivSRA(x696,Const(4)) [cycle = false]
+              [11.6 = 11.8 - 0.2]: x698 = FixSLA(x697,Const(4)) [cycle = false]
+              [11.8 = 11.8 - 0.0]: x706 = SimpleStruct(ArrayBuffer((size,x698), (start,x693), (end,x695))) [cycle = false]
+              [11.8 = 12.8 - 1.0]: x707 = FIFOEnq(x682,x706,Set(Const(true))) [cycle = false]
+              [11.8 = 12.0 - 0.2]: x699 = FixSLA(x698,Const(2)) [cycle = false]
+              [12.0 = 12.0 - 0.0]: x705 = StreamOutWrite(x681,x703,Set(x704)) [cycle = false]
+              [12.0 = 12.0 - 0.0]: x703 = SimpleStruct(ArrayBuffer((offset,x702), (size,x699), (isLoad,Const(true)))) [cycle = false]
+            Visiting Block Block(Const(())) [List() => false, List() => false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x715 = FIFODeq(x682,Set(Const(true)))
+                x716 = FieldApply(x715,start)
+                x717 = RegWrite(x712,x716,Set())
+                x718 = FieldApply(x715,end)
+                x719 = RegWrite(x713,x718,Set())
+                x720 = FieldApply(x715,size)
+                x721 = RegWrite(x714,x720,Set())
+              Result: 
+                ()
+                x715 = FIFODeq(x682,Set(Const(true)))
+                x717 = RegWrite(x712,x716,Set())
+                x719 = RegWrite(x713,x718,Set())
+                x721 = RegWrite(x714,x720,Set())
+              Working on pipeLatencies of result Vector(Const(()), x715, x717, x719, x721), schedule Vector(x715, x716, x717, x718, x719, x720, x721)
+              Memories with both reads and writes in this scope: Set(x682)
+              Done finding cycles: Vector(), Map()
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x715 = FIFODeq(x682,Set(Const(true)))
+                x716 = FieldApply(x715,start)
+                x717 = RegWrite(x712,x716,Set())
+                x718 = FieldApply(x715,end)
+                x719 = RegWrite(x713,x718,Set())
+                x720 = FieldApply(x715,size)
+                x721 = RegWrite(x714,x720,Set())
+              Computing fullDFS: Const(())
+              Computing fullDFS: x715
+              cur: x715, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x715 = FIFODeq(x682,Set(Const(true)))
+              Computing fullDFS: x717
+              Computing fullDFS: x716
+              [0.0 = max(0.0) + 0.0] x716 = FieldApply(x715,start)
+              [1.0 = max(0.0) + 1.0] x717 = RegWrite(x712,x716,Set())
+              Computing fullDFS: x719
+              Computing fullDFS: x718
+              [0.0 = max(0.0) + 0.0] x718 = FieldApply(x715,end)
+              [1.0 = max(0.0) + 1.0] x719 = RegWrite(x713,x718,Set())
+              Computing fullDFS: x721
+              Computing fullDFS: x720
+              [0.0 = max(0.0) + 0.0] x720 = FieldApply(x715,size)
+              [1.0 = max(0.0) + 1.0] x721 = RegWrite(x714,x720,Set())
+              Cycles: Map()
+              pseudo cycles for x682:
+              Multiplexed accesses for memory x682: 
+                x715 = FIFODeq(x682,Set(Const(true)))
+              Multiplexed accesses for memory x682: 
+                x715 = FIFODeq(x682,Set(Const(true)))
+                Schedule after pipeLatencies calculation:
+                [0.0] x715 = FIFODeq(x682,Set(Const(true)))
+                [0.0] x716 = FieldApply(x715,start)
+                [0.0] x718 = FieldApply(x715,end)
+                [0.0] x720 = FieldApply(x715,size)
+                [1.0] x717 = RegWrite(x712,x716,Set())
+                [1.0] x719 = RegWrite(x713,x718,Set())
+                [1.0] x721 = RegWrite(x714,x720,Set())
+              [0.0] ()
+              [0.0] x715 = FIFODeq(x682,Set(Const(true)))
+              [0.0] x718 = FieldApply(x715,end)
+              [0.0] x716 = FieldApply(x715,start)
+              [0.0] x720 = FieldApply(x715,size)
+              [1.0] x719 = RegWrite(x713,x718,Set())
+              [1.0] x721 = RegWrite(x714,x720,Set())
+              [1.0] x717 = RegWrite(x712,x716,Set())
+              
+              
+              Sym Delays:
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+                [0.0 = 0.0 - 0.0]: x715 = FIFODeq(x682,Set(Const(true))) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x719 = RegWrite(x713,x718,Set()) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x721 = RegWrite(x714,x720,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x718 = FieldApply(x715,end) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x717 = RegWrite(x712,x716,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x716 = FieldApply(x715,start) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x720 = FieldApply(x715,size) [cycle = false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x726 = RegRead(x712)
+                x727 = FixLeq(x726,b352)
+                x728 = RegRead(x713)
+                x729 = FixLst(b352,x728)
+                x730 = And(x727,x729)
+                x731 = FixSub(b352,x726)
+                x732 = StreamInRead(x683,Set())
+                x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              Result: 
+                ()
+                x726 = RegRead(x712)
+                x728 = RegRead(x713)
+                x732 = StreamInRead(x683,Set())
+                x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              Working on pipeLatencies of result Vector(Const(()), x726, x728, x732, x733), schedule Vector(x726, x727, x728, x729, x730, x731, x732, x733)
+              Memories with both reads and writes in this scope: Set(x683)
+              Done finding cycles: Vector(), Map()
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x726 = RegRead(x712)
+                x727 = FixLeq(x726,b352)
+                x728 = RegRead(x713)
+                x729 = FixLst(b352,x728)
+                x730 = And(x727,x729)
+                x731 = FixSub(b352,x726)
+                x732 = StreamInRead(x683,Set())
+                x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              Computing fullDFS: Const(())
+              Computing fullDFS: x726
+              cur: x726, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x726 = RegRead(x712)
+              Computing fullDFS: x728
+              cur: x728, inReduce: false, latency: 0.0
+              [0.0 = max(0) + 0.0] x728 = RegRead(x713)
+              Computing fullDFS: x732
+              cur: x732, inReduce: false, latency: 1.0
+              [1.0 = max(0) + 1.0] x732 = StreamInRead(x683,Set())
+              Computing fullDFS: x733
+              Computing fullDFS: x730
+              Computing fullDFS: x727
+              [0.4 = max(0.0) + 0.4] x727 = FixLeq(x726,b352)
+              Computing fullDFS: x729
+              [0.4 = max(0.0) + 0.4] x729 = FixLst(b352,x728)
+              [0.6000000000000001 = max(0.4, 0.4) + 0.2] x730 = And(x727,x729)
+              Computing fullDFS: x731
+              [1.0 = max(0.0) + 1.0] x731 = FixSub(b352,x726)
+              [4.0 = max(0.6, 1.0, 1.0) + 3.0] x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              Cycles: Map()
+              pseudo cycles for x683:
+              Multiplexed accesses for memory x683: 
+                x732 = StreamInRead(x683,Set())
+              Multiplexed accesses for memory x683: 
+                x732 = StreamInRead(x683,Set())
+                Schedule after pipeLatencies calculation:
+                [0.0] x726 = RegRead(x712)
+                [0.0] x728 = RegRead(x713)
+                [0.4] x727 = FixLeq(x726,b352)
+                [0.4] x729 = FixLst(b352,x728)
+                [0.6] x730 = And(x727,x729)
+                [1.0] x731 = FixSub(b352,x726)
+                [1.0] x732 = StreamInRead(x683,Set())
+                [4.0] x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              [0.0] ()
+              [0.0] x726 = RegRead(x712)
+              [0.0] x728 = RegRead(x713)
+              [0.4] x729 = FixLst(b352,x728)
+              [0.4] x727 = FixLeq(x726,b352)
+              [0.6] x730 = And(x727,x729)
+              [1.0] x732 = StreamInRead(x683,Set())
+              [1.0] x731 = FixSub(b352,x726)
+              [4.0] x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730))
+              
+              
+              Sym Delays:
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+                [0.0 = 0.4 - 0.4]: x729 = FixLst(b352,x728) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x732 = StreamInRead(x683,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x726 = RegRead(x712) [cycle = false]
+                [0.0 = 0.4 - 0.4]: x727 = FixLeq(x726,b352) [cycle = false]
+                [0.0 = 1.0 - 1.0]: x731 = FixSub(b352,x726) [cycle = false]
+                [0.0 = 0.0 - 0.0]: x728 = RegRead(x713) [cycle = false]
+                [0.4 = 0.6 - 0.2]: x730 = And(x727,x729) [cycle = false]
+                [1.0 = 4.0 - 3.0]: x733 = SRAMWrite(x622,x732,List(b495, x731),Set(x730)) [cycle = false]
+          Visiting Block Block(Const(())) [List() => false, List() => false]
+            Visiting Block Block(Const(())) [List() => false, List() => false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x746 = SRAMRead(x622,List(b84, b87),Set())
+                x747 = SRAMRead(x554,List(b84, b90),Set())
+                x748 = SRAMRead(x621,List(b90, b87),Set())
+                x749 = FixMul(x747,x748)
+                x750 = FixAdd(x746,x749)
+                x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              Result: 
+                ()
+                x746 = SRAMRead(x622,List(b84, b87),Set())
+                x747 = SRAMRead(x554,List(b84, b90),Set())
+                x748 = SRAMRead(x621,List(b90, b87),Set())
+                x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              Working on pipeLatencies of result Vector(Const(()), x746, x747, x748, x751), schedule Vector(x746, x747, x748, x749, x750, x751)
+              Memories with both reads and writes in this scope: Set(x622)
+              NonConflictSets(x746, x751): Set()
+              NonConflictSets(x746, x751): Set()
+              Found Cycle: x746, x751
+              Exclusions: Set() Set() 
+              Found cycle between: 
+                x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+                x746 = SRAMRead(x622,List(b84, b87),Set())
+                  x746 = SRAMRead(x622,List(b84, b87),Set())
+                  x750 = FixAdd(x746,x749)
+                  x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              Done finding cycles: Vector(AccumTriple(x622,x746,x751)), Map(x750 -> List(AccumTriple(x622,x746,x751)), x746 -> List(AccumTriple(x622,x746,x751)), x751 -> List(AccumTriple(x622,x746,x751)))
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x746 = SRAMRead(x622,List(b84, b87),Set())
+                x747 = SRAMRead(x554,List(b84, b90),Set())
+                x748 = SRAMRead(x621,List(b90, b87),Set())
+                x749 = FixMul(x747,x748)
+                x750 = FixAdd(x746,x749)
+                x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              Computing fullDFS: Const(())
+              Computing fullDFS: x746
+              cur: x746, inReduce: true, latency: 4.0
+              Known Cycles: List(AccumTriple(x622,x746,x751))
+              [4.0 = max(0) + 4.0] x746 = SRAMRead(x622,List(b84, b87),Set())[cycle]
+              Computing fullDFS: x747
+              cur: x747, inReduce: false, latency: 4.0
+              [4.0 = max(0) + 4.0] x747 = SRAMRead(x554,List(b84, b90),Set())
+              Computing fullDFS: x748
+              cur: x748, inReduce: false, latency: 4.0
+              [4.0 = max(0) + 4.0] x748 = SRAMRead(x621,List(b90, b87),Set())
+              Computing fullDFS: x751
+              Computing fullDFS: x750
+              Computing fullDFS: x749
+              [10.0 = max(4.0, 4.0) + 6.0] x749 = FixMul(x747,x748)
+              cycle deps of x750: Vector(x746, x750)
+              [11.0 = max(4.0, 10.0) + 1.0] x750 = FixAdd(x746,x749)[cycle]
+              cycle deps of x751: Vector(x746, x746, x750, x751)
+              [14.0 = max(4.0, 11.0) + 3.0] x751 = SRAMWrite(x622,x750,List(b84, b87),Set())[cycle]
+              Cycle #0: write: x751, cycle: x746, x746, x750, x751
+              x750 = FixAdd(x746,x749) [11.0]
+                [11.0 = 14.0 - 3.0] x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+                [11.0]
+              x746 = SRAMRead(x622,List(b84, b87),Set()) [4.0]
+                [10.0 = 11.0 - 1.0] x750 = FixAdd(x746,x749)
+                [10.0]
+              x746 = SRAMRead(x622,List(b84, b87),Set()) [10.0]
+                [10.0 = 11.0 - 1.0] x750 = FixAdd(x746,x749)
+                [10.0]
+              Cycles: Map(x750 -> Vector(x746, x750), x746 -> List(x746), x751 -> Vector(x746, x746, x750, x751))
+              pseudo cycles for x622:
+              Multiplexed accesses for memory x622: 
+                x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              Multiplexed accesses for memory x622: 
+                x746 = SRAMRead(x622,List(b84, b87),Set())
+              Found cycles: 
+              WARCycle(x746,x751,x622,Vector(x746, x746, x750, x751),8.0,spatial.node.AccumMarker$Unknown$@4a2e4f67,-1)
+                Schedule after pipeLatencies calculation:
+                [4.0] x747 = SRAMRead(x554,List(b84, b90),Set())
+                [4.0] x748 = SRAMRead(x621,List(b90, b87),Set())
+                [10.0] x746 = SRAMRead(x622,List(b84, b87),Set())
+                [10.0] x749 = FixMul(x747,x748)
+                [11.0] x750 = FixAdd(x746,x749)
+                [14.0] x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              [0.0] ()
+              [4.0] x747 = SRAMRead(x554,List(b84, b90),Set())
+              [4.0] x748 = SRAMRead(x621,List(b90, b87),Set())
+              [10.0] x746 = SRAMRead(x622,List(b84, b87),Set())
+              [10.0] x749 = FixMul(x747,x748)
+              [11.0] x750 = FixAdd(x746,x749)
+              [14.0] x751 = SRAMWrite(x622,x750,List(b84, b87),Set())
+              
+              
+              Sym Delays:
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+                [0.0 = 4.0 - 4.0]: x747 = SRAMRead(x554,List(b84, b90),Set()) [cycle = false]
+                [0.0 = 4.0 - 4.0]: x748 = SRAMRead(x621,List(b90, b87),Set()) [cycle = false]
+                [4.0 = 10.0 - 6.0]: x749 = FixMul(x747,x748) [cycle = false]
+                [6.0 = 10.0 - 4.0]: x746 = SRAMRead(x622,List(b84, b87),Set()) [cycle = true]
+                [10.0 = 11.0 - 1.0]: x750 = FixAdd(x746,x749) [cycle = true]
+                [11.0 = 14.0 - 3.0]: x751 = SRAMWrite(x622,x750,List(b84, b87),Set()) [cycle = true]
+          Visiting Block Block(Const(())) [List() => false, List() => false]
+            Visiting Block Block(Const(())) [List() => false, List() => false]
+              Visiting Block Block(Const(())) [List() => false, List() => false]
+                Visiting Block Block(Const(())) [List() => true, List() => false]
+                Retiming block Block(Const(())):
+                  x764 = FixAdd(b57,b500)
+                  x765 = RegRead(x505)
+                  x766 = FixMul(x764,x765)
+                  x767 = FixAdd(x766,b69)
+                  x768 = FixDivSRA(x767,Const(4))
+                  x769 = FixSLA(x768,Const(4))
+                  x770 = FixSLA(x769,Const(2))
+                  x771 = FixSub(x767,x769)
+                  x772 = RegRead(x615)
+                  x773 = FixAdd(x771,x772)
+                  x774 = FixAdd(x773,Const(15))
+                  x775 = FixDivSRA(x774,Const(4))
+                  x776 = FixSLA(x775,Const(4))
+                  x777 = FixSLA(x776,Const(2))
+                  x778 = FixToFix(x770,TRUE,_64,_0)
+                  x779 = DRAMAddress(x532)
+                  x780 = FixAdd(x778,x779)
+                  x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                  x782 = DRAMIsAlloc(x532)
+                  x783 = StreamOutWrite(x756,x781,Set(x782))
+                  x784 = RegWrite(x761,x771,Set())
+                  x785 = RegWrite(x762,x773,Set())
+                  x786 = RegWrite(x763,x776,Set())
+                Result: 
+                  ()
+                  x765 = RegRead(x505)
+                  x772 = RegRead(x615)
+                  x779 = DRAMAddress(x532)
+                  x782 = DRAMIsAlloc(x532)
+                  x783 = StreamOutWrite(x756,x781,Set(x782))
+                  x784 = RegWrite(x761,x771,Set())
+                  x785 = RegWrite(x762,x773,Set())
+                  x786 = RegWrite(x763,x776,Set())
+                Working on pipeLatencies of result Vector(Const(()), x765, x772, x779, x782, x783, x784, x785, x786), schedule Vector(x764, x765, x766, x767, x768, x769, x770, x771, x772, x773, x774, x775, x776, x777, x778, x779, x780, x781, x782, x783, x784, x785, x786)
+                Memories with both reads and writes in this scope: Set()
+                Done finding cycles: Vector(), Map()
+                ----------------------------------
+                Computing pipeLatencies for scope:
+                  x764 = FixAdd(b57,b500)
+                  x765 = RegRead(x505)
+                  x766 = FixMul(x764,x765)
+                  x767 = FixAdd(x766,b69)
+                  x768 = FixDivSRA(x767,Const(4))
+                  x769 = FixSLA(x768,Const(4))
+                  x770 = FixSLA(x769,Const(2))
+                  x771 = FixSub(x767,x769)
+                  x772 = RegRead(x615)
+                  x773 = FixAdd(x771,x772)
+                  x774 = FixAdd(x773,Const(15))
+                  x775 = FixDivSRA(x774,Const(4))
+                  x776 = FixSLA(x775,Const(4))
+                  x777 = FixSLA(x776,Const(2))
+                  x778 = FixToFix(x770,TRUE,_64,_0)
+                  x779 = DRAMAddress(x532)
+                  x780 = FixAdd(x778,x779)
+                  x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                  x782 = DRAMIsAlloc(x532)
+                  x783 = StreamOutWrite(x756,x781,Set(x782))
+                  x784 = RegWrite(x761,x771,Set())
+                  x785 = RegWrite(x762,x773,Set())
+                  x786 = RegWrite(x763,x776,Set())
+                Computing fullDFS: Const(())
+                Computing fullDFS: x765
+                cur: x765, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x765 = RegRead(x505)
+                Computing fullDFS: x772
+                cur: x772, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x772 = RegRead(x615)
+                Computing fullDFS: x779
+                cur: x779, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x779 = DRAMAddress(x532)
+                Computing fullDFS: x782
+                cur: x782, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x782 = DRAMIsAlloc(x532)
+                Computing fullDFS: x783
+                Computing fullDFS: x781
+                Computing fullDFS: x777
+                Computing fullDFS: x776
+                Computing fullDFS: x775
+                Computing fullDFS: x774
+                Computing fullDFS: x773
+                Computing fullDFS: x771
+                Computing fullDFS: x767
+                Computing fullDFS: x766
+                Computing fullDFS: x764
+                cur: x764, inReduce: false, latency: 1.0
+                [1.0 = max(0) + 1.0] x764 = FixAdd(b57,b500)
+                [7.0 = max(1.0, 0.0) + 6.0] x766 = FixMul(x764,x765)
+                [8.0 = max(7.0) + 1.0] x767 = FixAdd(x766,b69)
+                Computing fullDFS: x769
+                Computing fullDFS: x768
+                [8.2 = max(8.0) + 0.2] x768 = FixDivSRA(x767,Const(4))
+                [8.399999999999999 = max(8.2) + 0.2] x769 = FixSLA(x768,Const(4))
+                [9.4 = max(8.0, 8.4) + 1.0] x771 = FixSub(x767,x769)
+                [10.4 = max(9.4, 0.0) + 1.0] x773 = FixAdd(x771,x772)
+                [11.4 = max(10.4) + 1.0] x774 = FixAdd(x773,Const(15))
+                [11.6 = max(11.4) + 0.2] x775 = FixDivSRA(x774,Const(4))
+                [11.799999999999999 = max(11.6) + 0.2] x776 = FixSLA(x775,Const(4))
+                [12.0 = max(11.8) + 0.2] x777 = FixSLA(x776,Const(2))
+                Computing fullDFS: x780
+                Computing fullDFS: x778
+                Computing fullDFS: x770
+                [8.6 = max(8.4) + 0.2] x770 = FixSLA(x769,Const(2))
+                [8.6 = max(8.6) + 0.0] x778 = FixToFix(x770,TRUE,_64,_0)
+                [10.6 = max(8.6, 0.0) + 2.0] x780 = FixAdd(x778,x779)
+                [12.0 = max(12.0, 10.6) + 0.0] x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                [12.0 = max(12.0, 0.0) + 0.0] x783 = StreamOutWrite(x756,x781,Set(x782))
+                Computing fullDFS: x784
+                [10.4 = max(9.4) + 1.0] x784 = RegWrite(x761,x771,Set())
+                Computing fullDFS: x785
+                [11.4 = max(10.4) + 1.0] x785 = RegWrite(x762,x773,Set())
+                Computing fullDFS: x786
+                [12.8 = max(11.8) + 1.0] x786 = RegWrite(x763,x776,Set())
+                Cycles: Map()
+                  Schedule after pipeLatencies calculation:
+                  [0.0] x765 = RegRead(x505)
+                  [0.0] x772 = RegRead(x615)
+                  [0.0] x779 = DRAMAddress(x532)
+                  [0.0] x782 = DRAMIsAlloc(x532)
+                  [1.0] x764 = FixAdd(b57,b500)
+                  [7.0] x766 = FixMul(x764,x765)
+                  [8.0] x767 = FixAdd(x766,b69)
+                  [8.2] x768 = FixDivSRA(x767,Const(4))
+                  [8.4] x769 = FixSLA(x768,Const(4))
+                  [8.6] x770 = FixSLA(x769,Const(2))
+                  [8.6] x778 = FixToFix(x770,TRUE,_64,_0)
+                  [9.4] x771 = FixSub(x767,x769)
+                  [10.4] x773 = FixAdd(x771,x772)
+                  [10.4] x784 = RegWrite(x761,x771,Set())
+                  [10.6] x780 = FixAdd(x778,x779)
+                  [11.4] x774 = FixAdd(x773,Const(15))
+                  [11.4] x785 = RegWrite(x762,x773,Set())
+                  [11.6] x775 = FixDivSRA(x774,Const(4))
+                  [11.8] x776 = FixSLA(x775,Const(4))
+                  [12.0] x777 = FixSLA(x776,Const(2))
+                  [12.0] x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                  [12.0] x783 = StreamOutWrite(x756,x781,Set(x782))
+                  [12.8] x786 = RegWrite(x763,x776,Set())
+                [0.0] ()
+                [0.0] x782 = DRAMIsAlloc(x532)
+                [0.0] x779 = DRAMAddress(x532)
+                [0.0] x765 = RegRead(x505)
+                [0.0] x772 = RegRead(x615)
+                [1.0] x764 = FixAdd(b57,b500)
+                [7.0] x766 = FixMul(x764,x765)
+                [8.0] x767 = FixAdd(x766,b69)
+                [8.2] x768 = FixDivSRA(x767,Const(4))
+                [8.4] x769 = FixSLA(x768,Const(4))
+                [8.6] x770 = FixSLA(x769,Const(2))
+                [8.6] x778 = FixToFix(x770,TRUE,_64,_0)
+                [9.4] x771 = FixSub(x767,x769)
+                [10.4] x773 = FixAdd(x771,x772)
+                [10.4] x784 = RegWrite(x761,x771,Set())
+                [10.6] x780 = FixAdd(x778,x779)
+                [11.4] x785 = RegWrite(x762,x773,Set())
+                [11.4] x774 = FixAdd(x773,Const(15))
+                [11.6] x775 = FixDivSRA(x774,Const(4))
+                [11.8] x776 = FixSLA(x775,Const(4))
+                [12.0] x777 = FixSLA(x776,Const(2))
+                [12.0] x783 = StreamOutWrite(x756,x781,Set(x782))
+                [12.0] x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false))))
+                [12.8] x786 = RegWrite(x763,x776,Set())
+                
+                
+                Sym Delays:
+                  [0.0 = 0.0 - 0.0]: () [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x782 = DRAMIsAlloc(x532) [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x779 = DRAMAddress(x532) [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x765 = RegRead(x505) [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x772 = RegRead(x615) [cycle = false]
+                  [0.0 = 1.0 - 1.0]: x764 = FixAdd(b57,b500) [cycle = false]
+                  [1.0 = 7.0 - 6.0]: x766 = FixMul(x764,x765) [cycle = false]
+                  [7.0 = 8.0 - 1.0]: x767 = FixAdd(x766,b69) [cycle = false]
+                  [8.0 = 8.2 - 0.2]: x768 = FixDivSRA(x767,Const(4)) [cycle = false]
+                  [8.2 = 8.4 - 0.2]: x769 = FixSLA(x768,Const(4)) [cycle = false]
+                  [8.4 = 8.6 - 0.2]: x770 = FixSLA(x769,Const(2)) [cycle = false]
+                  [8.4 = 9.4 - 1.0]: x771 = FixSub(x767,x769) [cycle = false]
+                  [8.6 = 8.6 - 0.0]: x778 = FixToFix(x770,TRUE,_64,_0) [cycle = false]
+                  [8.6 = 10.6 - 2.0]: x780 = FixAdd(x778,x779) [cycle = false]
+                  [9.4 = 10.4 - 1.0]: x773 = FixAdd(x771,x772) [cycle = false]
+                  [9.4 = 10.4 - 1.0]: x784 = RegWrite(x761,x771,Set()) [cycle = false]
+                  [10.4 = 11.4 - 1.0]: x785 = RegWrite(x762,x773,Set()) [cycle = false]
+                  [10.4 = 11.4 - 1.0]: x774 = FixAdd(x773,Const(15)) [cycle = false]
+                  [11.4 = 11.6 - 0.2]: x775 = FixDivSRA(x774,Const(4)) [cycle = false]
+                  [11.6 = 11.8 - 0.2]: x776 = FixSLA(x775,Const(4)) [cycle = false]
+                  [11.8 = 12.0 - 0.2]: x777 = FixSLA(x776,Const(2)) [cycle = false]
+                  [11.8 = 12.8 - 1.0]: x786 = RegWrite(x763,x776,Set()) [cycle = false]
+                  [12.0 = 12.0 - 0.0]: x783 = StreamOutWrite(x756,x781,Set(x782)) [cycle = false]
+                  [12.0 = 12.0 - 0.0]: x781 = SimpleStruct(ArrayBuffer((offset,x780), (size,x777), (isLoad,Const(false)))) [cycle = false]
+                Visiting Block Block(Const(())) [List() => true, List() => false]
+                Retiming block Block(Const(())):
+                  x791 = RegRead(x761)
+                  x792 = FixLeq(x791,b405)
+                  x793 = RegRead(x762)
+                  x794 = FixLst(b405,x793)
+                  x795 = And(x792,x794)
+                  x796 = FixSub(b405,x791)
+                  x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                  x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                  x799 = StreamOutWrite(x757,x798,Set())
+                Result: 
+                  ()
+                  x791 = RegRead(x761)
+                  x793 = RegRead(x762)
+                  x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                  x799 = StreamOutWrite(x757,x798,Set())
+                Working on pipeLatencies of result Vector(Const(()), x791, x793, x797, x799), schedule Vector(x791, x792, x793, x794, x795, x796, x797, x798, x799)
+                Memories with both reads and writes in this scope: Set()
+                Done finding cycles: Vector(), Map()
+                ----------------------------------
+                Computing pipeLatencies for scope:
+                  x791 = RegRead(x761)
+                  x792 = FixLeq(x791,b405)
+                  x793 = RegRead(x762)
+                  x794 = FixLst(b405,x793)
+                  x795 = And(x792,x794)
+                  x796 = FixSub(b405,x791)
+                  x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                  x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                  x799 = StreamOutWrite(x757,x798,Set())
+                Computing fullDFS: Const(())
+                Computing fullDFS: x791
+                cur: x791, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x791 = RegRead(x761)
+                Computing fullDFS: x793
+                cur: x793, inReduce: false, latency: 0.0
+                [0.0 = max(0) + 0.0] x793 = RegRead(x762)
+                Computing fullDFS: x797
+                Computing fullDFS: x795
+                Computing fullDFS: x792
+                [0.4 = max(0.0) + 0.4] x792 = FixLeq(x791,b405)
+                Computing fullDFS: x794
+                [0.4 = max(0.0) + 0.4] x794 = FixLst(b405,x793)
+                [0.6000000000000001 = max(0.4, 0.4) + 0.2] x795 = And(x792,x794)
+                Computing fullDFS: x796
+                [1.0 = max(0.0) + 1.0] x796 = FixSub(b405,x791)
+                [5.0 = max(0.6, 1.0) + 4.0] x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                Computing fullDFS: x799
+                Computing fullDFS: x798
+                [5.0 = max(0.6, 5.0) + 0.0] x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                [5.0 = max(5.0) + 0.0] x799 = StreamOutWrite(x757,x798,Set())
+                Cycles: Map()
+                  Schedule after pipeLatencies calculation:
+                  [0.0] x791 = RegRead(x761)
+                  [0.0] x793 = RegRead(x762)
+                  [0.4] x792 = FixLeq(x791,b405)
+                  [0.4] x794 = FixLst(b405,x793)
+                  [0.6] x795 = And(x792,x794)
+                  [1.0] x796 = FixSub(b405,x791)
+                  [5.0] x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                  [5.0] x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                  [5.0] x799 = StreamOutWrite(x757,x798,Set())
+                [0.0] ()
+                [0.0] x793 = RegRead(x762)
+                [0.0] x791 = RegRead(x761)
+                [0.4] x792 = FixLeq(x791,b405)
+                [0.4] x794 = FixLst(b405,x793)
+                [0.6] x795 = And(x792,x794)
+                [1.0] x796 = FixSub(b405,x791)
+                [5.0] x797 = SRAMRead(x622,List(b500, x796),Set(x795))
+                [5.0] x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795)))
+                [5.0] x799 = StreamOutWrite(x757,x798,Set())
+                
+                
+                Sym Delays:
+                  [0.0 = 0.0 - 0.0]: () [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x793 = RegRead(x762) [cycle = false]
+                  [0.0 = 0.4 - 0.4]: x792 = FixLeq(x791,b405) [cycle = false]
+                  [0.0 = 0.4 - 0.4]: x794 = FixLst(b405,x793) [cycle = false]
+                  [0.0 = 0.0 - 0.0]: x791 = RegRead(x761) [cycle = false]
+                  [0.0 = 1.0 - 1.0]: x796 = FixSub(b405,x791) [cycle = false]
+                  [0.4 = 0.6 - 0.2]: x795 = And(x792,x794) [cycle = false]
+                  [1.0 = 5.0 - 4.0]: x797 = SRAMRead(x622,List(b500, x796),Set(x795)) [cycle = false]
+                  [5.0 = 5.0 - 0.0]: x798 = SimpleStruct(ArrayBuffer((_1,x797), (_2,x795))) [cycle = false]
+                  [5.0 = 5.0 - 0.0]: x799 = StreamOutWrite(x757,x798,Set()) [cycle = false]
+              Visiting Block Block(Const(())) [List() => true, List() => false]
+              Retiming block Block(Const(())):
+                x803 = StreamInRead(x758,Set())
+              Result: 
+                ()
+                x803 = StreamInRead(x758,Set())
+              Working on pipeLatencies of result Vector(Const(()), x803), schedule Vector(x803)
+              Memories with both reads and writes in this scope: Set(x758)
+              Done finding cycles: Vector(), Map()
+              ----------------------------------
+              Computing pipeLatencies for scope:
+                x803 = StreamInRead(x758,Set())
+              Computing fullDFS: Const(())
+              Computing fullDFS: x803
+              cur: x803, inReduce: false, latency: 1.0
+              [1.0 = max(0) + 1.0] x803 = StreamInRead(x758,Set())
+              Cycles: Map()
+              pseudo cycles for x758:
+              Multiplexed accesses for memory x758: 
+                x803 = StreamInRead(x758,Set())
+              Multiplexed accesses for memory x758: 
+                x803 = StreamInRead(x758,Set())
+                Schedule after pipeLatencies calculation:
+                [1.0] x803 = StreamInRead(x758,Set())
+              [0.0] ()
+              [1.0] x803 = StreamInRead(x758,Set())
+              
+              
+              Sym Delays:
+                [0.0 = 1.0 - 1.0]: x803 = StreamInRead(x758,Set()) [cycle = false]
+                [0.0 = 0.0 - 0.0]: () [cycle = false]
+  Visiting Block Block((b111) => x828) [List() => false, List() => false]
+    Visiting Block Block((b116) => x824) [List() => false, List() => false]
+    Visiting Block Block((x825,b125) => x826) [List() => false, List() => false]
+    Visiting Block Block((b126,b127) => x827) [List() => false, List() => false]
+  Visiting Block Block((b135) => Const(())) [List() => false, List() => false]
+    Visiting Block Block((b136) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((b148) => Const(())) [List() => false, List() => false]
+    Visiting Block Block((b149) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((x812,b159) => x852) [List() => false, List() => false]
+  Visiting Block Block((x829,b159) => x853) [List() => false, List() => false]
+  Visiting Block Block((x852,x853) => x854) [List() => false, List() => false]
+  Visiting Block Block((x855,b165) => x856) [List() => false, List() => false]
+  Visiting Block Block((b166,b167) => x857) [List() => false, List() => false]

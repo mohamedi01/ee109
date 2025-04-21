@@ -1,0 +1,117 @@
+    Attempt to bundle children of x810 (List(x1251))
+    Bundled child 0 contains List(x1251)
+      Attempt to bundle children of x1251 (List(x921, x1250))
+      Conflict between:
+       - Prev rd/wr: Set(x916, x880)
+       - Next rd/wr: Set(x1190, x878, x1196, x1055, x934, x1191, x1087, x937, x1020, x1021, x1123, x916, x879, x1017, x1121, x1016, x970, x1086, x1054, x906, x936, x900, x880, x1122, x1198, x927, x1018, x971, x903, x1189, x1010, x1056, x1197, x1019, x935, x1088, x972)
+       - Next wr + Prev wr + addressable: Set(x1017, x1191, x916, x1018, x1019, x1121, x1020, x1086, x934, x1087, x1189, x935, x1088, x906, x1190, x936, x937, x1010, x1054, x1055, x1056, x927, x1122, x970, x1021, x1123, x971, x1196, x972, x1197, x1198, x1016)
+       - Stream dependency: false
+       - Prev Stream dependency (child #1 only): false
+       - BreakWhen dependency: false
+       - (or someone should not bind next: false prev: false)!
+      Placing x1250 in group 1
+      Bundled child 0 contains List(x921)
+      Bundled child 1 contains List(x1250)
+        Attempt to bundle children of x1250 (List(x932, x1001, x1249))
+        Conflict between:
+         - Prev rd/wr: Set(x927, x878)
+         - Next rd/wr: Set(x934, x937, x916, x970, x936, x900, x880, x927, x971, x935, x972)
+         - Next wr + Prev wr + addressable: Set(x927, x934, x970, x971, x935, x936, x972, x937)
+         - Stream dependency: false
+         - Prev Stream dependency (child #1 only): false
+         - BreakWhen dependency: false
+         - (or someone should not bind next: false prev: false)!
+        Placing x1001 in group 1
+        Conflict between:
+         - Prev rd/wr: Set(x927, x934, x916, x970, x880, x971, x935, x936, x900, x972, x937)
+         - Next rd/wr: Set(x1190, x1196, x1055, x934, x1191, x1087, x1020, x1021, x1123, x916, x879, x1017, x1121, x1016, x1086, x1054, x906, x1122, x1198, x927, x1018, x903, x1189, x1010, x1056, x1197, x1019, x1088)
+         - Next wr + Prev wr + addressable: Set(x1017, x1191, x1018, x1019, x1121, x1020, x1086, x934, x1087, x1189, x935, x1088, x906, x1190, x936, x937, x1010, x1054, x1055, x1056, x1122, x970, x1021, x1123, x971, x1196, x972, x1197, x1198, x1016)
+         - Stream dependency: false
+         - Prev Stream dependency (child #1 only): false
+         - BreakWhen dependency: false
+         - (or someone should not bind next: false prev: false)!
+        Placing x1249 in group 2
+        Bundled child 0 contains List(x932)
+        Bundled child 1 contains List(x1001)
+        Bundled child 2 contains List(x1249)
+            Attempt to bundle children of x1000 (List(x981, x999))
+            Conflict between:
+             - Prev rd/wr: Set(x970, x971, x972, x936)
+             - Next rd/wr: Set(x934, x937, x970, x971, x972)
+             - Next wr + Prev wr + addressable: Set(x970, x934, x971, x972, x936, x937)
+             - Stream dependency: true
+             - Prev Stream dependency (child #1 only): true
+             - BreakWhen dependency: false
+             - (or someone should not bind next: false prev: false)!
+            Placing x999 in group 1
+            Bundled child 0 contains List(x981)
+            Bundled child 1 contains List(x999)
+          Attempt to bundle children of x1249 (List(x1015, x1085, x1153, x1188, x1248))
+          Conflict between:
+           - Prev rd/wr: Set(x879, x1010)
+           - Next rd/wr: Set(x1055, x1020, x1021, x916, x879, x1016, x1054, x903, x1010, x1056, x1019)
+           - Next wr + Prev wr + addressable: Set(x1021, x1054, x1055, x1019, x1020, x1056, x1016, x1010)
+           - Stream dependency: false
+           - Prev Stream dependency (child #1 only): false
+           - BreakWhen dependency: false
+           - (or someone should not bind next: false prev: false)!
+          Placing x1085 in group 1
+          No dependencies detected between next child deps (Set(x1087, x1123, x879, x1017, x1121, x1086, x906, x1122, x927, x1018, x1010, x1088)) prev bundle (Set(x879, x916, x1021, x1054, x1055, x1019, x903, x1020, x1056, x1016, x1010)) deps.  Grouping x1153 in group 1
+          Conflict between:
+           - Prev rd/wr: Set(x879, x1017, x916, x1054, x1018, x1055, x1019, x1121, x903, x1020, x1056, x927, x1086, x1122, x1021, x1087, x1123, x1088, x906, x1016, x1010)
+           - Next rd/wr: Set(x934, x916, x1017, x1016, x927, x1018, x1010)
+           - Next wr + Prev wr + addressable: Set(x1017, x1054, x1018, x1055, x1019, x1121, x1020, x1056, x1086, x1122, x934, x1021, x1087, x1123, x1088, x1016)
+           - Stream dependency: false
+           - Prev Stream dependency (child #1 only): false
+           - BreakWhen dependency: false
+           - (or someone should not bind next: false prev: false)!
+          Placing x1188 in group 2
+          Conflict between:
+           - Prev rd/wr: Set(x1017, x916, x1018, x927, x934, x1016, x1010)
+           - Next rd/wr: Set(x1190, x1196, x1191, x879, x906, x1198, x927, x1018, x1189, x1010, x1197)
+           - Next wr + Prev wr + addressable: Set(x1017, x1191, x934, x1018, x1189, x1196, x906, x1190, x1197, x1198, x1016)
+           - Stream dependency: false
+           - Prev Stream dependency (child #1 only): false
+           - BreakWhen dependency: false
+           - (or someone should not bind next: false prev: false)!
+          Placing x1248 in group 3
+          Bundled child 0 contains List(x1015)
+          Bundled child 1 contains List(x1085, x1153)
+          Bundled child 2 contains List(x1188)
+          Bundled child 3 contains List(x1248)
+            Attempt to bundle children of x1084 (List(x1065, x1083))
+            Conflict between:
+             - Prev rd/wr: Set(x1054, x1055, x1056, x1020)
+             - Next rd/wr: Set(x1055, x1021, x1016, x1054, x1056)
+             - Next wr + Prev wr + addressable: Set(x1021, x1054, x1055, x1056, x1020, x1016)
+             - Stream dependency: true
+             - Prev Stream dependency (child #1 only): true
+             - BreakWhen dependency: false
+             - (or someone should not bind next: false prev: false)!
+            Placing x1083 in group 1
+            Bundled child 0 contains List(x1065)
+            Bundled child 1 contains List(x1083)
+            Attempt to bundle children of x1152 (List(x1132, x1151))
+            Conflict between:
+             - Prev rd/wr: Set(x1122, x1123, x1087, x1121)
+             - Next rd/wr: Set(x1123, x1017, x1121, x1122, x1018, x1088)
+             - Next wr + Prev wr + addressable: Set(x1017, x1122, x1018, x1123, x1087, x1088, x1121)
+             - Stream dependency: true
+             - Prev Stream dependency (child #1 only): true
+             - BreakWhen dependency: false
+             - (or someone should not bind next: false prev: false)!
+            Placing x1151 in group 1
+            Bundled child 0 contains List(x1132)
+            Bundled child 1 contains List(x1151)
+            Attempt to bundle children of x1247 (List(x1242, x1246))
+            Conflict between:
+             - Prev rd/wr: Set(x879, x1018, x1189, x1196, x1190, x1197, x1198, x1010)
+             - Next rd/wr: Set(x1191)
+             - Next wr + Prev wr + addressable: Set(x1191, x1018, x1189, x1196, x1190, x1197, x1198)
+             - Stream dependency: true
+             - Prev Stream dependency (child #1 only): true
+             - BreakWhen dependency: false
+             - (or someone should not bind next: false prev: false)!
+            Placing x1246 in group 1
+            Bundled child 0 contains List(x1242)
+            Bundled child 1 contains List(x1246)

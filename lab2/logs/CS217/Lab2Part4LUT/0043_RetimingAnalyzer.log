@@ -1,0 +1,78 @@
+Visiting Block Block(Const(())) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => true, List() => false]
+  Retiming block Block(Const(())):
+    x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x55 = RegRead(x43)
+    x56 = RegRead(x44)
+    x57 = LUTRead(x54,List(x55, x56),Set())
+    x58 = RegRead(x41)
+    x59 = FixAdd(x57,x58)
+    x60 = RegWrite(x42,x59,Set())
+  Result: 
+    ()
+    x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x55 = RegRead(x43)
+    x56 = RegRead(x44)
+    x57 = LUTRead(x54,List(x55, x56),Set())
+    x58 = RegRead(x41)
+    x60 = RegWrite(x42,x59,Set())
+  Working on pipeLatencies of result Vector(Const(()), x54, x55, x56, x57, x58, x60), schedule Vector(x54, x55, x56, x57, x58, x59, x60)
+  Memories with both reads and writes in this scope: Set()
+  Done finding cycles: Vector(), Map()
+  ----------------------------------
+  Computing pipeLatencies for scope:
+    x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x55 = RegRead(x43)
+    x56 = RegRead(x44)
+    x57 = LUTRead(x54,List(x55, x56),Set())
+    x58 = RegRead(x41)
+    x59 = FixAdd(x57,x58)
+    x60 = RegWrite(x42,x59,Set())
+  Computing fullDFS: Const(())
+  Computing fullDFS: x54
+  cur: x54, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+  Computing fullDFS: x55
+  cur: x55, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x55 = RegRead(x43)
+  Computing fullDFS: x56
+  cur: x56, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x56 = RegRead(x44)
+  Computing fullDFS: x57
+  [1.0 = max(0.0, 0.0, 0.0) + 1.0] x57 = LUTRead(x54,List(x55, x56),Set())
+  Computing fullDFS: x58
+  cur: x58, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x58 = RegRead(x41)
+  Computing fullDFS: x60
+  Computing fullDFS: x59
+  [2.0 = max(1.0, 0.0) + 1.0] x59 = FixAdd(x57,x58)
+  [3.0 = max(2.0) + 1.0] x60 = RegWrite(x42,x59,Set())
+  Cycles: Map()
+    Schedule after pipeLatencies calculation:
+    [0.0] x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    [0.0] x55 = RegRead(x43)
+    [0.0] x56 = RegRead(x44)
+    [0.0] x58 = RegRead(x41)
+    [1.0] x57 = LUTRead(x54,List(x55, x56),Set())
+    [2.0] x59 = FixAdd(x57,x58)
+    [3.0] x60 = RegWrite(x42,x59,Set())
+  [0.0] ()
+  [0.0] x56 = RegRead(x44)
+  [0.0] x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+  [0.0] x55 = RegRead(x43)
+  [0.0] x58 = RegRead(x41)
+  [1.0] x57 = LUTRead(x54,List(x55, x56),Set())
+  [2.0] x59 = FixAdd(x57,x58)
+  [3.0] x60 = RegWrite(x42,x59,Set())
+  
+  
+  Sym Delays:
+    [0.0 = 0.0 - 0.0]: () [cycle = false]
+    [0.0 = 0.0 - 0.0]: x56 = RegRead(x44) [cycle = false]
+    [0.0 = 1.0 - 1.0]: x57 = LUTRead(x54,List(x55, x56),Set()) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x55 = RegRead(x43) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x58 = RegRead(x41) [cycle = false]
+    [1.0 = 2.0 - 1.0]: x59 = FixAdd(x57,x58) [cycle = false]
+    [2.0 = 3.0 - 1.0]: x60 = RegWrite(x42,x59,Set()) [cycle = false]
+  Visiting Block Block((b23) => x63) [List() => false, List() => false]

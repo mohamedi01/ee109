@@ -1,0 +1,25 @@
+Adding x1 -> x6 to mostRecentWrite map (Map(x1 -> x6))
+Adding x3 -> x8 to mostRecentWrite map (Map(x1 -> x6, x3 -> x8))
+Adding x4 -> x10 to mostRecentWrite map (Map(x1 -> x6, x3 -> x8, x4 -> x10))
+    Stms:
+      x14 = LUTNew(List(Const(3), Const(3)),WrappedArray(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+      x20 = RegWrite(x2,x19,Set())
+      x17 = LUTRead(x14,List(x15, x16),Set())
+      x18 = RegRead(x1)
+      x16 = RegRead(x4)
+      x19 = FixAdd(x17,x18)
+      x15 = RegRead(x3)
+    Used:
+      x14 = LUTNew(List(Const(3), Const(3)),WrappedArray(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [Made: true]
+      x1 = ArgInNew(Const(0)) [Made: false]
+      x2 = ArgOutNew(Const(0)) [Made: false]
+      x17 = LUTRead(x14,List(x15, x16),Set()) [Made: true]
+      x3 = ArgInNew(Const(0)) [Made: false]
+      x18 = RegRead(x1) [Made: true]
+      x16 = RegRead(x4) [Made: true]
+      x19 = FixAdd(x17,x18) [Made: true]
+      x4 = ArgInNew(Const(0)) [Made: false]
+      x15 = RegRead(x3) [Made: true]
+Adding x2 -> x19 to mostRecentWrite map (Map(x1 -> x6, x3 -> x8, x4 -> x10, x2 -> x19))
+Node x26 (RegRead(x3)) is in accel, but x8 is not (or vice versa).. Cannot extract
+Node x28 (RegRead(x4)) is in accel, but x10 is not (or vice versa).. Cannot extract

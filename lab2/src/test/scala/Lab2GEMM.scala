@@ -48,7 +48,13 @@ import spatial.dsl._
                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM
                     
                     // TODO: Implement the full outer product here
-
+                    Foreach(numel_m by 1) { m =>
+                      Foreach(numel_n by 1) { n =>
+                        Foreach(numel_k by 1) { k =>
+                          tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n)
+                        }
+                      }
+                    }
                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
                 }
             }
@@ -121,8 +127,13 @@ import spatial.dsl._
                     // TODO: Implement the full outer product here
                     // You can copy paste your implementation from Lab2GEMM
                     // and add parallelization factors to your controllers that appear here
-                    
-
+                    Foreach(numel_m by 1 par 4) { m =>
+                      Foreach(numel_n by 1 par 4) { n =>
+                        Foreach(numel_k by 1) { k =>
+                          tileC_sram(m, n) = tileC_sram(m, n) + tileA_sram(m, k) * tileB_sram(k, n)
+                        }
+                      }
+                    }
                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM
                 }
             }

@@ -1,0 +1,1981 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Banking Decisions for Lab2Part5GEMM</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<TD><div data-role="collapsible"><h4> Sorted by estimated area </h4>
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileC_sram (SRAM2 x622): Cost 288.42 (14ms [7.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x622: Lab2GEMM.scala:46:45 <font color="grey">-                     val tileC_sram = SRAM[T](tileM, tileN).buffer</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 115.36826741182458</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 115.37%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+<br>Breakdown: Mem = LUTs <b>1.50</b> FFs <b>0.09</b> BRAMs <b>113.78</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+<br><br><font size = "4">Instance 1, Partial Cost: 173.05240111773685</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 173.05%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+<br>Breakdown: Mem = LUTs <b>2.25</b> FFs <b>0.14</b> BRAMs <b>170.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileB_sram (SRAM2 x621): Cost 173.05 (3ms [1.6%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x621: Lab2GEMM.scala:45:45 <font color="grey">-                     val tileB_sram = SRAM[T](tileK, tileN)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 173.05240111773685</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 173.05%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>2.25</b> FFs <b>0.14</b> BRAMs <b>170.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileA_sram (SRAM2 x554): Cost 115.37 (16ms [8.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x554: Lab2GEMM.scala:41:41 <font color="grey">-                 val tileA_sram = SRAM[T](tileM, tileK)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 115.36826741182458</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 115.37%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>1.50</b> FFs <b>0.09</b> BRAMs <b>113.78</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x615): Cost 4.51 (20ms [10.9%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x615: Lab2GEMM.scala:44:38 <font color="grey">-                     val numel_n = min(tileN.to[Int], N - nn)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 4.506572945774398</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 4.51%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.06</b> FFs <b>0.00</b> BRAMs <b>4.44</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x548): Cost 2.70 (12ms [6.6%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x548: Lab2GEMM.scala:40:34 <font color="grey">-                 val numel_m = min(tileM.to[Int], M - mm)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 2.7039437674646383</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 2.70%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.04</b> FFs <b>0.00</b> BRAMs <b>2.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> N (Reg x505): Cost 1.58 (16ms [8.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x505: Lab2GEMM.scala:13:18 <font color="grey">-     val N = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.5773005310210393</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.58%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">7</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.02</b> FFs <b>0.00</b> BRAMs <b>1.56</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x539): Cost 1.35 (6ms [3.3%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x539: Lab2GEMM.scala:38:30 <font color="grey">-             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.3519718837323191</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.35%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">3</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.02</b> FFs <b>0.00</b> BRAMs <b>1.33</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> K (Reg x506): Cost 1.13 (11ms [6.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x506: Lab2GEMM.scala:14:18 <font color="grey">-     val K = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.1266432364435994</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.13%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">5</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.01</b> FFs <b>0.00</b> BRAMs <b>1.11</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> M (Reg x504): Cost 0.90 (14ms [7.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x504: Lab2GEMM.scala:12:18 <font color="grey">-     val M = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.9013145891548795</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.90%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.01</b> FFs <b>0.00</b> BRAMs <b>0.89</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x763): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x763: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x588): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x588: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x656): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x656: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x712): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x712: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x589): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x589: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x626): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x626: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x758): Cost 0.23 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x758: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x713): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x713: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x558): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x558: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x657): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x657: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x714): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x714: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x761): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x761: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x587): Cost 0.23 (2ms [1.1%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x587: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x655): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x655: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x683): Cost 0.23 (8ms [4.4%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x683: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x762): Cost 0.23 (39ms [21.3%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x762: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x624): Cost 0.00 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x624: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x556): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x556: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x557): Cost 0.00 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x557: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x681): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x681: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x682): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x682: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x757): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x757: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x625): Cost 0.00 (4ms [2.2%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x625: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x756): Cost 0.00 (2ms [1.1%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x756: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+</div></TD>
+<TD><div data-role="collapsible"><h4> Sorted by total search time (total time = 183ms) </h4>
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x762): Cost 0.23 (39ms [21.3%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x762: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x615): Cost 4.51 (20ms [10.9%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x615: Lab2GEMM.scala:44:38 <font color="grey">-                     val numel_n = min(tileN.to[Int], N - nn)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 4.506572945774398</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 4.51%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.06</b> FFs <b>0.00</b> BRAMs <b>4.44</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> N (Reg x505): Cost 1.58 (16ms [8.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x505: Lab2GEMM.scala:13:18 <font color="grey">-     val N = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.5773005310210393</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.58%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">7</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.02</b> FFs <b>0.00</b> BRAMs <b>1.56</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileA_sram (SRAM2 x554): Cost 115.37 (16ms [8.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x554: Lab2GEMM.scala:41:41 <font color="grey">-                 val tileA_sram = SRAM[T](tileM, tileK)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 115.36826741182458</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 115.37%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>1.50</b> FFs <b>0.09</b> BRAMs <b>113.78</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileC_sram (SRAM2 x622): Cost 288.42 (14ms [7.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x622: Lab2GEMM.scala:46:45 <font color="grey">-                     val tileC_sram = SRAM[T](tileM, tileN).buffer</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 115.36826741182458</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 115.37%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+<br>Breakdown: Mem = LUTs <b>1.50</b> FFs <b>0.09</b> BRAMs <b>113.78</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+<br><br><font size = "4">Instance 1, Partial Cost: 173.05240111773685</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 173.05%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+<br>Breakdown: Mem = LUTs <b>2.25</b> FFs <b>0.14</b> BRAMs <b>170.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> M (Reg x504): Cost 0.90 (14ms [7.7%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x504: Lab2GEMM.scala:12:18 <font color="grey">-     val M = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.9013145891548795</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.90%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.01</b> FFs <b>0.00</b> BRAMs <b>0.89</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x548): Cost 2.70 (12ms [6.6%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x548: Lab2GEMM.scala:40:34 <font color="grey">-                 val numel_m = min(tileM.to[Int], M - mm)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 2.7039437674646383</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 2.70%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.04</b> FFs <b>0.00</b> BRAMs <b>2.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> K (Reg x506): Cost 1.13 (11ms [6.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x506: Lab2GEMM.scala:14:18 <font color="grey">-     val K = ArgIn[Int]</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.1266432364435994</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.13%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">5</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.01</b> FFs <b>0.00</b> BRAMs <b>1.11</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x683): Cost 0.23 (8ms [4.4%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x683: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x539): Cost 1.35 (6ms [3.3%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x539: Lab2GEMM.scala:38:30 <font color="grey">-             val numel_k = min(tileK.to[Int], K - kk)(Pass 28)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 1.3519718837323191</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 1.35%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">3</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.02</b> FFs <b>0.00</b> BRAMs <b>1.33</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x625): Cost 0.00 (4ms [2.2%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x625: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> tileB_sram (SRAM2 x621): Cost 173.05 (3ms [1.6%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x621: Lab2GEMM.scala:45:45 <font color="grey">-                     val tileB_sram = SRAM[T](tileK, tileN)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(2), Hierarchical(2,None))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)), RegroupDims(List(1)), RegroupDims(List(0, 1)))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 173.05240111773685</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 173.05%: (BankingOptions(Hierarchical(2,None),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>2.25</b> FFs <b>0.14</b> BRAMs <b>170.67</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x756): Cost 0.00 (2ms [1.1%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x756: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x587): Cost 0.23 (2ms [1.1%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x587: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x763): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x763: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x588): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x588: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x556): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x556: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x656): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x656: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x712): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x712: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x589): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x589: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x626): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x626: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x681): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x681: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x713): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x713: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x558): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x558: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x657): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x657: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x682): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x682: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x757): Cost 0.00 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x757: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x714): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x714: Lab2GEMM.scala:48:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x761): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x761: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (Reg x655): Cost 0.23 (1ms [0.5%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x655: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Hierarchical(0,None))</font>
+<br><font size = "2">NStrictness:   List(NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamOut x624): Cost 0.00 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x624: Lab2GEMM.scala:47:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (FIFO x557): Cost 0.00 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x557: Lab2GEMM.scala:42:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.0</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: </font>
+<br><font size=4>Found 0 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<h3> . (StreamIn x758): Cost 0.23 (0ms [0.0%])</h3>
+<div data-role="collapsible"><h4> </h4>
+<TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<br><font size = "2">Sym x758: Lab2GEMM.scala:58:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<br><br><font size = "2">Effort:    1</font>
+<br><font size = "2">BankingViews:   List(Flat(1))</font>
+<br><font size = "2">NStrictness:   List(NBestGuess, NRelaxed)</font>
+<br><font size = "2">AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)</font>
+<br><font size = "2">DimensionDuplication: List(RegroupDims(List()))</font>
+<br><br><font size = "4">Instance 0, Partial Cost: 0.22532864728871987</font> 
+<div data-role="collapsible"><h5> </h5><div style="background-color=#BECBFE"> 
+<br><font size = "2">Winning scheme: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</font>
+<br><font size=4>Found 1 Alternative Schemes</font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>
+<p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccc">
+<br><font size = "3"><b>scheme cost 0.23%: (BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())),0)</b></font>
+<div data-role="collapsible"><h5> </h5><div style="background-color=#d0b4b4"> 
+<br>1 duplicates
+<br>Banking Decision: List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks))
+<br><br>Aux Nodes: 
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">0</div> </div>
+<br>Breakdown: Mem = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.22</b>, Aux Nodes = LUTs <b>0.00</b> FFs <b>0.00</b> BRAMs <b>0.00</b>
+</div></div>
+</div></p>
+</div></div>
+</div>
+</div></div>
+</TABLE></div></td></TABLE>
+<br>
+
+</div></TD>
+</TABLE>
+</body>
+</html>

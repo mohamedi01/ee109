@@ -1,0 +1,802 @@
+---------------------------------------------------------------------
+INFERRING...
+Name: out (x42)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:11:21
+Src:      val out = ArgOut[T]
+Symbol:     x42 = ArgOutNew(Const(0))
+Effort:    1
+BankingViews:   List(Hierarchical(0,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x62 {} [Host]
+  1 Read Groups:
+  Group #0
+    x62 = GetReg(x42) rd{}
+       c  modrd
+  Grouping 1 Writes: 
+    Access: x60 {} [x61 (stage: -1)]
+  1 Write Groups:
+  Group #0
+    x60 = RegWrite(x42,x59,Set()) wr{}
+       c  mod
+       0    0wr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    x62 <-> x60: LCA: Host, coarse-dist: <None>
+    x60 <-> x60: LCA: x61 (stage: -1), coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(), Set(x62 = GetReg(x42) rd{}
+   c  modrd)) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for out (x42)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x62 = GetReg(x42) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x60 = RegWrite(x42,x59,Set()) wr{}
+      grp 0:    c  mod
+      grp 0:    0    0wr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    None
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x60 = RegWrite(x42,x59,Set()) {}
+      - Lab2Part4.scala:26:11: out := output
+      - Scope: x61 (scope: 0, 0)
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x62 = GetReg(x42) {}
+      - Lab2Part4.scala:29:24: val result = getArg(out)
+      - Scope: Host))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: out (x42)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:11:21
+Src:      val out = ArgOut[T]
+Symbol:     x42 = ArgOutNew(Const(0))
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List()
+  Accum:    None
+  Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x60 = RegWrite(x42,x59,Set()) {}
+        - Lab2Part4.scala:26:11: out := output
+        - Scope: x61 (scope: 0, 0)
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x62 = GetReg(x42) {}
+        - Lab2Part4.scala:29:24: val result = getArg(out)
+        - Scope: Host
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x62 {}
+  Added dispatch 0 to x62 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x60 {}
+  Added dispatch 0 to x60 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x62 {}
+  Added dispatch 0 to x62 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x60 {}
+  Added dispatch 0 to x60 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: in (x41)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:10:19
+Src:      val in = ArgIn[T]
+Symbol:     x41 = ArgInNew(Const(0))
+Effort:    1
+BankingViews:   List(Hierarchical(0,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x58 {} [x61 (stage: -1)]
+  1 Read Groups:
+  Group #0
+    x58 = RegRead(x41) rd{}
+       c  modrd
+  Grouping 1 Writes: 
+    Access: x51 {} [Host]
+  1 Write Groups:
+  Group #0
+    x51 = SetReg(x41,x46) wr{}
+       c  modwr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    x58 <-> x51: LCA: Host, coarse-dist: <None>
+    x51 <-> x51: LCA: Host, coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(x58 = RegRead(x41) rd{}
+   c  modrd), Set()) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for in (x41)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x58 = RegRead(x41) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x51 = SetReg(x41,x46) wr{}
+      grp 0:    c  modwr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    None
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x51 = SetReg(x41,x46) {}
+      - Lab2Part4.scala:19:11: setArg(in, input)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x58 = RegRead(x41) {}
+      - Lab2Part4.scala:25:32: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: in (x41)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:10:19
+Src:      val in = ArgIn[T]
+Symbol:     x41 = ArgInNew(Const(0))
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List()
+  Accum:    None
+  Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x51 = SetReg(x41,x46) {}
+        - Lab2Part4.scala:19:11: setArg(in, input)
+        - Scope: Host
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x58 = RegRead(x41) {}
+        - Lab2Part4.scala:25:32: val output = lut(i, j) + in
+        - Scope: x61 (scope: 0, 0)
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x58 {}
+  Added dispatch 0 to x58 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x51 {}
+  Added dispatch 0 to x51 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x58 {}
+  Added dispatch 0 to x58 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x51 {}
+  Added dispatch 0 to x51 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: j (x44)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:13:18
+Src:      val j = ArgIn[T]
+Symbol:     x44 = ArgInNew(Const(0))
+Effort:    1
+BankingViews:   List(Hierarchical(0,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 2 Reads: 
+    Access: x56 {} [x61 (stage: -1)]
+    Access: x67 {} [Host]
+  2 Read Groups:
+  Group #0
+    x56 = RegRead(x44) rd{}
+       c  modrd
+  Group #1
+    x67 = RegRead(x44) rd{}
+       c  modrd
+  Grouping 1 Writes: 
+    Access: x53 {} [Host]
+  1 Write Groups:
+  Group #0
+    x53 = SetReg(x44,x50) wr{}
+       c  modwr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    x56 <-> x53: LCA: Host, coarse-dist: <None>
+    x53 <-> x53: LCA: Host, coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(x56 = RegRead(x44) rd{}
+   c  modrd), Set()) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for j (x44)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x56 = RegRead(x44) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x53 = SetReg(x44,x50) wr{}
+      grp 0:    c  modwr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    None
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x53 = SetReg(x44,x50) {}
+      - Lab2Part4.scala:21:11: setArg(j, ind_j)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x56 = RegRead(x44) {}
+      - Lab2Part4.scala:25:27: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)))
+  Result: Created instance #0
+Group #1: 
+    x67 <-> x53: LCA: Host, coarse-dist: <None>
+    x53 <-> x53: LCA: Host, coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(), Set(x67 = RegRead(x44) rd{}
+   c  modrd)) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for j (x44)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x67 = RegRead(x44) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x53 = SetReg(x44,x50) wr{}
+      grp 0:    c  modwr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    Buffer
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x53 = SetReg(x44,x50) {}
+      - Lab2Part4.scala:21:11: setArg(j, ind_j)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x67 = RegRead(x44) {}
+      - Lab2Part4.scala:31:40: val gold = input + goldArray(i*N + j)
+      - Scope: Host))
+  Attempting to merge group #1 with instance #0: 
+    Computing overlaps: x67 = Some(RegRead(x44)) - x56 = Some(RegRead(x44))
+    Computing overlaps: x53 = Some(SetReg(x44,x50)) - x53 = Some(SetReg(x44,x50))
+      x67 <-> x53: LCA: Host, coarse-dist: <None>
+      x56 <-> x53: LCA: Host, coarse-dist: <None>
+      x53 <-> x53: LCA: Host, coarse-dist: <None>
+      x67 <-> x53: LCA: Host, coarse-dist: <None>
+      x56 <-> x53: LCA: Host, coarse-dist: <None>
+      x53 <-> x53: LCA: Host, coarse-dist: <None>
+    solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(), Set(x67 = RegRead(x44) rd{}
+   c  modrd, x56 = RegRead(x44) rd{}
+   c  modrd), Set(x67 = RegRead(x44) rd{}
+   c  modrd)) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+    Host
+    **************************************************************************************
+    Analyzing costs for banking schemes found for j (x44)
+    Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+      - 3 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+              Access Hist:
+              | width | R | W |
+              | 1 | 2 | 1 |
+            - Duplicate costs 0.45065729457743975 (LUTs: 0.005847953216374269%, FFs: 3.6489691662105453E-4%, BRAMs: 0.4444444444444444%)
+    ***** Cost summary *****
+    Cost: 0.45065729457743975 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+    **************************************************************************************
+      Reads:
+        grp 1: x67 = RegRead(x44) rd{}
+        grp 1:    c  modrd
+        grp 2: x56 = RegRead(x44) rd{}
+        grp 2:    c  modrd
+      Writes:
+        grp 0: x53 = SetReg(x44,x50) wr{}
+        grp 0:    c  modwr
+      Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    Buffer
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x53 = SetReg(x44,x50) {}
+      - Lab2Part4.scala:21:11: setArg(j, ind_j)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x56 = RegRead(x44) {}
+      - Lab2Part4.scala:25:27: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)
+ - Mux Port #1: 
+  [Ofs: 0] x67 = RegRead(x44) {}
+      - Lab2Part4.scala:31:40: val gold = input + goldArray(i*N + j)
+      - Scope: Host))
+  Result: Merged 1 into instance 0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: j (x44)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:13:18
+Src:      val j = ArgIn[T]
+Symbol:     x44 = ArgInNew(Const(0))
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List()
+  Accum:    Buffer
+  Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x53 = SetReg(x44,x50) {}
+        - Lab2Part4.scala:21:11: setArg(j, ind_j)
+        - Scope: Host
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x56 = RegRead(x44) {}
+        - Lab2Part4.scala:25:27: val output = lut(i, j) + in
+        - Scope: x61 (scope: 0, 0)
+   - Mux Port #1: 
+    [Ofs: 0] x67 = RegRead(x44) {}
+        - Lab2Part4.scala:31:40: val gold = input + goldArray(i*N + j)
+        - Scope: Host
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),1,0,List(0),List(0)) to x67 {}
+  Added dispatch 0 to x67 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x56 {}
+  Added dispatch 0 to x56 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x67 {}
+  Added dispatch 0 to x67 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x53 {}
+  Added dispatch 0 to x53 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x67 {}
+  Added dispatch 0 to x67 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x56 {}
+  Added dispatch 0 to x56 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x67 {}
+  Added dispatch 0 to x67 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x53 {}
+  Added dispatch 0 to x53 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: lut (x54)
+Type: LUT2[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:24:31
+Src:        val lut = LUT[Int](3, 3)( 1, 2, 3, 4, 5, 6, 7, 8, 9 )
+Symbol:     x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+Effort:    1
+BankingViews:   List(Hierarchical(2,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x57 {} [x61 (stage: -1)]
+  1 Read Groups:
+  Group #0
+    x57 = LUTRead(x54,List(x55, x56),Set()) rd{}
+     b84  b85    c  mod
+       1    0    0    0
+       0    1    0    0rd
+  Grouping 0 Reads: 
+
+  <No Read Groups>
+
+
+
+Merging memory instance groups:
+Group #0: 
+    Preceding writes for x57 {}: 
+  Finding scheme for BankingOptions(Hierarchical(2,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  Banking group #0 has (1 accesses)
+       b84    c  mod
+         1    0    0rd
+  Banking group #0 has (1 accesses)
+       b85    c  mod
+         1    0    0rd
+  Banking scheme List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) accepted!
+  incrementing Hierarchical(2,None), RegroupDims(List()) to 1 
+  solution bankings are Map(BankingOptions(Hierarchical(2,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(x57 = LUTRead(x54,List(x55, x56),Set()) rd{}
+ b84  b85    c  mod
+   1    0    0    0
+   0    1    0    0rd)) -> List(List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))))
+  x61: AccelScope (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x57: LUTRead
+  **************************************************************************************
+  Analyzing costs for banking schemes found for lut (x54)
+  Scheme BankingOptions(Hierarchical(2,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 9 | 1 | 0 |
+          - Duplicate costs 2.027957825598479 (LUTs: 0.02631578947368421%, FFs: 0.0016420361247947454%, BRAMs: 2.0%)
+  ***** Cost summary *****
+  Cost: 2.027957825598479 for version 0 of BankingOptions(Hierarchical(2,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x57 = LUTRead(x54,List(x55, x56),Set()) rd{}
+      grp 0:  b84  b85    c  mod
+      grp 0:    1    0    0    0
+      grp 0:    0    1    0    0rd
+    Writes:
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List(0, 0)
+Accum:    None
+Banking:  List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Hierarchical>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x57 = LUTRead(x54,List(x55, x56),Set()) {}
+      - Lab2Part4.scala:25:23: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: lut (x54)
+Type: LUT2[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:24:31
+Src:        val lut = LUT[Int](3, 3)( 1, 2, 3, 4, 5, 6, 7, 8, 9 )
+Symbol:     x54 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List(0, 0)
+  Accum:    None
+  Banking:  List(Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks), Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Hierarchical>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x57 = LUTRead(x54,List(x55, x56),Set()) {}
+        - Lab2Part4.scala:25:23: val output = lut(i, j) + in
+        - Scope: x61 (scope: 0, 0)
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x57 {}
+  Added dispatch 0 to x57 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x57 {}
+  Added dispatch 0 to x57 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: i (x43)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:12:18
+Src:      val i = ArgIn[T]
+Symbol:     x43 = ArgInNew(Const(0))
+Effort:    1
+BankingViews:   List(Hierarchical(0,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 2 Reads: 
+    Access: x55 {} [x61 (stage: -1)]
+    Access: x65 {} [Host]
+  2 Read Groups:
+  Group #0
+    x55 = RegRead(x43) rd{}
+       c  modrd
+  Group #1
+    x65 = RegRead(x43) rd{}
+       c  modrd
+  Grouping 1 Writes: 
+    Access: x52 {} [Host]
+  1 Write Groups:
+  Group #0
+    x52 = SetReg(x43,x48) wr{}
+       c  modwr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    x55 <-> x52: LCA: Host, coarse-dist: <None>
+    x52 <-> x52: LCA: Host, coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(x55 = RegRead(x43) rd{}
+   c  modrd), Set()) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for i (x43)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x55 = RegRead(x43) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x52 = SetReg(x43,x48) wr{}
+      grp 0:    c  modwr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    None
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x52 = SetReg(x43,x48) {}
+      - Lab2Part4.scala:20:11: setArg(i, ind_i)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x55 = RegRead(x43) {}
+      - Lab2Part4.scala:25:24: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)))
+  Result: Created instance #0
+Group #1: 
+    x65 <-> x52: LCA: Host, coarse-dist: <None>
+    x52 <-> x52: LCA: Host, coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(), Set(x65 = RegRead(x43) rd{}
+   c  modrd)) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  Host
+  **************************************************************************************
+  Analyzing costs for banking schemes found for i (x43)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x65 = RegRead(x43) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x52 = SetReg(x43,x48) wr{}
+      grp 0:    c  modwr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    Buffer
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x52 = SetReg(x43,x48) {}
+      - Lab2Part4.scala:20:11: setArg(i, ind_i)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x65 = RegRead(x43) {}
+      - Lab2Part4.scala:31:34: val gold = input + goldArray(i*N + j)
+      - Scope: Host))
+  Attempting to merge group #1 with instance #0: 
+    Computing overlaps: x65 = Some(RegRead(x43)) - x55 = Some(RegRead(x43))
+    Computing overlaps: x52 = Some(SetReg(x43,x48)) - x52 = Some(SetReg(x43,x48))
+      x65 <-> x52: LCA: Host, coarse-dist: <None>
+      x55 <-> x52: LCA: Host, coarse-dist: <None>
+      x52 <-> x52: LCA: Host, coarse-dist: <None>
+      x65 <-> x52: LCA: Host, coarse-dist: <None>
+      x55 <-> x52: LCA: Host, coarse-dist: <None>
+      x52 <-> x52: LCA: Host, coarse-dist: <None>
+    solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(), Set(x65 = RegRead(x43) rd{}
+   c  modrd, x55 = RegRead(x43) rd{}
+   c  modrd), Set(x65 = RegRead(x43) rd{}
+   c  modrd)) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+    Host
+    **************************************************************************************
+    Analyzing costs for banking schemes found for i (x43)
+    Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+      - 3 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+              Access Hist:
+              | width | R | W |
+              | 1 | 2 | 1 |
+            - Duplicate costs 0.45065729457743975 (LUTs: 0.005847953216374269%, FFs: 3.6489691662105453E-4%, BRAMs: 0.4444444444444444%)
+    ***** Cost summary *****
+    Cost: 0.45065729457743975 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+    **************************************************************************************
+      Reads:
+        grp 1: x65 = RegRead(x43) rd{}
+        grp 1:    c  modrd
+        grp 2: x55 = RegRead(x43) rd{}
+        grp 2:    c  modrd
+      Writes:
+        grp 0: x52 = SetReg(x43,x48) wr{}
+        grp 0:    c  modwr
+      Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    Buffer
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x52 = SetReg(x43,x48) {}
+      - Lab2Part4.scala:20:11: setArg(i, ind_i)
+      - Scope: Host
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x55 = RegRead(x43) {}
+      - Lab2Part4.scala:25:24: val output = lut(i, j) + in
+      - Scope: x61 (scope: 0, 0)
+ - Mux Port #1: 
+  [Ofs: 0] x65 = RegRead(x43) {}
+      - Lab2Part4.scala:31:34: val gold = input + goldArray(i*N + j)
+      - Scope: Host))
+  Result: Merged 1 into instance 0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: i (x43)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:12:18
+Src:      val i = ArgIn[T]
+Symbol:     x43 = ArgInNew(Const(0))
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List()
+  Accum:    Buffer
+  Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x52 = SetReg(x43,x48) {}
+        - Lab2Part4.scala:20:11: setArg(i, ind_i)
+        - Scope: Host
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x55 = RegRead(x43) {}
+        - Lab2Part4.scala:25:24: val output = lut(i, j) + in
+        - Scope: x61 (scope: 0, 0)
+   - Mux Port #1: 
+    [Ofs: 0] x65 = RegRead(x43) {}
+        - Lab2Part4.scala:31:34: val gold = input + goldArray(i*N + j)
+        - Scope: Host
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),1,0,List(0),List(0)) to x65 {}
+  Added dispatch 0 to x65 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x55 {}
+  Added dispatch 0 to x55 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x65 {}
+  Added dispatch 0 to x65 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x52 {}
+  Added dispatch 0 to x52 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x65 {}
+  Added dispatch 0 to x65 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x55 {}
+  Added dispatch 0 to x55 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x65 {}
+  Added dispatch 0 to x65 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x52 {}
+  Added dispatch 0 to x52 {}
+x41 completed in: 3 ms
+x43 completed in: 5 ms
+x44 completed in: 11 ms
+x54 completed in: 12 ms
+x42 completed in: 75 ms

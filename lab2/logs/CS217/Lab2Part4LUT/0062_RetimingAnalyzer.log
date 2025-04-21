@@ -1,0 +1,85 @@
+Visiting Block Block(Const(())) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => true, List() => false]
+  Retiming block Block(Const(())):
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x101 = RegRead(x89)
+    x102 = RegRead(x90)
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    x106 = VecApply(x105,0)
+    x107 = RegRead(x87)
+    x108 = FixAdd(x106,x107)
+    x109 = RegWrite(x88,x108,Set())
+  Result: 
+    ()
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x101 = RegRead(x89)
+    x102 = RegRead(x90)
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    x107 = RegRead(x87)
+    x109 = RegWrite(x88,x108,Set())
+  Working on pipeLatencies of result Vector(Const(()), x100, x101, x102, x105, x107, x109), schedule Vector(x100, x101, x102, x105, x106, x107, x108, x109)
+  Memories with both reads and writes in this scope: Set()
+  Done finding cycles: Vector(), Map()
+  ----------------------------------
+  Computing pipeLatencies for scope:
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    x101 = RegRead(x89)
+    x102 = RegRead(x90)
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    x106 = VecApply(x105,0)
+    x107 = RegRead(x87)
+    x108 = FixAdd(x106,x107)
+    x109 = RegWrite(x88,x108,Set())
+  Computing fullDFS: Const(())
+  Computing fullDFS: x100
+  cur: x100, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+  Computing fullDFS: x101
+  cur: x101, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x101 = RegRead(x89)
+  Computing fullDFS: x102
+  cur: x102, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x102 = RegRead(x90)
+  Computing fullDFS: x105
+  [1.0 = max(0.0, 0.0, 0.0) + 1.0] x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+  Computing fullDFS: x107
+  cur: x107, inReduce: false, latency: 0.0
+  [0.0 = max(0) + 0.0] x107 = RegRead(x87)
+  Computing fullDFS: x109
+  Computing fullDFS: x108
+  Computing fullDFS: x106
+  [1.0 = max(1.0) + 0.0] x106 = VecApply(x105,0)
+  [2.0 = max(1.0, 0.0) + 1.0] x108 = FixAdd(x106,x107)
+  [3.0 = max(2.0) + 1.0] x109 = RegWrite(x88,x108,Set())
+  Cycles: Map()
+    Schedule after pipeLatencies calculation:
+    [0.0] x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+    [0.0] x101 = RegRead(x89)
+    [0.0] x102 = RegRead(x90)
+    [0.0] x107 = RegRead(x87)
+    [1.0] x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+    [1.0] x106 = VecApply(x105,0)
+    [2.0] x108 = FixAdd(x106,x107)
+    [3.0] x109 = RegWrite(x88,x108,Set())
+  [0.0] x101 = RegRead(x89)
+  [0.0] ()
+  [0.0] x102 = RegRead(x90)
+  [0.0] x107 = RegRead(x87)
+  [0.0] x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+  [1.0] x106 = VecApply(x105,0)
+  [1.0] x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+  [2.0] x108 = FixAdd(x106,x107)
+  [3.0] x109 = RegWrite(x88,x108,Set())
+  
+  
+  Sym Delays:
+    [0.0 = 0.0 - 0.0]: x101 = RegRead(x89) [cycle = false]
+    [0.0 = 0.0 - 0.0]: () [cycle = false]
+    [0.0 = 0.0 - 0.0]: x102 = RegRead(x90) [cycle = false]
+    [0.0 = 1.0 - 1.0]: x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x107 = RegRead(x87) [cycle = false]
+    [0.0 = 0.0 - 0.0]: x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [cycle = false]
+    [1.0 = 1.0 - 0.0]: x106 = VecApply(x105,0) [cycle = false]
+    [1.0 = 2.0 - 1.0]: x108 = FixAdd(x106,x107) [cycle = false]
+    [2.0 = 3.0 - 1.0]: x109 = RegWrite(x88,x108,Set()) [cycle = false]
+  Visiting Block Block((b23) => x111) [List() => false, List() => false]

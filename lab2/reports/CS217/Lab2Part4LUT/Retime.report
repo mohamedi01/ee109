@@ -1,0 +1,346 @@
+x86 = InputArguments()
+ - Type: Array[Text]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x87 = ArgInNew(Const(0))
+ - Name: in
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x88 = ArgOutNew(Const(0))
+ - Name: out
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x89 = ArgInNew(Const(0))
+ - Name: i
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x90 = ArgInNew(Const(0))
+ - Name: j
+ - Type: Reg[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x91 = ArrayApply(x86,Const(0))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x92 = TextToFix(x91,TRUE,_32,_0)
+ - Name: input
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x93 = ArrayApply(x86,Const(1))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x94 = TextToFix(x93,TRUE,_32,_0)
+ - Name: ind_i
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x95 = ArrayApply(x86,Const(2))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x96 = TextToFix(x95,TRUE,_32,_0)
+ - Name: ind_j
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x97 = SetReg(x87,x92)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x98 = SetReg(x89,x94)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x99 = SetReg(x90,x96)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x61 = AccelScope(Block(Const(()))) {
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block(Const(())) {
+    x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+     - Name: lut_0
+     - Type: LUT2[Fix[TRUE,_32,_0]]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x101 = RegRead(x89)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x102 = RegRead(x90)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]])
+     - Type: Vec[Fix[TRUE,_32,_0]]
+     - Cycle: <no cycle>
+     - Latency:          1.0
+     - Reduce Latency:   1.0
+     - Requires Regs:    true
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x126 = DelayLine(1,x105)
+     - Type: Vec[Fix[TRUE,_32,_0]]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x106 = VecApply(x126,0)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x107 = RegRead(x87)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x127 = DelayLine(1,x107)
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x108 = FixAdd(x106,x127)
+     - Name: output
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          1.0
+     - Reduce Latency:   1.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x109 = RegWrite(x88,x108,Set())
+     - Type: Void
+     - Cycle: <no cycle>
+     - Latency:          1.0
+     - Reduce Latency:   1.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x61 block #0
+} // End of x61
+x110 = GetReg(x88)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x112 = MapIndices(Const(9),Block((b23) => x111)) {
+ - Name: goldArray
+ - Type: Array[Fix[TRUE,_32,_0]]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+  block 0: Block((b23) => x111) {
+    x111 = FixAdd(b23,Const(1))
+     - Type: Fix[TRUE,_32,_0]
+     - Cycle: <no cycle>
+     - Latency:          1.0
+     - Reduce Latency:   1.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x112 block #0
+} // End of x112
+x113 = RegRead(x89)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x114 = FixMul(x113,Const(3))
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          6.0
+ - Reduce Latency:   6.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x115 = RegRead(x90)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x116 = FixAdd(x114,x115)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          1.0
+ - Reduce Latency:   1.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x117 = ArrayApply(x112,x116)
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x118 = FixAdd(x92,x117)
+ - Name: gold
+ - Type: Fix[TRUE,_32,_0]
+ - Cycle: <no cycle>
+ - Latency:          1.0
+ - Reduce Latency:   1.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x119 = FixEql(x118,x110)
+ - Name: pass
+ - Type: Bit
+ - Cycle: <no cycle>
+ - Latency:          0.2
+ - Reduce Latency:   0.2
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x120 = BitToText(x119)
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x121 = TextConcat(List(Const("PASS: "), x120))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x122 = TextConcat(List(x121, Const("(Lab2Part4LUT)")))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x123 = TextConcat(List(x122, Const("\n")))
+ - Type: Text
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x124 = PrintIf(Set(),x123)
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>
+x125 = AssertIf(Set(),x119,Some(Const("Lab2Part4.scala:35:11: Assertion failure")))
+ - Type: Void
+ - Cycle: <no cycle>
+ - Latency:          0.0
+ - Reduce Latency:   0.0
+ - Requires Regs:    false
+ - Built-In Latency: 0.0
+ - Delays: <none>

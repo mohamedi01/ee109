@@ -1,0 +1,85 @@
+  x51 = SetReg(x41,x46)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x51 = SetReg(x41,x46) wr{}
+         c  modwr
+  x52 = SetReg(x43,x48)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x52 = SetReg(x43,x48) wr{}
+         c  modwr
+  x53 = SetReg(x44,x50)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x53 = SetReg(x44,x50) wr{}
+         c  modwr
+    x55 = RegRead(x43)
+      Access pattern: 
+      Iterators: 
+      Unrolled matrices: 
+        x55 = RegRead(x43) rd{}
+           c  modrd
+    x56 = RegRead(x44)
+      Access pattern: 
+      Iterators: 
+      Unrolled matrices: 
+        x56 = RegRead(x44) rd{}
+           c  modrd
+    x57 = LUTRead(x54,List(x55, x56),Set())
+      Access pattern: 
+        [0] x55
+        [1] x56
+      Iterators: 
+        xs: x55
+      Other: x55
+        Iterators: 
+        All used iterators: ListBuffer()
+        Full UID: {}
+        Unrolling x55 {} -> Left(b84)
+        xs: x56
+      Other: x56
+        Iterators: 
+        All used iterators: ListBuffer()
+        Full UID: {}
+        Unrolling x56 {} -> Left(b85)
+      Unrolled matrices: 
+        x57 = LUTRead(x54,List(x55, x56),Set()) rd{}
+         b84  b85    c  mod
+           1    0    0    0
+           0    1    0    0rd
+    x58 = RegRead(x41)
+      Access pattern: 
+      Iterators: 
+      Unrolled matrices: 
+        x58 = RegRead(x41) rd{}
+           c  modrd
+    x60 = RegWrite(x42,x59,Set()) [STREAMING VECTOR SIZE 1]
+      Access pattern: 
+      [0] 0
+      Iterators: 
+        xs: 
+      Unrolled matrices: 
+        x60 = RegWrite(x42,x59,Set()) wr{}
+           c  mod
+           0    0wr
+  x62 = GetReg(x42)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x62 = GetReg(x42) rd{}
+         c  modrd
+  x65 = RegRead(x43)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x65 = RegRead(x43) rd{}
+         c  modrd
+  x67 = RegRead(x44)
+    Access pattern: 
+    Iterators: 
+    Unrolled matrices: 
+      x67 = RegRead(x44) rd{}
+         c  modrd

@@ -1,0 +1,141 @@
+package accel
+object api {
+  
+// ArgIns
+  val M_arg = 0
+  val K_arg = 2
+  val N_arg = 1
+  
+// DRAM Ptrs:
+  val A_ptr = 3
+  val B_ptr = 4
+  val C_ptr = 5
+  
+// ArgIOs
+  
+// ArgOuts
+  
+// Instrumentation Counters
+  val numCtrls = 32
+  val X810_instrctr = 0
+  val X1251_instrctr = 1
+  val X921_instrctr = 2
+  val X1250_instrctr = 3
+  val X932_instrctr = 4
+  val X1001_instrctr = 5
+  val X964_instrctr = 6
+  val X1000_instrctr = 7
+  val X981_instrctr = 8
+  val X999_instrctr = 9
+  val X1335_instrctr = 10
+  val X1015_instrctr = 11
+  val X1334_instrctr = 12
+  val X1085_instrctr = 13
+  val X1048_instrctr = 14
+  val X1084_instrctr = 15
+  val X1065_instrctr = 16
+  val X1083_instrctr = 17
+  val X1153_instrctr = 18
+  val X1115_instrctr = 19
+  val X1152_instrctr = 20
+  val X1132_instrctr = 21
+  val X1151_instrctr = 22
+  val X1188_instrctr = 23
+  val X1187_instrctr = 24
+  val X1186_instrctr = 25
+  val X1248_instrctr = 26
+  val X1247_instrctr = 27
+  val X1242_instrctr = 28
+  val X1222_instrctr = 29
+  val X1241_instrctr = 30
+  val X1246_instrctr = 31
+  val X810_cycles_arg = 0
+  val X810_iters_arg = 1
+  val X1251_cycles_arg = 2
+  val X1251_iters_arg = 3
+  val X921_cycles_arg = 4
+  val X921_iters_arg = 5
+  val X1250_cycles_arg = 6
+  val X1250_iters_arg = 7
+  val X932_cycles_arg = 8
+  val X932_iters_arg = 9
+  val X1001_cycles_arg = 10
+  val X1001_iters_arg = 11
+  val X964_cycles_arg = 12
+  val X964_iters_arg = 13
+  val X964_stalled_arg = 14
+  val X964_idle_arg = 15
+  val X1000_cycles_arg = 16
+  val X1000_iters_arg = 17
+  val X981_cycles_arg = 18
+  val X981_iters_arg = 19
+  val X981_stalled_arg = 20
+  val X981_idle_arg = 21
+  val X999_cycles_arg = 22
+  val X999_iters_arg = 23
+  val X999_stalled_arg = 24
+  val X999_idle_arg = 25
+  val X1335_cycles_arg = 26
+  val X1335_iters_arg = 27
+  val X1015_cycles_arg = 28
+  val X1015_iters_arg = 29
+  val X1334_cycles_arg = 30
+  val X1334_iters_arg = 31
+  val X1085_cycles_arg = 32
+  val X1085_iters_arg = 33
+  val X1048_cycles_arg = 34
+  val X1048_iters_arg = 35
+  val X1048_stalled_arg = 36
+  val X1048_idle_arg = 37
+  val X1084_cycles_arg = 38
+  val X1084_iters_arg = 39
+  val X1065_cycles_arg = 40
+  val X1065_iters_arg = 41
+  val X1065_stalled_arg = 42
+  val X1065_idle_arg = 43
+  val X1083_cycles_arg = 44
+  val X1083_iters_arg = 45
+  val X1083_stalled_arg = 46
+  val X1083_idle_arg = 47
+  val X1153_cycles_arg = 48
+  val X1153_iters_arg = 49
+  val X1115_cycles_arg = 50
+  val X1115_iters_arg = 51
+  val X1115_stalled_arg = 52
+  val X1115_idle_arg = 53
+  val X1152_cycles_arg = 54
+  val X1152_iters_arg = 55
+  val X1132_cycles_arg = 56
+  val X1132_iters_arg = 57
+  val X1132_stalled_arg = 58
+  val X1132_idle_arg = 59
+  val X1151_cycles_arg = 60
+  val X1151_iters_arg = 61
+  val X1151_stalled_arg = 62
+  val X1151_idle_arg = 63
+  val X1188_cycles_arg = 64
+  val X1188_iters_arg = 65
+  val X1187_cycles_arg = 66
+  val X1187_iters_arg = 67
+  val X1186_cycles_arg = 68
+  val X1186_iters_arg = 69
+  val X1248_cycles_arg = 70
+  val X1248_iters_arg = 71
+  val X1247_cycles_arg = 72
+  val X1247_iters_arg = 73
+  val X1242_cycles_arg = 74
+  val X1242_iters_arg = 75
+  val X1222_cycles_arg = 76
+  val X1222_iters_arg = 77
+  val X1222_stalled_arg = 78
+  val X1222_idle_arg = 79
+  val X1241_cycles_arg = 80
+  val X1241_iters_arg = 81
+  val X1241_stalled_arg = 82
+  val X1241_idle_arg = 83
+  val X1246_cycles_arg = 84
+  val X1246_iters_arg = 85
+  val X1246_stalled_arg = 86
+  val X1246_idle_arg = 87
+  val numArgOuts_breakpts = 1
+}

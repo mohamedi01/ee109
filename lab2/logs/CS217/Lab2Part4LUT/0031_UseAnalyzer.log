@@ -1,0 +1,106 @@
+  x0 = InputArguments() [ctrl: Host, inner: false]
+  x1 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x2 = ArgOutNew(Const(0)) [ctrl: Host, inner: false]
+  x3 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x4 = ArgInNew(Const(0)) [ctrl: Host, inner: false]
+  x5 = ArrayApply(x0,Const(0)) [ctrl: Host, inner: false]
+  x6 = TextToFix(x5,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x7 = ArrayApply(x0,Const(1)) [ctrl: Host, inner: false]
+  x8 = TextToFix(x7,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x9 = ArrayApply(x0,Const(2)) [ctrl: Host, inner: false]
+  x10 = TextToFix(x9,TRUE,_32,_0) [ctrl: Host, inner: false]
+  x11 = SetReg(x1,x6) [ctrl: Host, inner: false]
+  x12 = SetReg(x3,x8) [ctrl: Host, inner: false]
+  x13 = SetReg(x4,x10) [ctrl: Host, inner: false]
+  x21 = AccelScope(Block(Const(()))) [ctrl: x21 (stage: -1), inner: true]
+    Pending: 
+    Inputs:  
+    Uses:    
+    Transient: false
+    Outer: true
+    x14 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]]) [ctrl: x21 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  Const(4), Const(5), Const(1), Const(3), Const(7), Const(9), Const(6), Const(2), Const(8)
+      Uses:    
+      Transient: false
+      Outer: false
+    x15 = RegRead(x3) [ctrl: x21 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  x3
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x15 [ctrl: x21 (stage: -1), block: x21 (block: 0)]
+    x16 = RegRead(x4) [ctrl: x21 (stage: -1), inner: true]
+      Pending: x15 -> Set(x15)
+      Inputs:  x4
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x16 [ctrl: x21 (stage: -1), block: x21 (block: 0)]
+    x17 = LUTRead(x14,List(x15, x16),Set()) [ctrl: x21 (stage: -1), inner: true]
+      Pending: x16 -> Set(x16), x15 -> Set(x15)
+      Inputs:  x14, x15, x16
+      Uses:    x15, x16
+      Transient: false
+      Outer: false
+      Uses [Block: x21 (block: 0)]:
+        consumer x17
+        used Set(x15, x16)
+        
+      - x15 = RegRead(x3)
+      - x16 = RegRead(x4)
+      Adding direct (x17 x21 (block: 0)) to uses for x15
+      Adding direct (x17 x21 (block: 0)) to uses for x16
+    x18 = RegRead(x1) [ctrl: x21 (stage: -1), inner: true]
+      Pending: x16 -> Set(x16), x15 -> Set(x15)
+      Inputs:  x1
+      Uses:    
+      Transient: true
+      Outer: false
+      Adding pending: x18 [ctrl: x21 (stage: -1), block: x21 (block: 0)]
+    x19 = FixAdd(x17,x18) [ctrl: x21 (stage: -1), inner: true]
+      Pending: x16 -> Set(x16), x18 -> Set(x18), x15 -> Set(x15)
+      Inputs:  x17, x18
+      Uses:    x18
+      Transient: false
+      Outer: false
+      Uses [Block: x21 (block: 0)]:
+        consumer x19
+        used Set(x18)
+        
+      - x18 = RegRead(x1)
+      Adding direct (x19 x21 (block: 0)) to uses for x18
+    x20 = RegWrite(x2,x19,Set()) [ctrl: x21 (stage: -1), inner: true]
+      Pending: x16 -> Set(x16), x18 -> Set(x18), x15 -> Set(x15)
+      Inputs:  x2, x19
+      Uses:    
+      Transient: false
+      Outer: false
+  x22 = GetReg(x2) [ctrl: Host, inner: false]
+  x25 = MapIndices(Const(9),Block((b23) => x24)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x25
+      used Set(b23)
+      
+    - b23
+    x24 = FixAdd(b23,Const(1)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x25
+      used Set()
+      
+  x26 = RegRead(x3) [ctrl: Host, inner: false]
+    Adding pending: x26 [ctrl: Host, block: Host]
+  x27 = FixMul(x26,Const(3)) [ctrl: Host, inner: false]
+  x28 = RegRead(x4) [ctrl: Host, inner: false]
+    Adding pending: x28 [ctrl: Host, block: Host]
+  x29 = FixAdd(x27,x28) [ctrl: Host, inner: false]
+  x30 = ArrayApply(x25,x29) [ctrl: Host, inner: false]
+  x31 = FixAdd(x6,x30) [ctrl: Host, inner: false]
+  x32 = FixEql(x31,x22) [ctrl: Host, inner: false]
+  x33 = BitToText(x32) [ctrl: Host, inner: false]
+  x34 = TextConcat(List(Const("PASS: "), x33)) [ctrl: Host, inner: false]
+  x35 = TextConcat(List(x34, Const("(Lab2Part4LUT)"))) [ctrl: Host, inner: false]
+  x36 = TextConcat(List(x35, Const("\n"))) [ctrl: Host, inner: false]
+  x37 = PrintIf(Set(),x36) [ctrl: Host, inner: false]
+  x39 = AssertIf(Set(),x32,Some(Const("Lab2Part4.scala:35:11: Assertion failure"))) [ctrl: Host, inner: false]

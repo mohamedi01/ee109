@@ -1,0 +1,230 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: i (x89)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:12:18
+Src:      val i = ArgIn[T]
+---------------------------------------------------------------------
+Symbol:     x89 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x98 = SetReg(x89,x94) {}
+             setArg(i, ind_i) (Lab2Part4.scala:20:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x101 = RegRead(x89) {}
+             val output = lut(i, j) + in (Lab2Part4.scala:25:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x113 = RegRead(x89) {}
+             val gold = input + goldArray(i*N + j) (Lab2Part4.scala:31:34)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: in (x87)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:10:19
+Src:      val in = ArgIn[T]
+---------------------------------------------------------------------
+Symbol:     x87 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x97 = SetReg(x87,x92) {}
+             setArg(in, input) (Lab2Part4.scala:19:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x107 = RegRead(x87) {}
+             val output = lut(i, j) + in (Lab2Part4.scala:25:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: j (x90)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:13:18
+Src:      val j = ArgIn[T]
+---------------------------------------------------------------------
+Symbol:     x90 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x99 = SetReg(x90,x96) {}
+             setArg(j, ind_j) (Lab2Part4.scala:21:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x102 = RegRead(x90) {}
+             val output = lut(i, j) + in (Lab2Part4.scala:25:27)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x115 = RegRead(x90) {}
+             val gold = input + goldArray(i*N + j) (Lab2Part4.scala:31:40)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: out (x88)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:11:21
+Src:      val out = ArgOut[T]
+---------------------------------------------------------------------
+Symbol:     x88 = ArgOutNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x109 = RegWrite(x88,x108,Set()) {}
+             out := output (Lab2Part4.scala:26:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x110 = GetReg(x88) {}
+             val result = getArg(out) (Lab2Part4.scala:29:24)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: lut_0 (x100)
+Type: LUT2[Fix[TRUE,_32,_0]]
+Src:  Lab2Part4.scala:24:31
+Src:        val lut = LUT[Int](3, 3)( 1, 2, 3, 4, 5, 6, 7, 8, 9 )
+---------------------------------------------------------------------
+Symbol:     x100 = LUTNew(List(Const(3), Const(3)),ArrayBuffer(Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(8), Const(9)),LUT2[Fix[TRUE,_32,_0]])
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0, 0)
+     Accum:    None
+     Banks:    3, 3 <Hierarchical>
+       Dims {0}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+       Dims {1}: Cyclic: N=3, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x105 = LUTBankedRead(x100,Vector(List(x101, x102)),Vector(Const(0)),Vector(Set()),Vec[Fix[TRUE,_32,_0]]) {}
+             val output = lut(i, j) + in (Lab2Part4.scala:25:23)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x61: AccelScope (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x105: LUTBankedRead
+---------------------------------------------------------------------
+
+
+
+

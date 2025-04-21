@@ -1,0 +1,105 @@
+// API for args in app Lab2Part5GEMM
+
+// ArgIns
+#define M_arg 0
+#define N_arg 1
+#define K_arg 2
+
+// DRAM Ptrs:
+#define A_ptr 3
+#define B_ptr 4
+#define C_ptr 5
+
+// ArgIOs
+
+// ArgOuts
+
+// Instrumentation Counters
+#define X810_cycles_arg 6
+#define X810_iters_arg 7
+#define X1251_cycles_arg 8
+#define X1251_iters_arg 9
+#define X921_cycles_arg 10
+#define X921_iters_arg 11
+#define X1250_cycles_arg 12
+#define X1250_iters_arg 13
+#define X932_cycles_arg 14
+#define X932_iters_arg 15
+#define X1001_cycles_arg 16
+#define X1001_iters_arg 17
+#define X964_cycles_arg 18
+#define X964_iters_arg 19
+#define X964_stalled_arg 20
+#define X964_idle_arg 21
+#define X1000_cycles_arg 22
+#define X1000_iters_arg 23
+#define X981_cycles_arg 24
+#define X981_iters_arg 25
+#define X981_stalled_arg 26
+#define X981_idle_arg 27
+#define X999_cycles_arg 28
+#define X999_iters_arg 29
+#define X999_stalled_arg 30
+#define X999_idle_arg 31
+#define X1335_cycles_arg 32
+#define X1335_iters_arg 33
+#define X1015_cycles_arg 34
+#define X1015_iters_arg 35
+#define X1334_cycles_arg 36
+#define X1334_iters_arg 37
+#define X1085_cycles_arg 38
+#define X1085_iters_arg 39
+#define X1048_cycles_arg 40
+#define X1048_iters_arg 41
+#define X1048_stalled_arg 42
+#define X1048_idle_arg 43
+#define X1084_cycles_arg 44
+#define X1084_iters_arg 45
+#define X1065_cycles_arg 46
+#define X1065_iters_arg 47
+#define X1065_stalled_arg 48
+#define X1065_idle_arg 49
+#define X1083_cycles_arg 50
+#define X1083_iters_arg 51
+#define X1083_stalled_arg 52
+#define X1083_idle_arg 53
+#define X1153_cycles_arg 54
+#define X1153_iters_arg 55
+#define X1115_cycles_arg 56
+#define X1115_iters_arg 57
+#define X1115_stalled_arg 58
+#define X1115_idle_arg 59
+#define X1152_cycles_arg 60
+#define X1152_iters_arg 61
+#define X1132_cycles_arg 62
+#define X1132_iters_arg 63
+#define X1132_stalled_arg 64
+#define X1132_idle_arg 65
+#define X1151_cycles_arg 66
+#define X1151_iters_arg 67
+#define X1151_stalled_arg 68
+#define X1151_idle_arg 69
+#define X1188_cycles_arg 70
+#define X1188_iters_arg 71
+#define X1187_cycles_arg 72
+#define X1187_iters_arg 73
+#define X1186_cycles_arg 74
+#define X1186_iters_arg 75
+#define X1248_cycles_arg 76
+#define X1248_iters_arg 77
+#define X1247_cycles_arg 78
+#define X1247_iters_arg 79
+#define X1242_cycles_arg 80
+#define X1242_iters_arg 81
+#define X1222_cycles_arg 82
+#define X1222_iters_arg 83
+#define X1222_stalled_arg 84
+#define X1222_idle_arg 85
+#define X1241_cycles_arg 86
+#define X1241_iters_arg 87
+#define X1241_stalled_arg 88
+#define X1241_idle_arg 89
+#define X1246_cycles_arg 90
+#define X1246_iters_arg 91
+#define X1246_stalled_arg 92
+#define X1246_idle_arg 93

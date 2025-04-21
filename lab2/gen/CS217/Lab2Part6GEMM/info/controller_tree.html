@@ -1,0 +1,961 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for Lab2Part6GEMM (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x810 -->
+<TD>
+<font size = "6"><a href=IR.html#x810 target=_blank>x810</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">Lab2GEMM.scala:113:11 <font color="grey">-     Accel {</font></font>
+<div>
+<font color="red"> 41811 cycles/iter<br>
+<font size="2">(41811 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x1704 -->
+  <TD>
+  <font size = "6"><a href=IR.html#x1704 target=_blank>x1704</a>: Pipelined UnrolledForeach <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2GEMM.scala:114:28 <font color="grey">-         Foreach(K by tileK){kk => </font></font>
+  <br><font size = "1">Counter: <a href=IR.html#x912 target=_blank>x912</a> = CounterNew(Const(0),x1758,Const(16),Const(1))</font>
+<div>
+<font color="red"> 41808 cycles/iter<br>
+<font size="2">(41808 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x921 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x921 target=_blank>x921</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x916 target=_blank>x916</a> (FF "")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+<div>
+<font color="red"> 2 cycles/iter<br>
+<font size="2">(4 total cycles, 2 total iters)<br></font> </font><br></div>
+
+    </TD>
+    <!-- End x921-->
+    <!-- Begin x1703 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x1703 target=_blank>x1703</a>: Pipelined UnrolledForeach <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">Lab2GEMM.scala:116:32 <font color="grey">-             Foreach(M by tileM){mm =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x916 target=_blank>x916</a> (FF "")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+    <br><font size = "1">Counter: <a href=IR.html#x923 target=_blank>x923</a> = CounterNew(Const(0),x1759,Const(16),Const(1))</font>
+<div>
+<font color="red"> 20898 cycles/iter<br>
+<font size="2">(41796 total cycles, 2 total iters)<br></font> </font><br></div>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x932 -->
+      <TD>
+      <font size = "6"><a href=IR.html#x932 target=_blank>x932</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #14fb82"><font size = "1"><a href=IR.html#x927 target=_blank>x927</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+<div>
+<font color="red"> 2 cycles/iter<br>
+<font size="2">(8 total cycles, 4 total iters)<br></font> </font><br></div>
+
+      </TD>
+      <!-- End x932-->
+      <!-- Begin x1002 -->
+      <TD>
+      <font size = "6"><a href=IR.html#x1002 target=_blank>x1002</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">Lab2GEMM.scala:119:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x934 target=_blank>x934</a> (BankedSRAM "tileA_sram_0")
+        </font></div></p>
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #14fb82"><font size = "1"><a href=IR.html#x927 target=_blank>x927</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(5014 total cycles, 4 total iters)<br></font> </font><br></div>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x964 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x964 target=_blank>x964</a>: Sequenced UnrolledForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=11</b>, <b>CompilerII=1.0</b></font></mark></p>
+        <br><font size = "1">Counter: <a href=IR.html#x939 target=_blank>x939</a> = CounterNew(Const(0),x1760,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(5014 total cycles, 4 total iters)<br></font> </font><br></div>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x935, x936)----->
+        </font></div>
+        </TD>
+        <!-- End x964-->
+        <!-- Begin x1001 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x1001 target=_blank>x1001</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+        <br><font size = "1">Counter: <a href=IR.html#x967 target=_blank>x967</a> = CounterNew(Const(0),x1761,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(5014 total cycles, 4 total iters)<br></font> </font><br></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x981 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x981 target=_blank>x981</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:119:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(92 total cycles, 64 total iters)<br></font> </font><br></div>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x936)
+          </font></div>
+          </TD>
+          <!-- End x981-->
+          <!-- Begin x1000 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x1000 target=_blank>x1000</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:119:28 <font color="grey">-                 tileA_sram load a(mm::mm+numel_m, kk::kk+numel_k)</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
+          <br><font size = "1">Counter: <a href=IR.html#x984 target=_blank>x984</a> = CounterNew(Const(0),x1762,Const(1),Const(1))</font>
+<div>
+<font color="red"> 70 cycles/iter<br>
+<font size="2">(4534 total cycles, 64 total iters)<br></font> </font><br></div>
+
+          <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x937)
+          </font></div>
+          </TD>
+          <!-- End x1000-->
+          </TABLE></div>
+        </TD>
+        <!-- End x1001-->
+        </TABLE></div>
+      </TD>
+      <!-- End x1002-->
+      <!-- Begin x1812 -->
+      <TD>
+      <font size = "6"><a href=IR.html#x1812 target=_blank>x1812</a>: Pipelined UnrolledForeach <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">Lab2GEMM.scala:120:36 <font color="grey">-                 Foreach(N by tileN){nn =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x934 target=_blank>x934</a> (BankedSRAM "tileA_sram_0")
+        </font></div></p>
+        <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #14fb82"><font size = "1"><a href=IR.html#x927 target=_blank>x927</a> (FF "")
+        </font></div></p>
+        </TABLE></div>
+      </TABLE></div>
+      <br><font size = "1">Counter: <a href=IR.html#x1004 target=_blank>x1004</a> = CounterNew(Const(0),x1763,Const(16),Const(1))</font>
+<div>
+<font color="red"> 10010 cycles/iter<br>
+<font size="2">(40042 total cycles, 4 total iters)<br></font> </font><br></div>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x1016 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x1016 target=_blank>x1016</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1011 target=_blank>x1011</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+<div>
+<font color="red"> 2 cycles/iter<br>
+<font size="2">(16 total cycles, 8 total iters)<br></font> </font><br></div>
+
+        </TD>
+        <!-- End x1016-->
+        <!-- Begin x1811 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x1811 target=_blank>x1811</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">BindingTransformer.scala:82:18 <font color="grey">-             stage(ParallelPipe(scala.collection.immutable.Set[Bit](), stageBlock(bundledStms.foreach(visit))))</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1019 target=_blank>x1019</a> (BankedSRAM "tileC_sram_1")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1018 target=_blank>x1018</a> (BankedSRAM "tileC_sram_0")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #3add77"><font size = "1"><a href=IR.html#x1017 target=_blank>x1017</a> (BankedSRAM "tileB_sram_0")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1011 target=_blank>x1011</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x1087 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x1087 target=_blank>x1087</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:124:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<div>
+<font color="red"> 1449 cycles/iter<br>
+<font size="2">(11594 total cycles, 8 total iters)<br></font> </font><br></div>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x1049 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1049 target=_blank>x1049</a>: Sequenced UnrolledForeach <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=11</b>, <b>CompilerII=1.0</b></font></mark></p>
+            <br><font size = "1">Counter: <a href=IR.html#x1024 target=_blank>x1024</a> = CounterNew(Const(0),x1764,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1449 cycles/iter<br>
+<font size="2">(11594 total cycles, 8 total iters)<br></font> </font><br></div>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x1020, x1021)----->
+            </font></div>
+            </TD>
+            <!-- End x1049-->
+            <!-- Begin x1086 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1086 target=_blank>x1086</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1052 target=_blank>x1052</a> = CounterNew(Const(0),x1765,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1449 cycles/iter<br>
+<font size="2">(11594 total cycles, 8 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1066 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1066 target=_blank>x1066</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:124:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(184 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x1021)
+              </font></div>
+              </TD>
+              <!-- End x1066-->
+              <!-- Begin x1085 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1085 target=_blank>x1085</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:124:32 <font color="grey">-                     tileB_sram load b(kk::kk+numel_k, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
+              <br><font size = "1">Counter: <a href=IR.html#x1069 target=_blank>x1069</a> = CounterNew(Const(0),x1766,Const(1),Const(1))</font>
+<div>
+<font color="red"> 83 cycles/iter<br>
+<font size="2">(10634 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x1022)
+              </font></div>
+              </TD>
+              <!-- End x1085-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1086-->
+            </TABLE></div>
+          </TD>
+          <!-- End x1087-->
+          <!-- Begin x1158 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x1158 target=_blank>x1158</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:125:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(10028 total cycles, 8 total iters)<br></font> </font><br></div>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x1117 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1117 target=_blank>x1117</a>: Sequenced UnrolledForeach <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=11</b>, <b>CompilerII=1.0</b></font></mark></p>
+            <br><font size = "1">Counter: <a href=IR.html#x1092 target=_blank>x1092</a> = CounterNew(Const(0),x1767,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(10028 total cycles, 8 total iters)<br></font> </font><br></div>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x1088, x1089)----->
+            </font></div>
+            </TD>
+            <!-- End x1117-->
+            <!-- Begin x1157 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1157 target=_blank>x1157</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1120 target=_blank>x1120</a> = CounterNew(Const(0),x1768,Const(1),Const(1))</font>
+<div>
+<font color="red"> 1253 cycles/iter<br>
+<font size="2">(10028 total cycles, 8 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1134 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1134 target=_blank>x1134</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:125:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(184 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x1089)
+              </font></div>
+              </TD>
+              <!-- End x1134-->
+              <!-- Begin x1156 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1156 target=_blank>x1156</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:125:32 <font color="grey">-                     tileC_sram load c(mm::mm+numel_m, nn::nn+numel_n) // DRAM -> SRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
+              <br><font size = "1">Counter: <a href=IR.html#x1137 target=_blank>x1137</a> = CounterNew(Const(0),x1769,Const(1),Const(1))</font>
+<div>
+<font color="red"> 70 cycles/iter<br>
+<font size="2">(9068 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x1090)
+              </font></div>
+              </TD>
+              <!-- End x1156-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1157-->
+            </TABLE></div>
+          </TD>
+          <!-- End x1158-->
+          </TABLE></div>
+        </TD>
+        <!-- End x1811-->
+        <!-- Begin x1638 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x1638 target=_blank>x1638</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:130:49 <font color="grey">-                     Foreach(numel_m by 1 par 4) { m =></font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1019 target=_blank>x1019</a> (BankedSRAM "tileC_sram_1")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1018 target=_blank>x1018</a> (BankedSRAM "tileC_sram_0")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #3add77"><font size = "1"><a href=IR.html#x1017 target=_blank>x1017</a> (BankedSRAM "tileB_sram_0")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1011 target=_blank>x1011</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+        <br><font size = "1">Counter: <a href=IR.html#x1160 target=_blank>x1160</a> = CounterNew(Const(0),x1770,Const(1),Const(4))</font>
+<div>
+<font color="red"> 2193 cycles/iter<br>
+<font size="2">(17544 total cycles, 8 total iters)<br></font> </font><br></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x1637 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x1637 target=_blank>x1637</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">Lab2GEMM.scala:131:51 <font color="grey">-                       Foreach(numel_n by 1 par 4) { n =></font></font>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x1294 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1294 target=_blank>x1294</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:131:51 <font color="grey">-                       Foreach(numel_n by 1 par 4) { n =></font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1177 target=_blank>x1177</a> = CounterNew(Const(0),x1771,Const(1),Const(4))</font>
+<div>
+<font color="red"> 545 cycles/iter<br>
+<font size="2">(69760 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1293 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1293 target=_blank>x1293</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+
+                <div data-role="collapsible"><h4> </h4>
+                <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+                <!-- Begin x1223 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1223 target=_blank>x1223</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1197 target=_blank>x1197</a> = CounterNew(Const(0),x1775,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1223-->
+                <!-- Begin x1246 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1246 target=_blank>x1246</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1198 target=_blank>x1198</a> = CounterNew(Const(0),x1776,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1246-->
+                <!-- Begin x1269 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1269 target=_blank>x1269</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1199 target=_blank>x1199</a> = CounterNew(Const(0),x1777,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1269-->
+                <!-- Begin x1292 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1292 target=_blank>x1292</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1200 target=_blank>x1200</a> = CounterNew(Const(0),x1778,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1292-->
+                </TABLE></div>
+              </TD>
+              <!-- End x1293-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1294-->
+            <!-- Begin x1408 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1408 target=_blank>x1408</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:131:51 <font color="grey">-                       Foreach(numel_n by 1 par 4) { n =></font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1178 target=_blank>x1178</a> = CounterNew(Const(0),x1772,Const(1),Const(4))</font>
+<div>
+<font color="red"> 545 cycles/iter<br>
+<font size="2">(69760 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1407 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1407 target=_blank>x1407</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+
+                <div data-role="collapsible"><h4> </h4>
+                <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+                <!-- Begin x1337 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1337 target=_blank>x1337</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1311 target=_blank>x1311</a> = CounterNew(Const(0),x1779,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1337-->
+                <!-- Begin x1360 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1360 target=_blank>x1360</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1312 target=_blank>x1312</a> = CounterNew(Const(0),x1780,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1360-->
+                <!-- Begin x1383 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1383 target=_blank>x1383</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1313 target=_blank>x1313</a> = CounterNew(Const(0),x1781,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1383-->
+                <!-- Begin x1406 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1406 target=_blank>x1406</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1314 target=_blank>x1314</a> = CounterNew(Const(0),x1782,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1406-->
+                </TABLE></div>
+              </TD>
+              <!-- End x1407-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1408-->
+            <!-- Begin x1522 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1522 target=_blank>x1522</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:131:51 <font color="grey">-                       Foreach(numel_n by 1 par 4) { n =></font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1179 target=_blank>x1179</a> = CounterNew(Const(0),x1773,Const(1),Const(4))</font>
+<div>
+<font color="red"> 545 cycles/iter<br>
+<font size="2">(69760 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1521 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1521 target=_blank>x1521</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+
+                <div data-role="collapsible"><h4> </h4>
+                <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+                <!-- Begin x1451 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1451 target=_blank>x1451</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1425 target=_blank>x1425</a> = CounterNew(Const(0),x1783,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1451-->
+                <!-- Begin x1474 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1474 target=_blank>x1474</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1426 target=_blank>x1426</a> = CounterNew(Const(0),x1784,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1474-->
+                <!-- Begin x1497 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1497 target=_blank>x1497</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1427 target=_blank>x1427</a> = CounterNew(Const(0),x1785,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1497-->
+                <!-- Begin x1520 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1520 target=_blank>x1520</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1428 target=_blank>x1428</a> = CounterNew(Const(0),x1786,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1520-->
+                </TABLE></div>
+              </TD>
+              <!-- End x1521-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1522-->
+            <!-- Begin x1636 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1636 target=_blank>x1636</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:131:51 <font color="grey">-                       Foreach(numel_n by 1 par 4) { n =></font></font>
+            <br><font size = "1">Counter: <a href=IR.html#x1180 target=_blank>x1180</a> = CounterNew(Const(0),x1774,Const(1),Const(4))</font>
+<div>
+<font color="red"> 545 cycles/iter<br>
+<font size="2">(69760 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1635 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1635 target=_blank>x1635</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+
+                <div data-role="collapsible"><h4> </h4>
+                <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+                <!-- Begin x1565 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1565 target=_blank>x1565</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1539 target=_blank>x1539</a> = CounterNew(Const(0),x1787,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1565-->
+                <!-- Begin x1588 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1588 target=_blank>x1588</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1540 target=_blank>x1540</a> = CounterNew(Const(0),x1788,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1588-->
+                <!-- Begin x1611 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1611 target=_blank>x1611</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1541 target=_blank>x1541</a> = CounterNew(Const(0),x1789,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1611-->
+                <!-- Begin x1634 -->
+                <TD>
+                <font size = "6"><a href=IR.html#x1634 target=_blank>x1634</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+                <br><font size = "2">Lab2GEMM.scala:132:47 <font color="grey">-                         Foreach(numel_k by 1) { k =></font></font>
+                <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  <b>II=4</b></font></mark></p>
+                <br><font size = "1">Counter: <a href=IR.html#x1542 target=_blank>x1542</a> = CounterNew(Const(0),x1790,Const(1),Const(1))</font>
+<div>
+<font color="red"> 133 cycles/iter<br>
+<font size="2">(272384 total cycles, 2048 total iters)<br></font> </font><br></div>
+
+                </TD>
+                <!-- End x1634-->
+                </TABLE></div>
+              </TD>
+              <!-- End x1635-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1636-->
+            </TABLE></div>
+          </TD>
+          <!-- End x1637-->
+          </TABLE></div>
+        </TD>
+        <!-- End x1638-->
+        <!-- Begin x1701 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x1701 target=_blank>x1701</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+        <br><font size = "2">Lab2GEMM.scala:137:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1019 target=_blank>x1019</a> (BankedSRAM "tileC_sram_1")
+          </font></div></p>
+          <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1011 target=_blank>x1011</a> (FF "")
+          </font></div></p>
+          </TABLE></div>
+        </TABLE></div>
+<div>
+<font color="red"> 2449 cycles/iter<br>
+<font size="2">(19592 total cycles, 8 total iters)<br></font> </font><br></div>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x1700 -->
+          <TD>
+          <font size = "6"><a href=IR.html#x1700 target=_blank>x1700</a>: Sequenced UnrolledForeach <font size = "4"> (OuterControl)</font>
+          <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
+          <br><font size = "1">Counter: <a href=IR.html#x1643 target=_blank>x1643</a> = CounterNew(Const(0),x1791,Const(1),Const(1))</font>
+<div>
+<font color="red"> 2449 cycles/iter<br>
+<font size="2">(19592 total cycles, 8 total iters)<br></font> </font><br></div>
+
+            <div data-role="collapsible"><h4> </h4>
+            <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+            <!-- Begin x1695 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1695 target=_blank>x1695</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:137:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+<div>
+<font color="red"> 41 cycles/iter<br>
+<font size="2">(5248 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div data-role="collapsible"><h4> </h4>
+              <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+              <!-- Begin x1672 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1672 target=_blank>x1672</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:137:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=11,  II=1</font></mark></p>
+<div>
+<font color="red"> 13 cycles/iter<br>
+<font size="2">(1664 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x1639)----->
+              </font></div>
+              </TD>
+              <!-- End x1672-->
+              <!-- Begin x1694 -->
+              <TD>
+              <font size = "6"><a href=IR.html#x1694 target=_blank>x1694</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+              <br><font size = "2">Lab2GEMM.scala:137:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+              <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+              <br><font size = "1">Counter: <a href=IR.html#x1675 target=_blank>x1675</a> = CounterNew(Const(0),x1792,Const(1),Const(1))</font>
+<div>
+<font color="red"> 22 cycles/iter<br>
+<font size="2">(2816 total cycles, 128 total iters)<br></font> </font><br></div>
+
+              <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x1640)----->
+              </font></div>
+              </TD>
+              <!-- End x1694-->
+              </TABLE></div>
+            </TD>
+            <!-- End x1695-->
+            <!-- Begin x1699 -->
+            <TD>
+            <font size = "6"><a href=IR.html#x1699 target=_blank>x1699</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+            <br><font size = "2">Lab2GEMM.scala:137:55 <font color="grey">-                     c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram // SRAM -> DRAM</font></font>
+            <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(128 total cycles, 128 total iters)<br></font> </font><br></div>
+
+            <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x1641)
+            </font></div>
+            </TD>
+            <!-- End x1699-->
+            </TABLE></div>
+          </TD>
+          <!-- End x1700-->
+          </TABLE></div>
+        </TD>
+        <!-- End x1701-->
+        </TABLE></div>
+      </TD>
+      <!-- End x1812-->
+      </TABLE></div>
+    </TD>
+    <!-- End x1703-->
+    </TABLE></div>
+  </TD>
+  <!-- End x1704-->
+  </TABLE></div>
+</TD>
+<!-- End x810-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1019 target=_blank>x1019</a> (BankedSRAM "tileC_sram_1")
+<br>lca = <a href=IR.html#x1812 target=_blank>x1812</a>
+<br>nBufs = 3
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 768
+<br>nBanks = List(4, 4), B = List(1, 1), a = List(1, 1), p = List(4, 4)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">0</div><div style="border: 1px solid;padding: 5px">16</div> <div style="border: 1px solid;padding: 5px">16</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x934 target=_blank>x934</a> (BankedSRAM "tileA_sram_0")
+<br>lca = <a href=IR.html#x1703 target=_blank>x1703</a>
+<br>nBufs = 2
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 512
+<br>nBanks = List(4, 1), B = List(1, 1), a = List(1, 1), p = List(4, 1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">0</div> <div style="border: 1px solid;padding: 5px">4</div> <div style="border: 1px solid;padding: 5px">0</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1018 target=_blank>x1018</a> (BankedSRAM "tileC_sram_0")
+<br>lca = <a href=IR.html#x1812 target=_blank>x1812</a>
+<br>nBufs = 2
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 512
+<br>nBanks = List(4, 4), B = List(1, 1), a = List(1, 1), p = List(4, 4)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">16</div><div style="border: 1px solid;padding: 5px">16</div> <div style="border: 1px solid;padding: 5px">16</div> <div style="border: 1px solid;padding: 5px">0</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #3add77"><font size = "1"><a href=IR.html#x1017 target=_blank>x1017</a> (BankedSRAM "tileB_sram_0")
+<br>lca = <a href=IR.html#x1812 target=_blank>x1812</a>
+<br>nBufs = 2
+<br>volume = 256 (dims List(16, 16) + pads List(0, 0), bw = 32)
+<br>nBufs*volume = 512
+<br>nBanks = List(1, 4), B = List(1, 1), a = List(1, 1), p = List(1, 4)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">0</div> <div style="border: 1px solid;padding: 5px">4</div> <div style="border: 1px solid;padding: 5px">0</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1011 target=_blank>x1011</a> (FF "")
+<br>lca = <a href=IR.html#x1812 target=_blank>x1812</a>
+<br>nBufs = 4
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 4
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #14fb82"><font size = "1"><a href=IR.html#x927 target=_blank>x927</a> (FF "")
+<br>lca = <a href=IR.html#x1703 target=_blank>x1703</a>
+<br>nBufs = 3
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 3
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x916 target=_blank>x916</a> (FF "")
+<br>lca = <a href=IR.html#x1704 target=_blank>x1704</a>
+<br>nBufs = 2
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBufs*volume = 2
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1089 target=_blank>x1089</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x936 target=_blank>x936</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1021 target=_blank>x1021</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1125 target=_blank>x1125</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x972 target=_blank>x972</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1124 target=_blank>x1124</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1647 target=_blank>x1647</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1123 target=_blank>x1123</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1646 target=_blank>x1646</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x970 target=_blank>x970</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1057 target=_blank>x1057</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1056 target=_blank>x1056</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1055 target=_blank>x1055</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1648 target=_blank>x1648</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>
