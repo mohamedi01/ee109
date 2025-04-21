@@ -28,6 +28,11 @@ int index_x = in1;
 int index_y = in2;
 
 //TODO initialise a LUT[3][3] array 
+const ap_int<32> LUT[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
 
 out[0] = LUT[index_x][index_y];
 }
