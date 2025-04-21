@@ -28,6 +28,10 @@ static void fsm(hls::vector<uint32_t, NUM_WORDS> *bram_out)
     for (int state=0; state < NUM_WORDS; state++) {
         //TODO add the FSM control logic
         //NUM_WORDS = 32, implying that there are 32 entries in the SRAM vector. 
+        if (state < 8) bram[state] = state;
+        else if (state < 16) bram[state] = state * 2;
+        else if (state < 24) bram[state] = state * 3;
+        else bram[state] = state * 4;
     }
     bram_out[0] = bram;
 }
