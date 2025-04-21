@@ -1,0 +1,125 @@
+    x87 = CounterNew(Const(-5),Const(5),Const(1),Const(1)) [COUNTER]
+      start: List(-5)
+      end: List(5)
+      step: List(1)
+    x89 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [COUNTER]
+      start: List(0)
+      end: List(16)
+      step: List(1)
+    x100 = OpMemReduce(Set(),x88,x90,x86,Block(x91),Block((x91) => x96),Block((x86) => x97),Block((b9,b10) => x98),Block((x86,x98) => Const(())),None,true,List(b7),List(b8),None,Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]]) [LOOP]
+      Iters:  List(b7)
+      Starts:  List(Const(-5))
+      Blocks: Block(x91)
+      x92 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [COUNTER]
+        start: List(0)
+        end: List(16)
+        step: List(1)
+      x95 = OpForeach(Set(),x93,Block(Const(())),List(b13),None) [LOOP]
+        Iters:  List(b13)
+        Starts:  List(Const(0))
+        Blocks: Block(Const(()))
+        x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+        isInvariant b13, b13?  check against ArrayBuffer(x94)
+          Access pattern: 
+            [0] 1*b13 + 0
+          Iterators: b13 (par: 1, start: Const(0))
+            xs: b13
+          Iterator: b13
+          Unrolled matrices: 
+            x94 = SRAMWrite(x91,Const(1),List(b13),Set()) wr{0}
+             b13    c  mod
+               1    0    0wr
+    x100 = OpMemReduce(Set(),x88,x90,x86,Block(x91),Block((x91) => x96),Block((x86) => x97),Block((b9,b10) => x98),Block((x86,x98) => Const(())),None,true,List(b7),List(b8),None,Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]]) [LOOP]
+      Iters:  List(b7, b8)
+      Starts:  List(Const(-5), Const(0))
+      Blocks: Block((x91) => x96)
+      x96 = SRAMRead(x91,List(b8),Set())
+      isInvariant b8, b8?  check against ArrayBuffer(x96)
+        Access pattern: 
+          [0] 1*b8 + 0
+        Iterators: b8 (par: 1, start: Const(0))
+          xs: b8
+        Iterator: b8
+        Unrolled matrices: 
+          x96 = SRAMRead(x91,List(b8),Set()) rd{0}
+            b8    c  mod
+             1    0    0rd
+      Iters:  List(b8)
+      Starts:  List(Const(0))
+      Blocks: Block((x86) => x97)
+      x97 = SRAMRead(x86,List(b8),Set())
+      isInvariant b8, b8?  check against ArrayBuffer(x97)
+        Access pattern: 
+          [0] 1*b8 + 0
+        Iterators: b8 (par: 1, start: Const(0))
+          xs: b8
+        Iterator: b8
+        Unrolled matrices: 
+          x97 = SRAMRead(x86,List(b8),Set()) rd{0}
+            b8    c  mod
+             1    0    0rd
+      Iters:  List(b7, b8)
+      Starts:  List(Const(-5), Const(0))
+      Blocks: Block((b9,b10) => x98)
+      Iters:  List(b8)
+      Starts:  List(Const(0))
+      Blocks: Block((x86,x98) => Const(()))
+      x99 = SRAMWrite(x86,x98,List(b8),Set())
+      isInvariant b8, b8?  check against ArrayBuffer(x99)
+        Access pattern: 
+          [0] 1*b8 + 0
+        Iterators: b8 (par: 1, start: Const(0))
+          xs: b8
+        Iterator: b8
+        Unrolled matrices: 
+          x99 = SRAMWrite(x86,x98,List(b8),Set()) wr{0}
+            b8    c  mod
+             1    0    0wr
+        x107 = StreamOutWrite(x101,x105,Set(x106)) [STREAMING VECTOR SIZE 1]
+          Access pattern: 
+          [0] 0
+          Iterators: 
+            xs: 
+          Unrolled matrices: 
+            x107 = StreamOutWrite(x101,x105,Set(x106)) wr{}
+               c  mod
+               0    0wr
+      x109 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [COUNTER]
+        start: List(0)
+        end: List(16)
+        step: List(1)
+      x114 = OpForeach(Set(),x110,Block(Const(())),List(b75),None) [LOOP]
+        Iters:  List(b75)
+        Starts:  List(Const(0))
+        Blocks: Block(Const(()))
+        x111 = SRAMRead(x86,List(b75),Set())
+        isInvariant b75, b75?  check against ArrayBuffer(x111, x112, x113)
+          Access pattern: 
+            [0] 1*b75 + 0
+          Iterators: b75 (par: 1, start: Const(0))
+            xs: b75
+          Iterator: b75
+          Unrolled matrices: 
+            x111 = SRAMRead(x86,List(b75),Set()) rd{0}
+             b75    c  mod
+               1    0    0rd
+        x113 = StreamOutWrite(x102,x112,Set()) [STREAMING VECTOR SIZE 1]
+        isInvariant b75, b75?  check against ArrayBuffer(x111, x112, x113)
+          Access pattern: 
+          [0] 1*b75 + 0
+          Iterators: b75 (par: 1, start: Const(0))
+            xs: b75
+          Iterator: b75
+          Unrolled matrices: 
+            x113 = StreamOutWrite(x102,x112,Set()) wr{0}
+             b75    c  mod
+               1    0    0wr
+        x116 = StreamInRead(x103,Set()) [STREAMING VECTOR SIZE 1]
+          Access pattern: 
+          [0] 0
+          Iterators: 
+            xs: 
+          Unrolled matrices: 
+            x116 = StreamInRead(x103,Set()) rd{}
+               c  mod
+               0    0rd

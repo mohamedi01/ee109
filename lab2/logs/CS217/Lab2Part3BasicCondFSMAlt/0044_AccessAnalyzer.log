@@ -1,0 +1,116 @@
+    x145 = StateMachine(Set(),Const(0),Block((b5) => x117),Block((b5) => Const(())),Block((b5) => x144),Fix[TRUE,_32,_0]) [LOOP]
+      Iters:  List()
+      Starts:  List()
+      Blocks: Block((b5) => x117)
+    x145 = StateMachine(Set(),Const(0),Block((b5) => x117),Block((b5) => Const(())),Block((b5) => x144),Fix[TRUE,_32,_0]) [LOOP]
+      Iters:  List()
+      Starts:  List()
+      Blocks: Block((b5) => Const(()))
+          x120 = SRAMWrite(x116,b5,List(b5),Set(x118))
+            Access pattern: 
+              [0] b5
+            Iterators: 
+              xs: b5
+            Other: b5
+              Iterators: 
+              All used iterators: ListBuffer()
+              Full UID: {}
+              Unrolling b5 {} -> Left(b205)
+            Unrolled matrices: 
+              x120 = SRAMWrite(x116,b5,List(b5),Set(x118)) wr{}
+               b205     c   mod
+                  1     0     0wr
+              x127 = SRAMWrite(x116,x126,List(b5),Set(x119, x124))
+                Access pattern: 
+                  [0] b5
+                Iterators: 
+                  xs: b5
+                Other: b5
+                  Iterators: 
+                  All used iterators: ListBuffer()
+                  Full UID: {}
+                  Unrolling b5 {} -> Left(b205)
+                Unrolled matrices: 
+                  x127 = SRAMWrite(x116,x126,List(b5),Set(x119, x124)) wr{}
+                   b205     c   mod
+                      1     0     0wr
+                  x134 = SRAMWrite(x116,x133,List(b5),Set(x119, x125, x131))
+                    Access pattern: 
+                      [0] b5
+                    Iterators: 
+                      xs: b5
+                    Other: b5
+                      Iterators: 
+                      All used iterators: ListBuffer()
+                      Full UID: {}
+                      Unrolling b5 {} -> Left(b205)
+                    Unrolled matrices: 
+                      x134 = SRAMWrite(x116,x133,List(b5),Set(x119, x125, x131)) wr{}
+                       b205     c   mod
+                          1     0     0wr
+                  x137 = SRAMWrite(x116,x136,List(b5),Set(x119, x125, x132))
+                    Access pattern: 
+                      [0] b5
+                    Iterators: 
+                      xs: b5
+                    Other: b5
+                      Iterators: 
+                      All used iterators: ListBuffer()
+                      Full UID: {}
+                      Unrolling b5 {} -> Left(b205)
+                    Unrolled matrices: 
+                      x137 = SRAMWrite(x116,x136,List(b5),Set(x119, x125, x132)) wr{}
+                       b205     c   mod
+                          1     0     0wr
+    x145 = StateMachine(Set(),Const(0),Block((b5) => x117),Block((b5) => Const(())),Block((b5) => x144),Fix[TRUE,_32,_0]) [LOOP]
+      Iters:  List()
+      Starts:  List()
+      Blocks: Block((b5) => x144)
+        x152 = StreamOutWrite(x146,x150,Set(x151)) [STREAMING VECTOR SIZE 1]
+          Access pattern: 
+          [0] 0
+          Iterators: 
+            xs: 
+          Unrolled matrices: 
+            x152 = StreamOutWrite(x146,x150,Set(x151)) wr{}
+               c  mod
+               0    0wr
+      x154 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [COUNTER]
+        start: List(0)
+        end: List(32)
+        step: List(1)
+      x159 = OpForeach(Set(),x155,Block(Const(())),List(b100),None) [LOOP]
+        Iters:  List(b100)
+        Starts:  List(Const(0))
+        Blocks: Block(Const(()))
+        x156 = SRAMRead(x116,List(b100),Set())
+        isInvariant b100, b100?  check against ArrayBuffer(x156, x157, x158)
+          Access pattern: 
+            [0] 1*b100 + 0
+          Iterators: b100 (par: 1, start: Const(0))
+            xs: b100
+          Iterator: b100
+          Unrolled matrices: 
+            x156 = SRAMRead(x116,List(b100),Set()) rd{0}
+             b100     c   mod
+                1     0     0rd
+        x158 = StreamOutWrite(x147,x157,Set()) [STREAMING VECTOR SIZE 1]
+        isInvariant b100, b100?  check against ArrayBuffer(x156, x157, x158)
+          Access pattern: 
+          [0] 1*b100 + 0
+          Iterators: b100 (par: 1, start: Const(0))
+            xs: b100
+          Iterator: b100
+          Unrolled matrices: 
+            x158 = StreamOutWrite(x147,x157,Set()) wr{0}
+             b100     c   mod
+                1     0     0wr
+        x161 = StreamInRead(x148,Set()) [STREAMING VECTOR SIZE 1]
+          Access pattern: 
+          [0] 0
+          Iterators: 
+            xs: 
+          Unrolled matrices: 
+            x161 = StreamInRead(x148,Set()) rd{}
+               c  mod
+               0    0rd

@@ -1,0 +1,200 @@
+  x168 = AccelScope(Block(Const(())))
+      x214 = UnitPipe(Set(),Block(Const(())),None)
+        Working on pipeLatencies of result Vector(Const(()), x213), schedule Vector(x213)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        ----------------------------------
+        Computing pipeLatencies for scope:
+          x213 = RegWrite(x212,Const(16),Set())
+        Computing fullDFS: Const(())
+        Computing fullDFS: x213
+        cur: x213, inReduce: false, latency: 1.0
+        [1.0 = max(0) + 1.0] x213 = RegWrite(x212,Const(16),Set())
+        Cycles: Map()
+          Schedule after pipeLatencies calculation:
+          [1.0] x213 = RegWrite(x212,Const(16),Set())
+      x245 = StateMachine(Set(),Const(0),Block((b5) => x215),Block((b5) => Const(())),Block((b5) => x244),Fix[TRUE,_32,_0])
+        Working on pipeLatencies of result Vector(x215), schedule Vector(x215)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        ----------------------------------
+        Computing pipeLatencies for scope:
+          x215 = FixLst(b5,Const(32))
+        Computing fullDFS: x215
+        cur: x215, inReduce: false, latency: 0.4
+        [0.4 = max(0) + 0.4] x215 = FixLst(b5,Const(32))
+        Cycles: Map()
+          Schedule after pipeLatencies calculation:
+          [0.4] x215 = FixLst(b5,Const(32))
+        Working on pipeLatencies of result Vector(Const(()), x221, x225, x237, x241), schedule Vector(x216, x217, x218, x219, x220, x221, x224, x225, x229, x230, x231, x232, x233, x234, x235, x237, x302, x241)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        ----------------------------------
+        Computing pipeLatencies for scope:
+          x216 = FixLst(b5,Const(16))
+          x217 = Not(x216)
+          x218 = FixLst(b5,Const(8))
+          x219 = Not(x218)
+          x220 = FixSub(Const(31),b5)
+          x221 = SRAMBankedWrite(x211,Vector(b5),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x218)))
+          x224 = FixAdd(b5,Const(1))
+          x225 = SRAMBankedWrite(x211,Vector(x224),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x219)))
+          x229 = FixSub(b5,Const(16))
+          x230 = FixEql(b5,Const(16))
+          x231 = Not(x230)
+          x232 = FixEql(b5,Const(17))
+          x233 = And(x232,x231)
+          x234 = Not(x232)
+          x235 = And(x234,x231)
+          x237 = RegRead(x212)
+          x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+          x241 = SRAMBankedWrite(x211,Vector(x302),Vector(List(Const(0))),Vector(x229),Vector(Set(x217)))
+        Computing fullDFS: Const(())
+        Computing fullDFS: x221
+        Computing fullDFS: x216
+        cur: x216, inReduce: false, latency: 0.4
+        [0.4 = max(0) + 0.4] x216 = FixLst(b5,Const(16))
+        Computing fullDFS: x218
+        cur: x218, inReduce: false, latency: 0.4
+        [0.4 = max(0) + 0.4] x218 = FixLst(b5,Const(8))
+        Computing fullDFS: x220
+        cur: x220, inReduce: false, latency: 1.0
+        [1.0 = max(0) + 1.0] x220 = FixSub(Const(31),b5)
+        [2.0 = max(0.4, 0.4, 1.0) + 1.0] x221 = SRAMBankedWrite(x211,Vector(b5),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x218)))
+        Computing fullDFS: x225
+        Computing fullDFS: x219
+        [0.6000000000000001 = max(0.4) + 0.2] x219 = Not(x218)
+        Computing fullDFS: x224
+        cur: x224, inReduce: false, latency: 1.0
+        [1.0 = max(0) + 1.0] x224 = FixAdd(b5,Const(1))
+        [3.0 = max(0.4, 0.6, 1.0, 2.0, 1.0) + 1.0] x225 = SRAMBankedWrite(x211,Vector(x224),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x219)))
+        Computing fullDFS: x237
+        cur: x237, inReduce: false, latency: 0.0
+        [0.0 = max(0) + 0.0] x237 = RegRead(x212)
+        Computing fullDFS: x241
+        Computing fullDFS: x217
+        [0.6000000000000001 = max(0.4) + 0.2] x217 = Not(x216)
+        Computing fullDFS: x229
+        cur: x229, inReduce: false, latency: 1.0
+        [1.0 = max(0) + 1.0] x229 = FixSub(b5,Const(16))
+        Computing fullDFS: x302
+        Computing fullDFS: x230
+        cur: x230, inReduce: false, latency: 0.2
+        [0.2 = max(0) + 0.2] x230 = FixEql(b5,Const(16))
+        Computing fullDFS: x233
+        Computing fullDFS: x231
+        [0.4 = max(0.2) + 0.2] x231 = Not(x230)
+        Computing fullDFS: x232
+        cur: x232, inReduce: false, latency: 0.2
+        [0.2 = max(0) + 0.2] x232 = FixEql(b5,Const(17))
+        [0.6000000000000001 = max(0.4, 0.2) + 0.2] x233 = And(x232,x231)
+        Computing fullDFS: x235
+        Computing fullDFS: x234
+        [0.4 = max(0.2) + 0.2] x234 = Not(x232)
+        [0.6000000000000001 = max(0.4, 0.4) + 0.2] x235 = And(x234,x231)
+        [2.6 = max(0.2, 0.6, 0.6, 0.0) + 2.0] x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+        [4.0 = max(0.6, 2.0, 3.0, 1.0, 2.6) + 1.0] x241 = SRAMBankedWrite(x211,Vector(x302),Vector(List(Const(0))),Vector(x229),Vector(Set(x217)))
+        Cycles: Map()
+          Schedule after pipeLatencies calculation:
+          [0.0] x237 = RegRead(x212)
+          [0.2] x230 = FixEql(b5,Const(16))
+          [0.2] x232 = FixEql(b5,Const(17))
+          [0.4] x216 = FixLst(b5,Const(16))
+          [0.4] x218 = FixLst(b5,Const(8))
+          [0.4] x231 = Not(x230)
+          [0.4] x234 = Not(x232)
+          [0.6] x217 = Not(x216)
+          [0.6] x219 = Not(x218)
+          [0.6] x233 = And(x232,x231)
+          [0.6] x235 = And(x234,x231)
+          [1.0] x220 = FixSub(Const(31),b5)
+          [1.0] x224 = FixAdd(b5,Const(1))
+          [1.0] x229 = FixSub(b5,Const(16))
+          [2.0] x221 = SRAMBankedWrite(x211,Vector(b5),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x218)))
+          [2.6] x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+          [3.0] x225 = SRAMBankedWrite(x211,Vector(x224),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x219)))
+          [4.0] x241 = SRAMBankedWrite(x211,Vector(x302),Vector(List(Const(0))),Vector(x229),Vector(Set(x217)))
+        Working on pipeLatencies of result Vector(x244), schedule Vector(x244)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        ----------------------------------
+        Computing pipeLatencies for scope:
+          x244 = FixAdd(b5,Const(1))
+        Computing fullDFS: x244
+        cur: x244, inReduce: false, latency: 1.0
+        [1.0 = max(0) + 1.0] x244 = FixAdd(b5,Const(1))
+        Cycles: Map()
+          Schedule after pipeLatencies calculation:
+          [1.0] x244 = FixAdd(b5,Const(1))
+      x267 = UnitPipe(Set(),Block(Const(())),None)
+          x253 = UnitPipe(Set(),Block(Const(())),None)
+            Working on pipeLatencies of result Vector(Const(()), x249, x251, x252), schedule Vector(x249, x250, x251, x252)
+            Memories with both reads and writes in this scope: Set()
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x249 = DRAMAddress(x210)
+              x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+              x251 = DRAMIsAlloc(x210)
+              x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x249
+            cur: x249, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x249 = DRAMAddress(x210)
+            Computing fullDFS: x251
+            cur: x251, inReduce: false, latency: 0.0
+            [0.0 = max(0) + 0.0] x251 = DRAMIsAlloc(x210)
+            Computing fullDFS: x252
+            Computing fullDFS: x250
+            [0.0 = max(0.0) + 0.0] x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+            [0.0 = max(0.0, 0.0) + 0.0] x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+            Cycles: Map()
+              Schedule after pipeLatencies calculation:
+              [0.0] x249 = DRAMAddress(x210)
+              [0.0] x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+              [0.0] x251 = DRAMIsAlloc(x210)
+              [0.0] x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+          x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+            Working on pipeLatencies of result Vector(Const(()), x258, x261), schedule Vector(x258, x259, x260, x261)
+            Memories with both reads and writes in this scope: Set()
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+              x259 = VecApply(x258,0)
+              x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+              x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(b257)))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x258
+            cur: x258, inReduce: false, latency: 2.0
+            [2.0 = max(0) + 2.0] x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+            Computing fullDFS: x261
+            Computing fullDFS: x260
+            Computing fullDFS: x259
+            [2.0 = max(2.0) + 0.0] x259 = VecApply(x258,0)
+            [2.0 = max(2.0) + 0.0] x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+            [2.0 = max(2.0) + 0.0] x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(b257)))
+            Cycles: Map()
+              Schedule after pipeLatencies calculation:
+              [2.0] x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+              [2.0] x259 = VecApply(x258,0)
+              [2.0] x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+              [2.0] x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(b257)))
+          x266 = UnitPipe(Set(),Block(Const(())),None)
+            Working on pipeLatencies of result Vector(Const(()), x264), schedule Vector(x264)
+            Memories with both reads and writes in this scope: Set()
+            Done finding cycles: Vector(), Map()
+            ----------------------------------
+            Computing pipeLatencies for scope:
+              x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+            Computing fullDFS: Const(())
+            Computing fullDFS: x264
+            cur: x264, inReduce: false, latency: 1.0
+            [1.0 = max(0) + 1.0] x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+            Cycles: Map()
+              Schedule after pipeLatencies calculation:
+              [1.0] x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+  x278 = SeriesForeach(Const(0),x273,Const(1),Block((b34) => Const(())))
+  x287 = SeriesForeach(Const(0),x282,Const(1),Block((b44) => Const(())))
+  x292 = ArrayZip(x270,x268,Block((x270,b51) => x289),Block((x268,b51) => x290),Block((x289,x290) => x291))
+  x295 = ArrayReduce(x292,Block((x292,b56) => x293),Block((b57,b58) => x294))

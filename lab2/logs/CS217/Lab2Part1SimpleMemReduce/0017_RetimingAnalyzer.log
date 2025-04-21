@@ -1,0 +1,164 @@
+Visiting Block Block(x65) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => false, List() => false]
+    Visiting Block Block(x11) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      Result: 
+        ()
+        x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      Working on pipeLatencies of result Vector(Const(()), x15), schedule Vector(x15)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x15
+      cur: x15, inReduce: false, latency: 3.0
+      [3.0 = max(0) + 3.0] x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [3.0] x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      [0.0] ()
+      [3.0] x15 = SRAMWrite(x11,Const(1),List(b13),Set())
+      
+      
+      Sym Delays:
+        [0.0 = 3.0 - 3.0]: x15 = SRAMWrite(x11,Const(1),List(b13),Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+    Visiting Block Block((x11) => x18) [List() => false, List() => false]
+    Visiting Block Block((x2) => x19) [List() => false, List() => false]
+    Visiting Block Block((b9,b10) => x17) [List() => false, List() => false]
+    Visiting Block Block((x2,x17) => x20) [List() => false, List() => false]
+    Visiting Block Block(Const(())) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x69 = DRAMAddress(x1)
+        x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false))))
+        x71 = DRAMIsAlloc(x1)
+        x72 = StreamOutWrite(x66,x70,Set(x71))
+      Result: 
+        ()
+        x69 = DRAMAddress(x1)
+        x71 = DRAMIsAlloc(x1)
+        x72 = StreamOutWrite(x66,x70,Set(x71))
+      Working on pipeLatencies of result Vector(Const(()), x69, x71, x72), schedule Vector(x69, x70, x71, x72)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x69 = DRAMAddress(x1)
+        x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false))))
+        x71 = DRAMIsAlloc(x1)
+        x72 = StreamOutWrite(x66,x70,Set(x71))
+      Computing fullDFS: Const(())
+      Computing fullDFS: x69
+      cur: x69, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x69 = DRAMAddress(x1)
+      Computing fullDFS: x71
+      cur: x71, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x71 = DRAMIsAlloc(x1)
+      Computing fullDFS: x72
+      Computing fullDFS: x70
+      [0.0 = max(0.0) + 0.0] x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false))))
+      [0.0 = max(0.0, 0.0) + 0.0] x72 = StreamOutWrite(x66,x70,Set(x71))
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [0.0] x69 = DRAMAddress(x1)
+        [0.0] x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false))))
+        [0.0] x71 = DRAMIsAlloc(x1)
+        [0.0] x72 = StreamOutWrite(x66,x70,Set(x71))
+      [0.0] x69 = DRAMAddress(x1)
+      [0.0] ()
+      [0.0] x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false))))
+      [0.0] x71 = DRAMIsAlloc(x1)
+      [0.0] x72 = StreamOutWrite(x66,x70,Set(x71))
+      
+      
+      Sym Delays:
+        [0.0 = 0.0 - 0.0]: x69 = DRAMAddress(x1) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [0.0 = 0.0 - 0.0]: x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false)))) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x71 = DRAMIsAlloc(x1) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x72 = StreamOutWrite(x66,x70,Set(x71)) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x77 = SRAMRead(x2,List(b75),Set())
+        x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true))))
+        x79 = StreamOutWrite(x67,x78,Set())
+      Result: 
+        ()
+        x77 = SRAMRead(x2,List(b75),Set())
+        x79 = StreamOutWrite(x67,x78,Set())
+      Working on pipeLatencies of result Vector(Const(()), x77, x79), schedule Vector(x77, x78, x79)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x77 = SRAMRead(x2,List(b75),Set())
+        x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true))))
+        x79 = StreamOutWrite(x67,x78,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x77
+      cur: x77, inReduce: false, latency: 4.0
+      [4.0 = max(0) + 4.0] x77 = SRAMRead(x2,List(b75),Set())
+      Computing fullDFS: x79
+      Computing fullDFS: x78
+      [4.0 = max(4.0) + 0.0] x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true))))
+      [4.0 = max(4.0) + 0.0] x79 = StreamOutWrite(x67,x78,Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [4.0] x77 = SRAMRead(x2,List(b75),Set())
+        [4.0] x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true))))
+        [4.0] x79 = StreamOutWrite(x67,x78,Set())
+      [0.0] ()
+      [4.0] x77 = SRAMRead(x2,List(b75),Set())
+      [4.0] x79 = StreamOutWrite(x67,x78,Set())
+      [4.0] x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true))))
+      
+      
+      Sym Delays:
+        [0.0 = 4.0 - 4.0]: x77 = SRAMRead(x2,List(b75),Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [4.0 = 4.0 - 0.0]: x79 = StreamOutWrite(x67,x78,Set()) [cycle = false]
+        [4.0 = 4.0 - 0.0]: x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true)))) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x82 = StreamInRead(x68,Set())
+      Result: 
+        ()
+        x82 = StreamInRead(x68,Set())
+      Working on pipeLatencies of result Vector(Const(()), x82), schedule Vector(x82)
+      Memories with both reads and writes in this scope: Set(x68)
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x82 = StreamInRead(x68,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x82
+      cur: x82, inReduce: false, latency: 1.0
+      [1.0 = max(0) + 1.0] x82 = StreamInRead(x68,Set())
+      Cycles: Map()
+      pseudo cycles for x68:
+      Multiplexed accesses for memory x68: 
+        x82 = StreamInRead(x68,Set())
+      Multiplexed accesses for memory x68: 
+        x82 = StreamInRead(x68,Set())
+        Schedule after pipeLatencies calculation:
+        [1.0] x82 = StreamInRead(x68,Set())
+      [0.0] ()
+      [1.0] x82 = StreamInRead(x68,Set())
+      
+      
+      Sym Delays:
+        [0.0 = 1.0 - 1.0]: x82 = StreamInRead(x68,Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+  Visiting Block Block((b26) => Const(10)) [List() => false, List() => false]
+  Visiting Block Block((b31) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((b41) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((x27,b48) => x49) [List() => false, List() => false]
+  Visiting Block Block((x24,b48) => x50) [List() => false, List() => false]
+  Visiting Block Block((x49,x50) => x51) [List() => false, List() => false]
+  Visiting Block Block((x52,b53) => x56) [List() => false, List() => false]
+  Visiting Block Block((b54,b55) => x57) [List() => false, List() => false]

@@ -46,8 +46,16 @@ import spatial.dsl._
       val reg = Reg[Int](0)
       reg := 16
       FSM(0)(state => state < 32) { state =>
-        // TODO: Fill in here
-      }{// TODO: Fill in here}
+        if (state < 8) {
+          bram(state) = state
+        } else if (state < 16 && state >= 8) {
+          bram(state) = state*2
+        } else if (state < 24 && state >= 16) {
+          bram(state) = state*3
+        } else {
+          bram(state) = state*4
+        }
+      }{state => state + 1}
 
       dram(0::32) store bram
     }

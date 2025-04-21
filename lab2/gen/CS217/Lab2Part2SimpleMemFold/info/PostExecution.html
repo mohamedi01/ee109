@@ -1,0 +1,150 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for Lab2Part2SimpleMemFold (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x119 -->
+<TD>
+<font size = "6"><a href=PostExecution_IR.html#x119 target=_blank>x119</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">Lab2Part1.scala:37:11 <font color="grey">-     Accel {</font></font>
+<div>
+<font color="red"> 328 cycles/iter<br>
+<font size="2">(328 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x100 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x100 target=_blank>x100</a>: Pipelined OpMemReduce <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2Part1.scala:43:8 <font color="grey">-       }{_+_}</font></font>
+  <br><font size = "1">Counter: <a href=PostExecution_IR.html#x88 target=_blank>x88</a> = CounterNew(Const(-5),Const(5),Const(1),Const(1))</font>
+<div>
+<font color="red"> 201 cycles/iter<br>
+<font size="2">(201 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x95 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x95 target=_blank>x95</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part1.scala:41:26 <font color="grey">-         Foreach(16 by 1) { j => tmp(j) = 1}</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccb6ff"><font size = "1"><a href=PostExecution_IR.html#x91 target=_blank>x91</a> (BankedSRAM "tmp")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+    <br><font size = "1">Counter: <a href=PostExecution_IR.html#x93 target=_blank>x93</a> = CounterNew(Const(0),Const(16),Const(1),Const(1))</font>
+<div>
+<font color="red"> 17 cycles/iter<br>
+<font size="2">(170 total cycles, 10 total iters)<br></font> </font><br></div>
+
+    </TD>
+    <!-- End x95-->
+    </TABLE></div>
+  </TD>
+  <!-- End x100-->
+  <!-- Begin x118 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x118 target=_blank>x118</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2Part1.scala:44:11 <font color="grey">-       out store a</font></font>
+<div>
+<font color="red"> 121 cycles/iter<br>
+<font size="2">(121 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x108 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x108 target=_blank>x108</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part1.scala:44:11 <font color="grey">-       out store a</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
+<div>
+<font color="red"> 121 cycles/iter<br>
+<font size="2">(121 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x101)----->
+    </font></div>
+    </TD>
+    <!-- End x108-->
+    <!-- Begin x114 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x114 target=_blank>x114</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part1.scala:44:11 <font color="grey">-       out store a</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+    <br><font size = "1">Counter: <a href=PostExecution_IR.html#x110 target=_blank>x110</a> = CounterNew(Const(0),Const(16),Const(1),Const(1))</font>
+<div>
+<font color="red"> 121 cycles/iter<br>
+<font size="2">(121 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x102)----->
+    </font></div>
+    </TD>
+    <!-- End x114-->
+    <!-- Begin x117 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x117 target=_blank>x117</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part1.scala:44:11 <font color="grey">-       out store a</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 121 cycles/iter<br>
+<font size="2">(121 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x103)
+    </font></div>
+    </TD>
+    <!-- End x117-->
+    </TABLE></div>
+  </TD>
+  <!-- End x118-->
+  </TABLE></div>
+</TD>
+<!-- End x119-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccb6ff"><font size = "1"><a href=PostExecution_IR.html#x91 target=_blank>x91</a> (BankedSRAM "tmp")
+<br>lca = <a href=PostExecution_IR.html#x100 target=_blank>x100</a>
+<br>nBufs = 2
+<br>volume = 16 (dims List(16) + pads List(0), bw = 32)
+<br>nBufs*volume = 32
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x86 target=_blank>x86</a> (BankedSRAM "a")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">2</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

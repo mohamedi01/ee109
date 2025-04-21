@@ -1,0 +1,646 @@
+---------------------------------------------------------------------
+INFERRING...
+Name: bram (x115)
+Type: SRAM1[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:10:27
+Src:        val bram = SRAM[Int](32)
+Symbol:     x115 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+Effort:    1
+BankingViews:   List(Flat(1))
+NStrictness:   List(NBestGuess, NRelaxed)
+AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()), RegroupDims(List(0)))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x160 {0} [x163 (stage: -1)]
+  1 Read Groups:
+  Group #0
+    x160 = SRAMRead(x115,List(b99),Set()) rd{0}
+     b99    c  mod
+       1    0    0rd
+  Grouping 3 Writes: 
+    Access: x125 {} [x126 (stage: -1)]
+    Access: x129 {} [x130 (stage: -1)]
+      Group #0 conflicts: <none>
+      Group #0 same port: <none> 
+    Access: x145 {} [x146 (stage: -1)]
+      Group #0 conflicts: <none>
+      Group #0 same port: <none> 
+      Group #1 conflicts: <none>
+      Group #1 same port: <none> 
+  3 Write Groups:
+  Group #0
+    x125 = SRAMWrite(x115,b5,List(x124),Set(x120, x122)) wr{}
+     b209     c   mod
+       -1    31     0wr
+  Group #1
+    x129 = SRAMWrite(x115,x128,List(x127),Set(x120, x123)) wr{}
+     b209     c   mod
+       -1    31     0wr
+  Group #2
+    x145 = SRAMWrite(x115,x144,List(x133),Set(x121)) wr{}
+     b209     c   mod
+        1   -16     0wr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    Preceding writes for x160 {0}: 
+      x125 {}
+      x129 {}
+      x145 {}
+  Mustfollow: x125 -> x129 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x131 (stage: -1)
+  Mustfollow: x125 -> x145 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x147 (stage: -1)
+  Mustfollow: x129 -> x125 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x131 (stage: -1)
+  Mustfollow: x129 -> x145 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x147 (stage: -1)
+  Mustfollow: x145 -> x125 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x147 (stage: -1)
+  Mustfollow: x145 -> x129 -> x160 [true]
+    CtrlA: x168 (stage: -1) [1]
+    CtrlB: x168 (stage: -1) [1]
+    IsStream: false
+    ctrlAB: x147 (stage: -1)
+    x160 <-> x125: LCA: x168 (stage: -1), coarse-dist: <None>
+    x125 <-> x125: LCA: x126 (stage: -1), coarse-dist: <None>
+    x129 <-> x125: LCA: x131 (stage: -1), coarse-dist: <None>
+    x145 <-> x125: LCA: x147 (stage: -1), coarse-dist: <None>
+    x160 <-> x129: LCA: x168 (stage: -1), coarse-dist: <None>
+    x125 <-> x129: LCA: x131 (stage: -1), coarse-dist: <None>
+    x129 <-> x129: LCA: x130 (stage: -1), coarse-dist: <None>
+    x145 <-> x129: LCA: x147 (stage: -1), coarse-dist: <None>
+    x160 <-> x145: LCA: x168 (stage: -1), coarse-dist: <None>
+    x125 <-> x145: LCA: x147 (stage: -1), coarse-dist: <None>
+    x129 <-> x145: LCA: x147 (stage: -1), coarse-dist: <None>
+    x145 <-> x145: LCA: x146 (stage: -1), coarse-dist: <None>
+  Dephasing Iters: x160 = SRAMRead(x115,List(b99),Set()) rd{0}
+ b99    c  mod
+   1    0    0rd -> x163
+  Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: ListBuffer(b99)
+  Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: List(0)
+  Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: List(0)
+  General read dephasing rules for x115: (b99,List(0)) -> (b99,0)
+  solution bankings are Map(BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) -> Map(Set(Set(x160 = SRAMRead(x115,List(b99),Set()) rd{0}
+ b99    c  mod
+   1    0    0rd), Set()) -> List(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))))
+  x168: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x149: StateMachine (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x125: SRAMWrite
+      x129: SRAMWrite
+      x145: SRAMWrite
+    x167: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x163: OpForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x160: SRAMRead
+  **************************************************************************************
+  Analyzing costs for banking schemes found for bram (x115)
+  Scheme BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 3 |
+          - Duplicate costs 7.210516713239036 (SRAM LUTs: 0.0935672514619883%, FFs: 0.0058383506659368724%, BRAMs: 7.111111111111111%, Auxiliary LUTs: 0.0%, FFs: 0.0%, BRAMs: 0.0%)
+  ***** Cost summary *****
+  Cost: 7.210516713239036 for version 0 of BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x160 = SRAMRead(x115,List(b99),Set()) rd{0}
+      grp 0:  b99    c  mod
+      grp 0:    1    0    0rd
+    Writes:
+      grp 0: x125 = SRAMWrite(x115,b5,List(x124),Set(x120, x122)) wr{}
+      grp 0:  b209     c   mod
+      grp 0:    -1    31     0wr
+      grp 1: x129 = SRAMWrite(x115,x128,List(x127),Set(x120, x123)) wr{}
+      grp 1:  b209     c   mod
+      grp 1:    -1    31     0wr
+      grp 2: x145 = SRAMWrite(x115,x144,List(x133),Set(x121)) wr{}
+      grp 2:  b209     c   mod
+      grp 2:     1   -16     0wr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List(0)
+Accum:    None
+Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x125 = SRAMWrite(x115,b5,List(x124),Set(x120, x122)) {}
+      - Lab2Part3.scala:16:30: bram(31 - state) = state // 16:31 [7, 6, ... 0]
+      - Scope: x126 (scope: 0, 0)
+ - Mux Port #1: 
+  [Ofs: 0] x129 = SRAMWrite(x115,x128,List(x127),Set(x120, x123)) {}
+      - Lab2Part3.scala:18:30: bram(31 - state) = state+1 // 16:31 [16, 15, ... 9]
+      - Scope: x130 (scope: 0, 0)
+ - Mux Port #2: 
+  [Ofs: 0] x145 = SRAMWrite(x115,x144,List(x133),Set(x121)) {}
+      - Lab2Part3.scala:22:28: bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H
+      - Scope: x146 (scope: 0, 0)
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x160 = SRAMRead(x115,List(b99),Set()) {0}
+      - Lab2Part3.scala:26:19: dram(0::32) store bram
+      - Scope: x163 (scope: 0, 0)))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: bram (x115)
+Type: SRAM1[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:10:27
+Src:        val bram = SRAM[Int](32)
+Symbol:     x115 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List(0)
+  Accum:    None
+  Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x125 = SRAMWrite(x115,b5,List(x124),Set(x120, x122)) {}
+        - Lab2Part3.scala:16:30: bram(31 - state) = state // 16:31 [7, 6, ... 0]
+        - Scope: x126 (scope: 0, 0)
+   - Mux Port #1: 
+    [Ofs: 0] x129 = SRAMWrite(x115,x128,List(x127),Set(x120, x123)) {}
+        - Lab2Part3.scala:18:30: bram(31 - state) = state+1 // 16:31 [16, 15, ... 9]
+        - Scope: x130 (scope: 0, 0)
+   - Mux Port #2: 
+    [Ofs: 0] x145 = SRAMWrite(x115,x144,List(x133),Set(x121)) {}
+        - Lab2Part3.scala:22:28: bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H
+        - Scope: x146 (scope: 0, 0)
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x160 = SRAMRead(x115,List(b99),Set()) {0}
+        - Lab2Part3.scala:26:19: dram(0::32) store bram
+        - Scope: x163 (scope: 0, 0)
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x160 {0}
+  Added dispatch 0 to x160 {0}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x125 {}
+  Added dispatch 0 to x125 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x129 {}
+  Added dispatch 0 to x129 {}
+  Added port Port(Some(0),2,0,List(0),List(0)) to x145 {}
+  Added dispatch 0 to x145 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x160 {0}
+  Added dispatch 0 to x160 {0}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x125 {}
+  Added dispatch 0 to x125 {}
+  Added port Port(Some(0),1,0,List(0),List(0)) to x129 {}
+  Added dispatch 0 to x129 {}
+  Added port Port(Some(0),2,0,List(0),List(0)) to x145 {}
+  Added dispatch 0 to x145 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: x152
+Type: StreamIn[Bit]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x152 = StreamInNew(BurstAckBus)
+Effort:    1
+BankingViews:   List(Flat(1))
+NStrictness:   List(NBestGuess, NRelaxed)
+AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x165 {} [x166 (stage: -1)]
+  1 Read Groups:
+  Group #0
+    x165 = StreamInRead(x152,Set()) rd{}
+       c  mod
+       0    0rd
+  Grouping 0 Reads: 
+
+  <No Read Groups>
+
+
+
+Merging memory instance groups:
+Group #0: 
+    Preceding writes for x165 {}: 
+  solution bankings are Map(BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) -> Map(Set(Set(x165 = StreamInRead(x152,Set()) rd{}
+   c  mod
+   0    0rd), Set()) -> List(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))))
+  x166: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x165: StreamInRead
+  **************************************************************************************
+  Analyzing costs for banking schemes found for x152
+  Scheme BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 0 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x165 = StreamInRead(x152,Set()) rd{}
+      grp 0:    c  mod
+      grp 0:    0    0rd
+    Writes:
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List(0)
+Accum:    None
+Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x165 = StreamInRead(x152,Set()) {}
+      - Lab2Part3.scala:26:19: dram(0::32) store bram
+      - Scope: x166 (scope: 0, 0)))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: x152
+Type: StreamIn[Bit]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x152 = StreamInNew(BurstAckBus)
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List(0)
+  Accum:    None
+  Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x165 = StreamInRead(x152,Set()) {}
+        - Lab2Part3.scala:26:19: dram(0::32) store bram
+        - Scope: x166 (scope: 0, 0)
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x165 {}
+  Added dispatch 0 to x165 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x165 {}
+  Added dispatch 0 to x165 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: reg (x116)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:11:25
+Src:        val reg = Reg[Int](0)
+Symbol:     x116 = RegNew(Const(0))
+Effort:    1
+BankingViews:   List(Hierarchical(0,None))
+NStrictness:   List(NRelaxed)
+AlphaStrictness:   List(AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 1 Reads: 
+    Access: x141 {} [x142 (stage: -1)]
+  1 Read Groups:
+  Group #0
+    x141 = RegRead(x116) rd{}
+       c  modrd
+  Grouping 1 Writes: 
+    Access: x117 {} [x118 (stage: -1)]
+  1 Write Groups:
+  Group #0
+    x117 = RegWrite(x116,Const(16),Set()) wr{}
+       c  mod
+       0    0wr
+
+
+
+Merging memory instance groups:
+Group #0: 
+    Preceding writes for x141 {}: 
+      x117 {}
+    x141 <-> x117: LCA: x168 (stage: -1), coarse-dist: <None>
+    x117 <-> x117: LCA: x118 (stage: -1), coarse-dist: <None>
+  solution bankings are Map(BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) -> Map(Set(Set(x141 = RegRead(x116) rd{}
+   c  modrd), Set()) -> List(List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))))
+  x168: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x118: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x117: RegWrite
+    x149: StateMachine (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x141: RegRead
+  **************************************************************************************
+  Analyzing costs for banking schemes found for reg (x116)
+  Scheme BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List())) option 0 instance 0:
+    - 1 readers connect to duplicate #0 (List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)))
+            Access Hist:
+            | width | R | W |
+            | 1 | 1 | 1 |
+          - Duplicate costs 0.22532864728871987 (LUTs: 0.0029239766081871343%, FFs: 1.8244845831052726E-4%, BRAMs: 0.2222222222222222%)
+  ***** Cost summary *****
+  Cost: 0.22532864728871987 for version 0 of BankingOptions(Hierarchical(0,None),NRelaxed,AlphaRelaxed,RegroupDims(List()))
+  **************************************************************************************
+    Reads:
+      grp 0: x141 = RegRead(x116) rd{}
+      grp 0:    c  modrd
+    Writes:
+      grp 0: x117 = RegWrite(x116,Const(16),Set()) wr{}
+      grp 0:    c  mod
+      grp 0:    0    0wr
+    Result: Right(List(<Banked>
+Depth:    1
+Padding:  List()
+Accum:    None
+Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x117 = RegWrite(x116,Const(16),Set()) {}
+      - Lab2Part3.scala:12:11: reg := 16
+      - Scope: x118 (scope: 0, 0)
+0 [Type:RD]:
+ - Mux Port #0: 
+  [Ofs: 0] x141 = RegRead(x116) {}
+      - Lab2Part3.scala:22:76: bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H
+      - Scope: x142 (scope: 0, 0)))
+  Result: Created instance #0
+---------------------------------------------------------------------
+SUMMARY: 
+Name: reg (x116)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:11:25
+Src:        val reg = Reg[Int](0)
+Symbol:     x116 = RegNew(Const(0))
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List()
+  Accum:    None
+  Banking:  List(Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x117 = RegWrite(x116,Const(16),Set()) {}
+        - Lab2Part3.scala:12:11: reg := 16
+        - Scope: x118 (scope: 0, 0)
+  0 [Type:RD]:
+   - Mux Port #0: 
+    [Ofs: 0] x141 = RegRead(x116) {}
+        - Lab2Part3.scala:22:76: bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H
+        - Scope: x142 (scope: 0, 0)
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x141 {}
+  Added dispatch 0 to x141 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x117 {}
+  Added dispatch 0 to x117 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x141 {}
+  Added dispatch 0 to x141 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x117 {}
+  Added dispatch 0 to x117 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: x150
+Type: StreamOut[BurstCmd]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x150 = StreamOutNew(BurstCmdBus)
+Effort:    1
+BankingViews:   List(Flat(1))
+NStrictness:   List(NBestGuess, NRelaxed)
+AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 0 Reads: 
+
+  <No Read Groups>
+  Grouping 1 Writes: 
+    Access: x156 {} [x157 (stage: -1)]
+  1 Write Groups:
+  Group #0
+    x156 = StreamOutWrite(x150,x154,Set(x155)) wr{}
+       c  mod
+       0    0wr
+  x156 <-> x156: LCA: x157 (stage: -1), coarse-dist: <None>
+solution bankings are Map(BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) -> Map(Set(Set()) -> List(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))))
+x157: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x156: StreamOutWrite
+**************************************************************************************
+Analyzing costs for banking schemes found for x150
+Scheme BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) option 0 instance 0:
+  - 0 readers connect to duplicate #0 (List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))
+          Access Hist:
+          | width | R | W |
+          | 1 | 0 | 1 |
+        - Duplicate costs 0.0 (LUTs: 0.0%, FFs: 0.0%, BRAMs: 0.0%)
+***** Cost summary *****
+Cost: 0.0 for version 0 of BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List()))
+**************************************************************************************
+  Reads:
+  Writes:
+    grp 0: x156 = StreamOutWrite(x150,x154,Set(x155)) wr{}
+    grp 0:    c  mod
+    grp 0:    0    0wr
+  Result: Right(List(<Banked>
+Depth:    1
+Padding:  List(0)
+Accum:    None
+Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x156 = StreamOutWrite(x150,x154,Set(x155)) {}
+      - Lab2Part3.scala:26:19: dram(0::32) store bram
+      - Scope: x157 (scope: 0, 0)
+0 [Type:RD]:))
+---------------------------------------------------------------------
+SUMMARY: 
+Name: x150
+Type: StreamOut[BurstCmd]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x150 = StreamOutNew(BurstCmdBus)
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List(0)
+  Accum:    None
+  Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x156 = StreamOutWrite(x150,x154,Set(x155)) {}
+        - Lab2Part3.scala:26:19: dram(0::32) store bram
+        - Scope: x157 (scope: 0, 0)
+  0 [Type:RD]:
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x156 {}
+  Added dispatch 0 to x156 {}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x156 {}
+  Added dispatch 0 to x156 {}
+---------------------------------------------------------------------
+INFERRING...
+Name: x151
+Type: StreamOut[Tup2[Fix[TRUE,_32,_0],Bit]]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x151 = StreamOutNew(BurstFullDataBus())
+Effort:    1
+BankingViews:   List(Flat(1))
+NStrictness:   List(NBestGuess, NRelaxed)
+AlphaStrictness:   List(AlphaBestGuess, AlphaRelaxed)
+DimensionDuplication: List(RegroupDims(List()))
+Explicit Banking: None
+Force Explicit Banking: false
+---------------------------------------------------------------------
+  Grouping 0 Reads: 
+
+  <No Read Groups>
+  Grouping 1 Writes: 
+    Access: x162 {0} [x163 (stage: -1)]
+  1 Write Groups:
+  Group #0
+    x162 = StreamOutWrite(x151,x161,Set()) wr{0}
+     b99    c  mod
+       1    0    0wr
+  x162 <-> x162: LCA: x163 (stage: -1), coarse-dist: <None>
+Dephasing Iters: x162 = StreamOutWrite(x151,x161,Set()) wr{0}
+ b99    c  mod
+   1    0    0wr -> x163
+Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: ListBuffer(b99)
+Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: List(0)
+Leaf: x163, Iters: ListBuffer(b99), target: x163, elements: List(0)
+General write dephasing rules for x151: (b99,List(0)) -> (b99,0)
+solution bankings are Map(BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) -> Map(Set(Set()) -> List(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))))
+x163: OpForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x162: StreamOutWrite
+**************************************************************************************
+Analyzing costs for banking schemes found for x151
+Scheme BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List())) option 0 instance 0:
+  - 0 readers connect to duplicate #0 (List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)))
+          Access Hist:
+          | width | R | W |
+          | 1 | 0 | 1 |
+        - Duplicate costs 0.0 (LUTs: 0.0%, FFs: 0.0%, BRAMs: 0.0%)
+***** Cost summary *****
+Cost: 0.0 for version 0 of BankingOptions(Flat(1),NBestGuess,AlphaBestGuess,RegroupDims(List()))
+**************************************************************************************
+  Reads:
+  Writes:
+    grp 0: x162 = StreamOutWrite(x151,x161,Set()) wr{0}
+    grp 0:  b99    c  mod
+    grp 0:    1    0    0wr
+  Result: Right(List(<Banked>
+Depth:    1
+Padding:  List(0)
+Accum:    None
+Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+Pipeline: ---
+Ports:
+0 [Type:WR]:
+ - Mux Port #0: 
+  [Ofs: 0] x162 = StreamOutWrite(x151,x161,Set()) {0}
+      - Lab2Part3.scala:26:19: dram(0::32) store bram
+      - Scope: x163 (scope: 0, 0)
+0 [Type:RD]:))
+---------------------------------------------------------------------
+SUMMARY: 
+Name: x151
+Type: StreamOut[Tup2[Fix[TRUE,_32,_0],Bit]]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+Symbol:     x151 = StreamOutNew(BurstFullDataBus())
+---------------------------------------------------------------------
+Instances: 1
+Instance #0
+  <Banked>
+  Depth:    1
+  Padding:  List(0)
+  Accum:    None
+  Banking:  List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)) <Flat>
+  Pipeline: ---
+  Ports:
+  0 [Type:WR]:
+   - Mux Port #0: 
+    [Ofs: 0] x162 = StreamOutWrite(x151,x161,Set()) {0}
+        - Lab2Part3.scala:26:19: dram(0::32) store bram
+        - Scope: x163 (scope: 0, 0)
+  0 [Type:RD]:
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+  Added port Port(Some(0),0,0,List(0),List(0)) to x162 {0}
+  Added dispatch 0 to x162 {0}
+  Added port Port(Some(0),0,0,List(0),List(0)) to x162 {0}
+  Added dispatch 0 to x162 {0}
+x150 completed in: 1 ms
+x151 completed in: 2 ms
+x152 completed in: 3 ms
+x116 completed in: 3 ms
+x115 completed in: 51 ms

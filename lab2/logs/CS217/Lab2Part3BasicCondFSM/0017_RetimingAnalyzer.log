@@ -1,0 +1,413 @@
+Visiting Block Block(x68) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => false, List() => false]
+    Visiting Block Block((b5) => x6) [List(true, true) => true, List(true, false) => false]
+    Retiming block Block((b5) => x6):
+      x6 = FixLst(b5,Const(32))
+    Result: 
+      x6 = FixLst(b5,Const(32))
+    Working on pipeLatencies of result Vector(x6), schedule Vector(x6)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    ----------------------------------
+    Computing pipeLatencies for scope:
+      x6 = FixLst(b5,Const(32))
+    Computing fullDFS: x6
+    cur: x6, inReduce: false, latency: 0.4
+    [0.4 = max(0) + 0.4] x6 = FixLst(b5,Const(32))
+    Cycles: Map()
+      Schedule after pipeLatencies calculation:
+      [0.4] x6 = FixLst(b5,Const(32))
+    [0.4] x6 = FixLst(b5,Const(32))
+    
+    
+    Sym Delays:
+      [0.0 = 0.4 - 0.4]: x6 = FixLst(b5,Const(32)) [cycle = false]
+    Visiting Block Block((b5) => x87) [List(true) => true, List(false) => true]
+    Retiming block Block((b5) => x87):
+      x7 = FixLst(b5,Const(16))
+      x8 = FixLst(b5,Const(8))
+      x9 = FixSub(Const(31),b5)
+      x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+      x11 = FixSub(Const(31),b5)
+      x12 = FixAdd(b5,Const(1))
+      x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+      x15 = FixSub(b5,Const(16))
+      x16 = FixEql(b5,Const(16))
+      x17 = FixEql(b5,Const(17))
+      x18 = RegRead(x3)
+      x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+      x69 = Not(x7)
+      x70 = Not(x8)
+      x71 = SwitchCase(Block(x10))
+      x72 = SwitchCase(Block(x13))
+      x74 = SwitchCase(Block(x85))
+      x75 = Not(x16)
+      x76 = And(x17,x75)
+      x77 = Not(x17)
+      x78 = And(x77,x75)
+      x79 = SwitchCase(Block(Const(17)))
+      x80 = SwitchCase(Block(x18))
+      x81 = SwitchCase(Block(b5))
+      x83 = SwitchCase(Block(x21))
+      x85 = Switch(List(x8, x70),Block(x72))
+      x86 = Switch(List(x16, x76, x78),Block(x81))
+      x87 = Switch(List(x7, x69),Block(x83))
+    Result: 
+      b5
+      x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+      x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+      x18 = RegRead(x3)
+      x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+      x71 = SwitchCase(Block(x10))
+      x72 = SwitchCase(Block(x13))
+      x74 = SwitchCase(Block(x85))
+      x80 = SwitchCase(Block(x18))
+      x81 = SwitchCase(Block(b5))
+      x83 = SwitchCase(Block(x21))
+      x85 = Switch(List(x8, x70),Block(x72))
+      x86 = Switch(List(x16, x76, x78),Block(x81))
+      x87 = Switch(List(x7, x69),Block(x83))
+      17
+    Working on pipeLatencies of result Vector(b5, x10, x13, x18, x21, x71, x72, x74, x80, x81, x83, x85, x86, x87, Const(17)), schedule Vector(x7, x8, x9, x10, x11, x12, x13, x15, x16, x17, x18, x21, x69, x70, x71, x72, x74, x75, x76, x77, x78, x79, x80, x81, x83, x85, x86, x87)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    ----------------------------------
+    Computing pipeLatencies for scope:
+      x7 = FixLst(b5,Const(16))
+      x8 = FixLst(b5,Const(8))
+      x9 = FixSub(Const(31),b5)
+      x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+      x11 = FixSub(Const(31),b5)
+      x12 = FixAdd(b5,Const(1))
+      x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+      x15 = FixSub(b5,Const(16))
+      x16 = FixEql(b5,Const(16))
+      x17 = FixEql(b5,Const(17))
+      x18 = RegRead(x3)
+      x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+      x69 = Not(x7)
+      x70 = Not(x8)
+      x71 = SwitchCase(Block(x10))
+      x72 = SwitchCase(Block(x13))
+      x74 = SwitchCase(Block(x85))
+      x75 = Not(x16)
+      x76 = And(x17,x75)
+      x77 = Not(x17)
+      x78 = And(x77,x75)
+      x79 = SwitchCase(Block(Const(17)))
+      x80 = SwitchCase(Block(x18))
+      x81 = SwitchCase(Block(b5))
+      x83 = SwitchCase(Block(x21))
+      x85 = Switch(List(x8, x70),Block(x72))
+      x86 = Switch(List(x16, x76, x78),Block(x81))
+      x87 = Switch(List(x7, x69),Block(x83))
+    Computing fullDFS: b5
+    Computing fullDFS: x10
+    Computing fullDFS: x7
+    cur: x7, inReduce: false, latency: 0.4
+    [0.4 = max(0) + 0.4] x7 = FixLst(b5,Const(16))
+    Computing fullDFS: x8
+    cur: x8, inReduce: false, latency: 0.4
+    [0.4 = max(0) + 0.4] x8 = FixLst(b5,Const(8))
+    Computing fullDFS: x9
+    cur: x9, inReduce: false, latency: 1.0
+    [1.0 = max(0) + 1.0] x9 = FixSub(Const(31),b5)
+    [4.0 = max(0.4, 0.4, 1.0) + 3.0] x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+    Computing fullDFS: x13
+    Computing fullDFS: x11
+    cur: x11, inReduce: false, latency: 1.0
+    [1.0 = max(0) + 1.0] x11 = FixSub(Const(31),b5)
+    Computing fullDFS: x12
+    cur: x12, inReduce: false, latency: 1.0
+    [1.0 = max(0) + 1.0] x12 = FixAdd(b5,Const(1))
+    Computing fullDFS: x70
+    [0.6000000000000001 = max(0.4) + 0.2] x70 = Not(x8)
+    [4.0 = max(0.4, 1.0, 1.0, 0.6) + 3.0] x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+    Computing fullDFS: x18
+    cur: x18, inReduce: false, latency: 0.0
+    [0.0 = max(0) + 0.0] x18 = RegRead(x3)
+    Computing fullDFS: x21
+    Computing fullDFS: x15
+    cur: x15, inReduce: false, latency: 1.0
+    [1.0 = max(0) + 1.0] x15 = FixSub(b5,Const(16))
+    Computing fullDFS: x69
+    [0.6000000000000001 = max(0.4) + 0.2] x69 = Not(x7)
+    Computing fullDFS: x86
+    Computing fullDFS: x16
+    cur: x16, inReduce: false, latency: 0.2
+    [0.2 = max(0) + 0.2] x16 = FixEql(b5,Const(16))
+    Computing fullDFS: x76
+    Computing fullDFS: x17
+    cur: x17, inReduce: false, latency: 0.2
+    [0.2 = max(0) + 0.2] x17 = FixEql(b5,Const(17))
+    Computing fullDFS: x75
+    [0.4 = max(0.2) + 0.2] x75 = Not(x16)
+    [0.6000000000000001 = max(0.2, 0.4) + 0.2] x76 = And(x17,x75)
+    Computing fullDFS: x78
+    Computing fullDFS: x77
+    [0.4 = max(0.2) + 0.2] x77 = Not(x17)
+    [0.6000000000000001 = max(0.4, 0.4) + 0.2] x78 = And(x77,x75)
+    Computing fullDFS: x80
+    [0.0 = max(0.0) + 0.0] x80 = SwitchCase(Block(x18))
+    Computing fullDFS: x81
+    cur: x81, inReduce: false, latency: 0.0
+    [0.0 = max(0) + 0.0] x81 = SwitchCase(Block(b5))
+    [0.6 = max(0.2, 0.6, 0.6, 0.0, 0.0) + 0.0] x86 = Switch(List(x16, x76, x78),Block(x81))
+    [4.0 = max(1.0, 0.6, 0.6) + 3.0] x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+    Computing fullDFS: x71
+    [4.0 = max(4.0) + 0.0] x71 = SwitchCase(Block(x10))
+    Computing fullDFS: x72
+    [4.0 = max(4.0, 4.0) + 0.0] x72 = SwitchCase(Block(x13))
+    Computing fullDFS: x74
+    Computing fullDFS: x85
+    [4.0 = max(0.4, 0.6, 4.0, 4.0) + 0.0] x85 = Switch(List(x8, x70),Block(x72))
+    [4.0 = max(4.0) + 0.0] x74 = SwitchCase(Block(x85))
+    Computing fullDFS: x83
+    [4.0 = max(4.0, 4.0, 0.6) + 0.0] x83 = SwitchCase(Block(x21))
+    Computing fullDFS: x87
+    [4.0 = max(0.4, 0.6, 4.0, 4.0) + 0.0] x87 = Switch(List(x7, x69),Block(x83))
+    Computing fullDFS: Const(17)
+    Cycles: Map()
+      Schedule after pipeLatencies calculation:
+      [0.0] x18 = RegRead(x3)
+      [0.0] x79 = SwitchCase(Block(Const(17)))
+      [0.0] x80 = SwitchCase(Block(x18))
+      [0.0] x81 = SwitchCase(Block(b5))
+      [0.2] x16 = FixEql(b5,Const(16))
+      [0.2] x17 = FixEql(b5,Const(17))
+      [0.4] x7 = FixLst(b5,Const(16))
+      [0.4] x8 = FixLst(b5,Const(8))
+      [0.4] x75 = Not(x16)
+      [0.4] x77 = Not(x17)
+      [0.6] x69 = Not(x7)
+      [0.6] x70 = Not(x8)
+      [0.6] x76 = And(x17,x75)
+      [0.6] x78 = And(x77,x75)
+      [0.6] x86 = Switch(List(x16, x76, x78),Block(x81))
+      [1.0] x9 = FixSub(Const(31),b5)
+      [1.0] x11 = FixSub(Const(31),b5)
+      [1.0] x12 = FixAdd(b5,Const(1))
+      [1.0] x15 = FixSub(b5,Const(16))
+      [4.0] x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+      [4.0] x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+      [4.0] x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+      [4.0] x71 = SwitchCase(Block(x10))
+      [4.0] x72 = SwitchCase(Block(x13))
+      [4.0] x74 = SwitchCase(Block(x85))
+      [4.0] x83 = SwitchCase(Block(x21))
+      [4.0] x85 = Switch(List(x8, x70),Block(x72))
+      [4.0] x87 = Switch(List(x7, x69),Block(x83))
+    [0.0] b5
+    [0.0] 17
+    [0.0] x81 = SwitchCase(Block(b5))
+    [0.0] x80 = SwitchCase(Block(x18))
+    [0.0] x18 = RegRead(x3)
+    [0.2] x17 = FixEql(b5,Const(17))
+    [0.2] x16 = FixEql(b5,Const(16))
+    [0.4] x77 = Not(x17)
+    [0.4] x7 = FixLst(b5,Const(16))
+    [0.4] x8 = FixLst(b5,Const(8))
+    [0.4] x75 = Not(x16)
+    [0.6] x69 = Not(x7)
+    [0.6] x78 = And(x77,x75)
+    [0.6] x70 = Not(x8)
+    [0.6] x86 = Switch(List(x16, x76, x78),Block(x81))
+    [0.6] x76 = And(x17,x75)
+    [1.0] x9 = FixSub(Const(31),b5)
+    [1.0] x12 = FixAdd(b5,Const(1))
+    [1.0] x11 = FixSub(Const(31),b5)
+    [1.0] x15 = FixSub(b5,Const(16))
+    [4.0] x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8))
+    [4.0] x74 = SwitchCase(Block(x85))
+    [4.0] x85 = Switch(List(x8, x70),Block(x72))
+    [4.0] x21 = SRAMWrite(x2,x86,List(x15),Set(x69))
+    [4.0] x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70))
+    [4.0] x71 = SwitchCase(Block(x10))
+    [4.0] x72 = SwitchCase(Block(x13))
+    [4.0] x87 = Switch(List(x7, x69),Block(x83))
+    [4.0] x83 = SwitchCase(Block(x21))
+    
+    
+    Sym Delays:
+      [0.0 = 0.0 - 0.0]: b5 [cycle = false]
+      [0.0 = 0.0 - 0.0]: 17 [cycle = false]
+      [0.0 = 1.0 - 1.0]: x9 = FixSub(Const(31),b5) [cycle = false]
+      [0.0 = 0.2 - 0.2]: x17 = FixEql(b5,Const(17)) [cycle = false]
+      [0.0 = 1.0 - 1.0]: x12 = FixAdd(b5,Const(1)) [cycle = false]
+      [0.0 = 0.0 - 0.0]: x81 = SwitchCase(Block(b5)) [cycle = false]
+      [0.0 = 0.4 - 0.4]: x7 = FixLst(b5,Const(16)) [cycle = false]
+      [0.0 = 0.0 - 0.0]: x80 = SwitchCase(Block(x18)) [cycle = false]
+      [0.0 = 0.0 - 0.0]: x18 = RegRead(x3) [cycle = false]
+      [0.0 = 0.2 - 0.2]: x16 = FixEql(b5,Const(16)) [cycle = false]
+      [0.0 = 1.0 - 1.0]: x11 = FixSub(Const(31),b5) [cycle = false]
+      [0.0 = 0.4 - 0.4]: x8 = FixLst(b5,Const(8)) [cycle = false]
+      [0.0 = 1.0 - 1.0]: x15 = FixSub(b5,Const(16)) [cycle = false]
+      [0.2 = 0.4 - 0.2]: x77 = Not(x17) [cycle = false]
+      [0.2 = 0.4 - 0.2]: x75 = Not(x16) [cycle = false]
+      [0.4 = 0.6 - 0.2]: x69 = Not(x7) [cycle = false]
+      [0.4 = 0.6 - 0.2]: x78 = And(x77,x75) [cycle = false]
+      [0.4 = 0.6 - 0.2]: x70 = Not(x8) [cycle = false]
+      [0.4 = 0.6 - 0.2]: x76 = And(x17,x75) [cycle = false]
+      [0.6 = 0.6 - 0.0]: x86 = Switch(List(x16, x76, x78),Block(x81)) [cycle = false]
+      [1.0 = 4.0 - 3.0]: x10 = SRAMWrite(x2,b5,List(x9),Set(x7, x8)) [cycle = false]
+      [1.0 = 4.0 - 3.0]: x21 = SRAMWrite(x2,x86,List(x15),Set(x69)) [cycle = false]
+      [1.0 = 4.0 - 3.0]: x13 = SRAMWrite(x2,x12,List(x11),Set(x7, x70)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x74 = SwitchCase(Block(x85)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x85 = Switch(List(x8, x70),Block(x72)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x71 = SwitchCase(Block(x10)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x72 = SwitchCase(Block(x13)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x87 = Switch(List(x7, x69),Block(x83)) [cycle = false]
+      [4.0 = 4.0 - 0.0]: x83 = SwitchCase(Block(x21)) [cycle = false]
+    Storing latency of block: 4.0
+    Visiting Block Block((b5) => x23) [List() => true, List() => false]
+    Retiming block Block((b5) => x23):
+      x23 = FixAdd(b5,Const(1))
+    Result: 
+      x23 = FixAdd(b5,Const(1))
+    Working on pipeLatencies of result Vector(x23), schedule Vector(x23)
+    Memories with both reads and writes in this scope: Set()
+    Done finding cycles: Vector(), Map()
+    ----------------------------------
+    Computing pipeLatencies for scope:
+      x23 = FixAdd(b5,Const(1))
+    Computing fullDFS: x23
+    cur: x23, inReduce: false, latency: 1.0
+    [1.0 = max(0) + 1.0] x23 = FixAdd(b5,Const(1))
+    Cycles: Map()
+      Schedule after pipeLatencies calculation:
+      [1.0] x23 = FixAdd(b5,Const(1))
+    [5.0] x23 = FixAdd(b5,Const(1))
+    
+    
+    Sym Delays:
+      [4.0 = 5.0 - 1.0]: x23 = FixAdd(b5,Const(1)) [cycle = false]
+    Visiting Block Block(Const(())) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x93 = DRAMAddress(x25)
+        x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false))))
+        x95 = DRAMIsAlloc(x25)
+        x96 = StreamOutWrite(x90,x94,Set(x95))
+      Result: 
+        ()
+        x93 = DRAMAddress(x25)
+        x95 = DRAMIsAlloc(x25)
+        x96 = StreamOutWrite(x90,x94,Set(x95))
+      Working on pipeLatencies of result Vector(Const(()), x93, x95, x96), schedule Vector(x93, x94, x95, x96)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x93 = DRAMAddress(x25)
+        x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false))))
+        x95 = DRAMIsAlloc(x25)
+        x96 = StreamOutWrite(x90,x94,Set(x95))
+      Computing fullDFS: Const(())
+      Computing fullDFS: x93
+      cur: x93, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x93 = DRAMAddress(x25)
+      Computing fullDFS: x95
+      cur: x95, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x95 = DRAMIsAlloc(x25)
+      Computing fullDFS: x96
+      Computing fullDFS: x94
+      [0.0 = max(0.0) + 0.0] x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false))))
+      [0.0 = max(0.0, 0.0) + 0.0] x96 = StreamOutWrite(x90,x94,Set(x95))
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [0.0] x93 = DRAMAddress(x25)
+        [0.0] x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false))))
+        [0.0] x95 = DRAMIsAlloc(x25)
+        [0.0] x96 = StreamOutWrite(x90,x94,Set(x95))
+      [0.0] ()
+      [0.0] x93 = DRAMAddress(x25)
+      [0.0] x96 = StreamOutWrite(x90,x94,Set(x95))
+      [0.0] x95 = DRAMIsAlloc(x25)
+      [0.0] x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false))))
+      
+      
+      Sym Delays:
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [0.0 = 0.0 - 0.0]: x93 = DRAMAddress(x25) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x96 = StreamOutWrite(x90,x94,Set(x95)) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x95 = DRAMIsAlloc(x25) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x94 = SimpleStruct(ArrayBuffer((offset,x93), (size,Const(128)), (isLoad,Const(false)))) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x101 = SRAMRead(x2,List(b99),Set())
+        x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true))))
+        x103 = StreamOutWrite(x91,x102,Set())
+      Result: 
+        ()
+        x101 = SRAMRead(x2,List(b99),Set())
+        x103 = StreamOutWrite(x91,x102,Set())
+      Working on pipeLatencies of result Vector(Const(()), x101, x103), schedule Vector(x101, x102, x103)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x101 = SRAMRead(x2,List(b99),Set())
+        x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true))))
+        x103 = StreamOutWrite(x91,x102,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x101
+      cur: x101, inReduce: false, latency: 4.0
+      [4.0 = max(0) + 4.0] x101 = SRAMRead(x2,List(b99),Set())
+      Computing fullDFS: x103
+      Computing fullDFS: x102
+      [4.0 = max(4.0) + 0.0] x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true))))
+      [4.0 = max(4.0) + 0.0] x103 = StreamOutWrite(x91,x102,Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [4.0] x101 = SRAMRead(x2,List(b99),Set())
+        [4.0] x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true))))
+        [4.0] x103 = StreamOutWrite(x91,x102,Set())
+      [0.0] ()
+      [4.0] x101 = SRAMRead(x2,List(b99),Set())
+      [4.0] x103 = StreamOutWrite(x91,x102,Set())
+      [4.0] x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true))))
+      
+      
+      Sym Delays:
+        [0.0 = 4.0 - 4.0]: x101 = SRAMRead(x2,List(b99),Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [4.0 = 4.0 - 0.0]: x103 = StreamOutWrite(x91,x102,Set()) [cycle = false]
+        [4.0 = 4.0 - 0.0]: x102 = SimpleStruct(ArrayBuffer((_1,x101), (_2,Const(true)))) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x106 = StreamInRead(x92,Set())
+      Result: 
+        ()
+        x106 = StreamInRead(x92,Set())
+      Working on pipeLatencies of result Vector(Const(()), x106), schedule Vector(x106)
+      Memories with both reads and writes in this scope: Set(x92)
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x106 = StreamInRead(x92,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x106
+      cur: x106, inReduce: false, latency: 1.0
+      [1.0 = max(0) + 1.0] x106 = StreamInRead(x92,Set())
+      Cycles: Map()
+      pseudo cycles for x92:
+      Multiplexed accesses for memory x92: 
+        x106 = StreamInRead(x92,Set())
+      Multiplexed accesses for memory x92: 
+        x106 = StreamInRead(x92,Set())
+        Schedule after pipeLatencies calculation:
+        [1.0] x106 = StreamInRead(x92,Set())
+      [0.0] ()
+      [1.0] x106 = StreamInRead(x92,Set())
+      
+      
+      Sym Delays:
+        [0.0 = 1.0 - 1.0]: x106 = StreamInRead(x92,Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+  Visiting Block Block((b34) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((b44) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((x30,b51) => x52) [List() => false, List() => false]
+  Visiting Block Block((x28,b51) => x53) [List() => false, List() => false]
+  Visiting Block Block((x52,x53) => x54) [List() => false, List() => false]
+  Visiting Block Block((x55,b56) => x59) [List() => false, List() => false]
+  Visiting Block Block((b57,b58) => x60) [List() => false, List() => false]

@@ -1,0 +1,520 @@
+  x1 = DRAMHostNew(List(Const(32)),Const(0)) [ctrl: Host, inner: false]
+  x28 = AccelScope(Block(Const(()))) [ctrl: x28 (stage: -1), inner: false]
+    Pending: 
+    Inputs:  
+    Uses:    
+    Transient: false
+    Outer: true
+    x2 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [ctrl: x28 (stage: -1), inner: false]
+      Pending: 
+      Inputs:  Const(32)
+      Uses:    
+      Transient: false
+      Outer: true
+    x3 = RegNew(Const(0)) [ctrl: x28 (stage: -1), inner: false]
+      Pending: 
+      Inputs:  Const(0)
+      Uses:    
+      Transient: false
+      Outer: true
+    x114 = UnitPipe(Set(),Block(Const(())),None) [ctrl: x114 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  
+      Uses:    
+      Transient: false
+      Outer: true
+      x4 = RegWrite(x3,Const(16),Set()) [ctrl: x114 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  x3, Const(16)
+        Uses:    
+        Transient: false
+        Outer: false
+    x25 = StateMachine(Set(),Const(0),Block((b5) => x6),Block((b5) => x112),Block((b5) => x24),Fix[TRUE,_32,_0]) [ctrl: x25 (stage: -1), inner: true]
+      Pending: 
+      Inputs:  Const(0)
+      Uses:    
+      Transient: false
+      Outer: true
+      Uses [Block: x25 (block: 0)]:
+        consumer x25
+        used Set(b5)
+        
+      - b5
+      x6 = FixLst(b5,Const(32)) [ctrl: x25 (stage: 0), inner: true]
+        Pending: 
+        Inputs:  b5, Const(32)
+        Uses:    
+        Transient: false
+        Outer: false
+      Uses [Block: x25 (block: 0)]:
+        consumer x25
+        used Set()
+        
+      Uses [Block: x25 (block: 1)]:
+        consumer x25
+        used Set(b5)
+        
+      - b5
+      x7 = FixLst(b5,Const(8)) [ctrl: x25 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  b5, Const(8)
+        Uses:    
+        Transient: false
+        Outer: true
+      x70 = Not(x7) [ctrl: x25 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  x7
+        Uses:    
+        Transient: false
+        Outer: true
+      x112 = Switch(List(x7, x70),Block(x80)) [ctrl: x112 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  x7, x70
+        Uses:    
+        Transient: false
+        Outer: true
+        Uses [Block: x112 (block: 0)]:
+          consumer x112
+          used Set()
+          
+        x71 = SwitchCase(Block(x8)) [ctrl: x71 (stage: -1), inner: true]
+          Pending: 
+          Inputs:  
+          Uses:    
+          Transient: false
+          Outer: true
+          Uses [Block: x71 (block: 0)]:
+            consumer x71
+            used Set()
+            
+          x8 = SRAMWrite(x2,b5,List(b5),Set(x7)) [ctrl: x71 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  x2, b5, x7
+            Uses:    
+            Transient: false
+            Outer: false
+          Uses [Block: x71 (block: 0)]:
+            consumer x71
+            used Set()
+            
+        x80 = SwitchCase(Block(x111)) [ctrl: x80 (stage: -1), inner: true]
+          Pending: 
+          Inputs:  
+          Uses:    
+          Transient: false
+          Outer: true
+          Uses [Block: x80 (block: 0)]:
+            consumer x80
+            used Set()
+            
+          x9 = FixLst(b5,Const(16)) [ctrl: x80 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  b5, Const(16)
+            Uses:    
+            Transient: false
+            Outer: true
+          x10 = FixLeq(Const(8),b5) [ctrl: x80 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  Const(8), b5
+            Uses:    
+            Transient: false
+            Outer: true
+          x11 = And(x9,x10) [ctrl: x80 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  x9, x10
+            Uses:    
+            Transient: false
+            Outer: true
+          x72 = Not(x11) [ctrl: x80 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  x11
+            Uses:    
+            Transient: false
+            Outer: true
+          x111 = Switch(List(x11, x72),Block(x78)) [ctrl: x111 (stage: -1), inner: true]
+            Pending: 
+            Inputs:  x11, x72
+            Uses:    
+            Transient: false
+            Outer: true
+            Uses [Block: x111 (block: 0)]:
+              consumer x111
+              used Set()
+              
+            x73 = SwitchCase(Block(x13)) [ctrl: x73 (stage: -1), inner: true]
+              Pending: 
+              Inputs:  
+              Uses:    
+              Transient: false
+              Outer: true
+              Uses [Block: x73 (block: 0)]:
+                consumer x73
+                used Set()
+                
+              x87 = FixSLA(b5,Const(1)) [ctrl: x73 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  b5, Const(1)
+                Uses:    
+                Transient: false
+                Outer: false
+              x13 = SRAMWrite(x2,x87,List(b5),Set(x70, x11)) [ctrl: x73 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  b5, x70, x2, x11, x87
+                Uses:    
+                Transient: false
+                Outer: false
+              Uses [Block: x73 (block: 0)]:
+                consumer x73
+                used Set()
+                
+            x78 = SwitchCase(Block(x110)) [ctrl: x78 (stage: -1), inner: true]
+              Pending: 
+              Inputs:  
+              Uses:    
+              Transient: false
+              Outer: true
+              Uses [Block: x78 (block: 0)]:
+                consumer x78
+                used Set()
+                
+              x14 = FixLst(b5,Const(24)) [ctrl: x78 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  b5, Const(24)
+                Uses:    
+                Transient: false
+                Outer: true
+              x15 = FixLeq(Const(16),b5) [ctrl: x78 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  Const(16), b5
+                Uses:    
+                Transient: false
+                Outer: true
+              x16 = And(x14,x15) [ctrl: x78 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  x14, x15
+                Uses:    
+                Transient: false
+                Outer: true
+              x74 = Not(x16) [ctrl: x78 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  x16
+                Uses:    
+                Transient: false
+                Outer: true
+              x110 = Switch(List(x16, x74),Block(x76)) [ctrl: x110 (stage: -1), inner: true]
+                Pending: 
+                Inputs:  x16, x74
+                Uses:    
+                Transient: false
+                Outer: true
+                Uses [Block: x110 (block: 0)]:
+                  consumer x110
+                  used Set()
+                  
+                x75 = SwitchCase(Block(x18)) [ctrl: x75 (stage: -1), inner: true]
+                  Pending: 
+                  Inputs:  
+                  Uses:    
+                  Transient: false
+                  Outer: true
+                  Uses [Block: x75 (block: 0)]:
+                    consumer x75
+                    used Set()
+                    
+                  x17 = FixMul(b5,Const(3)) [ctrl: x75 (stage: -1), inner: true]
+                    Pending: 
+                    Inputs:  b5, Const(3)
+                    Uses:    
+                    Transient: false
+                    Outer: false
+                  x18 = SRAMWrite(x2,x17,List(b5),Set(x70, x72, x16)) [ctrl: x75 (stage: -1), inner: true]
+                    Pending: 
+                    Inputs:  b5, x70, x2, x17, x16, x72
+                    Uses:    
+                    Transient: false
+                    Outer: false
+                  Uses [Block: x75 (block: 0)]:
+                    consumer x75
+                    used Set()
+                    
+                x76 = SwitchCase(Block(x20)) [ctrl: x76 (stage: -1), inner: true]
+                  Pending: 
+                  Inputs:  
+                  Uses:    
+                  Transient: false
+                  Outer: true
+                  Uses [Block: x76 (block: 0)]:
+                    consumer x76
+                    used Set()
+                    
+                  x88 = FixSLA(b5,Const(2)) [ctrl: x76 (stage: -1), inner: true]
+                    Pending: 
+                    Inputs:  b5, Const(2)
+                    Uses:    
+                    Transient: false
+                    Outer: false
+                  x20 = SRAMWrite(x2,x88,List(b5),Set(x70, x72, x74)) [ctrl: x76 (stage: -1), inner: true]
+                    Pending: 
+                    Inputs:  x88, b5, x74, x70, x2, x72
+                    Uses:    
+                    Transient: false
+                    Outer: false
+                  Uses [Block: x76 (block: 0)]:
+                    consumer x76
+                    used Set()
+                    
+                Uses [Block: x110 (block: 0)]:
+                  consumer x110
+                  used Set()
+                  
+              Uses [Block: x78 (block: 0)]:
+                consumer x78
+                used Set()
+                
+            Uses [Block: x111 (block: 0)]:
+              consumer x111
+              used Set()
+              
+          Uses [Block: x80 (block: 0)]:
+            consumer x80
+            used Set()
+            
+        Uses [Block: x112 (block: 0)]:
+          consumer x112
+          used Set()
+          
+      Uses [Block: x25 (block: 1)]:
+        consumer x25
+        used Set()
+        
+      Uses [Block: x25 (block: 2)]:
+        consumer x25
+        used Set(b5)
+        
+      - b5
+      x24 = FixAdd(b5,Const(1)) [ctrl: x25 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  b5, Const(1)
+        Uses:    
+        Transient: false
+        Outer: false
+      Uses [Block: x25 (block: 2)]:
+        consumer x25
+        used Set()
+        
+    x109 = UnitPipe(Set(),Block(Const(())),None) [ctrl: x109 (stage: -1), inner: false]
+      Pending: 
+      Inputs:  
+      Uses:    
+      Transient: false
+      Outer: true
+      x91 = StreamOutNew(BurstCmdBus) [ctrl: x109 (stage: -1), inner: false]
+        Pending: 
+        Inputs:  
+        Uses:    
+        Transient: false
+        Outer: true
+      x92 = StreamOutNew(BurstFullDataBus()) [ctrl: x109 (stage: -1), inner: false]
+        Pending: 
+        Inputs:  
+        Uses:    
+        Transient: false
+        Outer: true
+      x93 = StreamInNew(BurstAckBus) [ctrl: x109 (stage: -1), inner: false]
+        Pending: 
+        Inputs:  
+        Uses:    
+        Transient: false
+        Outer: true
+      x98 = UnitPipe(Set(),Block(Const(())),None) [ctrl: x98 (stage: -1), inner: true]
+        Pending: 
+        Inputs:  
+        Uses:    
+        Transient: false
+        Outer: true
+        x113 = DRAMAddress(x1) [ctrl: x98 (stage: -1), inner: true]
+          Pending: 
+          Inputs:  x1
+          Uses:    
+          Transient: false
+          Outer: false
+        x95 = SimpleStruct(ArrayBuffer((offset,x113), (size,Const(128)), (isLoad,Const(false)))) [ctrl: x98 (stage: -1), inner: true]
+          Pending: 
+          Inputs:  x113, Const(128), Const(false)
+          Uses:    
+          Transient: true
+          Outer: false
+          Adding pending: x95 [ctrl: x98 (stage: -1), block: x98 (block: 0)]
+        x96 = DRAMIsAlloc(x1) [ctrl: x98 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95)
+          Inputs:  x1
+          Uses:    
+          Transient: false
+          Outer: false
+        x97 = StreamOutWrite(x91,x95,Set(x96)) [ctrl: x98 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95)
+          Inputs:  x91, x95, x96
+          Uses:    x95
+          Transient: false
+          Outer: false
+          Uses [Block: x98 (block: 0)]:
+            consumer x97
+            used Set(x95)
+            
+          - x95 = SimpleStruct(ArrayBuffer((offset,x113), (size,Const(128)), (isLoad,Const(false))))
+          Adding direct (x97 x98 (block: 0)) to uses for x95
+      x99 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [ctrl: x105 (stage: -1), inner: true]
+        Pending: x95 -> Set(x95)
+        Inputs:  Const(0), Const(32), Const(1)
+        Uses:    
+        Transient: false
+        Outer: true
+        Adding pending: x99 [ctrl: x105 (stage: -1), block: x109 (block: 0)]
+      x101 = CounterChainNew(List(x99)) [ctrl: x105 (stage: -1), inner: true]
+        Pending: x95 -> Set(x95), x99 -> Set(x99)
+        Inputs:  x99
+        Uses:    x99
+        Transient: false
+        Outer: true
+        Uses [Block: x109 (block: 0)]:
+          consumer x101
+          used Set(x99)
+          
+        - x99 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+        Adding direct (x101 x105 (block: -1)) to uses for x99
+      x105 = OpForeach(Set(),x101,Block(Const(())),List(b100),None) [ctrl: x105 (stage: -1), inner: true]
+        Pending: x95 -> Set(x95), x99 -> Set(x99)
+        Inputs:  x101, b100
+        Uses:    
+        Transient: false
+        Outer: true
+        x102 = SRAMRead(x2,List(b100),Set()) [ctrl: x105 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95), x99 -> Set(x99)
+          Inputs:  x2, b100
+          Uses:    
+          Transient: false
+          Outer: false
+        x103 = SimpleStruct(ArrayBuffer((_1,x102), (_2,Const(true)))) [ctrl: x105 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95), x99 -> Set(x99)
+          Inputs:  x102, Const(true)
+          Uses:    
+          Transient: true
+          Outer: false
+          Adding pending: x103 [ctrl: x105 (stage: -1), block: x105 (block: 0)]
+        x104 = StreamOutWrite(x92,x103,Set()) [ctrl: x105 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95), x103 -> Set(x103), x99 -> Set(x99)
+          Inputs:  x92, x103
+          Uses:    x103
+          Transient: false
+          Outer: false
+          Uses [Block: x105 (block: 0)]:
+            consumer x104
+            used Set(x103)
+            
+          - x103 = SimpleStruct(ArrayBuffer((_1,x102), (_2,Const(true))))
+          Adding direct (x104 x105 (block: 0)) to uses for x103
+      x106 = FringeDenseStore(x1,x91,x92,x93) [ctrl: x109 (stage: -1), inner: false]
+        Pending: x95 -> Set(x95), x103 -> Set(x103), x99 -> Set(x99)
+        Inputs:  x1, x91, x92, x93
+        Uses:    
+        Transient: false
+        Outer: true
+      x108 = UnitPipe(Set(),Block(Const(())),None) [ctrl: x108 (stage: -1), inner: true]
+        Pending: x95 -> Set(x95), x103 -> Set(x103), x99 -> Set(x99)
+        Inputs:  
+        Uses:    
+        Transient: false
+        Outer: true
+        x107 = StreamInRead(x93,Set()) [ctrl: x108 (stage: -1), inner: true]
+          Pending: x95 -> Set(x95), x103 -> Set(x103), x99 -> Set(x99)
+          Inputs:  x93
+          Uses:    
+          Transient: false
+          Outer: false
+  x29 = ArrayNew(Const(32)) [ctrl: Host, inner: false]
+  x30 = GetMem(x1,x29) [ctrl: Host, inner: false]
+  x31 = ArrayFromSeq(ArrayBuffer(Const(0), Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(16), Const(18), Const(20), Const(22), Const(24), Const(26), Const(28), Const(30), Const(48), Const(51), Const(54), Const(57), Const(60), Const(63), Const(66), Const(69), Const(96), Const(100), Const(104), Const(108), Const(112), Const(116), Const(120), Const(124))) [ctrl: Host, inner: false]
+  x32 = TextConcat(List(Const("Result"), Const("\n"))) [ctrl: Host, inner: false]
+  x33 = PrintIf(Set(),x32) [ctrl: Host, inner: false]
+  x34 = ArrayLength(x29) [ctrl: Host, inner: false]
+  x40 = SeriesForeach(Const(0),x34,Const(1),Block((b35) => Const(()))) [ctrl: Host, inner: false]
+    x36 = ArrayApply(x29,b35) [ctrl: Host, inner: false]
+    x37 = FixToText(x36,None) [ctrl: Host, inner: false]
+    x38 = TextConcat(List(x37, Const(" "))) [ctrl: Host, inner: false]
+    x39 = PrintIf(Set(),x38) [ctrl: Host, inner: false]
+  x41 = PrintIf(Set(),Const("\n")) [ctrl: Host, inner: false]
+  x42 = TextConcat(List(Const("Gold"), Const("\n"))) [ctrl: Host, inner: false]
+  x43 = PrintIf(Set(),x42) [ctrl: Host, inner: false]
+  x44 = ArrayLength(x31) [ctrl: Host, inner: false]
+  x50 = SeriesForeach(Const(0),x44,Const(1),Block((b45) => Const(()))) [ctrl: Host, inner: false]
+    x46 = ArrayApply(x31,b45) [ctrl: Host, inner: false]
+    x47 = FixToText(x46,None) [ctrl: Host, inner: false]
+    x48 = TextConcat(List(x47, Const(" "))) [ctrl: Host, inner: false]
+    x49 = PrintIf(Set(),x48) [ctrl: Host, inner: false]
+  x51 = PrintIf(Set(),Const("\n")) [ctrl: Host, inner: false]
+  x56 = ArrayZip(x31,x29,Block((x31,b52) => x53),Block((x29,b52) => x54),Block((x53,x54) => x55)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x56
+      used Set(x31, b52)
+      
+    - x31 = ArrayFromSeq(ArrayBuffer(Const(0), Const(1), Const(2), Const(3), Const(4), Const(5), Const(6), Const(7), Const(16), Const(18), Const(20), Const(22), Const(24), Const(26), Const(28), Const(30), Const(48), Const(51), Const(54), Const(57), Const(60), Const(63), Const(66), Const(69), Const(96), Const(100), Const(104), Const(108), Const(112), Const(116), Const(120), Const(124)))
+    - b52
+    x53 = ArrayApply(x31,b52) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x56
+      used Set()
+      
+    Uses [Block: Host]:
+      consumer x56
+      used Set(x29, b52)
+      
+    - x29 = ArrayNew(Const(32))
+    - b52
+    x54 = ArrayApply(x29,b52) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x56
+      used Set()
+      
+    Uses [Block: Host]:
+      consumer x56
+      used Set(x53, x54)
+      
+    - x53 = ArrayApply(x31,b52)
+    - x54 = ArrayApply(x29,b52)
+    x55 = FixEql(x53,x54) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x56
+      used Set()
+      
+  x62 = ArrayReduce(x56,Block((x56,b57) => x60),Block((b58,b59) => x61)) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x62
+      used Set(x56, b57)
+      
+    - x56 = ArrayZip(x31,x29,Block((x31,b52) => x53),Block((x29,b52) => x54),Block((x53,x54) => x55))
+    - b57
+    x60 = ArrayApply(x56,b57) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x62
+      used Set()
+      
+    Uses [Block: Host]:
+      consumer x62
+      used Set(b58, b59)
+      
+    - b58
+    - b59
+    x61 = And(b58,b59) [ctrl: Host, inner: false]
+    Uses [Block: Host]:
+      consumer x62
+      used Set()
+      
+  x63 = BitToText(x62) [ctrl: Host, inner: false]
+  x64 = TextConcat(List(Const("PASS: "), x63)) [ctrl: Host, inner: false]
+  x65 = TextConcat(List(x64, Const(" (Lab2Part3BasicCondFSMAlt)"))) [ctrl: Host, inner: false]
+  x66 = TextConcat(List(x65, Const("\n"))) [ctrl: Host, inner: false]
+  x67 = PrintIf(Set(),x66) [ctrl: Host, inner: false]
+  x69 = AssertIf(Set(),x62,Some(Const("Lab2Part3.scala:71:11: Assertion failure"))) [ctrl: Host, inner: false]
+[warn] Lab2Part3.scala:46:25: reg is defined here but never read. Unused writes will be dropped.
+[warn]       val reg = Reg[Int](0)
+                        ^

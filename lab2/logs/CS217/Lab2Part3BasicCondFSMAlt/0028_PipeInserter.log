@@ -1,0 +1,68 @@
+    x28 = AccelScope(Block(Const(())))
+      x28 Body #0: 
+        x28 body #0 block #0 [Outer]
+      Alloc: x2 = Some(SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]))
+      Alloc: x3 = Some(RegNew(Const(0)))
+      Primitive: x4 = Some(RegWrite(x3,Const(16),Set()))
+      Control: x25 = Some(StateMachine(Set(),Const(0),Block((b5) => x6),Block((b5) => x112),Block((b5) => x24),Fix[TRUE,_32,_0]))
+      Control: x109 = Some(UnitPipe(Set(),Block(Const(())),None))
+      stage bindings: ArrayBuffer(ArrayBuffer(spatial.transform.PipeInserter$Stage@2edb23c7), ArrayBuffer(spatial.transform.PipeInserter$Stage@627421f3), ArrayBuffer(spatial.transform.PipeInserter$Stage@7b0e52b9), ArrayBuffer(spatial.transform.PipeInserter$Stage@66cc0ae5), ArrayBuffer(spatial.transform.PipeInserter$Stage@117ec8e0), ArrayBuffer(spatial.transform.PipeInserter$Stage@52c61885))
+      Stage #0, 0: [Outer]
+      Stage #1, 0: [Outer]
+        x2 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+      Stage #2, 0: [Outer]
+        x3 = RegNew(Const(0))
+      Stage #3, 0: [Inner]
+        x4 = RegWrite(x3,Const(16),Set())
+        x4 = RegWrite(x3,Const(16),Set()), stg spatial.transform.PipeInserter$Stage@66cc0ae5
+          uses: Set(x28)
+          nonVoid: false
+          isResult: false
+      Escaping: 
+      Stage #4, 0: [Outer]
+        x25 = StateMachine(Set(),Const(0),Block((b5) => x6),Block((b5) => x112),Block((b5) => x24),Fix[TRUE,_32,_0])
+      Stage #5, 0: [Outer]
+        x109 = UnitPipe(Set(),Block(Const(())),None)
+      x109 = UnitPipe(Set(),Block(Const(())),None)
+        x109 Body #0: 
+          x109 body #0 block #0 [Outer]
+        Alloc: x91 = Some(StreamOutNew(BurstCmdBus))
+        Alloc: x92 = Some(StreamOutNew(BurstFullDataBus()))
+        Alloc: x93 = Some(StreamInNew(BurstAckBus))
+        Control: x98 = Some(UnitPipe(Set(),Block(Const(())),None))
+        Alloc: x99 = Some(CounterNew(Const(0),Const(32),Const(1),Const(1)))
+        Alloc: x101 = Some(CounterChainNew(List(x99)))
+        Control: x105 = Some(OpForeach(Set(),x101,Block(Const(())),List(b100),None))
+        Fringe: x106 = Some(FringeDenseStore(x1,x91,x92,x93))
+        Control: x108 = Some(UnitPipe(Set(),Block(Const(())),None))
+        Binding stages ArrayBuffer(spatial.transform.PipeInserter$Stage@3715f2b4, spatial.transform.PipeInserter$Stage@1edbc1bf, spatial.transform.PipeInserter$Stage@3283fa74, spatial.transform.PipeInserter$Stage@38734bf3, spatial.transform.PipeInserter$Stage@20eb9e1b, spatial.transform.PipeInserter$Stage@607d7580, spatial.transform.PipeInserter$Stage@4d0073a1, spatial.transform.PipeInserter$Stage@6f8e8521, spatial.transform.PipeInserter$Stage@13e9c58d, spatial.transform.PipeInserter$Stage@18b37305) for Parallel execution:
+         - Outer stage spatial.transform.PipeInserter$Stage@3715f2b4 0
+         - Outer stage spatial.transform.PipeInserter$Stage@1edbc1bf 1
+         - Outer stage spatial.transform.PipeInserter$Stage@3283fa74 2
+         - Outer stage spatial.transform.PipeInserter$Stage@38734bf3 3
+         - Outer stage spatial.transform.PipeInserter$Stage@20eb9e1b 4
+         - Outer stage spatial.transform.PipeInserter$Stage@607d7580 5
+         - Outer stage spatial.transform.PipeInserter$Stage@4d0073a1 6
+         - Outer stage spatial.transform.PipeInserter$Stage@6f8e8521 7
+         - Outer stage spatial.transform.PipeInserter$Stage@13e9c58d 8
+         - Last stage spatial.transform.PipeInserter$Stage@18b37305
+        stage bindings: ArrayBuffer(ArrayBuffer(spatial.transform.PipeInserter$Stage@3715f2b4), ArrayBuffer(spatial.transform.PipeInserter$Stage@1edbc1bf), ArrayBuffer(spatial.transform.PipeInserter$Stage@3283fa74), ArrayBuffer(spatial.transform.PipeInserter$Stage@38734bf3), ArrayBuffer(spatial.transform.PipeInserter$Stage@20eb9e1b), ArrayBuffer(spatial.transform.PipeInserter$Stage@607d7580), ArrayBuffer(spatial.transform.PipeInserter$Stage@4d0073a1), ArrayBuffer(spatial.transform.PipeInserter$Stage@6f8e8521), ArrayBuffer(spatial.transform.PipeInserter$Stage@13e9c58d), ArrayBuffer(spatial.transform.PipeInserter$Stage@18b37305))
+        Stage #0, 0: [Outer]
+        Stage #1, 0: [Outer]
+          x91 = StreamOutNew(BurstCmdBus)
+        Stage #2, 0: [Outer]
+          x92 = StreamOutNew(BurstFullDataBus())
+        Stage #3, 0: [Outer]
+          x93 = StreamInNew(BurstAckBus)
+        Stage #4, 0: [Outer]
+          x98 = UnitPipe(Set(),Block(Const(())),None)
+        Stage #5, 0: [Outer]
+          x99 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+        Stage #6, 0: [Outer]
+          x101 = CounterChainNew(List(x99))
+        Stage #7, 0: [Outer]
+          x105 = OpForeach(Set(),x101,Block(Const(())),List(b100),None)
+        Stage #8, 0: [Outer]
+          x106 = FringeDenseStore(x1,x91,x92,x93)
+        Stage #9, 0: [Outer]
+          x108 = UnitPipe(Set(),Block(Const(())),None)

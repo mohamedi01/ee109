@@ -1,0 +1,29 @@
+Rewrite Rules: 
+  mem_start
+  mem_dim
+  mem_end
+  nested_dense_alias
+  mem_len
+  mem_par
+  UnrollLane
+  ConstLutRead
+  VecConstProp
+  mem_rank
+  mem_step
+Flow Rules: 
+  accumulator
+  globals
+  memories
+  blockLevel
+  blackbox
+  controlLevel
+  streams
+  accesses
+  controlSchedule
+    Creating MemReduce on accumulator a (x2)
+      x2 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]])
+      RankSeq: List(0)
+      Starts:  Map(0 -> Const(0))
+      Strides: Map(0 -> Const(1))
+      Ends:    Map(0 -> Const(16))
+      Pars:    Map(0 -> Const(1))

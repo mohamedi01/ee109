@@ -1,0 +1,230 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for Lab2Part3BasicCondFSM (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x168 -->
+<TD>
+<font size = "6"><a href=PostExecution_IR.html#x168 target=_blank>x168</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">Lab2Part3.scala:9:11 <font color="grey">-     Accel {</font></font>
+<div>
+<font color="red"> 308 cycles/iter<br>
+<font size="2">(308 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x118 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x118 target=_blank>x118</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+  <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(1 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  </TD>
+  <!-- End x118-->
+  <!-- Begin x149 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x149 target=_blank>x149</a>: Sequenced StateMachine  FSM<font size = "4"> (InnerControl)</font>
+  <br><font size = "2">Lab2Part3.scala:24:8 <font color="grey">-       }{state => state + 1}</font></font>
+  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=5,  <b>II=2</b>, <b>CompilerII=1.0</b></font></mark></p>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x147 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x147 target=_blank>x147</a>: Fork Switch <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:14:9 <font color="grey">-         if (state < 16) {</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x132 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x132 target=_blank>x132</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">Lab2Part3.scala:14:9 <font color="grey">-         if (state < 16) {</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x131 -->
+        <TD>
+        <font size = "6"><a href=PostExecution_IR.html#x131 target=_blank>x131</a>: Fork Switch <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">Lab2Part3.scala:15:11 <font color="grey">-           if (state < 8) {</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x126 -->
+          <TD>
+          <font size = "6"><a href=PostExecution_IR.html#x126 target=_blank>x126</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2Part3.scala:15:11 <font color="grey">-           if (state < 8) {</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          </TD>
+          <!-- End x126-->
+          <!-- Begin x130 -->
+          <TD>
+          <font size = "6"><a href=PostExecution_IR.html#x130 target=_blank>x130</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2Part3.scala:15:11 <font color="grey">-           if (state < 8) {</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          </TD>
+          <!-- End x130-->
+          </TABLE></div>
+        </TD>
+        <!-- End x131-->
+        </TABLE></div>
+      </TD>
+      <!-- End x132-->
+      <!-- Begin x146 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x146 target=_blank>x146</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">Lab2Part3.scala:14:9 <font color="grey">-         if (state < 16) {</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x144 -->
+        <TD>
+        <font size = "6"><a href=PostExecution_IR.html#x144 target=_blank>x144</a>: Fork Switch <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">Lab2Part3.scala:22:30 <font color="grey">-           bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          <div data-role="collapsible"><h4> </h4>
+          <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+          <!-- Begin x140 -->
+          <TD>
+          <font size = "6"><a href=PostExecution_IR.html#x140 target=_blank>x140</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2Part3.scala:22:30 <font color="grey">-           bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          </TD>
+          <!-- End x140-->
+          <!-- Begin x142 -->
+          <TD>
+          <font size = "6"><a href=PostExecution_IR.html#x142 target=_blank>x142</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2Part3.scala:22:30 <font color="grey">-           bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          </TD>
+          <!-- End x142-->
+          <!-- Begin x143 -->
+          <TD>
+          <font size = "6"><a href=PostExecution_IR.html#x143 target=_blank>x143</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+          <br><font size = "2">Lab2Part3.scala:22:30 <font color="grey">-           bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H</font></font>
+          <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+          </TD>
+          <!-- End x143-->
+          </TABLE></div>
+        </TD>
+        <!-- End x144-->
+        </TABLE></div>
+      </TD>
+      <!-- End x146-->
+      </TABLE></div>
+    </TD>
+    <!-- End x147-->
+    </TABLE></div>
+  </TD>
+  <!-- End x149-->
+  <!-- Begin x167 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x167 target=_blank>x167</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2Part3.scala:26:19 <font color="grey">-       dram(0::32) store bram</font></font>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x157 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x157 target=_blank>x157</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:26:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x150)----->
+    </font></div>
+    </TD>
+    <!-- End x157-->
+    <!-- Begin x163 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x163 target=_blank>x163</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:26:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+    <br><font size = "1">Counter: <a href=PostExecution_IR.html#x159 target=_blank>x159</a> = CounterNew(Const(0),Const(32),Const(1),Const(1))</font>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x151)----->
+    </font></div>
+    </TD>
+    <!-- End x163-->
+    <!-- Begin x166 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x166 target=_blank>x166</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:26:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x152)
+    </font></div>
+    </TD>
+    <!-- End x166-->
+    </TABLE></div>
+  </TD>
+  <!-- End x167-->
+  </TABLE></div>
+</TD>
+<!-- End x168-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x115 target=_blank>x115</a> (BankedSRAM "bram")
+<br>volume = 32 (dims List(32) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">3</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x116 target=_blank>x116</a> (FF "reg")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

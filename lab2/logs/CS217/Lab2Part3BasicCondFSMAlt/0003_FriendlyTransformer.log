@@ -1,0 +1,53 @@
+DRAM: x1 (List(Const(32))), dim: Const(32) = isValue, mapping to Const(32)
+    Stms:
+      x10 = FixLeq(Const(8),b5)
+      x24 = FixAdd(b5,Const(1))
+      x25 = StateMachine(Set(),Const(0),Block((b5) => x6),Block((b5) => x23),Block((b5) => x24),Fix[TRUE,_32,_0])
+      x14 = FixLst(b5,Const(24))
+      x20 = SRAMWrite(x2,x19,List(b5),Set())
+      x6 = FixLst(b5,Const(32))
+      x21 = IfThenElse(x16,Block(x18),Block(x20))
+      x9 = FixLst(b5,Const(16))
+      x13 = SRAMWrite(x2,x12,List(b5),Set())
+      x2 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+      x17 = FixMul(b5,Const(3))
+      x22 = IfThenElse(x11,Block(x13),Block(x21))
+      x27 = DenseTransfer(x26,x2,false,false,Set(),Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]],DRAM1[Fix[TRUE,_32,_0]])
+      x12 = FixSLA(b5,Const(1))
+      x7 = FixLst(b5,Const(8))
+      x3 = RegNew(Const(0))
+      x18 = SRAMWrite(x2,x17,List(b5),Set())
+      x16 = And(x14,x15)
+      x11 = And(x9,x10)
+      x26 = MemDenseAlias(List(Const(true)),List(x1),List(List(Series(Const(0), Const(32), Const(1), Const(1), false))),Fix[TRUE,_32,_0],DRAM1[Fix[TRUE,_32,_0]],DRAM1[Fix[TRUE,_32,_0]])
+      x23 = IfThenElse(x7,Block(x8),Block(x22))
+      x8 = SRAMWrite(x2,b5,List(b5),Set())
+      x19 = FixSLA(b5,Const(2))
+      x4 = RegWrite(x3,Const(16),Set())
+      x15 = FixLeq(Const(16),b5)
+    Used:
+      b5 [Made: true]
+      x10 = FixLeq(Const(8),b5) [Made: true]
+      x24 = FixAdd(b5,Const(1)) [Made: true]
+      x14 = FixLst(b5,Const(24)) [Made: true]
+      x20 = SRAMWrite(x2,x19,List(b5),Set()) [Made: true]
+      x1 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+      x6 = FixLst(b5,Const(32)) [Made: true]
+      x21 = IfThenElse(x16,Block(x18),Block(x20)) [Made: true]
+      x9 = FixLst(b5,Const(16)) [Made: true]
+      x13 = SRAMWrite(x2,x12,List(b5),Set()) [Made: true]
+      x2 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: true]
+      x17 = FixMul(b5,Const(3)) [Made: true]
+      x22 = IfThenElse(x11,Block(x13),Block(x21)) [Made: true]
+      x12 = FixSLA(b5,Const(1)) [Made: true]
+      x7 = FixLst(b5,Const(8)) [Made: true]
+      x3 = RegNew(Const(0)) [Made: true]
+      x18 = SRAMWrite(x2,x17,List(b5),Set()) [Made: true]
+      x16 = And(x14,x15) [Made: true]
+      x11 = And(x9,x10) [Made: true]
+      x26 = MemDenseAlias(List(Const(true)),List(x1),List(List(Series(Const(0), Const(32), Const(1), Const(1), false))),Fix[TRUE,_32,_0],DRAM1[Fix[TRUE,_32,_0]],DRAM1[Fix[TRUE,_32,_0]]) [Made: true]
+      x23 = IfThenElse(x7,Block(x8),Block(x22)) [Made: true]
+      x8 = SRAMWrite(x2,b5,List(b5),Set()) [Made: true]
+      x19 = FixSLA(b5,Const(2)) [Made: true]
+      x15 = FixLeq(Const(16),b5) [Made: true]
+Adding x3 -> Const(16) to mostRecentWrite map (Map(x3 -> Const(16)))

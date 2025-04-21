@@ -1,0 +1,192 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 1.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: bram_0 (x207)
+Type: SRAM1[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:45:27
+Src:        val bram = SRAM[Int](32)
+---------------------------------------------------------------------
+Symbol:     x207 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x211 = SRAMBankedWrite(x207,Vector(b5),Vector(List(Const(0))),Vector(b5),Vector(Set(x209))) {}
+             bram(state) = state (Lab2Part3.scala:50:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x218 = SRAMBankedWrite(x207,Vector(x295),Vector(List(Const(0))),Vector(x296),Vector(Set(x297, x298))) {}
+             bram(state) = state*2 (Lab2Part3.scala:52:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #2: 
+             x225 = SRAMBankedWrite(x207,Vector(x302),Vector(List(Const(0))),Vector(x299),Vector(Set(x301, x300, x303))) {}
+             bram(state) = state*3 (Lab2Part3.scala:54:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #3: 
+             x228 = SRAMBankedWrite(x207,Vector(x308),Vector(List(Const(0))),Vector(x304),Vector(Set(x307, x305, x306))) {}
+             bram(state) = state*4 (Lab2Part3.scala:56:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x249 = SRAMBankedRead(x207,Vector(List(Const(0))),Vector(b247),Vector(Set(b248)),Vec[Fix[TRUE,_32,_0]]) {}
+             dram(0::32) store bram (Lab2Part3.scala:60:19)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x164: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x236: StateMachine (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x228: SRAMBankedWrite
+    x211: SRAMBankedWrite
+    x225: SRAMBankedWrite
+    x218: SRAMBankedWrite
+  x258: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x253: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x249: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x237
+Type: StreamOut[BurstCmd]
+Src:  Lab2Part3.scala:60:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x237 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x243 = StreamOutBankedWrite(x237,ArrayBuffer(x241),ArrayBuffer(Set(x242))) {}
+             dram(0::32) store bram (Lab2Part3.scala:60:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x244: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x243: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x238
+Type: StreamOut[Tup2[Fix[TRUE,_32,_0],Bit]]
+Src:  Lab2Part3.scala:60:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x238 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x252 = StreamOutBankedWrite(x238,ArrayBuffer(x251),ArrayBuffer(Set(x310))) {}
+             dram(0::32) store bram (Lab2Part3.scala:60:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x253: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x252: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x239
+Type: StreamIn[Bit]
+Src:  Lab2Part3.scala:60:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x239 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x255 = StreamInBankedRead(x239,ArrayBuffer(Set())) {}
+             dram(0::32) store bram (Lab2Part3.scala:60:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x257: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x255: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+

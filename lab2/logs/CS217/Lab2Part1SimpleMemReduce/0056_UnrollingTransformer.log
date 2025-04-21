@@ -1,0 +1,294 @@
+      Duplicating x86 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]])
+        #0: Memory(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),1,List(0),Buffer)
+        x161 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]])
+        Registering duplicates for memory: x86
+        (x86,0) -> x161
+      Unrolling x87 = CounterNew(Const(-5),Const(5),Const(1),Const(1))
+      x162 = CounterNew(Const(-5),Const(5),Const(1),Const(1))
+      [x87] 0: x162
+      Unrolling x88 = CounterChainNew(List(x87))
+      x163 = CounterChainNew(List(x162))
+      [x88] 0: x163
+      Unrolling x89 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+      x164 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+      [x89] 0: x164
+      Unrolling x90 = CounterChainNew(Vector(x89))
+      x165 = CounterChainNew(Vector(x164))
+      [x90] 0: x165
+      Unrolling x100 = OpMemReduce(Set(),x88,x90,x86,Block(x91),Block((x91) => x96),Block((x86) => x97),Block((b9,b10) => x98),Block((x86,x98) => Const(())),None,false,List(b7),List(b8),None,Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]])
+      x100 = OpMemReduce(Set(),x88,x90,x86,Block(x91),Block((x91) => x96),Block((x86) => x97),Block((b9,b10) => x98),Block((x86,x98) => Const(())),None,false,List(b7),List(b8),None,Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]]) [duplicate 1/1] in lanes UnitUnroller(Accel,false)
+        Duplicating x91 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]])
+          #0: Memory(List(Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)),2,List(0),None)
+          x170 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]])
+          Registering duplicates for memory: x91
+          (x91,0) -> x170
+        Unrolling x92 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+        x171 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+        [x92] 0: x171
+        Unrolling x93 = CounterChainNew(List(x92))
+        x172 = CounterChainNew(List(x171))
+        [x93] 0: x172
+        Unrolling x95 = OpForeach(Set(),x93,Block(Const(())),List(b13),None)
+        x95 = OpForeach(Set(),x93,Block(Const(())),List(b13),None) [duplicate 1/1] in lanes PartialUnroller(x100_map,x163,List(b7),false,true)
+        Unrolling foreach x95
+          Access: x94
+          Memory: x91
+          Iterators between x94 and x91: b13
+          Unroll: Map(b7 -> List(0))
+          uids:List(List(0))
+          Unrolling x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+          a2 = 
+            lane 0 (castgrp/broadcast 0/0) = List(b173)
+            Masters: Vector(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x175 = SRAMBankedWrite(x170,Vector(Const(1)),Vector(List(Const(0))),Vector(b173),Vector(Set(b174, b168)))
+        Created foreach x176 = UnrolledForeach(Set(b168),x172,Block(Const(())),List(List(b173)),List(List(b174)),None)
+        [x95] 0: Const(())
+        Access: x96
+        Memory: x91
+        Iterators between x96 and x91: b8
+        Unroll: Map(b7 -> List(0))
+        uids:List(List(0))
+        Unrolling x96 = SRAMRead(x91,List(b8),Set())
+          Dispatch: ArrayBuffer(0)
+          Lane IDs: ArrayBuffer(0)
+          Port:     Port(Some(1),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        a2 = 
+          lane 0 (castgrp/broadcast 0/0) = List(b167)
+          Masters: Vector(0) // Lanes that do not have duplicated address
+          Locks: None
+        laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+          x177 = SRAMBankedRead(x170,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]])
+        Access: x97
+        Memory: x86
+        Iterators between x97 and x86: b8
+        Unroll: Map()
+        uids:List(List(0))
+        Unrolling x97 = SRAMRead(x86,List(b8),Set())
+          Dispatch: ArrayBuffer(0)
+          Lane IDs: ArrayBuffer(0)
+          Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        a2 = 
+          lane 0 (castgrp/broadcast 0/0) = List(b167)
+          Masters: Vector(0) // Lanes that do not have duplicated address
+          Locks: None
+        laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+          x179 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]])
+      Executing Function2 with inputs: x178 and x180
+      Creating Function0 with subst: {b9 -> x178, b10 -> x180}
+      Executing Function0
+        Unrolling x98 = FixAdd(b9,b10)
+        Lane #List(0): 
+        x183 = FixAdd(x178,x180)
+        [x98] 0: x183
+        Access: x99
+        Memory: x86
+        Iterators between x99 and x86: b8
+        Unroll: Map()
+        uids:List(List(0))
+        Unrolling x99 = SRAMWrite(x86,x98,List(b8),Set())
+          Dispatch: ArrayBuffer(0)
+          Lane IDs: ArrayBuffer(0)
+          Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+        a2 = 
+          lane 0 (castgrp/broadcast 0/0) = List(b167)
+          Masters: Vector(0) // Lanes that do not have duplicated address
+          Locks: None
+        laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+          x185 = SRAMBankedWrite(x161,Vector(x184),Vector(List(Const(0))),Vector(b167),Vector(Set(b169)))
+      [x100] 0: Const(())
+      Unrolling x118 = UnitPipe(Set(),Block(Const(())),None)
+      x118 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes UnitUnroller(Accel,false)
+        Unrolling x108 = UnitPipe(Set(),Block(Const(())),None)
+        x108 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x118),false)
+          Unrolling x104 = DRAMAddress(x85)
+          x191 = DRAMAddress(x160)
+          [x104] 0: x191
+          Unrolling x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+          x192 = SimpleStruct(ArrayBuffer((offset,x191), (size,Const(64)), (isLoad,Const(false))))
+          [x105] 0: x192
+          Unrolling x106 = DRAMIsAlloc(x85)
+          x193 = DRAMIsAlloc(x160)
+          [x106] 0: x193
+          Access: x107
+          Memory: x101
+          Iterators between x107 and x101: 
+          Unroll: Map()
+          uids:List(List())
+          Unrolling x107 = StreamOutWrite(x101,x105,Set(x106))
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x194 = StreamOutBankedWrite(x188,ArrayBuffer(x192),ArrayBuffer(Set(x193)))
+        [x108] 0: Const(())
+        Unrolling x109 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+        x196 = CounterNew(Const(0),Const(16),Const(1),Const(1))
+        [x109] 0: x196
+        Unrolling x110 = CounterChainNew(List(x109))
+        x197 = CounterChainNew(List(x196))
+        [x110] 0: x197
+        Unrolling x114 = OpForeach(Set(),x110,Block(Const(())),List(b75),None)
+        x114 = OpForeach(Set(),x110,Block(Const(())),List(b75),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x118),false)
+        Unrolling foreach x114
+          Access: x111
+          Memory: x86
+          Iterators between x111 and x86: b75
+          Unroll: Map()
+          uids:List(List(0))
+          Unrolling x111 = SRAMRead(x86,List(b75),Set())
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),1,0,ArrayBuffer(0),ArrayBuffer(0))
+          a2 = 
+            lane 0 (castgrp/broadcast 0/0) = List(b198)
+            Masters: Vector(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x200 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b198),Vector(Set(b199)),Vec[Fix[TRUE,_32,_0]])
+          Unrolling x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+          x202 = SimpleStruct(ArrayBuffer((_1,x201), (_2,Const(true))))
+          [x112] 0: x202
+          Access: x113
+          Memory: x102
+          Iterators between x113 and x102: b75
+          Unroll: Map()
+          uids:List(List(0))
+          Unrolling x113 = StreamOutWrite(x102,x112,Set())
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x203 = StreamOutBankedWrite(x189,ArrayBuffer(x202),ArrayBuffer(Set(b199)))
+        Created foreach x204 = UnrolledForeach(Set(),x197,Block(Const(())),List(List(b198)),List(List(b199)),None)
+        [x114] 0: Const(())
+        Unrolling x115 = FringeDenseStore(x85,x101,x102,x103)
+        x205 = FringeDenseStore(x160,x188,x189,x190)
+        [x115] 0: x205
+        Unrolling x117 = UnitPipe(Set(),Block(Const(())),None)
+        x117 = UnitPipe(Set(),Block(Const(())),None) [duplicate 1/1] in lanes UnitUnroller(DenseTransfer (x118),false)
+          Access: x116
+          Memory: x103
+          Iterators between x116 and x103: 
+          Unroll: Map()
+          uids:List(List())
+          Unrolling x116 = StreamInRead(x103,Set())
+            Dispatch: ArrayBuffer(0)
+            Lane IDs: ArrayBuffer(0)
+            Port:     Port(Some(0),0,0,ArrayBuffer(0),ArrayBuffer(0))
+            Masters: ArrayBuffer(0) // Lanes that do not have duplicated address
+            Locks: None
+          laneid : 0 lanes:List(0) castgroup:List(0) broadcast:List(0)
+            x206 = StreamInBankedRead(x190,ArrayBuffer(Set()))
+        [x117] 0: Const(())
+      [x118] 0: Const(())
+    Unrolling x120 = ArrayNew(Const(16))
+    x210 = ArrayNew(Const(16))
+    [x120] 0: x210
+    Unrolling x121 = GetMem(x85,x120)
+    x211 = GetMem(x160,x210)
+    [x121] 0: x211
+    Unrolling x122 = MapIndices(Const(16),Block((b26) => Const(10)))
+    x212 = MapIndices(Const(16),Block((b26) => Const(10)))
+    [x122] 0: x212
+    Unrolling x123 = TextConcat(List(Const("expected: "), Const("\n")))
+    x213 = TextConcat(List(Const("expected: "), Const("\n")))
+    [x123] 0: x213
+    Unrolling x124 = PrintIf(Set(),x123)
+    x214 = PrintIf(Set(),x213)
+    [x124] 0: x214
+    Unrolling x125 = ArrayLength(x122)
+    x215 = ArrayLength(x212)
+    [x125] 0: x215
+    Unrolling x130 = SeriesForeach(Const(0),x125,Const(1),Block((b31) => Const(())))
+      Unrolling x126 = ArrayApply(x122,b31)
+      x216 = ArrayApply(x212,b31)
+      [x126] 0: x216
+      Unrolling x127 = FixToText(x126,None)
+      x217 = FixToText(x216,None)
+      [x127] 0: x217
+      Unrolling x128 = TextConcat(List(x127, Const(" ")))
+      x218 = TextConcat(List(x217, Const(" ")))
+      [x128] 0: x218
+      Unrolling x129 = PrintIf(Set(),x128)
+      x219 = PrintIf(Set(),x218)
+      [x129] 0: x219
+    x220 = SeriesForeach(Const(0),x215,Const(1),Block((b31) => Const(())))
+    [x130] 0: x220
+    Unrolling x131 = PrintIf(Set(),Const("\n"))
+    x221 = PrintIf(Set(),Const("\n"))
+    [x131] 0: x221
+    Unrolling x132 = TextConcat(List(Const("result:   "), Const("\n")))
+    x222 = TextConcat(List(Const("result:   "), Const("\n")))
+    [x132] 0: x222
+    Unrolling x133 = PrintIf(Set(),x132)
+    x223 = PrintIf(Set(),x222)
+    [x133] 0: x223
+    Unrolling x134 = ArrayLength(x120)
+    x224 = ArrayLength(x210)
+    [x134] 0: x224
+    Unrolling x139 = SeriesForeach(Const(0),x134,Const(1),Block((b41) => Const(())))
+      Unrolling x135 = ArrayApply(x120,b41)
+      x225 = ArrayApply(x210,b41)
+      [x135] 0: x225
+      Unrolling x136 = FixToText(x135,None)
+      x226 = FixToText(x225,None)
+      [x136] 0: x226
+      Unrolling x137 = TextConcat(List(x136, Const(" ")))
+      x227 = TextConcat(List(x226, Const(" ")))
+      [x137] 0: x227
+      Unrolling x138 = PrintIf(Set(),x137)
+      x228 = PrintIf(Set(),x227)
+      [x138] 0: x228
+    x229 = SeriesForeach(Const(0),x224,Const(1),Block((b41) => Const(())))
+    [x139] 0: x229
+    Unrolling x140 = PrintIf(Set(),Const("\n"))
+    x230 = PrintIf(Set(),Const("\n"))
+    [x140] 0: x230
+    Unrolling x144 = ArrayZip(x122,x120,Block((x122,b48) => x141),Block((x120,b48) => x142),Block((x141,x142) => x143))
+      Unrolling x141 = ArrayApply(x122,b48)
+      x231 = ArrayApply(x212,b48)
+      [x141] 0: x231
+      Unrolling x142 = ArrayApply(x120,b48)
+      x232 = ArrayApply(x210,b48)
+      [x142] 0: x232
+      Unrolling x143 = FixEql(x141,x142)
+      x233 = FixEql(x231,x232)
+      [x143] 0: x233
+    x234 = ArrayZip(x212,x210,Block((x212,b48) => x231),Block((x210,b48) => x232),Block((x231,x232) => x233))
+    [x144] 0: x234
+    Unrolling x147 = ArrayReduce(x144,Block((x144,b53) => x145),Block((b54,b55) => x146))
+      Unrolling x145 = ArrayApply(x144,b53)
+      x235 = ArrayApply(x234,b53)
+      [x145] 0: x235
+      Unrolling x146 = And(b54,b55)
+      x236 = And(b54,b55)
+      [x146] 0: x236
+    x237 = ArrayReduce(x234,Block((x234,b53) => x235),Block((b54,b55) => x236))
+    [x147] 0: x237
+    Unrolling x148 = BitToText(x147)
+    x238 = BitToText(x237)
+    [x148] 0: x238
+    Unrolling x149 = TextConcat(List(Const("PASS: "), x148))
+    x239 = TextConcat(List(Const("PASS: "), x238))
+    [x149] 0: x239
+    Unrolling x150 = TextConcat(List(x149, Const(" (Lab2Part1SimpleMemReduce)")))
+    x240 = TextConcat(List(x239, Const(" (Lab2Part1SimpleMemReduce)")))
+    [x150] 0: x240
+    Unrolling x151 = TextConcat(List(x150, Const("\n")))
+    x241 = TextConcat(List(x240, Const("\n")))
+    [x151] 0: x241
+    Unrolling x152 = PrintIf(Set(),x151)
+    x242 = PrintIf(Set(),x241)
+    [x152] 0: x242
+    Unrolling x153 = AssertIf(Set(),x147,Some(Const("Lab2Part1.scala:26:11: Assertion failure")))
+    x243 = AssertIf(Set(),x237,Some(Const("Lab2Part1.scala:26:11: Assertion failure")))
+    [x153] 0: x243

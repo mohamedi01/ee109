@@ -1,0 +1,116 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for Lab2Part3BasicCondFSMAlt (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x164 -->
+<TD>
+<font size = "6"><a href=IR.html#x164 target=_blank>x164</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">Lab2Part3.scala:44:11 <font color="grey">-     Accel {</font></font>
+<div>
+<font color="red"> 464 cycles/iter<br>
+<font size="2">(464 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x236 -->
+  <TD>
+  <font size = "6"><a href=IR.html#x236 target=_blank>x236</a>: Sequenced StateMachine  FSM<font size = "4"> (InnerControl)</font>
+  <br><font size = "2">Lab2Part3.scala:58:8 <font color="grey">-       }{state => state + 1}</font></font>
+  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=5,  <b>II=2</b>, <b>CompilerII=1.0</b></font></mark></p>
+
+  </TD>
+  <!-- End x236-->
+  <!-- Begin x258 -->
+  <TD>
+  <font size = "6"><a href=IR.html#x258 target=_blank>x258</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">Lab2Part3.scala:60:19 <font color="grey">-       dram(0::32) store bram</font></font>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x244 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x244 target=_blank>x244</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:60:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x237)----->
+    </font></div>
+    </TD>
+    <!-- End x244-->
+    <!-- Begin x253 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x253 target=_blank>x253</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:60:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
+    <br><font size = "1">Counter: <a href=IR.html#x246 target=_blank>x246</a> = CounterNew(Const(0),Const(32),Const(1),Const(1))</font>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x238)----->
+    </font></div>
+    </TD>
+    <!-- End x253-->
+    <!-- Begin x257 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x257 target=_blank>x257</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">Lab2Part3.scala:60:19 <font color="grey">-       dram(0::32) store bram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 137 cycles/iter<br>
+<font size="2">(137 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x239)
+    </font></div>
+    </TD>
+    <!-- End x257-->
+    </TABLE></div>
+  </TD>
+  <!-- End x258-->
+  </TABLE></div>
+</TD>
+<!-- End x164-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x207 target=_blank>x207</a> (BankedSRAM "bram_0")
+<br>volume = 32 (dims List(32) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">4</div> </div>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

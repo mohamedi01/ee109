@@ -1,0 +1,234 @@
+  Advancing blk
+     From: Host
+     To: Host
+    x160 = DRAMHostNew(List(Const(16)),Const(0)) [Host]
+    Updating x160 since there are no subst rules for it
+    x119 = AccelScope(Block(Const(()))) [x119 (block: -1)]
+    Updating x119 since there are no subst rules for it
+    Advancing blk
+       From: x119 (block: -1)
+       To: x119 (block: 0)
+    node: (x119,x119 (block: -1)), block: (x119,x119 (block: 0))
+      x161 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]]) [x119 (block: 0)]
+      Updating x161 since there are no subst rules for it
+      x162 = CounterNew(Const(-5),Const(5),Const(1),Const(1)) [x187 (block: -1)]
+      Updating x162 since there are no subst rules for it
+      x163 = CounterChainNew(List(x162)) [x187 (block: -1)]
+      Updating x163 since there are no subst rules for it
+      x164 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x186 (block: -1)]
+      Updating x164 since there are no subst rules for it
+      x165 = CounterChainNew(Vector(x164)) [x186 (block: -1)]
+      Updating x165 since there are no subst rules for it
+      x187 = UnrolledReduce(Set(),x163,Block((x161) => x186),List(List(b166)),List(List(b168)),None) [x187 (block: -1)]
+      Updating x187 since there are no subst rules for it
+      Advancing blk
+         From: x187 (block: -1)
+         To: x187 (block: 0)
+      node: (x187,x187 (block: -1)), block: (x187,x187 (block: 0))
+        x170 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]]) [x187 (block: 0)]
+        Updating x170 since there are no subst rules for it
+        x171 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x176 (block: -1)]
+        Updating x171 since there are no subst rules for it
+        x172 = CounterChainNew(List(x171)) [x176 (block: -1)]
+        Updating x172 since there are no subst rules for it
+        x176 = UnrolledForeach(Set(b168),x172,Block(Const(())),List(List(b173)),List(List(b174)),None) [x176 (block: -1)]
+        Updating x176 since there are no subst rules for it
+        Advancing blk
+           From: x176 (block: -1)
+           To: x176 (block: 0)
+        node: (x176,x176 (block: -1)), block: (x176,x176 (block: 0))
+          x175 = SRAMBankedWrite(x170,Vector(Const(1)),Vector(List(Const(0))),Vector(b173),Vector(Set(b174, b168))) [x176 (block: 0)]
+          Updating x175 since there are no subst rules for it
+        x186 = UnrolledForeach(Set(),x165,Block(Const(())),Vector(List(b167)),Vector(List(b169)),None) [x186 (block: -1)]
+        Updating x186 since there are no subst rules for it
+        Advancing blk
+           From: x186 (block: -1)
+           To: x186 (block: 0)
+        node: (x186,x186 (block: -1)), block: (x186,x186 (block: 0))
+          x177 = SRAMBankedRead(x170,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]) [x186 (block: 0)]
+          Updating x177 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x178 = VecApply(x177,0) [stateless]
+           - users: Set(User(x183,x186 (block: 0)), User(x184,x186 (block: 0)))
+           - ctrl:  x186 (block: 0)
+          x178 = VecApply(x177,0) [x186 (block: 0)]
+          Updating x178 since there are no subst rules for it
+          x179 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]) [x186 (block: 0)]
+          Updating x179 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x180 = VecApply(x179,0) [stateless]
+           - users: Set(User(x183,x186 (block: 0)))
+           - ctrl:  x186 (block: 0)
+          x180 = VecApply(x179,0) [x186 (block: 0)]
+          Updating x180 since there are no subst rules for it
+          x182 = FixEql(b166,Const(-5)) [x186 (block: 0)]
+          Updating x182 since there are no subst rules for it
+          x183 = FixAdd(x178,x180) [x186 (block: 0)]
+          Updating x183 since there are no subst rules for it
+          x184 = Mux(x182,x178,x183) [x186 (block: 0)]
+          Updating x184 since there are no subst rules for it
+          x185 = SRAMBankedWrite(x161,Vector(x184),Vector(List(Const(0))),Vector(b167),Vector(Set(b169))) [x186 (block: 0)]
+          Updating x185 since there are no subst rules for it
+      x209 = UnitPipe(Set(),Block(Const(())),None) [x209 (block: -1)]
+      Updating x209 since there are no subst rules for it
+      Advancing blk
+         From: x209 (block: -1)
+         To: x209 (block: 0)
+      node: (x209,x209 (block: -1)), block: (x209,x209 (block: 0))
+        x188 = StreamOutNew(BurstCmdBus) [x209 (block: 0)]
+        Updating x188 since there are no subst rules for it
+        x189 = StreamOutNew(BurstFullDataBus()) [x209 (block: 0)]
+        Updating x189 since there are no subst rules for it
+        x190 = StreamInNew(BurstAckBus) [x209 (block: 0)]
+        Updating x190 since there are no subst rules for it
+        x195 = UnitPipe(Set(),Block(Const(())),None) [x195 (block: -1)]
+        Updating x195 since there are no subst rules for it
+        Advancing blk
+           From: x195 (block: -1)
+           To: x195 (block: 0)
+        node: (x195,x195 (block: -1)), block: (x195,x195 (block: 0))
+          x191 = DRAMAddress(x160) [x195 (block: 0)]
+          Updating x191 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x192 = SimpleStruct(ArrayBuffer((offset,x191), (size,Const(64)), (isLoad,Const(false)))) [stateless]
+           - users: Set(User(x194,x195 (block: 0)))
+           - ctrl:  x195 (block: 0)
+          x192 = SimpleStruct(ArrayBuffer((offset,x191), (size,Const(64)), (isLoad,Const(false)))) [x195 (block: 0)]
+          Updating x192 since there are no subst rules for it
+          x193 = DRAMIsAlloc(x160) [x195 (block: 0)]
+          Updating x193 since there are no subst rules for it
+          x194 = StreamOutBankedWrite(x188,ArrayBuffer(x192),ArrayBuffer(Set(x193))) [x195 (block: 0)]
+          Updating x194 since there are no subst rules for it
+        x196 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x204 (block: -1)]
+        Updating x196 since there are no subst rules for it
+        x197 = CounterChainNew(List(x196)) [x204 (block: -1)]
+        Updating x197 since there are no subst rules for it
+        x204 = UnrolledForeach(Set(),x197,Block(Const(())),List(List(b198)),List(List(b199)),None) [x204 (block: -1)]
+        Updating x204 since there are no subst rules for it
+        Advancing blk
+           From: x204 (block: -1)
+           To: x204 (block: 0)
+        node: (x204,x204 (block: -1)), block: (x204,x204 (block: 0))
+          x200 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b198),Vector(Set(b199)),Vec[Fix[TRUE,_32,_0]]) [x204 (block: 0)]
+          Updating x200 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x201 = VecApply(x200,0) [stateless]
+           - users: Set(User(x202,x204 (block: 0)))
+           - ctrl:  x204 (block: 0)
+          x201 = VecApply(x200,0) [x204 (block: 0)]
+          Updating x201 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x202 = SimpleStruct(ArrayBuffer((_1,x201), (_2,Const(true)))) [stateless]
+           - users: Set(User(x203,x204 (block: 0)))
+           - ctrl:  x204 (block: 0)
+          x202 = SimpleStruct(ArrayBuffer((_1,x201), (_2,Const(true)))) [x204 (block: 0)]
+          Updating x202 since there are no subst rules for it
+          x203 = StreamOutBankedWrite(x189,ArrayBuffer(x202),ArrayBuffer(Set(b199))) [x204 (block: 0)]
+          Updating x203 since there are no subst rules for it
+        x205 = FringeDenseStore(x160,x188,x189,x190) [x209 (block: 0)]
+        Updating x205 since there are no subst rules for it
+        x208 = UnitPipe(Set(),Block(Const(())),None) [x208 (block: -1)]
+        Updating x208 since there are no subst rules for it
+        Advancing blk
+           From: x208 (block: -1)
+           To: x208 (block: 0)
+        node: (x208,x208 (block: -1)), block: (x208,x208 (block: 0))
+          x206 = StreamInBankedRead(x190,ArrayBuffer(Set())) [x208 (block: 0)]
+          Updating x206 since there are no subst rules for it
+    x210 = ArrayNew(Const(16)) [Host]
+    Updating x210 since there are no subst rules for it
+    x211 = GetMem(x160,x210) [Host]
+    Updating x211 since there are no subst rules for it
+    x212 = MapIndices(Const(16),Block((b26) => Const(10))) [Host]
+    Updating x212 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+    x213 = TextConcat(List(Const("expected: "), Const("\n"))) [Host]
+    Updating x213 since there are no subst rules for it
+    x214 = PrintIf(Set(),x213) [Host]
+    Updating x214 since there are no subst rules for it
+    x215 = ArrayLength(x212) [Host]
+    Updating x215 since there are no subst rules for it
+    x220 = SeriesForeach(Const(0),x215,Const(1),Block((b31) => Const(()))) [Host]
+    Updating x220 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x216 = ArrayApply(x212,b31) [Host]
+      Updating x216 since there are no subst rules for it
+      x217 = FixToText(x216,None) [Host]
+      Updating x217 since there are no subst rules for it
+      x218 = TextConcat(List(x217, Const(" "))) [Host]
+      Updating x218 since there are no subst rules for it
+      x219 = PrintIf(Set(),x218) [Host]
+      Updating x219 since there are no subst rules for it
+    x221 = PrintIf(Set(),Const("\n")) [Host]
+    Updating x221 since there are no subst rules for it
+    x222 = TextConcat(List(Const("result:   "), Const("\n"))) [Host]
+    Updating x222 since there are no subst rules for it
+    x223 = PrintIf(Set(),x222) [Host]
+    Updating x223 since there are no subst rules for it
+    x224 = ArrayLength(x210) [Host]
+    Updating x224 since there are no subst rules for it
+    x229 = SeriesForeach(Const(0),x224,Const(1),Block((b41) => Const(()))) [Host]
+    Updating x229 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x225 = ArrayApply(x210,b41) [Host]
+      Updating x225 since there are no subst rules for it
+      x226 = FixToText(x225,None) [Host]
+      Updating x226 since there are no subst rules for it
+      x227 = TextConcat(List(x226, Const(" "))) [Host]
+      Updating x227 since there are no subst rules for it
+      x228 = PrintIf(Set(),x227) [Host]
+      Updating x228 since there are no subst rules for it
+    x230 = PrintIf(Set(),Const("\n")) [Host]
+    Updating x230 since there are no subst rules for it
+    x234 = ArrayZip(x212,x210,Block((x212,b48) => x231),Block((x210,b48) => x232),Block((x231,x232) => x233)) [Host]
+    Updating x234 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x231 = ArrayApply(x212,b48) [Host]
+      Updating x231 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x232 = ArrayApply(x210,b48) [Host]
+      Updating x232 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x233 = FixEql(x231,x232) [Host]
+      Updating x233 since there are no subst rules for it
+    x237 = ArrayReduce(x234,Block((x234,b53) => x235),Block((b54,b55) => x236)) [Host]
+    Updating x237 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x235 = ArrayApply(x234,b53) [Host]
+      Updating x235 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x236 = And(b54,b55) [Host]
+      Updating x236 since there are no subst rules for it
+    x238 = BitToText(x237) [Host]
+    Updating x238 since there are no subst rules for it
+    x239 = TextConcat(List(Const("PASS: "), x238)) [Host]
+    Updating x239 since there are no subst rules for it
+    x240 = TextConcat(List(x239, Const(" (Lab2Part1SimpleMemReduce)"))) [Host]
+    Updating x240 since there are no subst rules for it
+    x241 = TextConcat(List(x240, Const("\n"))) [Host]
+    Updating x241 since there are no subst rules for it
+    x242 = PrintIf(Set(),x241) [Host]
+    Updating x242 since there are no subst rules for it
+    x243 = AssertIf(Set(),x237,Some(Const("Lab2Part1.scala:26:11: Assertion failure"))) [Host]
+    Updating x243 since there are no subst rules for it

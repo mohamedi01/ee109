@@ -1,0 +1,164 @@
+Visiting Block Block(Const(())) [List() => false, List() => false]
+  Visiting Block Block(Const(())) [List() => false, List() => false]
+    Visiting Block Block(x91) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      Result: 
+        ()
+        x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      Working on pipeLatencies of result Vector(Const(()), x94), schedule Vector(x94)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x94
+      cur: x94, inReduce: false, latency: 3.0
+      [3.0 = max(0) + 3.0] x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [3.0] x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      [0.0] ()
+      [3.0] x94 = SRAMWrite(x91,Const(1),List(b13),Set())
+      
+      
+      Sym Delays:
+        [0.0 = 3.0 - 3.0]: x94 = SRAMWrite(x91,Const(1),List(b13),Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+    Visiting Block Block((x91) => x96) [List() => false, List() => false]
+    Visiting Block Block((x86) => x97) [List() => false, List() => false]
+    Visiting Block Block((b9,b10) => x98) [List() => false, List() => false]
+    Visiting Block Block((x86,x98) => Const(())) [List() => false, List() => false]
+    Visiting Block Block(Const(())) [List() => false, List() => false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x104 = DRAMAddress(x85)
+        x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+        x106 = DRAMIsAlloc(x85)
+        x107 = StreamOutWrite(x101,x105,Set(x106))
+      Result: 
+        ()
+        x104 = DRAMAddress(x85)
+        x106 = DRAMIsAlloc(x85)
+        x107 = StreamOutWrite(x101,x105,Set(x106))
+      Working on pipeLatencies of result Vector(Const(()), x104, x106, x107), schedule Vector(x104, x105, x106, x107)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x104 = DRAMAddress(x85)
+        x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+        x106 = DRAMIsAlloc(x85)
+        x107 = StreamOutWrite(x101,x105,Set(x106))
+      Computing fullDFS: Const(())
+      Computing fullDFS: x104
+      cur: x104, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x104 = DRAMAddress(x85)
+      Computing fullDFS: x106
+      cur: x106, inReduce: false, latency: 0.0
+      [0.0 = max(0) + 0.0] x106 = DRAMIsAlloc(x85)
+      Computing fullDFS: x107
+      Computing fullDFS: x105
+      [0.0 = max(0.0) + 0.0] x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+      [0.0 = max(0.0, 0.0) + 0.0] x107 = StreamOutWrite(x101,x105,Set(x106))
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [0.0] x104 = DRAMAddress(x85)
+        [0.0] x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+        [0.0] x106 = DRAMIsAlloc(x85)
+        [0.0] x107 = StreamOutWrite(x101,x105,Set(x106))
+      [0.0] ()
+      [0.0] x106 = DRAMIsAlloc(x85)
+      [0.0] x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false))))
+      [0.0] x104 = DRAMAddress(x85)
+      [0.0] x107 = StreamOutWrite(x101,x105,Set(x106))
+      
+      
+      Sym Delays:
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [0.0 = 0.0 - 0.0]: x106 = DRAMIsAlloc(x85) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x105 = SimpleStruct(ArrayBuffer((offset,x104), (size,Const(64)), (isLoad,Const(false)))) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x104 = DRAMAddress(x85) [cycle = false]
+        [0.0 = 0.0 - 0.0]: x107 = StreamOutWrite(x101,x105,Set(x106)) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x111 = SRAMRead(x86,List(b75),Set())
+        x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+        x113 = StreamOutWrite(x102,x112,Set())
+      Result: 
+        ()
+        x111 = SRAMRead(x86,List(b75),Set())
+        x113 = StreamOutWrite(x102,x112,Set())
+      Working on pipeLatencies of result Vector(Const(()), x111, x113), schedule Vector(x111, x112, x113)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x111 = SRAMRead(x86,List(b75),Set())
+        x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+        x113 = StreamOutWrite(x102,x112,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x111
+      cur: x111, inReduce: false, latency: 4.0
+      [4.0 = max(0) + 4.0] x111 = SRAMRead(x86,List(b75),Set())
+      Computing fullDFS: x113
+      Computing fullDFS: x112
+      [4.0 = max(4.0) + 0.0] x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+      [4.0 = max(4.0) + 0.0] x113 = StreamOutWrite(x102,x112,Set())
+      Cycles: Map()
+        Schedule after pipeLatencies calculation:
+        [4.0] x111 = SRAMRead(x86,List(b75),Set())
+        [4.0] x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+        [4.0] x113 = StreamOutWrite(x102,x112,Set())
+      [0.0] ()
+      [4.0] x113 = StreamOutWrite(x102,x112,Set())
+      [4.0] x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true))))
+      [4.0] x111 = SRAMRead(x86,List(b75),Set())
+      
+      
+      Sym Delays:
+        [0.0 = 4.0 - 4.0]: x111 = SRAMRead(x86,List(b75),Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+        [4.0 = 4.0 - 0.0]: x113 = StreamOutWrite(x102,x112,Set()) [cycle = false]
+        [4.0 = 4.0 - 0.0]: x112 = SimpleStruct(ArrayBuffer((_1,x111), (_2,Const(true)))) [cycle = false]
+      Visiting Block Block(Const(())) [List() => true, List() => false]
+      Retiming block Block(Const(())):
+        x116 = StreamInRead(x103,Set())
+      Result: 
+        ()
+        x116 = StreamInRead(x103,Set())
+      Working on pipeLatencies of result Vector(Const(()), x116), schedule Vector(x116)
+      Memories with both reads and writes in this scope: Set(x103)
+      Done finding cycles: Vector(), Map()
+      ----------------------------------
+      Computing pipeLatencies for scope:
+        x116 = StreamInRead(x103,Set())
+      Computing fullDFS: Const(())
+      Computing fullDFS: x116
+      cur: x116, inReduce: false, latency: 1.0
+      [1.0 = max(0) + 1.0] x116 = StreamInRead(x103,Set())
+      Cycles: Map()
+      pseudo cycles for x103:
+      Multiplexed accesses for memory x103: 
+        x116 = StreamInRead(x103,Set())
+      Multiplexed accesses for memory x103: 
+        x116 = StreamInRead(x103,Set())
+        Schedule after pipeLatencies calculation:
+        [1.0] x116 = StreamInRead(x103,Set())
+      [0.0] ()
+      [1.0] x116 = StreamInRead(x103,Set())
+      
+      
+      Sym Delays:
+        [0.0 = 1.0 - 1.0]: x116 = StreamInRead(x103,Set()) [cycle = false]
+        [0.0 = 0.0 - 0.0]: () [cycle = false]
+  Visiting Block Block((b26) => Const(10)) [List() => false, List() => false]
+  Visiting Block Block((b31) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((b41) => Const(())) [List() => false, List() => false]
+  Visiting Block Block((x122,b48) => x141) [List() => false, List() => false]
+  Visiting Block Block((x120,b48) => x142) [List() => false, List() => false]
+  Visiting Block Block((x141,x142) => x143) [List() => false, List() => false]
+  Visiting Block Block((x144,b53) => x145) [List() => false, List() => false]
+  Visiting Block Block((b54,b55) => x146) [List() => false, List() => false]

@@ -1,0 +1,51 @@
+    x168 = AccelScope(Block(Const(())))
+      x214 = UnitPipe(Set(),Block(Const(())),None)
+      Placing nodes as either before or after cycles: Vector()
+        - x213 = RegWrite(x212,Const(16),Set()): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      Cycle groups: 
+      x245 = StateMachine(Set(),Const(0),Block((b5) => x215),Block((b5) => Const(())),Block((b5) => x244),Fix[TRUE,_32,_0])
+      Placing nodes as either before or after cycles: Vector()
+        - x215 = FixLst(b5,Const(32)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      Cycle groups: 
+      Placing nodes as either before or after cycles: Vector()
+        - x216 = FixLst(b5,Const(16)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x217 = Not(x216): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x218 = FixLst(b5,Const(8)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x219 = Not(x218): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x220 = FixSub(Const(31),b5): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x221 = SRAMBankedWrite(x211,Vector(b5),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x218))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x224 = FixAdd(b5,Const(1)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x225 = SRAMBankedWrite(x211,Vector(x224),Vector(List(Const(0))),Vector(x220),Vector(Set(x216, x219))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x229 = FixSub(b5,Const(16)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x230 = FixEql(b5,Const(16)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x231 = Not(x230): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x232 = FixEql(b5,Const(17)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x233 = And(x232,x231): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x234 = Not(x232): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x235 = And(x234,x231): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x237 = RegRead(x212): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        - x241 = SRAMBankedWrite(x211,Vector(x302),Vector(List(Const(0))),Vector(x229),Vector(Set(x217))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      Cycle groups: 
+      Placing nodes as either before or after cycles: Vector()
+        - x244 = FixAdd(b5,Const(1)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+      Cycle groups: 
+      x267 = UnitPipe(Set(),Block(Const(())),None)
+        x253 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x249 = DRAMAddress(x210): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x251 = DRAMIsAlloc(x210): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x259 = VecApply(x258,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(b257))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x266 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x264 = StreamInBankedRead(x248,ArrayBuffer(Set())): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 

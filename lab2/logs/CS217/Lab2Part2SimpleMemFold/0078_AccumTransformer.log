@@ -1,0 +1,34 @@
+    x119 = AccelScope(Block(Const(())))
+      x186 = UnrolledReduce(Set(),x163,Block((x161) => Const(())),List(List(b166)),List(List(b168)),None)
+        x176 = UnrolledForeach(Set(b168),x172,Block(Const(())),List(List(b173)),List(List(b174)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x175 = SRAMBankedWrite(x170,Vector(Const(1)),Vector(List(Const(0))),Vector(b173),Vector(Set(b174, b168))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x185 = UnrolledForeach(Set(),x165,Block(Const(())),Vector(List(b167)),Vector(List(b169)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x177 = SRAMBankedRead(x170,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x178 = VecApply(x177,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x179 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x180 = VecApply(x179,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x183 = FixAdd(x178,x180): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x184 = SRAMBankedWrite(x161,Vector(x183),Vector(List(Const(0))),Vector(b167),Vector(Set(b169))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+      x208 = UnitPipe(Set(),Block(Const(())),None)
+        x194 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x190 = DRAMAddress(x160): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x191 = SimpleStruct(ArrayBuffer((offset,x190), (size,Const(64)), (isLoad,Const(false)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x192 = DRAMIsAlloc(x160): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x193 = StreamOutBankedWrite(x187,ArrayBuffer(x191),ArrayBuffer(Set(x192))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x203 = UnrolledForeach(Set(),x196,Block(Const(())),List(List(b197)),List(List(b198)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x199 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b197),Vector(Set(b198)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x200 = VecApply(x199,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x201 = SimpleStruct(ArrayBuffer((_1,x200), (_2,Const(true)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x202 = StreamOutBankedWrite(x188,ArrayBuffer(x201),ArrayBuffer(Set(b198))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x207 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x205 = StreamInBankedRead(x189,ArrayBuffer(Set())): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 

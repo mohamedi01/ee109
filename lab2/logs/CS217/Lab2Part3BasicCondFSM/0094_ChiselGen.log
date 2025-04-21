@@ -1,0 +1,577 @@
+Stms:
+  x249 = DRAMAddress(x210)
+  x234 = Not(x232)
+  x217 = Not(x216)
+  x308 = DelayLine(1,x224)
+  x247 = StreamOutNew(BurstFullDataBus())
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x216 = FixLst(b5,Const(16))
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+  x253 = UnitPipe(Set(),Block(Const(())),None)
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303)))
+  x312 = DelayLine(3,x217)
+  x307 = DelayLine(1,x220)
+  x233 = And(x232,x231)
+  x248 = StreamInNew(BurstAckBus)
+  x220 = FixSub(Const(31),b5)
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x229 = FixSub(b5,Const(16))
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+  x224 = FixAdd(b5,Const(1))
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309)))
+  x212 = RegNew(Const(0))
+  x237 = RegRead(x212)
+  x244 = FixAdd(x313,Const(1))
+  x266 = UnitPipe(Set(),Block(Const(())),None)
+  x311 = DelayLine(3,x302)
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+  x259 = VecApply(x258,0)
+  x313 = DelayLine(4,b5)
+  x219 = Not(x218)
+  x230 = FixEql(b5,Const(16))
+  x245 = StateMachine(Set(),Const(0),Block((b5) => x215),Block((b5) => Const(())),Block((b5) => x244),Fix[TRUE,_32,_0])
+  x303 = DelayLine(1,x218)
+  x213 = RegWrite(x212,Const(16),Set())
+  x251 = DRAMIsAlloc(x210)
+  x306 = DelayLine(2,x216)
+  x267 = UnitPipe(Set(),Block(Const(())),None)
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312)))
+  x255 = CounterChainNew(List(x254))
+  x263 = FringeDenseStore(x210,x246,x247,x248)
+  x310 = DelayLine(2,x229)
+  x314 = DelayLine(2,b257)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x231 = Not(x230)
+  x218 = FixLst(b5,Const(8))
+  x304 = DelayLine(1,x216)
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+  x235 = And(x234,x231)
+  x246 = StreamOutNew(BurstCmdBus)
+  x214 = UnitPipe(Set(),Block(Const(())),None)
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+  x305 = DelayLine(1,b5)
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+  x309 = DelayLine(2,x219)
+  x215 = FixLst(b5,Const(32))
+  x232 = FixEql(b5,Const(17))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  x234 = Not(x232) [Made: true]
+  () [Made: false]
+  x217 = Not(x216) [Made: true]
+  x308 = DelayLine(1,x224) [Made: true]
+  b5 [Made: true]
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: true]
+  b257 [Made: true]
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314))) [Made: true]
+  x216 = FixLst(b5,Const(16)) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: true]
+  x253 = UnitPipe(Set(),Block(Const(())),None) [Made: true]
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303))) [Made: true]
+  x312 = DelayLine(3,x217) [Made: true]
+  x307 = DelayLine(1,x220) [Made: true]
+  x233 = And(x232,x231) [Made: true]
+  x248 = StreamInNew(BurstAckBus) [Made: true]
+  x220 = FixSub(Const(31),b5) [Made: true]
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5)) [Made: true]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  x229 = FixSub(b5,Const(16)) [Made: true]
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))) [Made: true]
+  x224 = FixAdd(b5,Const(1)) [Made: true]
+  b256 [Made: true]
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309))) [Made: true]
+  x212 = RegNew(Const(0)) [Made: true]
+  x237 = RegRead(x212) [Made: true]
+  x244 = FixAdd(x313,Const(1)) [Made: true]
+  x266 = UnitPipe(Set(),Block(Const(())),None) [Made: true]
+  x311 = DelayLine(3,x302) [Made: true]
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set())) [Made: true]
+  x259 = VecApply(x258,0) [Made: true]
+  x313 = DelayLine(4,b5) [Made: true]
+  x219 = Not(x218) [Made: true]
+  x230 = FixEql(b5,Const(16)) [Made: true]
+  x303 = DelayLine(1,x218) [Made: true]
+  x213 = RegWrite(x212,Const(16),Set()) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x306 = DelayLine(2,x216) [Made: true]
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312))) [Made: true]
+  x255 = CounterChainNew(List(x254)) [Made: true]
+  x263 = FringeDenseStore(x210,x246,x247,x248) [Made: true]
+  x310 = DelayLine(2,x229) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x231 = Not(x230) [Made: true]
+  x218 = FixLst(b5,Const(8)) [Made: true]
+  x304 = DelayLine(1,x216) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+  x235 = And(x234,x231) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: true]
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None) [Made: true]
+  x305 = DelayLine(1,b5) [Made: true]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [Made: true]
+  x309 = DelayLine(2,x219) [Made: true]
+  x215 = FixLst(b5,Const(32)) [Made: true]
+  x232 = FixEql(b5,Const(17)) [Made: true]
+Inputs for x168 are (Set(x210) ++ Set() ++ Set(x210, x246, x247, x248) ++ Set()) diff Set(x211, x212, x245, x267, x214) ++ Set(x210, x246, x247, x248)
+Stms:
+  x249 = DRAMAddress(x210)
+  x234 = Not(x232)
+  x217 = Not(x216)
+  x308 = DelayLine(1,x224)
+  x247 = StreamOutNew(BurstFullDataBus())
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x216 = FixLst(b5,Const(16))
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+  x253 = UnitPipe(Set(),Block(Const(())),None)
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303)))
+  x312 = DelayLine(3,x217)
+  x307 = DelayLine(1,x220)
+  x233 = And(x232,x231)
+  x248 = StreamInNew(BurstAckBus)
+  x220 = FixSub(Const(31),b5)
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x229 = FixSub(b5,Const(16))
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+  x224 = FixAdd(b5,Const(1))
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309)))
+  x212 = RegNew(Const(0))
+  x237 = RegRead(x212)
+  x244 = FixAdd(x313,Const(1))
+  x266 = UnitPipe(Set(),Block(Const(())),None)
+  x311 = DelayLine(3,x302)
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+  x259 = VecApply(x258,0)
+  x313 = DelayLine(4,b5)
+  x219 = Not(x218)
+  x230 = FixEql(b5,Const(16))
+  x245 = StateMachine(Set(),Const(0),Block((b5) => x215),Block((b5) => Const(())),Block((b5) => x244),Fix[TRUE,_32,_0])
+  x303 = DelayLine(1,x218)
+  x213 = RegWrite(x212,Const(16),Set())
+  x251 = DRAMIsAlloc(x210)
+  x306 = DelayLine(2,x216)
+  x267 = UnitPipe(Set(),Block(Const(())),None)
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312)))
+  x255 = CounterChainNew(List(x254))
+  x263 = FringeDenseStore(x210,x246,x247,x248)
+  x310 = DelayLine(2,x229)
+  x314 = DelayLine(2,b257)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x231 = Not(x230)
+  x218 = FixLst(b5,Const(8))
+  x304 = DelayLine(1,x216)
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+  x235 = And(x234,x231)
+  x246 = StreamOutNew(BurstCmdBus)
+  x214 = UnitPipe(Set(),Block(Const(())),None)
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+  x305 = DelayLine(1,b5)
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+  x309 = DelayLine(2,x219)
+  x215 = FixLst(b5,Const(32))
+  x232 = FixEql(b5,Const(17))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  x234 = Not(x232) [Made: true]
+  () [Made: false]
+  x217 = Not(x216) [Made: true]
+  x308 = DelayLine(1,x224) [Made: true]
+  b5 [Made: true]
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: true]
+  b257 [Made: true]
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314))) [Made: true]
+  x216 = FixLst(b5,Const(16)) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: true]
+  x253 = UnitPipe(Set(),Block(Const(())),None) [Made: true]
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303))) [Made: true]
+  x312 = DelayLine(3,x217) [Made: true]
+  x307 = DelayLine(1,x220) [Made: true]
+  x233 = And(x232,x231) [Made: true]
+  x248 = StreamInNew(BurstAckBus) [Made: true]
+  x220 = FixSub(Const(31),b5) [Made: true]
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5)) [Made: true]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  x229 = FixSub(b5,Const(16)) [Made: true]
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))) [Made: true]
+  x224 = FixAdd(b5,Const(1)) [Made: true]
+  b256 [Made: true]
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309))) [Made: true]
+  x212 = RegNew(Const(0)) [Made: true]
+  x237 = RegRead(x212) [Made: true]
+  x244 = FixAdd(x313,Const(1)) [Made: true]
+  x266 = UnitPipe(Set(),Block(Const(())),None) [Made: true]
+  x311 = DelayLine(3,x302) [Made: true]
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set())) [Made: true]
+  x259 = VecApply(x258,0) [Made: true]
+  x313 = DelayLine(4,b5) [Made: true]
+  x219 = Not(x218) [Made: true]
+  x230 = FixEql(b5,Const(16)) [Made: true]
+  x303 = DelayLine(1,x218) [Made: true]
+  x213 = RegWrite(x212,Const(16),Set()) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x306 = DelayLine(2,x216) [Made: true]
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312))) [Made: true]
+  x255 = CounterChainNew(List(x254)) [Made: true]
+  x263 = FringeDenseStore(x210,x246,x247,x248) [Made: true]
+  x310 = DelayLine(2,x229) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x231 = Not(x230) [Made: true]
+  x218 = FixLst(b5,Const(8)) [Made: true]
+  x304 = DelayLine(1,x216) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+  x235 = And(x234,x231) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: true]
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None) [Made: true]
+  x305 = DelayLine(1,b5) [Made: true]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [Made: true]
+  x309 = DelayLine(2,x219) [Made: true]
+  x215 = FixLst(b5,Const(32)) [Made: true]
+  x232 = FixEql(b5,Const(17)) [Made: true]
+Inputs for x168 are (Set(x210) ++ Set() ++ Set(x210, x246, x247, x248) ++ Set()) diff Set(x211, x212, x245, x267, x214) ++ Set(x210, x246, x247, x248)
+x168 = AccelScope(Block(Const(())))
+ - x210 = DRAMHostNew(List(Const(32)),Const(0))
+ - x246 = StreamOutNew(BurstCmdBus)
+ - x247 = StreamOutNew(BurstFullDataBus())
+ - x248 = StreamInNew(BurstAckBus)
+ - x210_dram
+ - x246
+ - x247
+ - x248
+Stms:
+  x213 = RegWrite(x212,Const(16),Set())
+Used:
+  x212 = RegNew(Const(0)) [Made: false]
+Inputs for x214 are (Set(x212) ++ Set() ++ Set() ++ Set()) diff Set(x213) ++ Set(x210, x246, x247, x248)
+Stms:
+  x213 = RegWrite(x212,Const(16),Set())
+Used:
+  x212 = RegNew(Const(0)) [Made: false]
+Inputs for x214 are (Set(x212) ++ Set() ++ Set() ++ Set()) diff Set(x213) ++ Set(x210, x246, x247, x248)
+x214 = UnitPipe(Set(),Block(Const(())),None)
+ - x212 = RegNew(Const(0))
+ - x212_reg_0
+Stms:
+  x215 = FixLst(b5,Const(32))
+Used:
+  b5 [Made: false]
+  x215 = FixLst(b5,Const(32)) [Made: true]
+Stms:
+  x234 = Not(x232)
+  x217 = Not(x216)
+  x308 = DelayLine(1,x224)
+  x216 = FixLst(b5,Const(16))
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303)))
+  x312 = DelayLine(3,x217)
+  x307 = DelayLine(1,x220)
+  x233 = And(x232,x231)
+  x220 = FixSub(Const(31),b5)
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+  x229 = FixSub(b5,Const(16))
+  x224 = FixAdd(b5,Const(1))
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309)))
+  x237 = RegRead(x212)
+  x311 = DelayLine(3,x302)
+  x219 = Not(x218)
+  x230 = FixEql(b5,Const(16))
+  x303 = DelayLine(1,x218)
+  x306 = DelayLine(2,x216)
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312)))
+  x310 = DelayLine(2,x229)
+  x231 = Not(x230)
+  x218 = FixLst(b5,Const(8))
+  x304 = DelayLine(1,x216)
+  x235 = And(x234,x231)
+  x305 = DelayLine(1,b5)
+  x309 = DelayLine(2,x219)
+  x232 = FixEql(b5,Const(17))
+Used:
+  x234 = Not(x232) [Made: true]
+  x217 = Not(x216) [Made: true]
+  x308 = DelayLine(1,x224) [Made: true]
+  b5 [Made: false]
+  x216 = FixLst(b5,Const(16)) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x312 = DelayLine(3,x217) [Made: true]
+  x307 = DelayLine(1,x220) [Made: true]
+  x233 = And(x232,x231) [Made: true]
+  x220 = FixSub(Const(31),b5) [Made: true]
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5)) [Made: true]
+  x229 = FixSub(b5,Const(16)) [Made: true]
+  x224 = FixAdd(b5,Const(1)) [Made: true]
+  x212 = RegNew(Const(0)) [Made: false]
+  x237 = RegRead(x212) [Made: true]
+  x311 = DelayLine(3,x302) [Made: true]
+  x219 = Not(x218) [Made: true]
+  x230 = FixEql(b5,Const(16)) [Made: true]
+  x303 = DelayLine(1,x218) [Made: true]
+  x306 = DelayLine(2,x216) [Made: true]
+  x310 = DelayLine(2,x229) [Made: true]
+  x231 = Not(x230) [Made: true]
+  x218 = FixLst(b5,Const(8)) [Made: true]
+  x304 = DelayLine(1,x216) [Made: true]
+  x235 = And(x234,x231) [Made: true]
+  x305 = DelayLine(1,b5) [Made: true]
+  x309 = DelayLine(2,x219) [Made: true]
+  x232 = FixEql(b5,Const(17)) [Made: true]
+Stms:
+  x313 = DelayLine(4,b5)
+  x244 = FixAdd(x313,Const(1))
+Used:
+  b5 [Made: false]
+  x313 = DelayLine(4,b5) [Made: true]
+  x244 = FixAdd(x313,Const(1)) [Made: true]
+Inputs for x245 are (Set(Const(0), b5, x211, x212) ++ Set() ++ Set() ++ Set()) diff Set(b5, x221, x225, x237, x241) ++ Set(x210, x246, x247, x248)
+Stms:
+  x215 = FixLst(b5,Const(32))
+Used:
+  b5 [Made: false]
+  x215 = FixLst(b5,Const(32)) [Made: true]
+Stms:
+  x234 = Not(x232)
+  x217 = Not(x216)
+  x308 = DelayLine(1,x224)
+  x216 = FixLst(b5,Const(16))
+  x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303)))
+  x312 = DelayLine(3,x217)
+  x307 = DelayLine(1,x220)
+  x233 = And(x232,x231)
+  x220 = FixSub(Const(31),b5)
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5))
+  x229 = FixSub(b5,Const(16))
+  x224 = FixAdd(b5,Const(1))
+  x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309)))
+  x237 = RegRead(x212)
+  x311 = DelayLine(3,x302)
+  x219 = Not(x218)
+  x230 = FixEql(b5,Const(16))
+  x303 = DelayLine(1,x218)
+  x306 = DelayLine(2,x216)
+  x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312)))
+  x310 = DelayLine(2,x229)
+  x231 = Not(x230)
+  x218 = FixLst(b5,Const(8))
+  x304 = DelayLine(1,x216)
+  x235 = And(x234,x231)
+  x305 = DelayLine(1,b5)
+  x309 = DelayLine(2,x219)
+  x232 = FixEql(b5,Const(17))
+Used:
+  x234 = Not(x232) [Made: true]
+  x217 = Not(x216) [Made: true]
+  x308 = DelayLine(1,x224) [Made: true]
+  b5 [Made: false]
+  x216 = FixLst(b5,Const(16)) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x312 = DelayLine(3,x217) [Made: true]
+  x307 = DelayLine(1,x220) [Made: true]
+  x233 = And(x232,x231) [Made: true]
+  x220 = FixSub(Const(31),b5) [Made: true]
+  x302 = OneHotMux(List(x230, x233, x235),Vector(Const(17), x237, b5)) [Made: true]
+  x229 = FixSub(b5,Const(16)) [Made: true]
+  x224 = FixAdd(b5,Const(1)) [Made: true]
+  x212 = RegNew(Const(0)) [Made: false]
+  x237 = RegRead(x212) [Made: true]
+  x311 = DelayLine(3,x302) [Made: true]
+  x219 = Not(x218) [Made: true]
+  x230 = FixEql(b5,Const(16)) [Made: true]
+  x303 = DelayLine(1,x218) [Made: true]
+  x306 = DelayLine(2,x216) [Made: true]
+  x310 = DelayLine(2,x229) [Made: true]
+  x231 = Not(x230) [Made: true]
+  x218 = FixLst(b5,Const(8)) [Made: true]
+  x304 = DelayLine(1,x216) [Made: true]
+  x235 = And(x234,x231) [Made: true]
+  x305 = DelayLine(1,b5) [Made: true]
+  x309 = DelayLine(2,x219) [Made: true]
+  x232 = FixEql(b5,Const(17)) [Made: true]
+Stms:
+  x313 = DelayLine(4,b5)
+  x244 = FixAdd(x313,Const(1))
+Used:
+  b5 [Made: false]
+  x313 = DelayLine(4,b5) [Made: true]
+  x244 = FixAdd(x313,Const(1)) [Made: true]
+Inputs for x245 are (Set(Const(0), b5, x211, x212) ++ Set() ++ Set() ++ Set()) diff Set(b5, x221, x225, x237, x241) ++ Set(x210, x246, x247, x248)
+x245 = StateMachine(Set(),Const(0),Block((b5) => x215),Block((b5) => Const(())),Block((b5) => x244),Fix[TRUE,_32,_0])
+ - x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+ - x212 = RegNew(Const(0))
+ - x211_bram_0
+ - x212_reg_0
+Stms:
+  x249 = DRAMAddress(x210)
+  x247 = StreamOutNew(BurstFullDataBus())
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x253 = UnitPipe(Set(),Block(Const(())),None)
+  x248 = StreamInNew(BurstAckBus)
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+  x266 = UnitPipe(Set(),Block(Const(())),None)
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+  x259 = VecApply(x258,0)
+  x251 = DRAMIsAlloc(x210)
+  x255 = CounterChainNew(List(x254))
+  x263 = FringeDenseStore(x210,x246,x247,x248)
+  x314 = DelayLine(2,b257)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+  x246 = StreamOutNew(BurstCmdBus)
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  () [Made: false]
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: true]
+  b257 [Made: true]
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314))) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x248 = StreamInNew(BurstAckBus) [Made: true]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))) [Made: true]
+  b256 [Made: true]
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set())) [Made: true]
+  x259 = VecApply(x258,0) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x255 = CounterChainNew(List(x254)) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: true]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [Made: true]
+Inputs for x267 are (Set(x211, x210) ++ Set() ++ Set(x210, x246, x247, x248) ++ Set()) diff Set(x253, x266, x255, x263, x262, x254) ++ Set(x210, x246, x247, x248)
+Stms:
+  x249 = DRAMAddress(x210)
+  x247 = StreamOutNew(BurstFullDataBus())
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x253 = UnitPipe(Set(),Block(Const(())),None)
+  x248 = StreamInNew(BurstAckBus)
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+  x266 = UnitPipe(Set(),Block(Const(())),None)
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+  x259 = VecApply(x258,0)
+  x251 = DRAMIsAlloc(x210)
+  x255 = CounterChainNew(List(x254))
+  x263 = FringeDenseStore(x210,x246,x247,x248)
+  x314 = DelayLine(2,b257)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+  x246 = StreamOutNew(BurstCmdBus)
+  x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  () [Made: false]
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: true]
+  b257 [Made: true]
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314))) [Made: true]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x248 = StreamInNew(BurstAckBus) [Made: true]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))) [Made: true]
+  b256 [Made: true]
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set())) [Made: true]
+  x259 = VecApply(x258,0) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x255 = CounterChainNew(List(x254)) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: true]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+  x254 = CounterNew(Const(0),Const(32),Const(1),Const(1)) [Made: true]
+Inputs for x267 are (Set(x211, x210) ++ Set() ++ Set(x210, x246, x247, x248) ++ Set()) diff Set(x253, x266, x255, x263, x262, x254) ++ Set(x210, x246, x247, x248)
+x267 = UnitPipe(Set(),Block(Const(())),None)
+ - x247 = StreamOutNew(BurstFullDataBus())
+ - x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+ - x248 = StreamInNew(BurstAckBus)
+ - x246 = StreamOutNew(BurstCmdBus)
+ - x210 = DRAMHostNew(List(Const(32)),Const(0))
+ - x247
+ - x211_bram_0
+ - x248
+ - x246
+ - x210_dram
+Stms:
+  x249 = DRAMAddress(x210)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x251 = DRAMIsAlloc(x210)
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: false]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+Inputs for x253 are (Set(x246, x210) ++ Set() ++ Set(x210, x246) ++ Set(x246)) diff Set(x249, x251, x252) ++ Set(x210, x246, x247, x248)
+Stms:
+  x249 = DRAMAddress(x210)
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false))))
+  x251 = DRAMIsAlloc(x210)
+  x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251)))
+Used:
+  x249 = DRAMAddress(x210) [Made: true]
+  x251 = DRAMIsAlloc(x210) [Made: true]
+  x250 = SimpleStruct(ArrayBuffer((offset,x249), (size,Const(128)), (isLoad,Const(false)))) [Made: true]
+  x246 = StreamOutNew(BurstCmdBus) [Made: false]
+  x210 = DRAMHostNew(List(Const(32)),Const(0)) [Made: false]
+Inputs for x253 are (Set(x246, x210) ++ Set() ++ Set(x210, x246) ++ Set(x246)) diff Set(x249, x251, x252) ++ Set(x210, x246, x247, x248)
+x253 = UnitPipe(Set(),Block(Const(())),None)
+ - x246 = StreamOutNew(BurstCmdBus)
+ - x210 = DRAMHostNew(List(Const(32)),Const(0))
+ - x246
+ - x210_dram
+Stms:
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x259 = VecApply(x258,0)
+  x314 = DelayLine(2,b257)
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+Used:
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: false]
+  b257 [Made: false]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  b256 [Made: false]
+  x259 = VecApply(x258,0) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+Inputs for x262 are (Set(x247, b257, x211, b256) ++ Set() ++ Set(x247) ++ Set(x247)) diff Set(x258, x261, b256, b257) ++ Set(x210, x246, x247, x248)
+Stms:
+  x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314)))
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true))))
+  x259 = VecApply(x258,0)
+  x314 = DelayLine(2,b257)
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]])
+Used:
+  x247 = StreamOutNew(BurstFullDataBus()) [Made: false]
+  b257 [Made: false]
+  x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]]) [Made: false]
+  x260 = SimpleStruct(ArrayBuffer((_1,x259), (_2,Const(true)))) [Made: true]
+  b256 [Made: false]
+  x259 = VecApply(x258,0) [Made: true]
+  x314 = DelayLine(2,b257) [Made: true]
+  x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) [Made: true]
+Inputs for x262 are (Set(x247, b257, x211, b256) ++ Set() ++ Set(x247) ++ Set(x247)) diff Set(x258, x261, b256, b257) ++ Set(x210, x246, x247, x248)
+x262 = UnrolledForeach(Set(),x255,Block(Const(())),List(List(b256)),List(List(b257)),None)
+ - x247 = StreamOutNew(BurstFullDataBus())
+ - x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+ - x247
+ - x211_bram_0
+Stms:
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+Used:
+  x248 = StreamInNew(BurstAckBus) [Made: false]
+Inputs for x266 are (Set(x248) ++ Set() ++ Set(x248) ++ Set(x248)) diff Set(x264) ++ Set(x210, x246, x247, x248)
+Stms:
+  x264 = StreamInBankedRead(x248,ArrayBuffer(Set()))
+Used:
+  x248 = StreamInNew(BurstAckBus) [Made: false]
+Inputs for x266 are (Set(x248) ++ Set() ++ Set(x248) ++ Set(x248)) diff Set(x264) ++ Set(x210, x246, x247, x248)
+x266 = UnitPipe(Set(),Block(Const(())),None)
+ - x248 = StreamInNew(BurstAckBus)
+ - x248

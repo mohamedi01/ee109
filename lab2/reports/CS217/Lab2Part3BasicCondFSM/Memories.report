@@ -1,0 +1,232 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 1.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: x247
+Type: StreamOut[Tup2[Fix[TRUE,_32,_0],Bit]]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x247 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x261 = StreamOutBankedWrite(x247,ArrayBuffer(x260),ArrayBuffer(Set(x314))) {}
+             dram(0::32) store bram (Lab2Part3.scala:26:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x262: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x261: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x248
+Type: StreamIn[Bit]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x248 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x264 = StreamInBankedRead(x248,ArrayBuffer(Set())) {}
+             dram(0::32) store bram (Lab2Part3.scala:26:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x266: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x264: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: reg_0 (x212)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:11:25
+Src:        val reg = Reg[Int](0)
+---------------------------------------------------------------------
+Symbol:     x212 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x213 = RegWrite(x212,Const(16),Set()) {}
+             reg := 16 (Lab2Part3.scala:12:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x237 = RegRead(x212) {}
+             bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H (Lab2Part3.scala:22:76)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x168: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x214: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x213: RegWrite
+  x245: StateMachine (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x237: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x246
+Type: StreamOut[BurstCmd]
+Src:  Lab2Part3.scala:26:19
+Src:        dram(0::32) store bram
+---------------------------------------------------------------------
+Symbol:     x246 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x252 = StreamOutBankedWrite(x246,ArrayBuffer(x250),ArrayBuffer(Set(x251))) {}
+             dram(0::32) store bram (Lab2Part3.scala:26:19)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x253: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x252: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: bram_0 (x211)
+Type: SRAM1[Fix[TRUE,_32,_0]]
+Src:  Lab2Part3.scala:10:27
+Src:        val bram = SRAM[Int](32)
+---------------------------------------------------------------------
+Symbol:     x211 = SRAMNew(List(Const(32)),SRAM1[Fix[TRUE,_32,_0]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x221 = SRAMBankedWrite(x211,Vector(x305),Vector(List(Const(0))),Vector(x220),Vector(Set(x304, x303))) {}
+             bram(31 - state) = state // 16:31 [7, 6, ... 0] (Lab2Part3.scala:16:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x225 = SRAMBankedWrite(x211,Vector(x308),Vector(List(Const(0))),Vector(x307),Vector(Set(x306, x309))) {}
+             bram(31 - state) = state+1 // 16:31 [16, 15, ... 9] (Lab2Part3.scala:18:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #2: 
+             x241 = SRAMBankedWrite(x211,Vector(x311),Vector(List(Const(0))),Vector(x310),Vector(Set(x312))) {}
+             bram(state - 16) = if (state == 16) 17 else if (state == 17) reg.value else state // Test const, regread, and bound Mux1H (Lab2Part3.scala:22:28)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x258 = SRAMBankedRead(x211,Vector(List(Const(0))),Vector(b256),Vector(Set(b257)),Vec[Fix[TRUE,_32,_0]]) {}
+             dram(0::32) store bram (Lab2Part3.scala:26:19)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x168: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x245: StateMachine (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x221: SRAMBankedWrite
+    x225: SRAMBankedWrite
+    x241: SRAMBankedWrite
+  x267: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x262: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x258: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+

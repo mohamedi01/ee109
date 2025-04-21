@@ -1,0 +1,223 @@
+  Advancing blk
+     From: Host
+     To: Host
+    x1 = DRAMHostNew(List(Const(16)),Const(0)) [Host]
+    Updating x1 since there are no subst rules for it
+    x23 = AccelScope(Block(Const(()))) [x23 (block: -1)]
+    Updating x23 since there are no subst rules for it
+    Advancing blk
+       From: x23 (block: -1)
+       To: x23 (block: 0)
+    node: (x23,x23 (block: -1)), block: (x23,x23 (block: 0))
+      x2 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]]) [x23 (block: 0)]
+      Updating x2 since there are no subst rules for it
+      x3 = CounterNew(Const(-5),Const(5),Const(1),Const(1)) [x21 (block: -1)]
+      Updating x3 since there are no subst rules for it
+      x4 = CounterChainNew(List(x3)) [x21 (block: -1)]
+      Updating x4 since there are no subst rules for it
+      x5 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x21 (block: -1)]
+      Updating x5 since there are no subst rules for it
+      x6 = CounterChainNew(Vector(x5)) [x21 (block: -1)]
+      Updating x6 since there are no subst rules for it
+      x21 = OpMemReduce(Set(),x4,x6,x2,Block(x11),Block((x11) => x18),Block((x2) => x19),Block((b9,b10) => x17),Block((x2,x17) => x20),None,false,List(b7),List(b8),None,Fix[TRUE,_32,_0],SRAM1[Fix[TRUE,_32,_0]]) [x21 (block: -1)]
+      Updating x21 since there are no subst rules for it
+      Advancing blk
+         From: x21 (block: -1)
+         To: x21 (block: 0)
+      node: (x21,x21 (block: -1)), block: (x21,x21 (block: 0))
+        x11 = SRAMNew(List(Const(16)),SRAM1[Fix[TRUE,_32,_0]]) [x21 (block: 0)]
+        Updating x11 since there are no subst rules for it
+        x12 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x16 (block: -1)]
+        Updating x12 since there are no subst rules for it
+        x14 = CounterChainNew(List(x12)) [x16 (block: -1)]
+        Updating x14 since there are no subst rules for it
+        x16 = OpForeach(Set(),x14,Block(Const(())),List(b13),None) [x16 (block: -1)]
+        Updating x16 since there are no subst rules for it
+        Advancing blk
+           From: x16 (block: -1)
+           To: x16 (block: 0)
+        node: (x16,x16 (block: -1)), block: (x16,x16 (block: 0))
+          x15 = SRAMWrite(x11,Const(1),List(b13),Set()) [x16 (block: 0)]
+          Updating x15 since there are no subst rules for it
+        node: (x21,x21 (block: -1)), block: (x21,x21 (block: 0))
+      Advancing blk
+         From: x21 (block: 0)
+         To: x21 (block: 1)
+      node: (x21,x21 (block: -1)), block: (x21,x21 (block: 1))
+        x18 = SRAMRead(x11,List(b8),Set()) [x21 (block: 1)]
+        Updating x18 since there are no subst rules for it
+        node: (x21,x21 (block: -1)), block: (x21,x21 (block: 1))
+      Advancing blk
+         From: x21 (block: 1)
+         To: x21 (block: 2)
+      node: (x21,x21 (block: -1)), block: (x21,x21 (block: 2))
+        x19 = SRAMRead(x2,List(b8),Set()) [x21 (block: 2)]
+        Updating x19 since there are no subst rules for it
+        node: (x21,x21 (block: -1)), block: (x21,x21 (block: 2))
+      Advancing blk
+         From: x21 (block: 2)
+         To: x21 (block: 3)
+      node: (x21,x21 (block: -1)), block: (x21,x21 (block: 3))
+        x17 = FixAdd(b9,b10) [x21 (block: 3)]
+        Updating x17 since there are no subst rules for it
+        node: (x21,x21 (block: -1)), block: (x21,x21 (block: 3))
+      Advancing blk
+         From: x21 (block: 3)
+         To: x21 (block: 4)
+      node: (x21,x21 (block: -1)), block: (x21,x21 (block: 4))
+        x20 = SRAMWrite(x2,x17,List(b8),Set()) [x21 (block: 4)]
+        Updating x20 since there are no subst rules for it
+      x84 = UnitPipe(Set(),Block(Const(())),None) [x84 (block: -1)]
+      Updating x84 since there are no subst rules for it
+      Advancing blk
+         From: x84 (block: -1)
+         To: x84 (block: 0)
+      node: (x84,x84 (block: -1)), block: (x84,x84 (block: 0))
+        x66 = StreamOutNew(BurstCmdBus) [x84 (block: 0)]
+        Updating x66 since there are no subst rules for it
+        x67 = StreamOutNew(BurstFullDataBus()) [x84 (block: 0)]
+        Updating x67 since there are no subst rules for it
+        x68 = StreamInNew(BurstAckBus) [x84 (block: 0)]
+        Updating x68 since there are no subst rules for it
+        x73 = UnitPipe(Set(),Block(Const(())),None) [x73 (block: -1)]
+        Updating x73 since there are no subst rules for it
+        Advancing blk
+           From: x73 (block: -1)
+           To: x73 (block: 0)
+        node: (x73,x73 (block: -1)), block: (x73,x73 (block: 0))
+          x69 = DRAMAddress(x1) [x73 (block: 0)]
+          Updating x69 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false)))) [stateless]
+           - users: Set(User(x72,x73 (block: 0)))
+           - ctrl:  x73 (block: 0)
+          x70 = SimpleStruct(ArrayBuffer((offset,x69), (size,Const(64)), (isLoad,Const(false)))) [x73 (block: 0)]
+          Updating x70 since there are no subst rules for it
+          x71 = DRAMIsAlloc(x1) [x73 (block: 0)]
+          Updating x71 since there are no subst rules for it
+          x72 = StreamOutWrite(x66,x70,Set(x71)) [x73 (block: 0)]
+          Updating x72 since there are no subst rules for it
+        x74 = CounterNew(Const(0),Const(16),Const(1),Const(1)) [x80 (block: -1)]
+        Updating x74 since there are no subst rules for it
+        x76 = CounterChainNew(List(x74)) [x80 (block: -1)]
+        Updating x76 since there are no subst rules for it
+        x80 = OpForeach(Set(),x76,Block(Const(())),List(b75),None) [x80 (block: -1)]
+        Updating x80 since there are no subst rules for it
+        Advancing blk
+           From: x80 (block: -1)
+           To: x80 (block: 0)
+        node: (x80,x80 (block: -1)), block: (x80,x80 (block: 0))
+          x77 = SRAMRead(x2,List(b75),Set()) [x80 (block: 0)]
+          Updating x77 since there are no subst rules for it
+          
+          Transforming node that is primitive, is inHw, and is transient
+          x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true)))) [stateless]
+           - users: Set(User(x79,x80 (block: 0)))
+           - ctrl:  x80 (block: 0)
+          x78 = SimpleStruct(ArrayBuffer((_1,x77), (_2,Const(true)))) [x80 (block: 0)]
+          Updating x78 since there are no subst rules for it
+          x79 = StreamOutWrite(x67,x78,Set()) [x80 (block: 0)]
+          Updating x79 since there are no subst rules for it
+        x81 = FringeDenseStore(x1,x66,x67,x68) [x84 (block: 0)]
+        Updating x81 since there are no subst rules for it
+        x83 = UnitPipe(Set(),Block(Const(())),None) [x83 (block: -1)]
+        Updating x83 since there are no subst rules for it
+        Advancing blk
+           From: x83 (block: -1)
+           To: x83 (block: 0)
+        node: (x83,x83 (block: -1)), block: (x83,x83 (block: 0))
+          x82 = StreamInRead(x68,Set()) [x83 (block: 0)]
+          Updating x82 since there are no subst rules for it
+    x24 = ArrayNew(Const(16)) [Host]
+    Updating x24 since there are no subst rules for it
+    x25 = GetMem(x1,x24) [Host]
+    Updating x25 since there are no subst rules for it
+    x27 = MapIndices(Const(16),Block((b26) => Const(10))) [Host]
+    Updating x27 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+    x28 = TextConcat(List(Const("expected: "), Const("\n"))) [Host]
+    Updating x28 since there are no subst rules for it
+    x29 = PrintIf(Set(),x28) [Host]
+    Updating x29 since there are no subst rules for it
+    x30 = ArrayLength(x27) [Host]
+    Updating x30 since there are no subst rules for it
+    x36 = SeriesForeach(Const(0),x30,Const(1),Block((b31) => Const(()))) [Host]
+    Updating x36 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x32 = ArrayApply(x27,b31) [Host]
+      Updating x32 since there are no subst rules for it
+      x33 = FixToText(x32,None) [Host]
+      Updating x33 since there are no subst rules for it
+      x34 = TextConcat(List(x33, Const(" "))) [Host]
+      Updating x34 since there are no subst rules for it
+      x35 = PrintIf(Set(),x34) [Host]
+      Updating x35 since there are no subst rules for it
+    x37 = PrintIf(Set(),Const("\n")) [Host]
+    Updating x37 since there are no subst rules for it
+    x38 = TextConcat(List(Const("result:   "), Const("\n"))) [Host]
+    Updating x38 since there are no subst rules for it
+    x39 = PrintIf(Set(),x38) [Host]
+    Updating x39 since there are no subst rules for it
+    x40 = ArrayLength(x24) [Host]
+    Updating x40 since there are no subst rules for it
+    x46 = SeriesForeach(Const(0),x40,Const(1),Block((b41) => Const(()))) [Host]
+    Updating x46 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x42 = ArrayApply(x24,b41) [Host]
+      Updating x42 since there are no subst rules for it
+      x43 = FixToText(x42,None) [Host]
+      Updating x43 since there are no subst rules for it
+      x44 = TextConcat(List(x43, Const(" "))) [Host]
+      Updating x44 since there are no subst rules for it
+      x45 = PrintIf(Set(),x44) [Host]
+      Updating x45 since there are no subst rules for it
+    x47 = PrintIf(Set(),Const("\n")) [Host]
+    Updating x47 since there are no subst rules for it
+    x52 = ArrayZip(x27,x24,Block((x27,b48) => x49),Block((x24,b48) => x50),Block((x49,x50) => x51)) [Host]
+    Updating x52 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x49 = ArrayApply(x27,b48) [Host]
+      Updating x49 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x50 = ArrayApply(x24,b48) [Host]
+      Updating x50 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x51 = FixEql(x49,x50) [Host]
+      Updating x51 since there are no subst rules for it
+    x58 = ArrayReduce(x52,Block((x52,b53) => x56),Block((b54,b55) => x57)) [Host]
+    Updating x58 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x56 = ArrayApply(x52,b53) [Host]
+      Updating x56 since there are no subst rules for it
+    Advancing blk
+       From: Host
+       To: Host
+      x57 = And(b54,b55) [Host]
+      Updating x57 since there are no subst rules for it
+    x59 = BitToText(x58) [Host]
+    Updating x59 since there are no subst rules for it
+    x60 = TextConcat(List(Const("PASS: "), x59)) [Host]
+    Updating x60 since there are no subst rules for it
+    x61 = TextConcat(List(x60, Const(" (Lab2Part1SimpleMemReduce)"))) [Host]
+    Updating x61 since there are no subst rules for it
+    x62 = TextConcat(List(x61, Const("\n"))) [Host]
+    Updating x62 since there are no subst rules for it
+    x63 = PrintIf(Set(),x62) [Host]
+    Updating x63 since there are no subst rules for it
+    x65 = AssertIf(Set(),x58,Some(Const("Lab2Part1.scala:26:11: Assertion failure"))) [Host]
+    Updating x65 since there are no subst rules for it

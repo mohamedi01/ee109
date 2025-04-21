@@ -1,0 +1,234 @@
+  Transforming Block Block(Const(())) [List() => false, List() => false]
+    Transforming Block Block(Const(())) [List() => false, List() => false]
+      Transforming Block Block((b5) => x208) [List(true, true) => true, List(true, false) => false]
+      Retiming block Block((b5) => x208):
+        x208 = FixLst(b5,Const(32)) (0.0)
+      Working on pipeLatencies of result Vector(x208), schedule Vector(x208)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      Computing fullDFS: x208
+      cur: x208, inReduce: false, latency: 0.4
+      Cycles: Map()
+      computing delay lines for Vector(x208) Map(x208 -> 0.4) Map() List()
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x208 = FixLst(b5,Const(32))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 32
+      Transforming Block Block((b5) => Const(())) [List(true) => true, List(false) => true]
+      Retiming block Block((b5) => Const(())):
+        x209 = FixLst(b5,Const(8)) (0.0)
+        x210 = Not(x209) (0.4)
+        x211 = SRAMBankedWrite(x207,Vector(b5),Vector(List(Const(0))),Vector(b5),Vector(Set(x209))) (0.4)
+        x213 = FixLst(b5,Const(16)) (0.0)
+        x214 = FixLeq(Const(8),b5) (0.0)
+        x215 = And(x213,x214) (0.4)
+        x216 = Not(x215) (0.6)
+        x217 = FixSLA(b5,Const(1)) (0.0)
+        x218 = SRAMBankedWrite(x207,Vector(x217),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x215))) (1.4)
+        x220 = FixLst(b5,Const(24)) (0.0)
+        x221 = FixLeq(Const(16),b5) (0.0)
+        x222 = And(x220,x221) (0.4)
+        x223 = Not(x222) (0.6)
+        x294 = FixAdd(x217,b5) (0.2)
+        x225 = SRAMBankedWrite(x207,Vector(x294),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x216, x222))) (2.4)
+        x227 = FixSLA(b5,Const(2)) (0.0)
+        x228 = SRAMBankedWrite(x207,Vector(x227),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x216, x223))) (3.4)
+      Working on pipeLatencies of result Vector(Const(()), x228, x211, x225, x218), schedule Vector(x209, x210, x211, x213, x214, x215, x216, x217, x218, x220, x221, x222, x223, x294, x225, x227, x228)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      Computing fullDFS: Const(())
+      Computing fullDFS: x228
+      Computing fullDFS: x210
+      Computing fullDFS: x209
+      cur: x209, inReduce: false, latency: 0.4
+      Computing fullDFS: x211
+      Computing fullDFS: x216
+      Computing fullDFS: x215
+      Computing fullDFS: x213
+      cur: x213, inReduce: false, latency: 0.4
+      Computing fullDFS: x214
+      cur: x214, inReduce: false, latency: 0.4
+      Computing fullDFS: x218
+      Computing fullDFS: x217
+      cur: x217, inReduce: false, latency: 0.2
+      Computing fullDFS: x223
+      Computing fullDFS: x222
+      Computing fullDFS: x220
+      cur: x220, inReduce: false, latency: 0.4
+      Computing fullDFS: x221
+      cur: x221, inReduce: false, latency: 0.4
+      Computing fullDFS: x225
+      Computing fullDFS: x294
+      Computing fullDFS: x227
+      cur: x227, inReduce: false, latency: 0.2
+      Cycles: Map()
+      computing delay lines for Vector(x209, x210, x211, x213, x214, x215, x216, x217, x218, x220, x221, x222, x223, x294, x225, x227, x228) Map(x217 -> 0.2, x228 -> 4.4, x216 -> 0.8, x211 -> 1.4, x221 -> 0.4, x220 -> 0.4, x225 -> 3.4, x208 -> 0.4, x213 -> 0.4, x223 -> 0.8, x209 -> 0.4, x218 -> 2.4, x214 -> 0.4, x210 -> 0.6000000000000001, x294 -> 1.2, x227 -> 0.2, x215 -> 0.6000000000000001, x222 -> 0.6000000000000001) Map() List()
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x209 = FixLst(b5,Const(8))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 8
+      [Arrive = Dly - Lat: 0.4 = 0.6000000000000001 - 0.2] x210 = Not(x209)
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x209 = FixLst(b5,Const(8))
+      [Arrive = Dly - Lat: 0.4 = 1.4 - 1.0] x211 = SRAMBankedWrite(x207,Vector(b5),Vector(List(Const(0))),Vector(b5),Vector(Set(x209)))
+      ..[0.4 (-> 0) = 0.4 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.4 (-> 0) = 0.4 - (0.0 - 0.0) (-> 0 - 0)] 0
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x209 = FixLst(b5,Const(8))
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x213 = FixLst(b5,Const(16))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 16
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x214 = FixLeq(Const(8),b5)
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 8
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      [Arrive = Dly - Lat: 0.4 = 0.6000000000000001 - 0.2] x215 = And(x213,x214)
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x213 = FixLst(b5,Const(16))
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x214 = FixLeq(Const(8),b5)
+      [Arrive = Dly - Lat: 0.6 = 0.8 - 0.2] x216 = Not(x215)
+      ..[0.19999999999999996 (-> 0) = 0.6 - (0.6 - 0.2) (-> 0 - 0)] x215 = And(x213,x214)
+      [Arrive = Dly - Lat: 0.0 = 0.2 - 0.2] x217 = FixSLA(b5,Const(1))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 1
+      [Arrive = Dly - Lat: 1.4 = 2.4 - 1.0] x218 = SRAMBankedWrite(x207,Vector(x217),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x215)))
+      ..[1.2 (-> 1) = 1.4 - (0.2 - 0.0) (-> 1 - 0)] x217 = FixSLA(b5,Const(1))
+      ..[1.4 (-> 1) = 1.4 - (0.0 - 0.0) (-> 1 - 0)] b5
+      ..[1.4 (-> 1) = 1.4 - (0.0 - 0.0) (-> 1 - 0)] 0
+      ..[0.9999999999999999 (-> 1) = 1.4 - (0.6 - 0.2) (-> 1 - 0)] x210 = Not(x209)
+      ..[0.9999999999999999 (-> 1) = 1.4 - (0.6 - 0.2) (-> 1 - 0)] x215 = And(x213,x214)
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x220 = FixLst(b5,Const(24))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 24
+      [Arrive = Dly - Lat: 0.0 = 0.4 - 0.4] x221 = FixLeq(Const(16),b5)
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 16
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      [Arrive = Dly - Lat: 0.4 = 0.6000000000000001 - 0.2] x222 = And(x220,x221)
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x220 = FixLst(b5,Const(24))
+      ..[0.0 (-> 0) = 0.4 - (0.4 - 0.0) (-> 0 - 0)] x221 = FixLeq(Const(16),b5)
+      [Arrive = Dly - Lat: 0.6 = 0.8 - 0.2] x223 = Not(x222)
+      ..[0.19999999999999996 (-> 0) = 0.6 - (0.6 - 0.2) (-> 0 - 0)] x222 = And(x220,x221)
+      [Arrive = Dly - Lat: 0.2 = 1.2 - 1.0] x294 = FixAdd(x217,b5)
+      ..[0.0 (-> 0) = 0.2 - (0.2 - 0.0) (-> 0 - 0)] x217 = FixSLA(b5,Const(1))
+      ..[0.2 (-> 0) = 0.2 - (0.0 - 0.0) (-> 0 - 0)] b5
+      [Arrive = Dly - Lat: 2.4 = 3.4 - 1.0] x225 = SRAMBankedWrite(x207,Vector(x294),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x216, x222)))
+      ..[2.4 (-> 2) = 2.4 - (0.0 - 0.0) (-> 2 - 0)] b5
+      ..[1.7999999999999998 (-> 2) = 2.4 - (0.8 - 0.2) (-> 2 - 0)] x216 = Not(x215)
+      ..[2.4 (-> 2) = 2.4 - (0.0 - 0.0) (-> 2 - 0)] 0
+      ..[2.0 (-> 2) = 2.4 - (0.6 - 0.2) (-> 2 - 0)] x210 = Not(x209)
+      ..[1.2 (-> 1) = 2.4 - (1.2 - 0.0) (-> 2 - 1)] x294 = FixAdd(x217,b5)
+      ..[2.0 (-> 2) = 2.4 - (0.6 - 0.2) (-> 2 - 0)] x222 = And(x220,x221)
+      [Arrive = Dly - Lat: 0.0 = 0.2 - 0.2] x227 = FixSLA(b5,Const(2))
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b5
+      ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 2
+      [Arrive = Dly - Lat: 3.4 = 4.4 - 1.0] x228 = SRAMBankedWrite(x207,Vector(x227),Vector(List(Const(0))),Vector(b5),Vector(Set(x210, x216, x223)))
+      ..[3.4 (-> 3) = 3.4 - (0.0 - 0.0) (-> 3 - 0)] b5
+      ..[2.8 (-> 3) = 3.4 - (0.8 - 0.2) (-> 3 - 0)] x216 = Not(x215)
+      ..[3.4 (-> 3) = 3.4 - (0.0 - 0.0) (-> 3 - 0)] 0
+      ..[2.8 (-> 3) = 3.4 - (0.8 - 0.2) (-> 3 - 0)] x223 = Not(x222)
+      ..[3.0 (-> 3) = 3.4 - (0.6 - 0.2) (-> 3 - 0)] x210 = Not(x209)
+      ..[3.1999999999999997 (-> 3) = 3.4 - (0.2 - 0.0) (-> 3 - 0)] x227 = FixSLA(b5,Const(2))
+        Creating value delay on x217 for reader x218 with delay 1: 
+        Creating value delay on b5 for reader x218 with delay 1: 
+        Creating value delay on b5 for reader x225 with delay 2: 
+        Creating value delay on b5 for reader x228 with delay 3: 
+        Creating value delay on x216 for reader x225 with delay 2: 
+        Creating value delay on x216 for reader x228 with delay 3: 
+        Creating value delay on Const(0) for reader x218 with delay 1: 
+        Creating value delay on Const(0) for reader x225 with delay 2: 
+        Creating value delay on Const(0) for reader x228 with delay 3: 
+        Creating value delay on x223 for reader x228 with delay 3: 
+        Creating value delay on x210 for reader x218 with delay 1: 
+        Creating value delay on x210 for reader x225 with delay 2: 
+        Creating value delay on x210 for reader x228 with delay 3: 
+        Creating value delay on x294 for reader x225 with delay 1: 
+        Creating value delay on x227 for reader x228 with delay 3: 
+        Creating value delay on x215 for reader x218 with delay 1: 
+        Creating value delay on x222 for reader x225 with delay 2: 
+      Transforming Block Block((b5) => x235) [List() => true, List() => false]
+      Retiming block Block((b5) => x235):
+        x235 = FixAdd(b5,Const(1)) (4.4)
+      Working on pipeLatencies of result Vector(x235), schedule Vector(x235)
+      Memories with both reads and writes in this scope: Set()
+      Done finding cycles: Vector(), Map()
+      Computing fullDFS: x235
+      cur: x235, inReduce: false, latency: 1.0
+      Cycles: Map()
+      computing delay lines for Vector(x235) Map(x217 -> 0.2, x228 -> 4.4, x216 -> 0.8, x211 -> 1.4, x221 -> 0.4, x220 -> 0.4, x225 -> 3.4, x208 -> 0.4, x213 -> 0.4, x223 -> 0.8, x209 -> 0.4, x218 -> 2.4, x235 -> 5.4, x214 -> 0.4, x210 -> 0.6000000000000001, x294 -> 1.2, x227 -> 0.2, x215 -> 0.6000000000000001, x222 -> 0.6000000000000001) Map() List()
+      [Arrive = Dly - Lat: 4.4 = 5.4 - 1.0] x235 = FixAdd(b5,Const(1))
+      ..[4.4 (-> 4) = 4.4 - (0.0 - 0.0) (-> 4 - 0)] b5
+      ..[4.4 (-> 4) = 4.4 - (0.0 - 0.0) (-> 4 - 0)] 1
+        Creating value delay on Const(1) for reader x235 with delay 4: 
+        Creating value delay on b5 for reader x235 with delay 4: 
+      Transforming Block Block(Const(())) [List() => false, List() => false]
+        Transforming Block Block(Const(())) [List() => true, List() => false]
+        Retiming block Block(Const(())):
+          x240 = DRAMAddress(x206) (0.0)
+          x241 = SimpleStruct(ArrayBuffer((offset,x240), (size,Const(128)), (isLoad,Const(false)))) (0.0)
+          x242 = DRAMIsAlloc(x206) (0.0)
+          x243 = StreamOutBankedWrite(x237,ArrayBuffer(x241),ArrayBuffer(Set(x242))) (0.0)
+        Working on pipeLatencies of result Vector(Const(()), x240, x242, x243), schedule Vector(x240, x241, x242, x243)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        Computing fullDFS: Const(())
+        Computing fullDFS: x240
+        cur: x240, inReduce: false, latency: 0.0
+        Computing fullDFS: x242
+        cur: x242, inReduce: false, latency: 0.0
+        Computing fullDFS: x243
+        Computing fullDFS: x241
+        Cycles: Map()
+        computing delay lines for Vector(x240, x241, x242, x243) Map(x217 -> 0.2, x228 -> 4.4, x216 -> 0.8, x211 -> 1.4, x221 -> 0.4, x243 -> 0.0, x220 -> 0.4, x225 -> 3.4, x208 -> 0.4, x213 -> 0.4, x240 -> 0.0, x223 -> 0.8, x241 -> 0.0, x209 -> 0.4, x218 -> 2.4, x235 -> 5.4, x214 -> 0.4, x210 -> 0.6000000000000001, x242 -> 0.0, x294 -> 1.2, x227 -> 0.2, x215 -> 0.6000000000000001, x222 -> 0.6000000000000001) Map() List()
+        [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x240 = DRAMAddress(x206)
+        [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x241 = SimpleStruct(ArrayBuffer((offset,x240), (size,Const(128)), (isLoad,Const(false))))
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x240 = DRAMAddress(x206)
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 128
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] false
+        [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x242 = DRAMIsAlloc(x206)
+        [Arrive = Dly - Lat: 0.0 = 0.0 - 0.0] x243 = StreamOutBankedWrite(x237,ArrayBuffer(x241),ArrayBuffer(Set(x242)))
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x241 = SimpleStruct(ArrayBuffer((offset,x240), (size,Const(128)), (isLoad,Const(false))))
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] x242 = DRAMIsAlloc(x206)
+        Transforming Block Block(Const(())) [List() => true, List() => false]
+        Retiming block Block(Const(())):
+          x249 = SRAMBankedRead(x207,Vector(List(Const(0))),Vector(b247),Vector(Set(b248)),Vec[Fix[TRUE,_32,_0]]) (0.0)
+          x250 = VecApply(x249,0) (2.0)
+          x251 = SimpleStruct(ArrayBuffer((_1,x250), (_2,Const(true)))) (2.0)
+          x252 = StreamOutBankedWrite(x238,ArrayBuffer(x251),ArrayBuffer(Set(b248))) (2.0)
+        Working on pipeLatencies of result Vector(Const(()), x249, x252), schedule Vector(x249, x250, x251, x252)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        Computing fullDFS: Const(())
+        Computing fullDFS: x249
+        cur: x249, inReduce: false, latency: 2.0
+        Computing fullDFS: x252
+        Computing fullDFS: x251
+        Computing fullDFS: x250
+        Cycles: Map()
+        computing delay lines for Vector(x249, x250, x251, x252) Map(x249 -> 2.0, x217 -> 0.2, x228 -> 4.4, x216 -> 0.8, x211 -> 1.4, x221 -> 0.4, x243 -> 0.0, x220 -> 0.4, x252 -> 2.0, x225 -> 3.4, x208 -> 0.4, x213 -> 0.4, x240 -> 0.0, x251 -> 2.0, x223 -> 0.8, x241 -> 0.0, x209 -> 0.4, x250 -> 2.0, x218 -> 2.4, x235 -> 5.4, x214 -> 0.4, x210 -> 0.6000000000000001, x242 -> 0.0, x294 -> 1.2, x227 -> 0.2, x215 -> 0.6000000000000001, x222 -> 0.6000000000000001) Map() List()
+        [Arrive = Dly - Lat: 0.0 = 2.0 - 2.0] x249 = SRAMBankedRead(x207,Vector(List(Const(0))),Vector(b247),Vector(Set(b248)),Vec[Fix[TRUE,_32,_0]])
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] 0
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b247
+        ..[0.0 (-> 0) = 0.0 - (0.0 - 0.0) (-> 0 - 0)] b248
+        [Arrive = Dly - Lat: 2.0 = 2.0 - 0.0] x250 = VecApply(x249,0)
+        ..[0.0 (-> 0) = 2.0 - (2.0 - 0.0) (-> 2 - 2)] x249 = SRAMBankedRead(x207,Vector(List(Const(0))),Vector(b247),Vector(Set(b248)),Vec[Fix[TRUE,_32,_0]])
+        [Arrive = Dly - Lat: 2.0 = 2.0 - 0.0] x251 = SimpleStruct(ArrayBuffer((_1,x250), (_2,Const(true))))
+        ..[0.0 (-> 0) = 2.0 - (2.0 - 0.0) (-> 2 - 2)] x250 = VecApply(x249,0)
+        ..[2.0 (-> 2) = 2.0 - (0.0 - 0.0) (-> 2 - 0)] true
+        [Arrive = Dly - Lat: 2.0 = 2.0 - 0.0] x252 = StreamOutBankedWrite(x238,ArrayBuffer(x251),ArrayBuffer(Set(b248)))
+        ..[0.0 (-> 0) = 2.0 - (2.0 - 0.0) (-> 2 - 2)] x251 = SimpleStruct(ArrayBuffer((_1,x250), (_2,Const(true))))
+        ..[2.0 (-> 2) = 2.0 - (0.0 - 0.0) (-> 2 - 0)] b248
+          Creating value delay on Const(true) for reader x251 with delay 2: 
+          Creating value delay on b248 for reader x252 with delay 2: 
+        Transforming Block Block(Const(())) [List() => true, List() => false]
+        Retiming block Block(Const(())):
+          x255 = StreamInBankedRead(x239,ArrayBuffer(Set())) (0.0)
+        Working on pipeLatencies of result Vector(Const(()), x255), schedule Vector(x255)
+        Memories with both reads and writes in this scope: Set()
+        Done finding cycles: Vector(), Map()
+        Computing fullDFS: Const(())
+        Computing fullDFS: x255
+        cur: x255, inReduce: false, latency: 1.0
+        Cycles: Map()
+        computing delay lines for Vector(x255) Map(x249 -> 2.0, x217 -> 0.2, x228 -> 4.4, x216 -> 0.8, x211 -> 1.4, x221 -> 0.4, x243 -> 0.0, x220 -> 0.4, x252 -> 2.0, x225 -> 3.4, x208 -> 0.4, x213 -> 0.4, x240 -> 0.0, x251 -> 2.0, x223 -> 0.8, x241 -> 0.0, x255 -> 1.0, x209 -> 0.4, x250 -> 2.0, x218 -> 2.4, x235 -> 5.4, x214 -> 0.4, x210 -> 0.6000000000000001, x242 -> 0.0, x294 -> 1.2, x227 -> 0.2, x215 -> 0.6000000000000001, x222 -> 0.6000000000000001) Map() List()
+        [Arrive = Dly - Lat: 0.0 = 1.0 - 1.0] x255 = StreamInBankedRead(x239,ArrayBuffer(Set()))
+    Transforming Block Block((b35) => Const(())) [List() => false, List() => false]
+    Transforming Block Block((b45) => Const(())) [List() => false, List() => false]
+    Transforming Block Block((x261,b52) => x280) [List() => false, List() => false]
+    Transforming Block Block((x259,b52) => x281) [List() => false, List() => false]
+    Transforming Block Block((x280,x281) => x282) [List() => false, List() => false]
+    Transforming Block Block((x283,b57) => x284) [List() => false, List() => false]
+    Transforming Block Block((b58,b59) => x285) [List() => false, List() => false]

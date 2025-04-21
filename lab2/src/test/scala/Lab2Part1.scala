@@ -36,9 +36,11 @@ import spatial.dsl._
     val out = DRAM[Int](16)
     Accel {
       val a = SRAM[Int](16)
-      
-      // TODO: Fill in here
-      
+      MemFold(a)(-5 until 5 by 1){i =>
+        val tmp = SRAM[Int](16)
+        Foreach(16 by 1) { j => tmp(j) = 1}
+        tmp
+      }{_+_}
       out store a
     }
 

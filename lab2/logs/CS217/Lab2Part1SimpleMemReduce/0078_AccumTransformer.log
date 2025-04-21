@@ -1,0 +1,36 @@
+    x119 = AccelScope(Block(Const(())))
+      x187 = UnrolledReduce(Set(),x163,Block((x161) => Const(())),List(List(b166)),List(List(b168)),None)
+        x176 = UnrolledForeach(Set(b168),x172,Block(Const(())),List(List(b173)),List(List(b174)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x175 = SRAMBankedWrite(x170,Vector(Const(1)),Vector(List(Const(0))),Vector(b173),Vector(Set(b174, b168))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x186 = UnrolledForeach(Set(),x165,Block(Const(())),Vector(List(b167)),Vector(List(b169)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x177 = SRAMBankedRead(x170,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x178 = VecApply(x177,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x179 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b167),Vector(Set(b169)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x180 = VecApply(x179,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x182 = FixEql(b166,Const(-5)): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x183 = FixAdd(x178,x180): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x184 = Mux(x182,x178,x183): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x185 = SRAMBankedWrite(x161,Vector(x184),Vector(List(Const(0))),Vector(b167),Vector(Set(b169))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+      x209 = UnitPipe(Set(),Block(Const(())),None)
+        x195 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x191 = DRAMAddress(x160): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x192 = SimpleStruct(ArrayBuffer((offset,x191), (size,Const(64)), (isLoad,Const(false)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x193 = DRAMIsAlloc(x160): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x194 = StreamOutBankedWrite(x188,ArrayBuffer(x192),ArrayBuffer(Set(x193))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x204 = UnrolledForeach(Set(),x197,Block(Const(())),List(List(b198)),List(List(b199)),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x200 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b198),Vector(Set(b199)),Vec[Fix[TRUE,_32,_0]]): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x201 = VecApply(x200,0): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x202 = SimpleStruct(ArrayBuffer((_1,x201), (_2,Const(true)))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+          - x203 = StreamOutBankedWrite(x189,ArrayBuffer(x202),ArrayBuffer(Set(b199))): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
+        x208 = UnitPipe(Set(),Block(Const(())),None)
+        Placing nodes as either before or after cycles: Vector()
+          - x206 = StreamInBankedRead(x190,ArrayBuffer(Set())): Uses nodes in cycle: false, Reads after accumulating write: false, Is downstream of cycle: false
+        Cycle groups: 
