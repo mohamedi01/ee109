@@ -5,4 +5,5 @@ Our initial implementation used `Foreach` loops to iterate over n and m for k it
 
 
 * Based on the parallelizaion factors you added, how does this improve performance? (In the ``PostExecution.html``, you need to find the corresponding controller blocks that you parallelized.) For each controller you parallelized, report the number of cycles before and after you added the parallelization factor.
-This improves performance by a factor of nearly 10. Before parallelizing (lab2part5gemm), the code had 302291 total cycles, 1 total iters; after parallelizing (lab2part6gemm), the code had 36112 total cycles, 1 total iters. 
+
+This improves performance by a factor of nearly 10. Before parallelizing (lab2part5gemm), the code had 302291 total cycles, 1 total iters for the accel portion; after parallelizing (lab2part6gemm), the code had 36112 total cycles, 1 total iters for the accel portion. 
