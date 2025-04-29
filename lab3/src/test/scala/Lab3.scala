@@ -74,9 +74,10 @@ import spatial.dsl._
           // Implement the computation part for a 2-D convolution.
           // Use horz and vert to store your convolution results.
           // Your code here:
-          val horz = Reg[T](0)
-          val vert = Reg[T](0)
+          val horz = Reduce(Reg[T])(Kh by 1 par Kh, Kw by 1 par Kw){ (i,j) => sr(i,j) * kh(i,j)}{_ + _}
+          val vert = Reduce(Reg[T])(Kh by 1 par Kh, Kw by 1 par Kw){ (i,j) => sr(i,j) * kv(i,j)}{_ + _}
 
+          val mag = abs(horz.value) + abs(vert.value)
           lineOut(c) = mux( (r < pad_r || c < pad_c), 0.to[T], abs(horz.value) + abs(vert.value)) 
         }
         imgOut(r, 0::C par 16) store lineOut
