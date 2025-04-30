@@ -65,7 +65,7 @@ static void gemm(int *in1,
                 for (int ii = 0; ii < TILE; ii++) {
                     for (int jj = 0; jj < TILE; jj++) {
                         for (int kk = 0; kk < TILE; kk++) {
-                            // TODO: add your code here to perform the tile GEMM on out_tile
+                            out_tile[ii][jj] += in1_tile[ii][kk] * in2_tile[kk][jj];
                         }
                     }
                 }
