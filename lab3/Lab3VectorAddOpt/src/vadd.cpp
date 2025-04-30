@@ -57,9 +57,11 @@ static void compute_add(hls::vector<uint32_t, NUM_WORDS> *in1,
 // Fill in the TODO parts in this for loop
 execute:
 //Optimization - modify unroll pragma
-#pragma HLS unroll off=true
-for (int i = TODO ; i < TODO; TODO) {
-    out[i] = TODO;
+//#pragma HLS unroll off=true
+#pragma HLS unroll factor=2
+	
+for (int i = 0 ; i < vSize; i++) {
+    out[i] = in1[i] + in2[i];
 }
 
 }
