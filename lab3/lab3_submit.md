@@ -8,8 +8,8 @@ The control tree can be found in `logs/VCS/Lab3Part1Convolution/run.log`.
 ## Part 2 - Vitis HLS
 
 1. What is the accelerator runtime (`xrt::run::run` time in the `summary.csv`) of the unoptimized `Lab3VectorAddOpt`? 
-    1.1 TODO
+    1.1 0.006591
 2. How did you decide to unroll the loop to improve performance?
-    2.1 TODO
+    2.1 To improve performance, we applied #pragmas HLS unroll factor=2 to the loop in compute_add(). Unrolling the loop allows multiple vector additions to happen concurrently and increases our throughput. We tested factors 2, 4, and 8. The unroll factor 2 gave the best performance.
 3. What is the xrt::run::run time of the optimized implementation? 
-    3.1 TODO
+    3.1 0.006254
