@@ -3,6 +3,22 @@
 ## Part 1 - Convolution
 ### Copy and paste your control tree for your Lab3Part1Convolution implementation.
 The control tree can be found in `logs/VCS/Lab3Part1Convolution/run.log`.
+x373 - 12993 (12993 / 1) [1 iters/parent execution]
+    x733 - 12989 (12989 / 1) [1 iters/parent execution]
+      x543 - 198 (3183 / 16) [16 iters/parent execution]
+        x533 - 5 (80 / 16) [1 iters/parent execution] # stalled: 0, #idle: 0
+        x542 - 194 (3119 / 16) [1 iters/parent execution] # stalled: 0, #idle: 2847
+      x840 - 786 (12576 / 16) [16 iters/parent execution]
+        x839 - 13 (3328 / 256) [16 iters/parent execution]
+          x550 - 3 (768 / 256) [1 iters/parent execution]
+          x560 - 8 (2048 / 256) [1 iters/parent execution]
+        x598 - 12 (3072 / 256) [16 iters/parent execution]
+        x636 - 12 (3072 / 256) [16 iters/parent execution]
+        x662 - 6 (1536 / 256) [16 iters/parent execution]
+      x732 - 171 (2744 / 16) [16 iters/parent execution]
+        x675 - 5 (80 / 16) [1 iters/parent execution] # stalled: 0, #idle: 0
+        x727 - 5 (80 / 16) [1 iters/parent execution] # stalled: 0, #idle: 0
+        x731 - 167 (2680 / 16) [1 iters/parent execution] # stalled: 0, #idle: 2648
 
 
 ## Part 2 - Vitis HLS
