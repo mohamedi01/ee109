@@ -2,7 +2,7 @@
 ## By: William Briger, Chris Gutierrez, & Mohamad Ismail
 
 ## Introduction: 
-We plan to use an Amazon EC2 F1 instance to accelerate the front-end of audio-driven applications, transforming raw microphone samples into textual insights. This pipeline will combine Audio Digital Signal Processing (DSP) for filtering and feature extraction, Automatic Speech Recognition (ASR) to convert speech to text, and then apply lightweight Nautral-Langauge Processing (NLP). The primary goal of this project will be to effectively accelerate the audio processing and the light weight neural network, to produce keyword spotting, topic segmentation, or even meeting-minutes/ conversation summaries. However, there also exist many potential extensions that to expand on the applications of the low-latency speech-to-text processing (e.g, audio to on-device sign-langauge).
+We plan to use an Amazon EC2 F1 instance to accelerate the front-end of audio-driven applications, transforming raw microphone samples into textual insights. This pipeline will combine Audio Digital Signal Processing (DSP) for filtering and feature extraction, Automatic Speech Recognition (ASR) to convert speech to text, and then apply lightweight Natural Language Processing (NLP). The primary goal of this project will be to effectively accelerate the audio processing and the light weight neural network, to produce keyword spotting, topic segmentation, or even meeting-minutes/ conversation summaries. However, there also exist many potential extensions that to expand on the applications of the low-latency speech-to-text processing (e.g, audio to on-device sign language).
 
 ## Why an FPGA:
 Running the full DSP -> ASR -> NLP stack in real-time with just a general purpose CPU will face upndredictable latency. The Audio DSP and Neural Network/ Transformer inference are stream-ortiented processes with tight latency goals so to complete these live requires a pipelined and deterministic datapath that FPGAs can complete very efficiently. 
@@ -13,7 +13,7 @@ Our project fuses audio DSP, ASR, and first-stage NLP into one FPGA pipeline. Wh
 - ASR Accelerators:
 - Lightweight NLP on FPGAs: 
 
-As noted, prior work typically focus on one stage (DSP, ASR, or NLP) in isolation. Our projects novelty is a single streaming pipline where the hardware DS{ front-ed feeds the software. The strecth goal is to build a single streaming piple that fuses all three minimizing off-chip transfers.
+As noted, prior work typically focuses on one stage (DSP, ASR, or NLP) in isolation. Our project's novelty is a single streaming pipeline where the hardware DS{front-end feeds the software. The stretch goal is to build a single streaming pipeline that fuses all three, minimizing off-chip transfers.
 
 ## Project Description:
 Block Diagram:
