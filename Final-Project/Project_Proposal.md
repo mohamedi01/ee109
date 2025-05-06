@@ -69,4 +69,4 @@ FPGA-Powered ASR Solution: https://www.newscienceventures.com/achronix-announces
 Achronix developed an FPGA-based automatic speech recognition solution capable of handling 1,000 concurrent real-time streams with high accuracy and low latency. 
 
 https://homepages.on.hs-bremen.de/~jbredereke/downloads/speech-recognition-fpga-neural-network-wp_embeds-2022.pdf
-Researched from the City University of Applied Sciences Bremen implemented a speech command recognition system on an FPGA-based system on chip(SoC), The design includes audio acquisition and Mel Frequency Cepstral Coefficient feature extraction on the FPGA, followed by a quantized neural network for classification
+Researchers from the City University of Applied Sciences Bremen implemented a speech command recognition system on an FPGA-based system on chip(SoC), The design includes audio acquisition and Mel Frequency Cepstral Coefficient feature extraction on the FPGA, followed by a quantized neural network for classification
