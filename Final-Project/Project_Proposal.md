@@ -59,7 +59,7 @@ To measure quality, we will look at (1) raw performance, (2) resource utilizatio
 
 ## Extended Use-cases: 
 1. Sign-language avatar: By feeding the NLP text results to the python api, sign-language-translator, this application can be used for live translation of audio to sign langaugae.
-2. Video highlight indexing: This model can be used to commment and sumarize videos by their audio features (e.g., laughter).
+2. Video highlight indexing: This model can be used to comment and summarize videos by their audio features (e.g., laughter).
 
 # References/Relevant Works:
 Sign Language via FPGA: https://doi.org/10.1109/RTEICT.2017.8256604
@@ -69,4 +69,4 @@ FPGA-Powered ASR Solution: https://www.newscienceventures.com/achronix-announces
 Achronix developed an FPGA-based automatic speech recognition solution capable of handling 1,000 concurrent real-time streams with high accuracy and low latency. 
 
 https://homepages.on.hs-bremen.de/~jbredereke/downloads/speech-recognition-fpga-neural-network-wp_embeds-2022.pdf
-Researched from the City University of Applied Sciences Bremen implemented a speech command recognition system on an FPGA-based system on chip(SoC), The design includes audio acquisition and Mel Frqeuncy Cepstral Coefficient feature extraction on the FPGA, followed by a quantized neural network for classification
+Researched from the City University of Applied Sciences Bremen implemented a speech command recognition system on an FPGA-based system on chip(SoC), The design includes audio acquisition and Mel Frequency Cepstral Coefficient feature extraction on the FPGA, followed by a quantized neural network for classification
