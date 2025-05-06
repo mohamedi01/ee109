@@ -45,7 +45,17 @@ To measure quality, we will look at, (1) raw performance, (2) resource utilizati
 - Task Specific Accuracy: To ensure application specific performance is good, we will measure Word-Error-Rate (WER) and Keyword-Spotting.  
 
 ## Planning:
-NOTE: NOT SURE WHAT TO PUT HERE
+# Software Simulation (Week 1)
+- Implement and test DSP pipeline in Python 
+- Evaluate the ASR and NLP models with sample audio to establish performance baselines
+
+
+# Hardware Simulation (Week 2 and 3)
+- Translate DSP pipeline to spatial
+
+#  Integration & Testing (Week 4)
+- Connect hardware DSP.
+- Measure system performance (latency, throughput, utilization) and verify text output quality. 
 
 ## Extended Use-cases: 
 1. Sign-langauge avatar: By feeding the NLP text results to the python api, sign-language-translator, this application can be used for live translation of audio to sign langaugae.
