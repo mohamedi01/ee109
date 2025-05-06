@@ -61,7 +61,14 @@ To measure quality, we will look at (1) raw performance, (2) resource utilizatio
 1. Sign-language avatar: By feeding the NLP text results to the python api, sign-language-translator, this application can be used for live translation of audio to sign langaugae.
 2. Video highlight indexing: This model can be used to commment and sumarize videos by their audio features (e.g., laughter).
 
-# References:
+# References/Relevant Works:
+Sign Language via FPGA: https://doi.org/10.1109/RTEICT.2017.8256604
+This paper presents an FPGA-based system for real-time hand sign recognition, emphasizing low power, high speed, and efficient human-computer interaction. It uses image capture and filtering, followed by FPGA processing for gesture classification. Although the focus is vision-based rather than audio, it supports our extended use case of live sign-language generation from speech. 
+
+FPGA-Powered ASR Solution: https://www.newscienceventures.com/achronix-announces-fpga-powered-accelerated-automatic-speech-recognition-solution/?utm_source=chatgpt.com
+Achronix developed an FPGA-based automatic speech recognition solution capable of handling 1,000 concurrent real-time streams with high accuracy and low latency. 
+
+
 
 
  
