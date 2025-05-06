@@ -65,10 +65,8 @@ To measure quality, we will look at (1) raw performance, (2) resource utilizatio
 Sign Language via FPGA: https://doi.org/10.1109/RTEICT.2017.8256604
 This paper presents an FPGA-based system for real-time hand sign recognition, emphasizing low power, high speed, and efficient human-computer interaction. It uses image capture and filtering, followed by FPGA processing for gesture classification. Although the focus is vision-based rather than audio, it supports our extended use case of live sign-language generation from speech. 
 
-FPGA-Powered ASR Solution: https://www.newscienceventures.com/achronix-announces-fpga-powered-accelerated-automatic-speech-recognition-solution/?utm_source=chatgpt.com
+FPGA-Powered ASR Solution: https://www.newscienceventures.com/achronix-announces-fpga-powered-accelerated-automatic-speech-recognition-solution/
 Achronix developed an FPGA-based automatic speech recognition solution capable of handling 1,000 concurrent real-time streams with high accuracy and low latency. 
 
-
-
-
- 
+https://homepages.on.hs-bremen.de/~jbredereke/downloads/speech-recognition-fpga-neural-network-wp_embeds-2022.pdf
+Researched from the City University of Applied Sciences Bremen implemented a speech command recognition system on an FPGA-based system on chip(SoC), The design includes audio acquisition and Mel Frqeuncy Cepstral Coefficient feature extraction on the FPGA, followed by a quantized neural network for classification
