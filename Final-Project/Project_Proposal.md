@@ -2,32 +2,56 @@
 ## By: William Briger, Chris Gutierrez, & Mohamad Ismail
 
 ## Introduction: 
-We plan to use an Amazon EC2 F1 instance to accelerate the front-end of audio-driven applications., transforming raw microphones samples into textual insights. This pipeline will combine Audio Digital Signal Processing (DSP) for filtering and feature extraction, Automatic Speech Recognition (ASR) to convert speech to text, and then apply lightweight Nautral-Langauge Processing (NLP). The primary goal of this project will be to effectively accelerate the audio processing and the light weight neural network, to produce keyword spotting, topic segmentation, or even meeting-minutes/ conversation summaries. However, there also exist many potential extensions that to expand on the applications of the low-latency speech-to-text processing (e.g, audio to on-device sign-langauge).
+We plan to use an Amazon EC2 F1 instance to accelerate the front-end of audio-driven applications, transforming raw microphone samples into textual insights. This pipeline will combine Audio Digital Signal Processing (DSP) for filtering and feature extraction, Automatic Speech Recognition (ASR) to convert speech to text, and then apply lightweight Nautral-Langauge Processing (NLP). The primary goal of this project will be to effectively accelerate the audio processing and the light weight neural network, to produce keyword spotting, topic segmentation, or even meeting-minutes/ conversation summaries. However, there also exist many potential extensions that to expand on the applications of the low-latency speech-to-text processing (e.g, audio to on-device sign-langauge).
 
 ## Why an FPGA:
-Running this stack in real-time with just a general prupose CPU will face upndredictable. The Audio DSP and Neural Network/ Transformer inference are stream-ortiented processes with tight latency goals so to complete these live requires a pipelined and deterministic datapath that FPGAs can complete very efficiently. 
+Running the full DSP -> ASR -> NLP stack in real-time with just a general purpose CPU will face upndredictable latency. The Audio DSP and Neural Network/ Transformer inference are stream-ortiented processes with tight latency goals so to complete these live requires a pipelined and deterministic datapath that FPGAs can complete very efficiently. 
 
 ## Literature Survey: 
-Our project fuses audio DSP, ASR, and first-stage NLP into one FPGA pipeline. While there is no comprehensive research on the combined applications, there is research on FPGA usage for each individual process. To provide a literature review, we group and provide relevant prior research in three categories: (1) Audio DSP on FPGAs, (2) ASR Accelerators, (3) Lightweight NLP on FPGAs.
+Our project fuses audio DSP, ASR, and first-stage NLP into one FPGA pipeline. While there is no comprehensive research on the combined applications, there is research on FPGA usage for each individual process. To provide a literature review, we group and provide relevant prior research in three categories: (1) Audio DSP on FPGAs, (2) ASR Accelerators, (3) Lightweight NLP on FPGAs. See sources at the bottom. 
 - Audio DSP utilizing FPGAs: 
 - ASR Accelerators:
 - Lightweight NLP on FPGAs: 
 
-As noted, prior work typically focus on one sateg (DSP, ASR, or NLP) in isolation. Our initial implemention will pipeline all three processes, with hardware focus on the DSP. Yet, an ultimate goal will be a single streaming piple that fuses all three, minimizing off-chip transfers.
+As noted, prior work typically focus on one stage (DSP, ASR, or NLP) in isolation. Our projects novelty is a single streaming pipline where the hardware DS{ front-ed feeds the software. The strecth goal is to build a single streaming piple that fuses all three minimizing off-chip transfers.
 
 ## Project Description:
+Block Diagram:
 
+```
+   Microphone                                                    PCIe Gen3 x8               Host (EC2 CPU)
+      │ 32 kHz PCM (I²S)                                             │ AXI-Lite (Ctrl)
+      ▼                        AXI-Stream (16-bit words @ 200 MHz)   ▼
+ ┌───────────┐      ┌─────────────────┐      ┌──────────────────────────────┐
+ │ Audio In  │──►──▶│ DSP Front-End   │──►──▶│ DMA Engine / PCIe Endpoint   │───► Host Memory → ASR SW → NLP SW → User API
+ └───────────┘      └─────────────────┘      └──────────────────────────────┘
+```
+- DSP Front-End: We will implement, a first-order pre-emphasis (high-pass filter), Hann window, FFT, Mel Filter Bank, and finally Log + DCT
+```
+ raw PCM ─► pre-emphasis ─► window ─► FFT ─► Mel filter bank ─► **log** ─► **DCT** ─► MFCC vector
+                                                             (energy)     (decorrelate)
+```                                                           
+- ASR Engine: The ASR will be a 12-layer encoder-only transformer. It will run in PyTorch on the host CPU. 
+- NLP Micro-Transformer: The NLP will likely be a 2-layer distilled MinLM that produces keyword and topic IDs.
+
+Note: Depending on the complexity of the project, the final project block diagram may be: 
+
+
+ 
 ## Measure:
-To measure quality, we will look at, (1) raw performance, (2) resource utilization, and (3) Other. More specifics are below:
-- Raw performance: To analyze raw performance, we will measure end-to-end latency (mic-in to text-out). We will also analyze throughput.
-- Resource utilization: To analyze resource utilization, we will measure LLT percentage, BRRAM percentage, and DSP slices
-- Other: To ensure application specific performance is good, we will measure Word-Error-Rate (WER) and Keyword-Spotting.  
+To measure quality, we will look at, (1) raw performance, (2) resource utilization, and (3) task specific accuracy. More specifics are below:
+- Raw Performance: To analyze raw performance, we will measure end-to-end latency (mic-in to text-out). We will also analyze throughput.
+- Resource Utilization: To analyze resource utilization, we will measure LUT percentage, FF percentage, BRAM percentage, and DSP slices
+- Task Specific Accuracy: To ensure application specific performance is good, we will measure Word-Error-Rate (WER) and Keyword-Spotting.  
 
 ## Planning:
+NOTE: NOT SURE WHAT TO PUT HERE
 
-## Extended use cases: 
+## Extended Use-cases: 
 1. Sign-langauge avatar: By feeding the NLP text results to the python api, sign-language-translator, this application can be used for live translation of audio to sign langaugae.
 2. Video highlight indexing: This model can be used to commment and sumarize videos by their audio features (e.g., laughter).
+
+# References:
 
 
  
