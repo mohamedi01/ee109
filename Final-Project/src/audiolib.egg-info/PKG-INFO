@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: audiolib
+Version: 0.1.0
+Summary: FPGA-Accelerated Audio → ASR → NLP pipeline
+Author: William Briger, Chris Gutierrez, Mohamad Ismail
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy~=1.26
+Requires-Dist: scipy~=1.12
+Requires-Dist: soundfile~=0.12
+Requires-Dist: torch~=2.2
+Requires-Dist: torchaudio~=2.2
+Requires-Dist: transformers~=4.40
+Requires-Dist: sentencepiece~=0.1
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: black; extra == "dev"
+
+# EE 109 Final Project — DSP Front-End Demo
+
+## Quick start
+
+```bash
+python -m venv ee109_final_project
+source ee109_final_project/bin/activate   
+pip install -r requirements.txt
+python - <<'PY'
+from src import dsp
+mfcc = dsp.wav_to_mfcc("data/sample.wav")
+print("MFCC shape:", mfcc.shape)
+PY
+``` 
