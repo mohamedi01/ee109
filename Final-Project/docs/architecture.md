@@ -35,6 +35,6 @@ Final-Project/
 |       └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 └─ tests/
     ├─ numbers/
-    │   ├─ test_asr_numbers.py
-    │   └─ test_dsp_numbers.py
-    └─ test_short_sentences.py
+    │   ├─ test_asr_numbers.py          # (Tests ASR on numbers, compares custom DSP->ASR pipeline with baseline Whisper)
+    │   └─ test_dsp_numbers.py          # (Tests DSP components on number recordings)
+    └─ test_short_sentences.py      # (Tests ASR on short sentences, compares custom DSP->ASR pipeline with baseline Whisper)

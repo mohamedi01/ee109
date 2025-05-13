@@ -21,13 +21,53 @@ WIN_SAMPLES   = WIN_SECONDS * SAMPLE_RATE
 STRIDE_SAMPLES= STRIDE_SEC  * SAMPLE_RATE
 
 # ── helper to remove overlap duplicates ─────────────────────────
-def _merge(prev: str, new: str, min_overlap_words: int = 6) -> str:
-    """Drop leading words in *new* that duplicate the tail of *prev*."""
-    a, b = prev.split(), new.split()
-    max_k = min(len(a), len(b), 40)           # cap search len to 40 words
-    for k in range(max_k, min_overlap_words - 1, -1):
-        if a[-k:] == b[:k]:
-            return prev + " " + " ".join(b[k:])
+def _merge(prev: str, new: str, min_overlap_words: int = 6, max_initial_garbage_words: int = 5) -> str:
+    """
+    Drop leading words in *new* that duplicate the tail of *prev*.
+    Tries to be robust against a few initial garbage words in *new* before the true overlap.
+    """
+    a_words = prev.split()
+    b_words = new.split()
+
+    if not a_words: # If prev is empty, just return new
+        return new
+    if not b_words: # If new is empty, just return prev
+        return prev
+
+    # Max length of overlap to search for, from the tail of a_words
+    # Capped at 40 words or length of a_words.
+    max_k_search = min(len(a_words), 40)
+
+    # Iterate from longest possible overlap k down to min_overlap_words
+    for k in range(max_k_search, min_overlap_words - 1, -1):
+        # This check ensures a_words is long enough for the current k.
+        # It's implicitly handled by max_k_search being min(len(a_words), 40)
+        # and k decreasing, but an explicit check is safer if len(a_words) < min_overlap_words.
+        if len(a_words) < k:
+            continue
+        
+        suffix_a = a_words[-k:] # The suffix of `prev` we are looking for in `new`
+
+        # 1. Try to find suffix_a at the very beginning of b_words (original logic)
+        if len(b_words) >= k and suffix_a == b_words[:k]:
+            # Exact match at the beginning of new text
+            return prev + (" " + " ".join(b_words[k:]) if b_words[k:] else "")
+
+        # 2. If exact prefix match fails, try to find suffix_a shifted slightly into b_words
+        # This handles cases like b_words = [GARBAGE, GARBAGE, ...OVERLAP_STARTS_HERE...]
+        # j is the number of garbage words to skip at the start of b_words.
+        # We search for suffix_a starting at b_words[j].
+        # The loop for j goes from 1 (skip 1 word) up to max_initial_garbage_words.
+        # We also ensure that b_words is long enough for j garbage words + k overlap words.
+        for j in range(1, max_initial_garbage_words + 1):
+            if len(b_words) >= j + k and suffix_a == b_words[j : j+k]:
+                # Found a match after skipping j words in new_text
+                # Append the part of new_text that comes after the identified overlap
+                return prev + (" " + " ".join(b_words[j+k:]) if b_words[j+k:] else "")
+                # We take the first one found (longest k, smallest j for that k due to outer loop order for k,
+                # and inner loop order for j)
+
+    # If no suitable overlap found even with skipping initial garbage, fall back to simple concatenation
     return prev + " " + new
 
 # ── public API ──────────────────────────────────────────────────

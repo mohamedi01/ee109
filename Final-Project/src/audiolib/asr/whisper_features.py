@@ -19,18 +19,24 @@ def _pad_or_crop(x: torch.Tensor) -> torch.Tensor:
 
 def transcribe_features(mel: Union[np.ndarray, torch.Tensor], device: str = "cpu") -> str:
     model, tok = _load(device)
-    # ensure Tensor, pad/crop to 80×3000
+    # ensure Tensor
     mel_t = torch.as_tensor(mel, device=device)
-    mel_t = _pad_or_crop(mel_t)
+    
+    # Prepare input for the model (padded/cropped to _TARGET frames)
+    processed_mel_t = _pad_or_crop(mel_t)
 
-    # ---- decoding options -------------------------------------
-    opts = dict(input_features=mel_t.unsqueeze(0))
-    # for clips shorter than ≈1 s, add a tiny beam + hard stop
-    if mel_t.shape[1] < 300:           # 300 frames ≈ 1 s
+    # ---- decoding options 
+    opts = dict(
+        input_features=processed_mel_t.unsqueeze(0)
+    )
+    
+    # Apply special options for very short original clips (before padding/cropping)
+    # This condition checks the original length of mel_t
+    if mel_t.shape[1] < 300:           # 300 frames ≈ 3 s (original mel length)
         opts.update(
             num_beams=8,
             length_penalty=0.1,
-            max_new_tokens=3,          # stop after ⩽3 tokens
+            max_new_tokens=3,          
         )
 
     with torch.inference_mode():
