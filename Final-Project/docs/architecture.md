@@ -11,7 +11,7 @@ Final-Project/
 │       ├─ __init__.py
 │       ├─ cli.py
 │       ├─ dsp/
-│       │   ├─ __init__.py              # (Up to Date for DSP )
+│       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
 │       │   ├─ mel.py                   # (Completed for software implementation)
 │       │   └─ mfcc.py                  # (Removed due to redundancy)
 │       ├─ asr/
@@ -37,4 +37,6 @@ Final-Project/
     ├─ numbers/
     │   ├─ test_asr_numbers.py          # (Tests ASR on numbers, compares custom DSP->ASR pipeline with baseline Whisper)
     │   └─ test_dsp_numbers.py          # (Tests DSP components on number recordings)
-    └─ test_short_sentences.py      # (Tests ASR on short sentences, compares custom DSP->ASR pipeline with baseline Whisper)
+    ├─ long/
+    │   └─ test_asr_long.py             # (Tests ASR on long audio files, compares custom DSP->ASR pipeline with baseline Whisper)
+    └─ test_short_sentences.py         # (Redundant)
