@@ -48,6 +48,10 @@ def wav_to_logmel(path: str | Path) -> np.ndarray:
 
     # Mel power → log10
     mel_power = _MEL_SPEC(x) + 1e-10
-    mel_db = torch.log10(mel_power).numpy()
+    log_spec  = torch.log10(mel_power)
+
+    log_spec  = torch.maximum(log_spec, log_spec.max() - 8.0)   # ← NEW clamp
+
+    mel_db = log_spec.numpy()
 
     return _whisper_scale(mel_db).astype(np.float32)
