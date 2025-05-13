@@ -4,6 +4,7 @@ import numpy as np
 import re 
 from audiolib.asr import long_transcribe as asr_module
 from audiolib.asr.whisper_features import _load as whisper_features_load_function # Import the function
+from pathlib import Path
 
 @pytest.fixture(autouse=True, scope="module")
 def clear_whisper_model_cache():
@@ -190,4 +191,17 @@ def test_asr_accuracy_comparison_long(audio_filepath, expected_transcription):
         print(f"Error or WER assertion failure for {audio_filepath}: {e_wer}")
         if isinstance(e_wer, AssertionError):
              raise 
+
+# --- Test Cases ---
+# Each tuple: (filename, expected_transcript_path_or_string, wer_threshold)
+# Using relative paths from the project root for data files.
+# Ground truth transcripts are stored in .txt files with the same base name.
+
+# Using Path objects for better path manipulation
+DATA_DIR_LONG = Path("data/short_sentences/")
+GROUND_TRUTH_DIR_LONG = Path("tests/long/ground_truth/")
+
+TEST_CASES_LONG = [
+    # Add more test cases as needed
+]
 

@@ -1,6 +1,7 @@
 import pytest
 import whisper  # For baseline ASR (pip install openai-whisper)
 import numpy as np 
+from pathlib import Path
 
 # Import your project modules
 from audiolib.asr import long_transcribe as asr_module
@@ -43,21 +44,26 @@ except Exception as e:
 # ground truth transcriptions. The paths should be relative to your project root
 # or wherever you run pytest from.
 # ---
-EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
-    # Format: ("path/to/audio.wav", "expected exact transcription")
-    ("data/numbers/0_jackson_0.wav", "zero"), # Replace "zero" with actual ground truth
-    ("data/numbers/1_jackson_0.wav", "one"),   # Replace "one" with actual ground truth
-    ("data/numbers/2_jackson_0.wav", "two"),   # Replace "two" with actual ground truth
-    ("data/numbers/3_theo_0.wav", "three"), # Replace "three" with actual ground truth
-    ("data/numbers/4_theo_0.wav", "four"),  # Replace "four" with actual ground truth
-    ("data/numbers/5_george_0.wav", "five"),# Replace "five" with actual ground truth
-    ("data/numbers/6_george_0.wav", "six"), # Replace "six" with actual ground truth
-    # Add more files from data/long/ as well if you have ground truth for them
-    # ("data/long/harvard_f.wav", "The stale smell of old beer lingers."), # Example, replace with actual
+
+# --- Test Data ---
+# List of tuples: (audio_filename, expected_number_word)
+# Using relative paths from the project root for data files.
+
+# Using Path objects for better path manipulation
+DATA_DIR_NUMBERS = Path("data/single_words/")
+
+TEST_DATA_NUMBERS = [
+    (DATA_DIR_NUMBERS / "0_jackson_0.wav", "zero"),
+    (DATA_DIR_NUMBERS / "1_jackson_0.wav", "one"),
+    (DATA_DIR_NUMBERS / "2_jackson_0.wav", "two"),
+    (DATA_DIR_NUMBERS / "3_theo_0.wav", "three"),
+    (DATA_DIR_NUMBERS / "4_theo_0.wav", "four"),
+    (DATA_DIR_NUMBERS / "5_george_0.wav", "five"),
+    (DATA_DIR_NUMBERS / "6_george_0.wav", "six"),
 ]
 
 @pytest.mark.skipif(baseline_whisper_model is None, reason="Baseline Whisper model failed to load.")
-@pytest.mark.parametrize("audio_filepath, expected_transcription", EXAMPLE_AUDIO_FILES_WITH_TRUTH)
+@pytest.mark.parametrize("audio_filepath, expected_transcription", TEST_DATA_NUMBERS)
 def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
     """
     Tests the custom DSP->ASR pipeline against baseline Whisper and an expected transcription.

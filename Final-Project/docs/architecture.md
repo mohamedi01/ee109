@@ -22,16 +22,16 @@ Final-Project/
 │           ├─ __init__.py              #(Todo)
 │           └─ slice_summariser.py      # (Todo)
 ├─ data/
-│   ├─ long/
+│   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ harvard_m.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
-│   └─ numbers/
+│   └─ single_words/                    # (~1 second audio clips with single numbers)
 │       ├─ 0_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 1_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 2_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 3_theo_0.wav                 # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 4_theo_0.wav                 # (Downloaded - Succesfully tested on DSP -> ASR)
-│       └─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
+│       ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 |       └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 └─ tests/
     ├─ numbers/
