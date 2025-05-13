@@ -1,51 +1,61 @@
 """
-log-Mel feature extractor (80 × T) with optional
-  • CMVN (3-second sliding window)
-  • Delta & Delta-Delta coefficients
-Target sample-rate: 16 kHz (matches Whisper / Conformer).
+Whisper-compatible log-Mel front-end
+────────────────────────────────────────────────────────────
+Input   : mono WAV / FLAC / OGG / MP3 — *any* sample-rate ≤ 48 kHz
+Output  : float32 ndarray, shape (80, T)
+
+Pipeline
+    1. Resample to 16 kHz (if needed)
+    2. 25 ms / 10 ms Hann-window STFT (400-pt FFT)
+    3. 80-band Mel filterbank  (0 – 8 kHz)
+    4. log10(power + 1e-10)
+    5. Whisper scaling   y = (max(x, −4) + 4) / 4   → roughly [0 … 1]
+No CMVN, no deltas — exactly what Whisper models were trained on.
 """
-from __future__ import annotations
-import numpy as np, torch, torchaudio
-from scipy.ndimage import uniform_filter1d, gaussian_filter1d
 
-# --- static transform -------------------------------------------------
+from pathlib import Path
+import numpy as np
+import torch, torchaudio, soundfile as sf
+
+# ── kernels ──────────────────────────────────────────────────
 _MEL = torchaudio.transforms.MelSpectrogram(
-        sample_rate=16_000,
-        n_fft=400, hop_length=160,        # 25-ms window, 10-ms hop
-        n_mels=80, f_min=20, f_max=7600,
-        power=2.0)
+    sample_rate = 16_000,
+    n_fft       = 400,
+    hop_length  = 160,
+    win_length  = 400,
+    window_fn   = torch.hann_window,
+    n_mels      = 80,
+    f_min       = 0,
+    f_max       = 8_000,
+    power       = 2.0,
+    center      = True,          # Changed from False to True - Whisper uses center=True
+    pad_mode    = "reflect",
+)
 
-# --- helpers ----------------------------------------------------------
-def _cmvn(feat: np.ndarray, max_win: int = 300):
-    """
-    Cepstral/feature mean & variance normalisation.
-    When utterance is shorter than the window, fall back to global μ/σ.
-    `feat` shape: (F, T)
-    returns     : (F, T)
-    """
-    F, T = feat.shape
-    win = min(max_win, T)                     # avoid broadcasting mismatch
-    # per-coeff running mean / var with uniform_filter1d
-    mean = uniform_filter1d(feat, size=win, axis=1, mode="nearest")
-    sqr  = uniform_filter1d(feat**2, size=win, axis=1, mode="nearest")
-    var  = np.maximum(sqr - mean**2, 1e-9)
-    return (feat - mean) / np.sqrt(var)
+def _scale(m):
+    return (np.maximum(m, -4.0) + 4.0) / 4.0        # floor –4 dB → [0,1]
 
-def _add_deltas(base: np.ndarray):
-    delta  = gaussian_filter1d(base, 1, 1, axis=1, mode="nearest")
-    accel  = gaussian_filter1d(base, 1, 2, axis=1, mode="nearest")
-    return np.vstack([base, delta, accel])   # 240 × T
+def wav_to_logmel(path: str | Path) -> np.ndarray:
+    wav, sr = sf.read(path, dtype="float32")
+    x = torch.from_numpy(wav.squeeze())
 
-# --- public API -------------------------------------------------------
-def wav_to_logmel(path: str, cmvn: bool = True, deltas: bool = False) -> np.ndarray:
-    """Return (F, T) float32 – 80 or 240 rows depending on `deltas`."""
-    wav, sr = torchaudio.load(path)
+    # resample anything →16 kHz
     if sr != 16_000:
-        wav = torchaudio.functional.resample(wav, sr, 16_000)
-    mel = torch.clamp(_MEL(wav)[0], 1e-5).log().numpy()    # (80, T)
+        x = torchaudio.functional.resample(x, sr, 16_000)
 
-    if cmvn:
-        mel = _cmvn(mel)
-    if deltas:
-        mel = _add_deltas(mel)
-    return mel.astype("float32")
+    # Whisper expects 30 seconds of audio (480,000 samples at 16kHz)
+    N_SAMPLES = 480_000
+    if len(x) > N_SAMPLES:
+        x = x[:N_SAMPLES]
+    else:
+        # Pad with zeros at the end
+        x = torch.nn.functional.pad(x, (0, N_SAMPLES - len(x)))
+
+    mel_power = _MEL(x) + 1e-10                     # 80×T power spec
+    
+    # Ensure exactly 3000 frames (Whisper's requirement)
+    if mel_power.shape[1] == 3001:
+        mel_power = mel_power[:, :3000]
+    
+    mel_db    = torch.log10(mel_power).numpy()      # log10(power)
+    return _scale(mel_db).astype(np.float32)

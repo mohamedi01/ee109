@@ -1,39 +1,30 @@
-"""
-Whisper-tiny ASR that accepts **external 80×T log-Mel features**,
-so the DSP front-end can feed it directly.
-"""
 from functools import lru_cache
-import numpy as np, torch, transformers
+from typing import Union
+import torch, numpy as np, transformers
 
-MODEL_NAME = "openai/whisper-tiny.en"
+_MODEL  = "openai/whisper-tiny.en"
+_TARGET = 3000               # 30 s → 3 000 frames (10 ms hop)
 
-@lru_cache(maxsize=1)
-def _load(device="cpu"):
+@lru_cache(1)
+def _load(device: str = "cpu"):
     model = transformers.AutoModelForSpeechSeq2Seq.from_pretrained(
-                MODEL_NAME, torch_dtype=torch.float32).to(device).eval()
-    tok   = transformers.AutoTokenizer.from_pretrained(MODEL_NAME)
+        _MODEL, torch_dtype=torch.float32
+    ).to(device).eval()
+    tok   = transformers.AutoTokenizer.from_pretrained(_MODEL)
     return model, tok
 
-def _pad_or_crop(feat: torch.Tensor, target: int = 3000) -> torch.Tensor:
-    T = feat.shape[1]
-    if T < target:
-        pad = torch.zeros((80, target - T), dtype=feat.dtype, device=feat.device)
-        feat = torch.cat([feat, pad], dim=1)
-    elif T > target:
-        feat = feat[:, :target]
-    return feat
+def _pad_or_crop(x: torch.Tensor) -> torch.Tensor:
+    T = x.shape[1]
+    return torch.nn.functional.pad(x, (0, _TARGET - T)) if T < _TARGET else x[:, :_TARGET]
 
-def transcribe_features(logmel: np.ndarray | torch.Tensor,
-                        device: str = "cpu") -> str:
-    """
-    logmel —  float32 array (80, T) in log-Mel space.
-    Pads/crops to 3000 frames (30 s) as Whisper expects.
-    """
+def transcribe_features(mel: Union[np.ndarray, torch.Tensor], device: str = "cpu") -> str:
     model, tok = _load(device)
-    if not torch.is_tensor(logmel):
-        logmel = torch.from_numpy(logmel)
-    logmel = _pad_or_crop(logmel.to(device))
-
+    mel = torch.from_numpy(mel) if not torch.is_tensor(mel) else mel
+    mel = _pad_or_crop(mel.to(device))
     with torch.inference_mode():
-        ids = model.generate(input_features=logmel.unsqueeze(0))[0]
+        ids = model.generate(
+        input_features=mel.unsqueeze(0),
+        do_sample=False,          # ← greedy decoding
+        temperature=0.0,
+    )[0]
     return tok.decode(ids, skip_special_tokens=True).strip()

@@ -6,9 +6,4 @@
 python -m venv ee109_final_project
 source ee109_final_project/bin/activate   
 pip install -r requirements.txt
-python - <<'PY'
-from src import dsp
-mfcc = dsp.wav_to_mfcc("data/sample.wav")
-print("MFCC shape:", mfcc.shape)
-PY
 ``` 
