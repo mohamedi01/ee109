@@ -53,8 +53,9 @@ The project uses `pytest` for testing.
 
 3.  **Run specific test files or tests with more verbose output:**
     ```bash
-    pytest -s tests/long/test_asr_long.py
-    pytest -s tests/numbers/test_asr_numbers.py
+    pytest -s tests/test_DSP_to_ASR/test_asr_short_sentences.py
+    pytest -s tests/test_DSP_to_ASR/test_asr_single_words.py
+    pytest -s tests/test_DSP_to_ASR/test_dsp_single_words.py
     ```
     The `-s` flag shows output from `print()` statements, which can be helpful for debugging or observing test details.
 
@@ -74,4 +75,4 @@ The project uses `pytest` for testing.
 *   Expand CLI functionality for easier use and batch processing.
 
 ## Notes
-* The `test_short_sentences.py` file is currently marked as redundant in `docs/architecture.md`. If it's actively used or will be, please update the documentation accordingly.
+* The test file `tests/test_short_sentences.py` (previously at the root of the tests directory) has been removed as it was redundant.

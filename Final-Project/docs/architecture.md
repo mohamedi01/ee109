@@ -34,9 +34,8 @@ Final-Project/
 │       ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 |       └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 └─ tests/
-    ├─ numbers/
-    │   ├─ test_asr_numbers.py          # (Tests ASR on numbers, compares custom DSP->ASR pipeline with baseline Whisper)
-    │   └─ test_dsp_numbers.py          # (Tests DSP components on number recordings)
-    ├─ long/
-    │   └─ test_asr_long.py             # (Tests ASR on long audio files, compares custom DSP->ASR pipeline with baseline Whisper)
-    └─ test_short_sentences.py         # (Redundant)
+    └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline
+        ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper)
+        ├─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper)
+        └─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings)
+                                        # (Note: test_short_sentences.py previously at root of tests/ was removed as redundant)
