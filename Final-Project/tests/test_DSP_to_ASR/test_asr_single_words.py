@@ -68,14 +68,17 @@ def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
     """
     Tests the custom DSP->ASR pipeline against baseline Whisper and an expected transcription.
     """
+    # Convert Path object to string for functions expecting string paths
+    audio_filepath_str = str(audio_filepath)
+
     # 1. Get transcription from your DSP -> ASR pipeline
-    pipeline_transcript = run_custom_pipeline(audio_filepath)
+    pipeline_transcript = run_custom_pipeline(audio_filepath_str)
 
     # 2. Get transcription from baseline Whisper (using openai-whisper directly)
-    baseline_result = baseline_whisper_model.transcribe(audio_filepath)
+    baseline_result = baseline_whisper_model.transcribe(audio_filepath_str)
     baseline_transcript = baseline_result["text"].strip()
 
-    print(f"\n--- Testing Audio File: {audio_filepath} ---")
+    print(f"\n--- Testing Audio File: {audio_filepath_str} ---")
     print(f"Expected Transcription:    '{expected_transcription}'")
     print(f"Custom Pipeline Output:    '{pipeline_transcript}'")
     print(f"Baseline Whisper Output:   '{baseline_transcript}'")
@@ -121,13 +124,13 @@ def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
     assert normalized_pipeline_transcript in acceptable_forms, \
         f"Custom pipeline output '{pipeline_transcript}' (processed: '{normalized_pipeline_transcript}') " \
         f"is not among acceptable forms {acceptable_forms} for expected '{expected_transcription}' " \
-        f"(normalized: '{normalized_expected_transcription}') for {audio_filepath}."
+        f"(normalized: '{normalized_expected_transcription}') for {audio_filepath_str}."
 
     # Optional: Log if baseline also matches/differs from expected (for informational purposes)
     if baseline_transcript.lower() == expected_transcription.lower():
-        print(f"INFO: Baseline Whisper also matched expected transcription for {audio_filepath}.")
+        print(f"INFO: Baseline Whisper also matched expected transcription for {audio_filepath_str}.")
     else:
-        print(f"INFO: Baseline Whisper ('{baseline_transcript}') differed from expected ('{expected_transcription}') for {audio_filepath}.")
+        print(f"INFO: Baseline Whisper ('{baseline_transcript}') differed from expected ('{expected_transcription}') for {audio_filepath_str}.")
 
     # For more advanced accuracy measurement, consider Word Error Rate (WER).
     # You would need to install the 'jiwer' library: pip install jiwer
@@ -155,8 +158,8 @@ def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
         print(f"WER (Baseline vs Expected): {wer_baseline_vs_expected:.4f}")
     
         assert wer_pipeline_vs_expected <= wer_baseline_vs_expected + 0.05, \
-            f"Pipeline WER ({wer_pipeline_vs_expected:.4f}) is not better than or close to Baseline WER ({wer_baseline_vs_expected:.4f}) for {audio_filepath}."
+            f"Pipeline WER ({wer_pipeline_vs_expected:.4f}) is not better than or close to Baseline WER ({wer_baseline_vs_expected:.4f}) for {audio_filepath_str}."
     except ImportError:
         print("INFO: 'jiwer' library not installed. Skipping WER calculation. (pip install jiwer)")
     except Exception as e_wer:
-        print(f"Error calculating WER for {audio_filepath}: {e_wer}")
+        print(f"Error calculating WER for {audio_filepath_str}: {e_wer}")

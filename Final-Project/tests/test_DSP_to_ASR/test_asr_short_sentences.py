@@ -107,29 +107,16 @@ except Exception as e:
     print("Please ensure 'openai-whisper' is installed and models can be downloaded.")
     baseline_whisper_model = None
 
+# --- USER ACTION REQUIRED ---
+# Update this list with paths to your audio files and their corresponding
+# ground truth transcriptions. The paths should be relative to your project root
+# or wherever you run pytest from.
+# ---
 EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
-    ("data/long/harvard_f.wav", 
-     "The birch canoe slid on the smooth planks. "
-     "Glue the sheet to the dark blue background. "
-     "It's easy to tell the depth of a well. "
-     "These days a chicken leg is a rare dish. "
-     "Rice is often served in round bowls. "
-     "The juice of lemons makes fine punch. "
-     "The box was thrown beside the parked truck. "
-     "The hogs were fed chopped corn and garbage. "
-     "Four hours of steady work faced us. "
-     "A large size in stockings is hard to sell."),
-    ("data/long/harvard_m.wav", 
-     "nudge gently but wake her now. "
-     "The news struck doubt into restless minds. "
-     "Once we stood beside the shore. "
-     "A chink in the wall allowed a draft to blow. "
-     "Fasten two pins on each side. "
-     "A cold dip restores health and zest. "
-     "He takes the oath of office each March. "
-     "The sand drifts over the sill of the old house. "
-     "The point of the steel pen was bent and twisted. "
-     "There is a lag between thought and act."),
+    # Format: ("path/to/audio.wav", "expected exact transcription")
+    ("data/short_sentences/harvard_f.wav", "The birch canoe slid on the smooth planks. Glue the sheet to the dark blue background. It's easy to tell the depth of a well. These days a chicken leg is a rare dish. Rice is often served in round bowls. The juice of lemons makes fine punch. The box was thrown beside the parked truck. The hogs were fed chopped corn and garbage. Four hours of steady work faced us. A large size in stockings is hard to sell."),
+    ("data/short_sentences/harvard_m.wav", "nudge gently but wake her now. The news struck doubt into restless minds. Once we stood beside the shore. A chink in the wall allowed a draft to blow. Fasten two pins on each side. A cold dip restores health and zest. He takes the oath of office each March. The sand drifts over the sill of the old house. The point of the steel pen was bent and twisted. There is a lag between thought and act."),
+    # Add more files as needed
 ]
 
 @pytest.mark.skipif(baseline_whisper_model is None, reason="Baseline Whisper model failed to load.")
