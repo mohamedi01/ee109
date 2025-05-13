@@ -54,6 +54,7 @@ The project uses `pytest` for testing.
 3.  **Run specific test files or tests with more verbose output:**
     ```bash
     pytest -s tests/test_DSP/test_dsp_single_words.py
+    pytest -s tests/test_DSP/test_dsp_short_sentences.py
     pytest -s tests/test_DSP_to_ASR/test_asr_short_sentences.py
     pytest -s tests/test_DSP_to_ASR/test_asr_single_words.py
     ```

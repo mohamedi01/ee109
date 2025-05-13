@@ -25,6 +25,7 @@ Final-Project/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ harvard_m.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
+|   |
 │   └─ single_words/                    # (~1 second audio clips with single numbers)
 │       ├─ 0_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 1_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
@@ -32,9 +33,14 @@ Final-Project/
 │       ├─ 3_theo_0.wav                 # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 4_theo_0.wav                 # (Downloaded - Succesfully tested on DSP -> ASR)
 │       ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
-|       └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
-└─ tests/
-    └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline
+│       └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
+|
+└─ tests/  
+    ├─ test_DSP/
+    │   └─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings) (Finalized)
+    │   └─ test_dsp_short_sentences.py  # (Tests DSP components on short sentence recordings)
+    │
+    └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
         ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper)
         ├─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper)
         └─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings)
