@@ -18,7 +18,7 @@ import numpy as np
 import torch, torchaudio, soundfile as sf
 
 # ── kernels ──────────────────────────────────────────────────
-_MEL = torchaudio.transforms.MelSpectrogram(
+_MEL_SPEC = torchaudio.transforms.MelSpectrogram(
     sample_rate = 16_000,
     n_fft       = 400,
     hop_length  = 160,
@@ -28,34 +28,26 @@ _MEL = torchaudio.transforms.MelSpectrogram(
     f_min       = 0,
     f_max       = 8_000,
     power       = 2.0,
-    center      = True,          # Changed from False to True - Whisper uses center=True
-    pad_mode    = "reflect",
+    center      = False,          # <<<<< key: Whisper uses center=False
 )
 
-def _scale(m):
-    return (np.maximum(m, -4.0) + 4.0) / 4.0        # floor –4 dB → [0,1]
+def _whisper_scale(mel_db: np.ndarray) -> np.ndarray:
+    return (np.maximum(mel_db, -4.0) + 4.0) / 4.0
 
+# ── public API ──────────────────────────────────────────────
 def wav_to_logmel(path: str | Path) -> np.ndarray:
     wav, sr = sf.read(path, dtype="float32")
     x = torch.from_numpy(wav.squeeze())
 
-    # resample anything →16 kHz
+    # resample any Fs→16 k
     if sr != 16_000:
         x = torchaudio.functional.resample(x, sr, 16_000)
 
-    # Whisper expects 30 seconds of audio (480,000 samples at 16kHz)
-    N_SAMPLES = 480_000
-    if len(x) > N_SAMPLES:
-        x = x[:N_SAMPLES]
-    else:
-        # Pad with zeros at the end
-        x = torch.nn.functional.pad(x, (0, N_SAMPLES - len(x)))
+    # reflect-pad by one FFT length (400 samples) on both sides
+    x = torch.nn.functional.pad(x.unsqueeze(0), (400, 400), mode="reflect").squeeze(0)
 
-    mel_power = _MEL(x) + 1e-10                     # 80×T power spec
-    
-    # Ensure exactly 3000 frames (Whisper's requirement)
-    if mel_power.shape[1] == 3001:
-        mel_power = mel_power[:, :3000]
-    
-    mel_db    = torch.log10(mel_power).numpy()      # log10(power)
-    return _scale(mel_db).astype(np.float32)
+    # Mel power → log10
+    mel_power = _MEL_SPEC(x) + 1e-10
+    mel_db = torch.log10(mel_power).numpy()
+
+    return _whisper_scale(mel_db).astype(np.float32)

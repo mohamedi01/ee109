@@ -2,7 +2,7 @@ from functools import lru_cache
 from typing import Union
 import torch, numpy as np, transformers
 
-_MODEL  = "openai/whisper-tiny.en"
+_MODEL  = "openai/whisper-base.en"
 _TARGET = 3000               # 30 s → 3 000 frames (10 ms hop)
 
 @lru_cache(1)
@@ -24,7 +24,6 @@ def transcribe_features(mel: Union[np.ndarray, torch.Tensor], device: str = "cpu
     with torch.inference_mode():
         ids = model.generate(
         input_features=mel.unsqueeze(0),
-        do_sample=False,          # ← greedy decoding
-        temperature=0.0,
+        do_sample=False,          
     )[0]
     return tok.decode(ids, skip_special_tokens=True).strip()
