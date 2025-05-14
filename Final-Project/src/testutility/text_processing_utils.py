@@ -19,17 +19,12 @@ def _load_homophones_from_csv_internal(csv_path: Path) -> dict[str, str]:
     The first word in each line is the canonical form.
     """
     homophone_map = {}
-    if not csv_path.is_file():
-        print(f"WARNING: Homophones CSV file not found at {csv_path}. CSV-based homophone map will be empty.")
-        return {}
-    
     
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
         for row in reader:
-            if not row:  # Skip empty lines
+            if not row or row[0] == "#":  # Skip empty lines or comment lines
                 continue
-            
             # Normalize all words to lowercase and strip whitespace
             words = [word.strip().lower() for word in row if word.strip()]
             
@@ -47,9 +42,6 @@ def get_comprehensive_canonical_map() -> dict[str, str]:
     Creates and returns a comprehensive canonical map including:
     1. Homophones loaded from 'data/homophones.csv'.
     2. Digit-to-word mappings (e.g., "1" -> "one").
-
-    The digit-to-word mappings will take precedence if a digit key
-    also exists as a variant in the homophones CSV.
     """
     project_root = get_project_root()
     homophones_csv_path = project_root / "data" / "homophones.csv"
@@ -91,9 +83,3 @@ def apply_canonical_map_to_text(text: str, canonical_map: dict) -> str:
     words = text.split()
     normalized_words = [canonical_map.get(word, word) for word in words]
     return " ".join(normalized_words)
-
-# For convenience, you could also keep a combined function if needed elsewhere,
-# but the request is to separate for tests.
-# def normalize_text_fully(text: str) -> str:
-#     base_normalized_text = normalize_text_base(text)
-#     return apply_canonical_map_to_text(base_normalized_text, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
