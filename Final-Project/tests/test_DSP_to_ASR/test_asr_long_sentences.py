@@ -23,13 +23,13 @@ def clear_whisper_model_cache():
 
 AUDIO_DATA_DIR = Path("data/long_sentences/")
 TRANSCRIPT_DATA_DIR = Path("data/transcripts/long_sentences/")
-    
-# !!! USER ACTION REQUIRED !!!
-# EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
-#     (AUDIO_DATA_DIR / "my_long_audio_sample_1.wav", TRANSCRIPT_DATA_DIR / "my_long_audio_sample_1.txt"),
-#     (AUDIO_DATA_DIR / "my_long_audio_sample_2.wav", TRANSCRIPT_DATA_DIR / "my_long_audio_sample_2.txt"),
-# ]i
-EXAMPLE_AUDIO_FILES_WITH_TRUTH = [] 
+
+EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
+    (AUDIO_DATA_DIR / "bird.mp3", TRANSCRIPT_DATA_DIR / "bird.txt"),
+    (AUDIO_DATA_DIR / "cold.mp3", TRANSCRIPT_DATA_DIR / "cold.txt"),
+    (AUDIO_DATA_DIR / "face.mp3", TRANSCRIPT_DATA_DIR / "face.txt"),
+    (AUDIO_DATA_DIR / "hot.mp3", TRANSCRIPT_DATA_DIR / "hot.txt"),
+] 
 
 
 def run_custom_pipeline(audio_path: Union[str, Path], device: str = "cpu") -> str:
@@ -77,9 +77,9 @@ def test_asr_accuracy_long_sentences(audio_filepath, expected_transcription_path
 
     # 5. Print Transcription outputs
     print(f"\n--- Testing Audio File (Long Sentence): {audio_filepath} ---")
-    print(f"Expected (Final - post normalization): \n    Original: '{expected_transcription}'\n    Normalized: '{norm_expected_final}'\n")
-    print(f"Custom Pipeline (Final - post normalization): \n    Original: '{pipeline_transcript}'\n    Normalized: '{norm_pipeline_final}'\n")
-    print(f"Baseline Whisper (Final - post normalization): \n    Original: '{baseline_transcript}'\n    Normalized: '{norm_baseline_final}'\n")
+    print(f"Expected (Final - post normalization): \n\n    Original: '{expected_transcription}'\n\n    Normalized: '{norm_expected_final}'\n")
+    print(f"Custom Pipeline (Final - post normalization): \n\n    Original: '{pipeline_transcript}'\n\n    Normalized: '{norm_pipeline_final}'\n")
+    print(f"Baseline Whisper (Final - post normalization): \n\n    Original: '{baseline_transcript}'\n\n    Normalized: '{norm_baseline_final}'\n")
 
     # 6. Calculate WER and print results
     pipeline_wer = wer(norm_expected_final, norm_pipeline_final)

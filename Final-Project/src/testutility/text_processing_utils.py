@@ -1,6 +1,7 @@
 import csv
 from pathlib import Path
 import re
+import string
 
 def get_project_root() -> Path:
     """
@@ -56,17 +57,24 @@ DEFAULT_COMPREHENSIVE_CANONICAL_MAP = get_comprehensive_canonical_map()
 
 def normalize_text_for_wer(text: str) -> str:
     """
-    Normalizes text for Word Error Rate (WER) calculation by:
-    - Lowercasing
-    - Normalizing fancy apostrophes (e.g., ’ to ')
-    - Removing common punctuation (periods, commas, question marks, exclamation marks, semicolons, colons)
-    - Normalizing whitespace (multiple spaces to single, strip leading/trailing)
+    Normalizes text for WER calculation:
+    1. Converts to lowercase.
+    2. Removes all punctuation.
+    3. Replaces common contractions.
+    4. Replaces numerals with words (e.g., "1" -> "one").
+    5. Removes/Replaces other specific patterns/characters for consistency.
     """
     text = text.lower()
-    text = text.replace('’', "'") # Normalize fancy apostrophes to simple ones
 
-    # Remove common punctuation (keeps apostrophes within words like "it's")
-    text = re.sub(r"[.,?!;:]", "", text)
+    # Remove all punctuation
+    # string.punctuation is '"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~'
+    text = ''.join(char for char in text if char not in string.punctuation)
+
+    # Replace common contractions (add more as needed)
+    text = text.replace("\'s", " is") # e.g., "it's" -> "it is"
+
+    # Normalize fancy apostrophes (e.g., ’ to ')
+    text = text.replace('’', "'")
     
     # Normalize whitespace
     text = re.sub(r'\s+', ' ', text).strip()

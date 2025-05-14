@@ -39,7 +39,10 @@ Final-Project/
 │   │   └─ harvard_m.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │
 │   ├─ long_sentences/                  # (Longer audio clips, e.g., 1-5 minutes, for more extensive pipeline testing)
-│   │   └─ (e.g., audio files corresponding to transcripts below)      
+│   │   ├─ bird.mp3
+│   │   ├─ cold.mp3
+│   │   ├─ face.mp3
+│   │   └─ hot.mp3      
 │   │
 │   ├─ single_words/                    # (~1 second audio clips with single numbers)
 │   │   ├─ 0_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
@@ -58,7 +61,6 @@ Final-Project/
 │   │   ├─ long_sentences/              # Transcripts for long sentence audio files
 │   │   │   ├─ bird.txt
 │   │   │   ├─ cold.txt
-│   │   │   ├─ eyes.txt
 │   │   │   ├─ face.txt
 │   │   │   └─ hot.txt
 │   │   │

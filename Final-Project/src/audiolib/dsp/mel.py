@@ -73,13 +73,16 @@ def _whisper_scale(mel_db: np.ndarray) -> np.ndarray:
     return (mel_db + 4.0) / 4.0
 
 def wav_to_logmel(
-    path: Union[str, Path],
+    path: Union[str, Path, None] = None,
+    audio_data: Optional[np.ndarray] = None,
+    sr_in: Optional[int] = None,
     dynamic_range_db: float = 8.0,
     device: Union[str, torch.device] = "cpu",
 ) -> np.ndarray:
     """
-    Convert audio file to log-mel spectrogram using Whisper-compatible settings.
-    Audio is loaded as float32. It's then resampled to 16kHz.
+    Convert audio file or audio data to log-mel spectrogram using Whisper-compatible settings.
+    If audio_data and sr_in are provided, they are used. Otherwise, path is used to load audio.
+    Audio is loaded/expected as float32. It's then resampled to 16kHz.
     A simulation of int16 quantization (scaling, clipping, casting to int16,
     then casting back to float32 and dividing by 32768.0) is applied to the
     16kHz audio to align with ffmpeg-based processing in Whisper's reference.
@@ -87,21 +90,41 @@ def wav_to_logmel(
         
     Returns: Log-mel spectrogram as numpy array of shape (n_mels, T)
     """
-    if not Path(path).exists():
-        raise FileNotFoundError(f"Audio file not found: {path}")
-    
-    try:
-        wav_data_from_sf, sr = sf.read(path, dtype="float32")
-    except Exception as e:
-        raise RuntimeError(f"Failed to load audio file: {e}")
-    
+    actual_sr: int
+    wav_data_float32: np.ndarray # This will be 1D float32 array
+
+    if audio_data is not None and sr_in is not None:
+        if not isinstance(audio_data, np.ndarray) or audio_data.ndim != 1:
+            raise ValueError(
+                f"audio_data must be a 1D numpy array, got shape "
+                f"{audio_data.shape if isinstance(audio_data, np.ndarray) else type(audio_data)}"
+            )
+        if audio_data.dtype != np.float32:
+            wav_data_float32 = audio_data.astype(np.float32)
+        else:
+            wav_data_float32 = audio_data
+        actual_sr = sr_in
+    elif path is not None:
+        if not Path(path).exists():
+            raise FileNotFoundError(f"Audio file not found: {path}")
+        try:
+            # sf.read with dtype="float32" and always_2d=False (default) gives 1D float32 array for mono.
+            loaded_data, loaded_sr = sf.read(str(path), dtype="float32", always_2d=False)
+            if loaded_data.ndim != 1: # Check if mono
+                 raise ValueError(f"Expected mono audio resulting in 1D array from sf.read, got {loaded_data.ndim}D for {path}")
+            wav_data_float32 = loaded_data
+            actual_sr = loaded_sr
+        except Exception as e:
+            raise RuntimeError(f"Failed to load audio file '{path}': {e}")
+    else:
+        raise ValueError("Either 'path' or 'audio_data' (with 'sr_in') must be provided to wav_to_logmel.")
+
     device = torch.device(device)
-    
-    x_tensor_at_original_sr = torch.from_numpy(wav_data_from_sf.squeeze()).to(device)
+    x_tensor_at_original_sr = torch.from_numpy(wav_data_float32).to(device)
 
     # Resample to DEFAULT_SAMPLE_RATE (16kHz) if needed
-    if sr != DEFAULT_SAMPLE_RATE:
-        x_tensor_16khz = torchaudio.functional.resample(x_tensor_at_original_sr, sr, DEFAULT_SAMPLE_RATE)
+    if actual_sr != DEFAULT_SAMPLE_RATE:
+        x_tensor_16khz = torchaudio.functional.resample(x_tensor_at_original_sr, actual_sr, DEFAULT_SAMPLE_RATE)
     else:
         x_tensor_16khz = x_tensor_at_original_sr
     

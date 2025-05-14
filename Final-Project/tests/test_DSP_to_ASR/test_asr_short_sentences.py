@@ -71,9 +71,9 @@ def test_asr_accuracy_comparison_long(audio_filepath, expected_transcription_pat
 
     # 5. Print Transcription outputs
     print(f"\n--- Testing Audio File: {audio_filepath} ---")
-    print(f"Expected (Final - post normalization): \n    Original: '{expected_transcription}'\n    Normalized: '{norm_expected_final}'\n")
-    print(f"Custom Pipeline (Final - post normalization): \n    Original: '{pipeline_transcript}'\n    Normalized: '{norm_pipeline_final}'\n")
-    print(f"Baseline Whisper (Final - post normalization): \n    Original: '{baseline_transcript}'\n    Normalized: '{norm_baseline_final}'\n")
+    print(f"Expected (Final - post normalization): \n    Original: '{expected_transcription}'\n\n    Normalized: '{norm_expected_final}'\n")
+    print(f"Custom Pipeline (Final - post normalization): \n    Original: '{pipeline_transcript}'\n\n    Normalized: '{norm_pipeline_final}'\n")
+    print(f"Baseline Whisper (Final - post normalization): \n    Original: '{baseline_transcript}'\n\n    Normalized: '{norm_baseline_final}'\n")
 
     # 6. Calculate WER and print results
     pipeline_wer = wer(norm_expected_final, norm_pipeline_final)

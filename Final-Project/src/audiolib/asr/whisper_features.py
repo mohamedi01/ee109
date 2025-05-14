@@ -26,17 +26,22 @@ def transcribe_features(mel: Union[np.ndarray, torch.Tensor], device: str = "cpu
     processed_mel_t = _pad_or_crop(mel_t)
 
     # ---- decoding options 
+    # Default options aligned with Whisper common practice
     opts = dict(
-        input_features=processed_mel_t.unsqueeze(0)
+        input_features=processed_mel_t.unsqueeze(0),
+        num_beams=5, # Whisper default beam size
     )
     
     # Apply special options for very short original clips (before padding/cropping)
     # This condition checks the original length of mel_t
-    if mel_t.shape[1] < 300:           # 300 frames ≈ 3 s (original mel length)
+    original_mel_frames = mel_t.shape[1]
+    if original_mel_frames < 300: # 300 frames ≈ 3 s (original mel length)
         opts.update(
-            num_beams=8,
+            num_beams=8, # Can use a slightly larger beam for very short segments
             length_penalty=0.1,
-            max_new_tokens=3,          
+            # Make max_new_tokens more dynamic: ~1 token per 0.5s (100 frames per second -> 50 frames per 0.5s)
+            # Ensure at least 3 tokens.
+            max_new_tokens=max(3, int(original_mel_frames / 50)),          
         )
 
     with torch.inference_mode():

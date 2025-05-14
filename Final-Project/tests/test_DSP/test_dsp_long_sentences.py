@@ -12,7 +12,7 @@ from whisper.audio import load_audio, HOP_LENGTH as WHISPER_HOP_LENGTH, N_FFT as
 # Define the directory containing long sentence audio files.
 # Paths are relative to the project root.
 DATA_DIR_LONG_SENTENCES = Path("data/long_sentences/")
-TEST_AUDIO_FILES_LONG_SENTENCES = list(DATA_DIR_LONG_SENTENCES.glob("*.wav"))
+TEST_AUDIO_FILES_LONG_SENTENCES = list(DATA_DIR_LONG_SENTENCES.glob("*.mp3"))
 
 @pytest.mark.parametrize("audio_file_path", TEST_AUDIO_FILES_LONG_SENTENCES)
 def test_logmel_features_properties_long_sentences(audio_file_path):
@@ -31,7 +31,7 @@ def test_logmel_features_properties_long_sentences(audio_file_path):
     
     # Load audio to get original sample count at 16kHz for calculating expected frames.
     # whisper.audio.load_audio resamples to 16kHz by default.
-    raw_audio_samples = load_audio(audio_file_path_str) 
+    raw_audio_samples = load_audio(audio_file_path_str)
     num_samples = raw_audio_samples.shape[0]
 
     features = wav_to_logmel(audio_file_path_str)

@@ -64,10 +64,19 @@ def transcribe_audio_file(
     # File existence check is implicitly handled by sf.info and sf.read
 
     info = sf.info(str(audio_path_obj))
-    duration_seconds = info.duration
+    duration_seconds = info.duration # Not directly used after this, but good for context
 
     # Load audio. Expecting mono .wav, so wav_data should be 1D.
     wav_data, sr_loaded = sf.read(str(audio_path_obj), dtype="float32", always_2d=False)
+
+    # Ensure wav_data is 1D
+    if wav_data.ndim > 1:
+        # Attempt to select the first channel if stereo, or raise error for >2 channels
+        if wav_data.ndim == 2 and wav_data.shape[1] > 0:
+            # print(f"Warning: Audio file {audio_path_obj} appears to be stereo. Using only the first channel.")
+            wav_data = wav_data[:, 0] 
+        else:
+            raise ValueError(f"Audio file {audio_path_obj} has unsupported shape {wav_data.shape}. Expected mono audio (1D array).")
 
     wav_tensor = torch.from_numpy(wav_data) 
 
@@ -98,17 +107,18 @@ def transcribe_audio_file(
         if current_chunk_len < WIN_SAMPLES:
             padding_needed = WIN_SAMPLES - current_chunk_len
             pad_shape = (padding_needed,) # Padding for 1D array
-            pad_array = 1e-4 * np.random.randn(*pad_shape).astype(current_chunk_np.dtype)
+            # Change padding from random noise to zeros
+            pad_array = np.zeros(pad_shape, dtype=current_chunk_np.dtype)
             current_chunk_np = np.concatenate([current_chunk_np, pad_array], axis=-1)
 
         
-        # sf.write handles 1D mono data directly
-        chunk_for_sfwrite = current_chunk_np
-
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=True) as tmp:
-            sf.write(tmp.name, chunk_for_sfwrite, DEFAULT_ASR_SAMPLE_RATE)
-            # wav_to_logmel takes path and expects a mono .wav file
-            mel_spectrogram = wav_to_logmel(tmp.name, device=device)
+        # Process the chunk directly without saving to a temporary file
+        # current_chunk_np is already 1D float32 and at DEFAULT_ASR_SAMPLE_RATE
+        mel_spectrogram = wav_to_logmel(
+            audio_data=current_chunk_np, 
+            sr_in=DEFAULT_ASR_SAMPLE_RATE, 
+            device=device
+        )
         
         current_transcript = transcribe_features(mel_spectrogram, device=device).strip()
 
