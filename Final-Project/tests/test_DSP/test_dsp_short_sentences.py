@@ -24,14 +24,11 @@ def test_logmel_features_properties_short_sentences(audio_file_path):
 
     print(f"\n--- Testing DSP on: {audio_file_path_str} ---")
     
-    try:
-        # Load audio to get original sample count at 16kHz for calculating expected frames.
-        raw_audio_samples = load_audio(audio_file_path_str) #
-        num_samples = raw_audio_samples.shape[0]
+    # Load audio to get original sample count at 16kHz for calculating expected frames.
+    raw_audio_samples = load_audio(audio_file_path_str) #
+    num_samples = raw_audio_samples.shape[0]
 
-        features = wav_to_logmel(audio_file_path_str)
-    except Exception as e:
-        pytest.fail(f"wav_to_logmel failed for {audio_file_path_str} with error: {e}")
+    features = wav_to_logmel(audio_file_path_str)
 
     # 1. Test the number of Mel bands (first dimension of the shape)
     expected_mel_bands = 80
