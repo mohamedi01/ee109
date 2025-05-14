@@ -1,8 +1,3 @@
-""" 
-Tests the DSP (wav_to_logmel) processing for single word audio files.
-Verifies spectrogram characteristics like shape, dtype, and value range. 
-"""
-
 import pytest
 import numpy as np
 from pathlib import Path
