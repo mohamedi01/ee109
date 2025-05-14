@@ -24,10 +24,12 @@ Final-Project/
 │       │   ├─ __init__.py              # (Finalized for software implementation: Exports core ASR functions.)
 │       │   ├─ transcribe.py            # (Finalized for software implementation: Provides `transcribe_audio_file`, the main ASR entry point.)
 │       │   └─ whisper_features.py      # (Finalized for software implementation: Provides `transcribe_features` for running Whisper model inference on Mel spectrograms.)
+│       │
 │       ├─ nlp/
 │       │   ├─ __init__.py              # (Finalized for software implementation: Exports core NLP functionalities like `analyze_text`)
 │       │   ├─ nlp.py                   # (Finalized for software implementation: Provides core NLP functions: `analyze_text` for keyword/topic classification and summarization, model loading, performance metrics, and evaluation utilities)
 │       │   └─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities, particularly `analyze_text`)
+│       ├─ pipeline.py                  # (Provides the integrated DSP->ASR->NLP pipeline function `process_audio_to_nlp`)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
 │           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/Testing-Normalization/homophones.csv for testing purposes) (Finalized)
@@ -35,7 +37,10 @@ Final-Project/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ harvard_m.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
-|   |
+│   │
+│   ├─ long_sentences/                  # (Longer audio clips, e.g., 1-5 minutes, for more extensive pipeline testing)
+│   │   └─ (e.g., audio files corresponding to transcripts below)      
+│   │
 │   ├─ single_words/                    # (~1 second audio clips with single numbers)
 │   │   ├─ 0_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   ├─ 1_jackson_0.wav              # (Downloaded - Succesfully tested on DSP -> ASR)
@@ -45,6 +50,27 @@ Final-Project/
 │   │   ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │
+│   ├─ transcripts/                     # Ground truth transcriptions for testing
+│   │   ├─ short_sentences/             # Transcripts for short sentence audio files
+│   │   │   ├─ harvard_f.txt           
+│   │   │   └─ harvard_m.txt          
+│   │   │
+│   │   ├─ long_sentences/              # Transcripts for long sentence audio files
+│   │   │   ├─ bird.txt
+│   │   │   ├─ cold.txt
+│   │   │   ├─ eyes.txt
+│   │   │   ├─ face.txt
+│   │   │   └─ hot.txt
+│   │   │
+│   │   └─ single_words/               # Transcripts for single word audio files
+│   │       ├─ 0_jackson_0.txt        
+│   │       ├─ 1_jackson_0.txt         
+│   │       ├─ 2_jackson_0.txt         
+│   │       ├─ 3_theo_0.txt           
+│   │       ├─ 4_theo_0.txt            
+│   │       ├─ 5_george_0.txt          
+│   │       └─ 6_george_0.txt         
+│   │
 │   └─ normalization                    # Folder for testing and normalization data
 │       └─ homophones.csv               # (Downloaded & edited - Used for text normalization during WER calculation)
 │       
@@ -52,10 +78,18 @@ Final-Project/
 └─ tests/  
     ├─ test_DSP/
     │   ├─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings) (Finalized)
-    │   └─ test_dsp_short_sentences.py  # (Tests DSP components on short sentence recordings) (Finalized)
+    │   ├─ test_dsp_short_sentences.py  # (Tests DSP components on short sentence recordings) (Finalized)
+    │   └─ test_dsp_long_sentences.py   # (Tests DSP components on long sentence recordings)
     │
-    └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
-        ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
-        └─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
-    └─ test_NLP/
-        └─ test_nlp.py                  # (Tests NLP functionalities including `analyze_text`, performance measurements, and classifier evaluation)
+    ├─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
+    │   ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
+    │   ├─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
+    │   └─ test_asr_long_sentences.py   # (Tests ASR on long sentence audio, compares custom DSP->ASR pipeline with baseline Whisper)
+    │
+    ├─ test_NLP/
+    │   ├─ test_nlp.py                  # (Tests NLP functionalities including `analyze_text`, performance measurements, and classifier evaluation)
+    │   ├─ test_nlp_on_short_sentence_transcripts.py # (Tests NLP module directly with transcripts of short sentences)
+    │   └─ test_nlp_on_long_sentence_transcripts.py  # (Tests NLP module directly with transcripts of long sentences)
+    │
+    └─ test_pipeline/                   # Tests for the full DSP->ASR->NLP integrated pipeline
+        └─ test_integration.py          # (Smoke tests and detailed checks for the `process_audio_to_nlp` pipeline)

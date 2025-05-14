@@ -29,11 +29,11 @@ For a more detailed view of the architecture, please see [docs/architecture.md](
 
 2.  **Create and activate a virtual environment**
     ```bash
-    python -m venv venv
+    python -m venv ee109_final_project
     # On Windows
     # venv\Scripts\activate
     # On macOS/Linux
-    # source venv/bin/activate
+    # source ee109_final_project/bin/activate
     ```
 
 3.  **Install dependencies:**
