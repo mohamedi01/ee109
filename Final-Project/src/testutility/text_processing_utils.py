@@ -40,11 +40,11 @@ def _load_homophones_from_csv_internal(csv_path: Path) -> dict[str, str]:
 def get_comprehensive_canonical_map() -> dict[str, str]:
     """
     Creates and returns a comprehensive canonical map including:
-    1. Homophones loaded from 'data/homophones.csv'.
+    1. Homophones loaded from 'data/normalization/homophones.csv'.
     2. Digit-to-word mappings (e.g., "1" -> "one").
     """
     project_root = get_project_root()
-    homophones_csv_path = project_root / "data" / "homophones.csv"
+    homophones_csv_path = project_root / "data" / "normalization" / "homophones.csv"
     
     # Load homophones from CSV
     canonical_map = _load_homophones_from_csv_internal(homophones_csv_path)

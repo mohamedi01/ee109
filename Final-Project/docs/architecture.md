@@ -29,7 +29,7 @@ Final-Project/
 │       │   └─ slice_summariser.py      # (Todo)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
-│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/homophones.csv for testing purposes) (Finalized)
+│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/Testing-Normalization/homophones.csv for testing purposes) (Finalized)
 ├─ data/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
@@ -44,7 +44,9 @@ Final-Project/
 │   │   ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │
-│   └─ homophones.csv                   # (Downloaded & edited- Used for text normalization during WER calculation)
+│   └─ normalization                    # Folder for testing and normalization data
+│       └─ homophones.csv               # (Downloaded & edited - Used for text normalization during WER calculation)
+│       
 │
 └─ tests/  
     ├─ test_DSP/
