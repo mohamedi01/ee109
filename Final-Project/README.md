@@ -19,7 +19,7 @@ For our EE109 final project, we are implementing a Python-based audio transcript
 
 ## Data Sources and Acknowledgements
 
-*   **Homophone List**: For text normalization during Word Error Rate (WER) calculation, this project utilizes a list of English homophones sourced from the `pimentel/homophones` GitHub repository. The specific file used is `homophones.csv`, available at [https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv](https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv). This data is stored locally in `data/homophones.csv`.
+*   **Homophone List**: For text normalization during Word Error Rate (WER) calculation, this project utilizes a list of English homophones sourced from the `pimentel/homophones` GitHub repository. The specific file used is `homophones.csv`, available at [https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv](https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv). This data is stored locally in `data/homophones.csv` and contains slight modifications that include digit-to-word mappings (e.g., "1" -> "one").
 
 ## Project Structure
 For a more detailed view of the architecture, please see [docs/architecture.md](docs/architecture.md). The main note is: 
