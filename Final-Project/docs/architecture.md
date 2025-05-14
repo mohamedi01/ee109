@@ -19,11 +19,11 @@ Final-Project/
 │       ├─ utils.py                     # (Provides utility functions, e.g., loading a canonical map for homophones and numbers)
 │       ├─ dsp/
 │       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
-│       │   ├─ mel.py                   # (Completed for software implementation) (Need to Finalize)
+│       │   ├─ mel.py                   # (Finalized for software implementation: provides `wav_to_logmel` for DSP)
 │       ├─ asr/
-│       │   ├─ __init__.py              # (Completed for software implementation)
-│       │   ├─ long_transcribe.py       # (Completed for software implementation) (Need to Finalize)
-│       │   └─ whisper_features.py      # (Completed for software implementation) (Need to Finalize)
+│       │   ├─ __init__.py              # (Finalized for software implementation: Exports core ASR functions.)
+│       │   ├─ transcribe.py            # (Finalized for software implementation: Provides `transcribe_audio_file`, the main ASR entry point.)
+│       │   └─ whisper_features.py      # (Finalized for software implementation: Provides `transcribe_features` for running Whisper model inference on Mel spectrograms.)
 │       ├─ nlp/
 │       │   ├─ __init__.py              #(Todo)
 │       │   └─ slice_summariser.py      # (Todo)
