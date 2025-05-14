@@ -1,6 +1,9 @@
-# Tests the end-to-end ASR pipeline (DSP + ASR via long_transcribe) for short sentence audio files.
-# Compares the custom pipeline's output against a baseline Whisper model and ground truth transcriptions,
-# using Word Error Rate (WER) after text normalization.
+""" 
+Tests the end-to-end ASR pipeline (DSP + ASR via long_transcribe) for short sentence audio files.
+Compares the custom pipeline's output against a baseline Whisper model and ground truth transcriptions,
+using Word Error Rate (WER) after text normalization. 
+"""
+
 import pytest
 import whisper  
 import numpy as np

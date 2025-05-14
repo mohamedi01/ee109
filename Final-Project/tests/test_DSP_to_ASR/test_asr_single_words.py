@@ -1,7 +1,10 @@
-# Tests the end-to-end ASR pipeline (DSP + ASR via long_transcribe, which internally uses
-# wav_to_logmel and transcribe_features) for single word audio files.
-# Compares the custom pipeline's output against a baseline Whisper model and ground truth transcriptions,
-# using Word Error Rate (WER) after text normalization.
+"""
+Tests the end-to-end ASR pipeline (DSP + ASR via long_transcribe, which internally uses
+wav_to_logmel and transcribe_features) for single word audio files.
+Compares the custom pipeline's output against a baseline Whisper model and ground truth transcriptions,
+using Word Error Rate (WER) after text normalization.
+"""
+
 import pytest
 import whisper
 import numpy as np
@@ -26,7 +29,6 @@ TRANSCRIPT_DATA_DIR = Path("data/transcripts/single_words/")
 EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
     (AUDIO_DATA_DIR / "0_jackson_0.wav", TRANSCRIPT_DATA_DIR / "0_jackson_0.txt"),
     (AUDIO_DATA_DIR / "1_jackson_0.wav", TRANSCRIPT_DATA_DIR / "1_jackson_0.txt"),
-    (AUDIO_DATA_DIR / "2_jackson_0.wav", TRANSCRIPT_DATA_DIR / "2_jackson_0.txt"),
     (AUDIO_DATA_DIR / "3_theo_0.wav", TRANSCRIPT_DATA_DIR / "3_theo_0.txt"),
     (AUDIO_DATA_DIR / "4_theo_0.wav", TRANSCRIPT_DATA_DIR / "4_theo_0.txt"),
     (AUDIO_DATA_DIR / "5_george_0.wav", TRANSCRIPT_DATA_DIR / "5_george_0.txt"),

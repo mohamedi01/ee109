@@ -1,5 +1,8 @@
-# Tests the DSP (wav_to_logmel) processing for single word audio files.
-# Verifies spectrogram characteristics like shape, dtype, and value range.
+""" 
+Tests the DSP (wav_to_logmel) processing for single word audio files.
+Verifies spectrogram characteristics like shape, dtype, and value range. 
+"""
+
 import pytest
 import numpy as np
 from pathlib import Path
@@ -37,10 +40,11 @@ def test_logmel_features_properties(audio_file_path):
         f"Expected {expected_mel_bands} Mel bands, but got {features.shape[0]} for {audio_file_path_str}"
 
     # 2. Calculate and test the number of time frames (second dimension)
-    expected_n_frames = (num_samples + WHISPER_N_FFT) // WHISPER_HOP_LENGTH + 1
+    # For center=True STFT, the number of frames is num_samples // hop_length + 1
+    expected_n_frames = num_samples // WHISPER_HOP_LENGTH + 1
     
     assert features.shape[1] == expected_n_frames, \
-        f"Expected {expected_n_frames} time frames (based on {num_samples} samples, N_FFT {WHISPER_N_FFT}, and hop {WHISPER_HOP_LENGTH}), " \
+        f"Expected {expected_n_frames} time frames (based on {num_samples} samples and hop {WHISPER_HOP_LENGTH} with centered STFT), " \
         f"but got {features.shape[1]} for {audio_file_path_str}"
 
     # 3. Test that the features matrix has 2 dimensions (Mel bands, Time frames)
