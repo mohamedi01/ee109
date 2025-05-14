@@ -1,10 +1,12 @@
 import pytest
 import whisper  # For baseline ASR (pip install openai-whisper)
 import numpy as np
-import re 
+from pathlib import Path
+from typing import Union 
+from jiwer import wer
+
 from audiolib.asr import long_transcribe as asr_module
 from audiolib.asr.whisper_features import _load as whisper_features_load_function # Import the function
-from pathlib import Path
 from testutility.text_processing_utils import normalize_text_for_wer, apply_canonical_map_to_text, DEFAULT_COMPREHENSIVE_CANONICAL_MAP
 
 @pytest.fixture(autouse=True, scope="module")
@@ -13,105 +15,70 @@ def clear_whisper_model_cache():
     whisper_features_load_function.cache_clear()
     print("\nINFO: Cleared lru_cache for audiolib.asr.whisper_features._load")
 
-def run_custom_pipeline(audio_path: str, device: str = "cpu") -> str:
-    """
-    Runs your custom DSP -> ASR pipeline using transcribe_long_clip.
-    """
-    try:
-        # Call main transcription function from asr_module
-        # This function should handle audio loading, DSP, and ASR internally.
-        transcript_text = asr_module.transcribe_long_clip(audio_path, device=device)
-        
-        # transcribe_long_clip (via transcribe_features) already returns a stripped and lowercased string.
-        return transcript_text 
-    except Exception as e:
-        print(f"Error running custom pipeline for {audio_path}: {e}")
-        return f"[ERROR_IN_CUSTOM_PIPELINE: {e}]"
-
-# Load baseline Whisper model (can be done once globally or per test module)
-# Model sizes: "tiny", "base", "small", "medium", "large"
-# "base" is a good starting point.
-try:
-    baseline_whisper_model = whisper.load_model("base")
-except Exception as e:
-    print(f"Failed to load baseline Whisper model: {e}")
-    print("Please ensure 'openai-whisper' is installed and models can be downloaded.")
-    baseline_whisper_model = None
-
-
 EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
-    # Format: ("path/to/audio.wav", "expected exact transcription")
-    ("data/short_sentences/harvard_f.wav", "The birch canoe slid on the smooth planks. Glue the sheet to the dark blue background. It's easy to tell the depth of a well. These days a chicken leg is a rare dish. Rice is often served in round bowls. The juice of lemons makes fine punch. The box was thrown beside the parked truck. The hogs were fed chopped corn and garbage. Four hours of steady work faced us. A large size in stockings is hard to sell."),
-    ("data/short_sentences/harvard_m.wav", "nudge gently but wake her now. The news struck doubt into restless minds. Once we stood beside the shore. A chink in the wall allowed a draft to blow. Fasten two pins on each side. A cold dip restores health and zest. He takes the oath of office each March. The sand drifts over the sill of the old house. The point of the steel pen was bent and twisted. There is a lag between thought and act."),
+    # Format: (Path("path/to/audio.wav"), Path("path/to/expected_transcription.txt"))
+    (Path("data/short_sentences/harvard_f.wav"), Path("data/transcripts/harvard_f.txt")),
+    (Path("data/short_sentences/harvard_m.wav"), Path("data/transcripts/harvard_m.txt")),
     # Add more files as needed
 ]
 
+def run_custom_pipeline(audio_path: Union[str, Path], device: str = "cpu") -> str:
+    """
+    Runs your custom DSP -> ASR pipeline using transcribe_long_clip.
+    """
+    transcript_text = asr_module.transcribe_long_clip(audio_path, device=device)
+    return transcript_text 
+
+# Run baseline Whisper model 
+baseline_whisper_model = whisper.load_model("base")
+
 @pytest.mark.skipif(baseline_whisper_model is None, reason="Baseline Whisper model failed to load.")
-@pytest.mark.parametrize("audio_filepath, expected_transcription", EXAMPLE_AUDIO_FILES_WITH_TRUTH)
-def test_asr_accuracy_comparison_long(audio_filepath, expected_transcription):
+@pytest.mark.parametrize("audio_filepath, expected_transcription_path", EXAMPLE_AUDIO_FILES_WITH_TRUTH)
+def test_asr_accuracy_comparison_long(audio_filepath, expected_transcription_path):
     """
     Tests the custom DSP->ASR pipeline against baseline Whisper and an expected transcription
     for long audio files, with homophone-aware normalization.
     """
+    # 0. Read expected transcription from file
+    with open(expected_transcription_path, 'r', encoding='utf-8') as f:
+        expected_transcription = f.read().strip()
+
     # 1. Get transcription from your DSP -> ASR pipeline
     pipeline_transcript = run_custom_pipeline(audio_filepath)
 
     # 2. Get transcription from baseline Whisper (using openai-whisper directly)
-    baseline_result = baseline_whisper_model.transcribe(audio_filepath)
+    baseline_result = baseline_whisper_model.transcribe(str(audio_filepath))
     baseline_transcript = baseline_result["text"].strip()
 
     # 1. Basic normalization for the expected transcription
-    norm_expected = normalize_text_for_wer(expected_transcription)
-
-    # 2. Basic normalization for ASR outputs
+    norm_expected_base = normalize_text_for_wer(expected_transcription)
     norm_pipeline_base = normalize_text_for_wer(pipeline_transcript)
     norm_baseline_base = normalize_text_for_wer(baseline_transcript)
 
     # 3. Apply canonical map ONLY to ASR outputs
+    norm_expected_final = apply_canonical_map_to_text(norm_expected_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
     norm_pipeline_final = apply_canonical_map_to_text(norm_pipeline_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
     norm_baseline_final = apply_canonical_map_to_text(norm_baseline_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
 
+    # Print Transcription outputs
     print(f"\n--- Testing Audio File: {audio_filepath} ---")
-    print(f"Expected (Base Norm):    '{norm_expected}'")
-    print(f"Custom Pipeline (Final): '{norm_pipeline_final}' (Original: '{pipeline_transcript}')")
-    print(f"Baseline Whisper (Final):'{norm_baseline_final}' (Original: '{baseline_transcript}')")
+    print(f"Expected (Final - post normalization): \n    {norm_expected_final}\n")
+    print(f"Custom Pipeline (Final - post normalization): \n    {norm_pipeline_final} (Original: '{pipeline_transcript}')\n")
+    print(f"Baseline Whisper (Final - post normalization): \n    {norm_baseline_final} (Original: '{baseline_transcript}')\n")
 
-    # 3. Assertions and Comparisons
-    # Apply comprehensive normalization for WER
-    # The variables for comparison are now norm_expected, norm_pipeline_final, norm_baseline_final
-    
-    # Assert that the pipeline output is not an error message (using raw transcript)
-    assert "[ERROR_IN_CUSTOM_PIPELINE:" not in pipeline_transcript, \
-        f"Custom pipeline failed for {audio_filepath}: {pipeline_transcript}"
-
-    # Calculate WER
-    from jiwer import wer # Make sure jiwer is installed: pip install jiwer
-    pipeline_wer = wer(norm_expected, norm_pipeline_final)
-    baseline_wer = wer(norm_expected, norm_baseline_final)
+    # Calculate WER and print results
+    pipeline_wer = wer(norm_expected_final, norm_pipeline_final)
+    baseline_wer = wer(norm_expected_final, norm_baseline_final)
 
     print(f"Pipeline WER:            {pipeline_wer:.4f}")
     print(f"Baseline WER:             {baseline_wer:.4f}")
     
     # Assert that pipeline WER (vs expected) is not significantly worse 
     # than baseline WER (vs expected).
-    # Adjust the tolerance (0.05 here) as needed.
-    # This means your pipeline can be up to 5% worse in WER than the baseline and still pass.
     tolerance = 0.05 
     assert pipeline_wer <= baseline_wer + tolerance, \
         f"Pipeline WER ({pipeline_wer:.4f}) vs Expected is not better than or close to " \
         f"Baseline WER ({baseline_wer:.4f}) vs Expected for {audio_filepath} " \
         f"(Tolerance: {tolerance})."
 
-# --- Test Cases ---
-# Each tuple: (filename, expected_transcript_path_or_string, wer_threshold)
-# Using relative paths from the project root for data files.
-# Ground truth transcripts are stored in .txt files with the same base name.
-
-# Using Path objects for better path manipulation
-DATA_DIR_LONG = Path("data/short_sentences/")
-GROUND_TRUTH_DIR_LONG = Path("tests/long/ground_truth/")
-
-TEST_CASES_LONG = [
-    # Add more test cases as needed
-]
 
