@@ -29,7 +29,7 @@ Final-Project/
 │       │   └─ slice_summariser.py      # (Todo)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
-│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/homophones.csv for testing purposes) (Need to Finalize)
+│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/homophones.csv for testing purposes) (Finalized)
 ├─ data/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
