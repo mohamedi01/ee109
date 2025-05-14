@@ -19,17 +19,17 @@ Final-Project/
 │       ├─ utils.py                     # (Provides utility functions, e.g., loading a canonical map for homophones and numbers)
 │       ├─ dsp/
 │       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
-│       │   ├─ mel.py                   # (Completed for software implementation)
+│       │   ├─ mel.py                   # (Completed for software implementation) (Need to Finalize)
 │       ├─ asr/
 │       │   ├─ __init__.py              # (Completed for software implementation)
-│       │   ├─ long_transcribe.py       # (Completed for software implementation)
-│       │   └─ whisper_features.py      # (Completed for software implementation)
+│       │   ├─ long_transcribe.py       # (Completed for software implementation) (Need to Finalize)
+│       │   └─ whisper_features.py      # (Completed for software implementation) (Need to Finalize)
 │       ├─ nlp/
 │       │   ├─ __init__.py              #(Todo)
 │       │   └─ slice_summariser.py      # (Todo)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
-│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/homophones.csv for testing purposes)
+│           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/homophones.csv for testing purposes) (Need to Finalize)
 ├─ data/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav                # (Downloaded - Succesfully tested on DSP -> ASR)
@@ -54,4 +54,3 @@ Final-Project/
     └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
         ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
         └─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
-        
