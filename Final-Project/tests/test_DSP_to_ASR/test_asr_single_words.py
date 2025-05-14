@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Union
 from jiwer import wer
 
-from audiolib.asr import long_transcribe as asr_module
+from audiolib.asr import transcribe_audio_file
 from audiolib.asr.whisper_features import _load as whisper_features_load_function 
 from testutility.text_processing_utils import normalize_text_for_wer, apply_canonical_map_to_text, DEFAULT_COMPREHENSIVE_CANONICAL_MAP
 
@@ -38,9 +38,9 @@ EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
 
 def run_custom_pipeline(audio_path: Union[str, Path], device: str = "cpu") -> str:
     """
-    Runs your custom DSP -> ASR pipeline using transcribe_long_clip.
+    Runs your custom DSP -> ASR pipeline using the new transcribe_audio_file.
     """
-    transcript_text = asr_module.transcribe_long_clip(audio_path, device=device)
+    transcript_text = transcribe_audio_file(audio_path, device=device)
     return transcript_text 
 
 # Run baseline Whisper model 
