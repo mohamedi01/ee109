@@ -17,6 +17,10 @@ For our EE109 final project, we are implementing a Python-based audio transcript
 *   **Testing Suite**: Includes unit tests for DSP components and ASR accuracy tests comparing against baseline Whisper and ground truth transcriptions using `pytest`. Word Error Rate (WER) is used as a key metric.
 *   
 
+## Data Sources and Acknowledgements
+
+*   **Homophone List**: For text normalization during Word Error Rate (WER) calculation, this project utilizes a list of English homophones sourced from the `pimentel/homophones` GitHub repository. The specific file used is `homophones.csv`, available at [https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv](https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv). This data is stored locally in `data/homophones.csv`.
+
 ## Project Structure
 For a more detailed view of the architecture, please see [docs/architecture.md](docs/architecture.md). The main note is: 
 **Design**: Code is organized into `audiolib` with submodules for `dsp` and `asr`.

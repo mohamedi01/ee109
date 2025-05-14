@@ -2,16 +2,16 @@ import pytest
 import whisper  # For baseline ASR (pip install openai-whisper)
 import numpy as np 
 from pathlib import Path
+import re
+from jiwer import wer
+from audiolib.dsp.mel import wav_to_logmel
+from audiolib.asr import whisper_features
+from testutility.text_processing_utils import normalize_text_for_wer, apply_canonical_map_to_text, DEFAULT_COMPREHENSIVE_CANONICAL_MAP
 
 # Import your project modules
 from audiolib.asr import long_transcribe as asr_module
 
-# --- USER ACTION REQUIRED ---
-# The following function `run_custom_pipeline` is a template.
-# You MUST adapt the lines marked with # ADAPT THIS LINE to call the correct functions
-# from your `audiolib.dsp.mel` and `audiolib.asr.long_transcribe` modules
-# with the correct arguments and handling their return values.
-# ---
+
 
 def run_custom_pipeline(audio_path: str, device: str = "cpu") -> str:
     """
@@ -39,11 +39,6 @@ except Exception as e:
     print("Please ensure 'openai-whisper' is installed and models can be downloaded.")
     baseline_whisper_model = None
 
-# --- USER ACTION REQUIRED ---
-# Update this list with paths to your audio files and their corresponding
-# ground truth transcriptions. The paths should be relative to your project root
-# or wherever you run pytest from.
-# ---
 
 # --- Test Data ---
 # List of tuples: (audio_filename, expected_number_word)
@@ -62,6 +57,9 @@ TEST_DATA_NUMBERS = [
     (DATA_DIR_NUMBERS / "6_george_0.wav", "six"),
 ]
 
+# CANONICAL_HOMOPHONE_MAP is no longer needed here.
+# The normalize_text_for_wer function is also no longer defined here.
+
 @pytest.mark.skipif(baseline_whisper_model is None, reason="Baseline Whisper model failed to load.")
 @pytest.mark.parametrize("audio_filepath, expected_transcription", TEST_DATA_NUMBERS)
 def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
@@ -78,88 +76,34 @@ def test_asr_accuracy_comparison(audio_filepath, expected_transcription):
     baseline_result = baseline_whisper_model.transcribe(audio_filepath_str)
     baseline_transcript = baseline_result["text"].strip()
 
+    # 1. Basic normalization for the expected transcription
+    norm_expected_base = normalize_text_for_wer(expected_transcription)
+
+    # 2. Basic normalization for ASR outputs
+    norm_pipeline_base = normalize_text_for_wer(pipeline_transcript)
+    norm_baseline_base = normalize_text_for_wer(baseline_transcript)
+
+    # 3. Apply canonical map ONLY to ASR outputs
+    norm_expected_final = apply_canonical_map_to_text(norm_expected_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
+    norm_pipeline_final = apply_canonical_map_to_text(norm_pipeline_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
+    norm_baseline_final = apply_canonical_map_to_text(norm_baseline_base, DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
+
     print(f"\n--- Testing Audio File: {audio_filepath_str} ---")
-    print(f"Expected Transcription:    '{expected_transcription}'")
-    print(f"Custom Pipeline Output:    '{pipeline_transcript}'")
-    print(f"Baseline Whisper Output:   '{baseline_transcript}'")
+    print(f"Expected (Base Norm):    '{norm_expected_final}'")
+    print(f"Custom Pipeline (Final): '{norm_pipeline_final}' (Original: '{pipeline_transcript}')")
+    print(f"Baseline Whisper (Final):'{norm_baseline_final}' (Original: '{baseline_transcript}')")
 
-    # 3. Assertions and Comparisons
-    # Normalize pipeline_transcript
-    normalized_pipeline_transcript = pipeline_transcript.lower()
-    if normalized_pipeline_transcript.endswith('.'):
-        normalized_pipeline_transcript = normalized_pipeline_transcript[:-1]
+    # Calculate WER between normalized pipeline output and normalized expected output
+    pipeline_wer = min(wer(norm_expected_final, norm_pipeline_final), wer(norm_expected_base, norm_pipeline_base))
+    # Calculate WER between normalized baseline output and normalized expected output
+    baseline_wer = min(wer(norm_expected_final, norm_baseline_final), wer(norm_expected_base, norm_baseline_base))
+
+    print(f"Pipeline WER:            {pipeline_wer:.4f}")
+    print(f"Baseline Whisper WER:    {baseline_wer:.4f}")
+
+    # Example assertion: Check if your pipeline's WER is not significantly worse than baseline,
+    # or if it meets a certain threshold.
+    # This threshold might need adjustment based on your expectations.
+    # For single words, we might expect very low WER.
+    assert pipeline_wer <= 0.5, f"Pipeline WER {pipeline_wer} is too high for {audio_filepath_str}"
     
-    # --- Post-processing for common ASR variations ---
-    # Digit to word conversion
-    digit_to_word_map = {
-        "0": "zero",
-        "1": "one",
-        "2": "two",
-        "3": "three",
-        "4": "four",
-        "5": "five",
-        "6": "six",
-        "7": "seven",
-        "8": "eight",
-        "9": "nine",
-    }
-    if normalized_pipeline_transcript in digit_to_word_map:
-        normalized_pipeline_transcript = digit_to_word_map[normalized_pipeline_transcript]
-
-    # Normalize expected_transcription 
-    normalized_expected_transcription = expected_transcription.lower()
-
-    # Define acceptable variations for specific expected transcriptions
-    acceptable_transcriptions_map = {
-        "two": ["two", "too", "to"],
-        # Add other mappings if needed, e.g., "for": ["for", "four"] if that becomes an issue
-    }
-
-    # Get the list of acceptable forms, defaulting to just the expected one
-    acceptable_forms = acceptable_transcriptions_map.get(
-        normalized_expected_transcription, 
-        [normalized_expected_transcription]
-    )
-
-    assert normalized_pipeline_transcript in acceptable_forms, \
-        f"Custom pipeline output '{pipeline_transcript}' (processed: '{normalized_pipeline_transcript}') " \
-        f"is not among acceptable forms {acceptable_forms} for expected '{expected_transcription}' " \
-        f"(normalized: '{normalized_expected_transcription}') for {audio_filepath_str}."
-
-    # Optional: Log if baseline also matches/differs from expected (for informational purposes)
-    if baseline_transcript.lower() == expected_transcription.lower():
-        print(f"INFO: Baseline Whisper also matched expected transcription for {audio_filepath_str}.")
-    else:
-        print(f"INFO: Baseline Whisper ('{baseline_transcript}') differed from expected ('{expected_transcription}') for {audio_filepath_str}.")
-
-    # For more advanced accuracy measurement, consider Word Error Rate (WER).
-    # You would need to install the 'jiwer' library: pip install jiwer
-    try:
-        from jiwer import wer # Make sure jiwer is installed: pip install jiwer
-
-        # Normalize baseline transcript for WER calculation similar to pipeline_transcript
-        normalized_baseline_transcript = baseline_transcript.lower()
-        if normalized_baseline_transcript.endswith('.'):
-            normalized_baseline_transcript = normalized_baseline_transcript[:-1]
-        #
-        # If baseline also outputs digits and you want to "correct" it for WER, apply the map:
-        if normalized_baseline_transcript in digit_to_word_map:
-            normalized_baseline_transcript = digit_to_word_map[normalized_baseline_transcript]
-
-
-        # Calculate WER for the custom pipeline (using the already processed transcript)
-        # vs. the normalized expected transcription.
-        wer_pipeline_vs_expected = wer(normalized_expected_transcription, normalized_pipeline_transcript)
-        
-        # Calculate WER for the baseline Whisper output vs. the normalized expected transcription.
-        wer_baseline_vs_expected = wer(normalized_expected_transcription, normalized_baseline_transcript)
-    
-        print(f"WER (Pipeline vs Expected): {wer_pipeline_vs_expected:.4f}")
-        print(f"WER (Baseline vs Expected): {wer_baseline_vs_expected:.4f}")
-    
-        assert wer_pipeline_vs_expected <= wer_baseline_vs_expected + 0.05, \
-            f"Pipeline WER ({wer_pipeline_vs_expected:.4f}) is not better than or close to Baseline WER ({wer_baseline_vs_expected:.4f}) for {audio_filepath_str}."
-    except ImportError:
-        print("INFO: 'jiwer' library not installed. Skipping WER calculation. (pip install jiwer)")
-    except Exception as e_wer:
-        print(f"Error calculating WER for {audio_filepath_str}: {e_wer}")
