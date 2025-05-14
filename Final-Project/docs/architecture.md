@@ -1,3 +1,9 @@
+# Project Architecture
+
+This document outlines the structure and components of the EE109 Final Project.
+
+## Directory Structure
+
 Final-Project/
 ├─ README.md                            # (Up to Date with DSP -> ASR software implementation)             
 ├─ project_proposal.md                  # (Up to Date with DSP -> ASR software implementation)
@@ -38,15 +44,14 @@ Final-Project/
 │   │   ├─ 5_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │   └─ 6_george_0.wav               # (Downloaded - Succesfully tested on DSP -> ASR)
 │   │
-│   └─ homophones.csv                   # (Downloaded - Used for text normalization during WER calculation)
+│   └─ homophones.csv                   # (Downloaded & edited- Used for text normalization during WER calculation)
 │
 └─ tests/  
     ├─ test_DSP/
-    │   └─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings) (Finalized)
+    │   ├─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings) (Finalized)
     │   └─ test_dsp_short_sentences.py  # (Tests DSP components on short sentence recordings) (Finalized)
     │
     └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
-        ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper)
-        ├─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper)
-        └─ test_dsp_single_words.py     # (Tests DSP components on single-word recordings)
-                                        # (Note: test_short_sentences.py previously at root of tests/ was removed as redundant)
+        ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
+        └─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
+        

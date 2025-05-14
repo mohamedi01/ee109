@@ -1,3 +1,5 @@
+# Tests the DSP (wav_to_logmel) processing for short sentence audio files.
+# Verifies spectrogram characteristics like shape, dtype, and value range.
 import pytest
 import numpy as np
 from pathlib import Path
@@ -36,8 +38,6 @@ def test_logmel_features_properties_short_sentences(audio_file_path):
         f"Expected {expected_mel_bands} Mel bands, but got {features.shape[0]} for {audio_file_path_str}"
 
     # 2. Calculate and test the number of time frames (second dimension)
-    # For torch.stft with center=True, the effective number of frames can be calculated as:
-    # (num_samples + N_FFT) // HOP_LENGTH + 1
     expected_n_frames = (num_samples + WHISPER_N_FFT) // WHISPER_HOP_LENGTH + 1
     
     assert features.shape[1] == expected_n_frames, \
