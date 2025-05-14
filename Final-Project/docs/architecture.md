@@ -25,8 +25,9 @@ Final-Project/
 │       │   ├─ transcribe.py            # (Finalized for software implementation: Provides `transcribe_audio_file`, the main ASR entry point.)
 │       │   └─ whisper_features.py      # (Finalized for software implementation: Provides `transcribe_features` for running Whisper model inference on Mel spectrograms.)
 │       ├─ nlp/
-│       │   ├─ __init__.py              #(Todo)
-│       │   └─ slice_summariser.py      # (Todo)
+│       │   ├─ __init__.py              # (Finalized for software implementation: Exports core NLP functionalities like `analyze_text`)
+│       │   ├─ nlp.py                   # (Finalized for software implementation: Provides core NLP functions: `analyze_text` for keyword/topic classification and summarization, model loading, performance metrics, and evaluation utilities)
+│       │   └─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities, particularly `analyze_text`)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
 │           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/Testing-Normalization/homophones.csv for testing purposes) (Finalized)
@@ -56,3 +57,5 @@ Final-Project/
     └─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
         ├─ test_asr_short_sentences.py  # (Tests ASR on multi-sentence audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
         └─ test_asr_single_words.py     # (Tests ASR on single-word audio, compares custom DSP->ASR pipeline with baseline Whisper) (Finalized)
+    └─ test_NLP/
+        └─ test_nlp.py                  # (Tests NLP functionalities including `analyze_text`, performance measurements, and classifier evaluation)
