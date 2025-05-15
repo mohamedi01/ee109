@@ -37,13 +37,11 @@ Final-Project/
 │   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
 │   │   ├─ harvard_f.wav               
 │   │   └─ harvard_m.wav                
-│   │
 │   ├─ long_sentences/                  # (Longer audio clips, e.g., 1-5 minutes, for more extensive pipeline testing)
 │   │   ├─ bird.mp3
 │   │   ├─ cold.mp3
 │   │   ├─ face.mp3
 │   │   └─ hot.mp3      
-│   │
 │   ├─ single_words/                    # (~1 second audio clips with single numbers)
 │   │   ├─ 0_jackson_0.wav              
 │   │   ├─ 1_jackson_0.wav              
@@ -52,7 +50,6 @@ Final-Project/
 │   │   ├─ 4_theo_0.wav                
 │   │   ├─ 5_george_0.wav              
 │   │   └─ 6_george_0.wav              
-│   │
 │   ├─ transcripts/                     # Transcriptions for testing
 │   │   ├─ short_sentences/             # Transcripts for short sentence audio files
 │   │   │   ├─ harvard_f.txt           
@@ -72,11 +69,8 @@ Final-Project/
 │   │       ├─ 4_theo_0.txt            
 │   │       ├─ 5_george_0.txt          
 │   │       └─ 6_george_0.txt         
-│   │
 │   └─ normalization                    # Folder for testing and normalization data
 │       └─ homophones.csv               # (Downloaded & edited - Used for text normalization during WER calculation)
-│       
-│
 └─ tests/  
     ├─ test_DSP/
     │   ├─ test_dsp_single_words.py     # (Tests DSP components on single-word audio) 
