@@ -94,4 +94,5 @@ Final-Project/
     │   └─ test_nlp_on_long_sentence_transcripts.py  # (Tests NLP module directly with transcripts of long sentences)
     │
     └─ test_pipeline/                   # Tests for the full DSP->ASR->NLP integrated pipeline
-        └─ test_integration.py          # (Smoke tests and detailed checks for the `process_audio_to_nlp` pipeline)
+        ├─ test_short_sentence_pipeline.py # (Tests full pipeline on short sentences, compares NLP on ASR output vs NLP on truth transcript)
+        └─ test_long_sentence_pipeline.py  # (Tests full pipeline on long sentences, compares NLP on ASR output vs NLP on truth transcript)
