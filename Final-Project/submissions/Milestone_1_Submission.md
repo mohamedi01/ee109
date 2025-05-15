@@ -2,7 +2,9 @@
 
 ## Application Description: 
 ```bash
-For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing (NLP) module for text summarization and analysis (keyword and topic identification).
+# For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing 
+# (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing 
+# (NLP) module for text summarization and analysis (keyword and topic identification).
 ```
 
 ## Software Implementation: 
