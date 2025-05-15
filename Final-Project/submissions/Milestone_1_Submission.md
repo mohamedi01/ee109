@@ -2,9 +2,7 @@
 
 ## Application Description: 
 ```bash
-# For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing 
-# (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing 
-# (NLP) module for text summarization and analysis (keyword and topic identification).
+# For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing (NLP) module for text summarization and analysis (keyword and topic identification). For more comprehensive notes, see the README.md file on the GitHub repo (link below).
 ```
 
 ## Software Implementation: 
@@ -72,7 +70,5 @@ pytest
 
 ## Performance Analysis:
 ```bash
-# The project includes a comprehensive testing suite using pytest.
-# Word Error Rate (WER) is a key metric for ASR performance.
-# Further performance analysis to be implemented.
+# The project includes a comprehensive testing suite using pytest. Word Error Rate (WER) is a key metric for ASR performance. Further performance analysis to be implemented.
 ```
