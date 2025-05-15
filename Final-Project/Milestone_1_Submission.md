@@ -8,7 +8,7 @@ For our EE109 final project, we are implementing a Python-based audio transcript
 ## Software Implementation: 
 ```bash
 # Link to GitHub Repo:
-https://github.com/mohamedi01/ee109/tree/75502e9c94344c93d0fd40dcf95645cd5aa76802/Final-Project
+https://github.com/mohamedi01/ee109/tree/26133054746b17ffc723bfa4d452fb762605adf0/Final-Project
 
 # Core Components & Workflow:
 The system processes input audio in three main stages, orchestrated by a central pipeline:
