@@ -2,35 +2,26 @@
 
 ## Application Description: 
 ```bash
-For our EE109 final project, we are implementing a Python-based audio 
-transcription and analysis system. It features a custom Digital Signal 
-Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic 
-Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural 
-Language Processing (NLP) module for text summarization and analysis 
-(keyword and topic identification).
+For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing (NLP) module for text summarization and analysis (keyword and topic identification).
 ```
 
 ## Software Implementation: 
 ```bash
 # Link to GitHub Repo:
-https://github.com/mohamedi01/ee109/tree/26133054746b17ffc723bfa4d452fb762605adf0/Final-Project
+https://github.com/mohamedi01/ee109.git
+cd Final-Project
 
 # Core Components & Workflow:
-The system processes input audio in three main stages by 
-a central pipeline:
+The system processes input audio in three main stages, orchestrated by a central pipeline:
 
 1.  **Digital Signal Processing (DSP) Frontend (`audiolib.dsp.mel`)**
-    *   The `wav_to_logmel` takes an audio file (various formats like WAV, 
-        FLAC, MP3 supported) or raw audio data as input.
-    *   Key Processing Steps: Loading & Resampling, Quantization Simulation, 
-        STFT, Mel Filterbank, Logarithmic Compression & Scaling.
+    *   The `wav_to_logmel` takes an audio file (various formats like WAV, FLAC, MP3 supported) or raw audio data as input.
+    *   Key Processing Steps: Loading & Resampling, Quantization Simulation, STFT, Mel Filterbank, Logarithmic Compression & Scaling.
     *   Output: An 80-channel log-Mel spectrogram (`numpy.ndarray` of `float32`).
 
 2.  **Automatic Speech Recognition (ASR) (`audiolib.asr`)**
-    *   `transcribe_features` transcribes log-Mel spectrograms to text using 
-        a pre-trained Whisper model.
-    *   `transcribe_audio_file` handles entire audio files, including a sliding 
-        window mechanism for long audio and merging overlapping segments.
+    *   `transcribe_features` transcribes log-Mel spectrograms to text using a pre-trained Whisper model.
+    *   `transcribe_audio_file` handles entire audio files, including a sliding window mechanism for long audio and merging overlapping segments.
     *   Output: A string containing the transcribed text.
 
 3.  **Natural Language Processing (NLP) (`audiolib.nlp.nlp`)**
