@@ -1,4 +1,4 @@
-from audiolib.nlp import analyze_text
+from audiolib.nlp import summarize_text
 
 SAMPLE_TEXT = """
 “Mr. Mitchell, how do we access the punk?”
@@ -12,5 +12,5 @@ story to tell.” I replied, trying not to sound defensive, “Through the alche
 our story to tell.” She smiled, but only with her mouth.
 """
 
-result = analyze_text(SAMPLE_TEXT, device="cpu")
-print("Summary:", result["summary"])
+result = summarize_text(SAMPLE_TEXT, device="cpu")
+print("Summary:", result)
