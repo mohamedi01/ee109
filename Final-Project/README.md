@@ -208,7 +208,13 @@ EE109 Audio Transcription & Analysis Pipeline – Block Diagram
               │
               ▼
 [ Final Output JSON ]
-{ word frequency + summary{
+{
+  "transcript": "...",
+  "nlp_analysis": {
+    "keyword": {"label": "...", "confidence": 0.0},
+    "topic": {"label": "...", "confidence": 0.0},
+    "summary": "..."
+  }
 }
 </pre>
 
