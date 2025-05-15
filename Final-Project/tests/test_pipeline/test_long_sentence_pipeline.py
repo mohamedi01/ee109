@@ -5,11 +5,8 @@ from jiwer import wer # For Word Error Rate calculation
 
 from audiolib.pipeline import process_audio_to_nlp
 from audiolib.nlp.nlp import analyze_text
-from testutility.text_processing_utils import (
-    normalize_text_for_wer,
-    apply_canonical_map_to_text,
-    DEFAULT_COMPREHENSIVE_CANONICAL_MAP
-)
+from testutility.text_processing_utils import normalize_text_for_wer, apply_canonical_map_to_text, DEFAULT_COMPREHENSIVE_CANONICAL_MAP
+
 
 # --- Configuration ---
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -149,7 +146,3 @@ def test_long_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tru
         assert len(nlp_analysis_on_truth_transcript['summary']) > 0, "Truth NLP summary should not be empty if truth transcript was processed by non-dummy NLP."
         
     print(f"--- Test for {audio_file_path.name} Completed ---")
-
-# Example of how to run this test with pytest:
-# pytest Final-Project/tests/test_pipeline/test_long_sentence_pipeline.py -vs
-# The -vs flags are for verbose output and showing print statements. 
