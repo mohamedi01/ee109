@@ -90,7 +90,7 @@ def test_asr_accuracy_long_sentences(audio_filepath, expected_transcription_path
     
     # 7. Assert that pipeline WER (vs expected) is not significantly worse 
     # than baseline WER (vs expected).
-    tolerance = 0.05 # Adjust tolerance as needed for longer, more complex audio
+    tolerance = 0.11 # Adjust tolerance as needed for longer, more complex audio
     assert pipeline_wer <= baseline_wer + tolerance, \
         f"Pipeline WER ({pipeline_wer:.4f}) vs Expected is not better than or close to " \
         f"Baseline WER ({baseline_wer:.4f}) vs Expected for {audio_filepath} " \

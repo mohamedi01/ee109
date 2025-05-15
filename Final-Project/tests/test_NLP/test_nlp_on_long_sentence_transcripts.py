@@ -57,4 +57,4 @@ def test_nlp_on_long_sentence_transcript_smoke(transcript_file_path: Path):
     assert len(top_label) > 0, "Topic label should not be empty."
 
     print(f"NLP Analysis for {transcript_file_path.name}: Keyword='{key_label}' ({key_conf:.2f}), Topic='{top_label}' ({top_conf:.2f})")
-    print(f"Summary (first 100 chars): {summary[:100]}...") 
+    print(f"Summary: {summary}") 

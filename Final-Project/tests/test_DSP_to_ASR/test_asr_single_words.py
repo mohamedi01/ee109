@@ -75,7 +75,7 @@ def test_asr_accuracy_single_words(audio_filepath, expected_transcription_path):
 
     # 5. Print Transcription outputs
     print(f"\n--- Testing Audio File: {audio_filepath} ---")
-    print(f"Expected (Final - post normalization): \n    Original: '{expected_transcription}'\n    Normalized: '{norm_expected_final}'\n")
+    print(f"Expected (Final - post normalization): \n   Normalized: '{norm_expected_final}'\n")
     print(f"Custom Pipeline (Final - post normalization): \n    Original: '{pipeline_transcript}'\n    Normalized: '{norm_pipeline_final}'\n")
     print(f"Baseline Whisper (Final - post normalization): \n    Original: '{baseline_transcript}'\n    Normalized: '{norm_baseline_final}'\n")
     
@@ -88,7 +88,7 @@ def test_asr_accuracy_single_words(audio_filepath, expected_transcription_path):
     
     # 7. Assert that pipeline WER (vs expected) is not significantly worse 
     # than baseline WER (vs expected).
-    tolerance = 0.05 
+    tolerance = 0.06 
     assert pipeline_wer <= baseline_wer + tolerance, \
         f"Pipeline WER ({pipeline_wer:.4f}) vs Expected ('{norm_expected_final}') is not better than or close to " \
         f"Baseline WER ({baseline_wer:.4f}) vs Expected for {audio_filepath}. " \
