@@ -26,14 +26,7 @@ def main():
     # --- Check if the audio file exists ---
     if not audio_file_to_process.is_file():
         print(f"Error: Audio file not found at {audio_file_to_process}")
-        script_dir = Path(__file__).resolve().parent
-        potential_project_root_path = script_dir / audio_file_to_process
-        if potential_project_root_path.is_file():
-            audio_file_to_process = potential_project_root_path
-            print(f"Info: Resolved audio file to {audio_file_to_process} (relative to script location).")
-        else:
-            print(f"Error: Audio file not found at {args.audio_file} (and not found relative to script location either).")
-            return
+        return
 
     print(f"Processing audio file: {audio_file_to_process} on device: {processing_device}...")
 
