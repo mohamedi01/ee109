@@ -12,6 +12,9 @@ Final-Project/
 ├─ .gitignore                           # (Up to Date)
 ├─ docs/
 │   └─ architecture.md                  # (Up to Date)
+├─ submissions/                         # (Project submission documents)
+│   ├─ Milestone_1_Submission.md        # (Milestone 1 submission document)
+│   └─ Milestone_1_Submission.pdf       # (PDF version of Milestone 1 submission)
 ├─ src/
 │   └─ audiolib/
 │       ├─ __init__.py
@@ -29,7 +32,11 @@ Final-Project/
 │       ├─ nlp/
 │       │   ├─ __init__.py              # (Finalized for software implementation: Exports core NLP functionalities)
 │       │   ├─ nlp.py                   # (Finalized for software implementation: Provides core NLP functions)
-│       │   └─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities)
+│       │   ├─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities)
+│       │   └─ models/                  # (NLP models and training scripts)
+│       │       ├─ __init__.py          # (Initializes the models module)
+│       │       ├─ train_keyword_spotter.py # (Script for training keyword spotter)
+│       │       └─ train_topic_segmenter.py # (Script for training topic segmenter)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
 │           └─ text_processing_utils.py # (Utilities for text normalization)
