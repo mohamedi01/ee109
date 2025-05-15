@@ -35,8 +35,8 @@ def test_short_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tr
 
     print(f"  ASR Transcript (from Pipeline): '{asr_transcript_from_pipeline}'")
     print(f"  NLP Analysis (from Pipeline on ASR output):")
-    #print(f"    Keyword: {nlp_analysis_from_pipeline['keyword']}")
-    #print(f"    Topic:   {nlp_analysis_from_pipeline['topic']}")
+    # print(f"    Keyword: {nlp_analysis_from_pipeline['keyword']}")
+    # print(f"    Topic:   {nlp_analysis_from_pipeline['topic']}")
     print(f"    Summary (first 100 chars): {nlp_analysis_from_pipeline['summary'][:100]}...")
 
     # 2. Load transcript and run NLP on it
@@ -68,18 +68,18 @@ def test_short_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tr
     )
 
     # NLP Keyword Consistency Check
-    #pipeline_keyword_label = nlp_analysis_from_pipeline['keyword'][0]
-    #truth_keyword_label = nlp_analysis_on_truth_transcript['keyword'][0]
-    #print(f"  Pipeline NLP Keyword Label: '{pipeline_keyword_label}'")
-    #print(f"  Truth NLP Keyword Label   : '{truth_keyword_label}'")
+    # pipeline_keyword_label = nlp_analysis_from_pipeline['keyword'][0]
+    # truth_keyword_label = nlp_analysis_on_truth_transcript['keyword'][0]
+    # print(f"  Pipeline NLP Keyword Label: '{pipeline_keyword_label}'")
+    # print(f"  Truth NLP Keyword Label   : '{truth_keyword_label}'")
     
-    #if pipeline_keyword_label != "_dummy_label" and truth_keyword_label != "_dummy_label":
-    #    assert pipeline_keyword_label == truth_keyword_label, (
-    #        f"Keyword mismatch for {audio_file_path.name}. "
-    #        f"Pipeline ASR-NLP: '{pipeline_keyword_label}', Truth-NLP: '{truth_keyword_label}'"
-    #    )
-    #else:
-    #    print("(Skipping keyword label assertion due to one or both being '_dummy_label')")
+    # if pipeline_keyword_label != "_dummy_label" and truth_keyword_label != "_dummy_label":
+    #     assert pipeline_keyword_label == truth_keyword_label, (
+    #         f"Keyword mismatch for {audio_file_path.name}. "
+    #         f"Pipeline ASR-NLP: '{pipeline_keyword_label}', Truth-NLP: '{truth_keyword_label}'"
+    #     )
+    # else:
+    #     print("(Skipping keyword label assertion due to one or both being '_dummy_label')")
 
     # Basic Summary Checks 
     if asr_transcript_from_pipeline:

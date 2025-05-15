@@ -37,7 +37,7 @@ def test_long_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tru
     asr_transcript_from_pipeline = pipeline_output["transcript"]
     nlp_analysis_from_pipeline = pipeline_output["nlp_analysis"]
 
-    print(f"  ASR Transcript (from Pipeline, first 300 chars): '{asr_transcript_from_pipeline[:100]}...'") # <-- Truncated print
+    print(f"  ASR Transcript (from Pipeline, first 100 chars): '{asr_transcript_from_pipeline[:100]}...'") # <-- Truncated print
     print(f"  NLP Analysis (from Pipeline on ASR output):")
     # print(f"    Keyword: {nlp_analysis_from_pipeline['keyword']}")
     # print(f"    Topic:   {nlp_analysis_from_pipeline['topic']}")
@@ -50,7 +50,7 @@ def test_long_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tru
     print(f"\nRunning NLP (analyze_text) directly on ground truth transcript: {truth_transcript_path.name}...")
     nlp_analysis_on_truth_transcript = summarize_text(text=truth_transcript_text, device="cpu")
 
-    print(f"  Ground Truth Transcript (first 300 chars): '{truth_transcript_text[:100]}...'") # <-- Truncated print
+    print(f"  Ground Truth Transcript (first 100 chars): '{truth_transcript_text[:100]}...'") # <-- Truncated print
     print(f"  NLP Analysis (directly on Ground Truth Transcript):")
     # print(f"    Keyword: {nlp_analysis_on_truth_transcript['keyword']}") # Will be string, no keyword key
     # print(f"    Topic:   {nlp_analysis_on_truth_transcript['topic']}")   # Will be string, no topic key
@@ -64,8 +64,8 @@ def test_long_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tru
     norm_truth = apply_canonical_map_to_text(normalize_text_for_wer(truth_transcript_text), DEFAULT_COMPREHENSIVE_CANONICAL_MAP)
     
     current_wer = wer(norm_truth, norm_asr_pipeline) if norm_truth or norm_asr_pipeline else 0.0
-    print(f"  Normalized ASR (Pipeline, first 300 chars): '{norm_asr_pipeline[:100]}...'") 
-    print(f"  Normalized Truth         (first 300 chars): '{norm_truth[:100]}...'") 
+    print(f"  Normalized ASR (Pipeline, first 100 chars): '{norm_asr_pipeline[:100]}...'") 
+    print(f"  Normalized Truth         (first 100 chars): '{norm_truth[:100]}...'") 
     print(f"  Word Error Rate (WER)    : {current_wer:.4f}")
     assert current_wer <= ASR_WER_TOLERANCE_LONG_SENTENCES, (
         f"ASR WER {current_wer:.4f} exceeds tolerance {ASR_WER_TOLERANCE_LONG_SENTENCES} "
@@ -87,8 +87,8 @@ def test_long_sentence_full_pipeline_and_nlp_on_truth(audio_file_path: Path, tru
     # else:
     #     print("  (Skipping keyword label assertion due to one or both being '_dummy_label')")
 
-    # Basic Summary Checks (Non-empty if inputs were non-empty and models are not pure dummies)
-    if asr_transcript_from_pipeline: # Condition simplified as pipeline_keyword_label is commented out
+    # Basic Summary Checks 
+    if asr_transcript_from_pipeline: 
         assert len(nlp_analysis_from_pipeline['summary']) > 0, "Pipeline summary should not be empty if ASR transcript was processed by non-dummy NLP."
     if truth_transcript_text:
         assert len(nlp_analysis_on_truth_transcript) > 0, "Truth NLP summary should not be empty if truth transcript was processed by non-dummy NLP."
