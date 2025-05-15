@@ -157,4 +157,68 @@ The project uses `pytest` for thorough testing of its components and the integra
 *   Further refine ASR decoding parameters for optimal accuracy across diverse audio.
 *   Expand CLI functionality for easier use and batch processing.
 
-NOTE: ADD BLOCK DIAGRAM FOR HARDWARE
+ BLOCK DIAGRAM FOR SOFTWARE + HARDWARE
+
+<pre>
+EE109 Audio Transcription & Analysis Pipeline – Block Diagram
+
+[ Audio Input (WAV/MP3/etc.) ]
+              │
+              ▼
+┌───────────────────────────────────────────────────────────────┐
+│      Digital Signal Processing (DSP) Frontend — Hardware      │
+│   [ To be implemented on FPGA using Spatial ]                 │
+├───────────────────────────────────────────────────────────────┤
+│ 1. Resampling (→ 16kHz if needed)                             │
+│    └── Converts any sample rate to Whisper-compatible 16kHz   │
+│                                                               │
+│ 2. Hann Windowing                                             │
+│    └── Applies smooth window to each frame before FFT         │
+│                                                               │
+│ 3. 400-pt FFT (STFT)                                          │
+│    └── Transforms windowed time-domain signal → frequency     │
+│                                                               │
+│ 4. Power Spectrum                                             │
+│    └── Computes magnitude² of each FFT output bin             │
+│                                                               │
+│ 5. Mel Filterbank (80 bands, 0–8kHz)                          │
+│    └── Projects spectrum onto perceptual Mel scale            │
+│                                                               │
+│ 6. Log Compression + Whisper Scaling                          │
+│    ├── log10(clamp(power, min=1e-10))                         │
+│    └── Applies Whisper scaling: (x + 4) / 4                   │
+└───────────────────────────────────────────────────────────────┘
+              │
+              ▼
+[ Output: Log-Mel Spectrogram (80 × T float32 ndarray) ]
+              │
+              ▼
+┌───────────────────────────────────────────────────────────────┐
+│            Automatic Speech Recognition (ASR)                 │
+│   [ Whisper (OpenAI) model via HuggingFace Transformers ]     │
+├───────────────────────────────────────────────────────────────┤
+│ • Takes log-Mel spectrogram as input                          │
+│ • Uses sliding window for audio > 30 sec                      │
+│ • Decodes each chunk into text                                │
+│ • Merges overlapping segments using custom `_merge()`         │
+└───────────────────────────────────────────────────────────────┘
+              │
+              ▼
+[ Output: Transcript (string) ]
+              │
+              ▼
+┌───────────────────────────────────────────────────────────────┐
+│            Natural Language Processing (NLP)                  │
+│   [ Keyword Spotting, Topic ID, Summarization ]               │
+├───────────────────────────────────────────────────────────────┤
+│ • classify_keywords() → Top keyword & confidence              │
+│ • classify_topic()    → Main topic & confidence               │
+│ • summarize_text()    → Summary of input transcript           │
+└───────────────────────────────────────────────────────────────┘
+              │
+              ▼
+[ Final Output JSON ]
+{ word frequency + summary{
+}
+</pre>
+
