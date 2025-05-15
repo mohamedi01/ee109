@@ -1,13 +1,13 @@
 # EE109 Final Project: Audio Transcription and Analysis Pipeline
 
-For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper, and a Natural Language Processing (NLP) module for text summarization and analysis (keyword and topic identification).
+For our EE109 final project, we are implementing a Python-based audio transcription and analysis system. It features a custom Digital Signal Processing (DSP) frontend to extract log-Mel spectrograms, an Automatic Speech Recognition (ASR) stage using OpenAI's Whisper API, and a Natural Language Processing (NLP) module for text summarization and analysis (keyword and topic identification).
 
 ## Core Components & Workflow
 
-The system processes audio in three main stages, orchestrated by a central pipeline:
+The system processes input audio in three main stages, orchestrated by a central pipeline:
 
 1.  **Digital Signal Processing (DSP) Frontend (`audiolib.dsp.mel`)**
-    *   The `wav_to_logmel` function is the heart of this stage. It takes an audio file (various formats like WAV, FLAC, MP3 supported) or raw audio data as input.
+    *   The `wav_to_logmel` takes an audio file (various formats like WAV, FLAC, MP3 supported) or raw audio data as input.
     *   **Key Processing Steps:**
         1.  **Loading & Resampling**: Audio is loaded and, if necessary, resampled to 16 kHz (Whisper's standard).
         2.  **Quantization Simulation**: Audio is scaled to the int16 range, clipped, cast to `int16`, then cast back to `float32` and rescaled (divided by 32768.0). This step mimics the behavior of Whisper's reference audio loading, which often involves `ffmpeg` that performs such a conversion, ensuring compatibility.
@@ -26,7 +26,7 @@ The system processes audio in three main stages, orchestrated by a central pipel
         *   For audio clips longer than 30 seconds, it implements a sliding window mechanism. It processes the audio in 30-second chunks with a 3-second overlap on each side. The transcribed text from these overlapping segments is then intelligently merged using a custom `_merge` function that handles duplicated words at the segment boundaries.
         *   For shorter clips (<= 30s), the audio is processed directly.
         *   Finally, it passes the resulting Mel spectrogram(s) to `transcribe_features` for actual speech-to-text conversion.
-    *   **Output**: A string containing the transcribed text, typically in lowercase.
+    *   **Output**: A string containing the transcribed text
 
 3.  **Natural Language Processing (NLP) (`audiolib.nlp.nlp`)**
     *   The `analyze_text` function serves as the primary interface for NLP tasks. It takes transcribed text as input.
@@ -40,16 +40,14 @@ The system processes audio in three main stages, orchestrated by a central pipel
 
 ## Pipeline Integration (`audiolib.pipeline`)
 
-The `process_audio_to_nlp` function in `audiolib.pipeline.py` ties these components together into a cohesive workflow:
+The `process_audio_to_nlp` function in `audiolib.pipeline.py` combines these components workflow:
 
 1.  It accepts an `audio_path` (and an optional `device` for computation).
 2.  **ASR Stage**: It calls `transcribe_audio_file` (from `audiolib.asr`) to perform both the DSP frontend processing (via `wav_to_logmel` internally) and the subsequent speech-to-text conversion. This yields the full transcript of the audio.
 3.  **NLP Stage**: The obtained transcript is then passed to `analyze_text` (from `audiolib.nlp`) for keyword spotting, topic identification, and summarization.
 4.  **Output**: The function returns a dictionary containing the `"transcript"` and a nested dictionary under `"nlp_analysis"` which holds the results from the NLP module (keyword, topic, summary).
 
-This integrated approach allows for a simple, single-function call to process an audio file from its raw waveform to a structured textual analysis.
-
-## Features
+## Main Features
 
 *   **Custom DSP Frontend**: Converts audio (WAV, FLAC, MP3, etc.) to Whisper-compatible log-Mel spectrograms (`audiolib.dsp.mel.wav_to_logmel`).
 *   **Whisper-based ASR**: Transcribes speech to text using `openai/whisper-base.en` (`audiolib.asr`). Handles both short and long audio (with segment merging).
@@ -57,9 +55,10 @@ This integrated approach allows for a simple, single-function call to process an
 *   **Integrated End-to-End Pipeline**: `audiolib.pipeline.process_audio_to_nlp` provides a single interface for DSP, ASR, and NLP.
 *   **Comprehensive Testing Suite**: Utilizes `pytest` for unit, integration, and pipeline tests, with WER as a key ASR metric.
 
-## Data Sources and Acknowledgements
+## Data Sources
 
 *   **Homophone List**: For text normalization during Word Error Rate (WER) calculation, this project utilizes a list of English homophones sourced from the `pimentel/homophones` GitHub repository. The specific file used is `homophones.csv`, available at [https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv](https://raw.githubusercontent.com/pimentel/homophones/master/homophones.csv). This data is stored locally in `data/homophones.csv` and contains slight modifications that include digit-to-word mappings (e.g., "1" -> "one").
+* Note: Add data sources for the audio files 
 
 ## Project Structure
 For a more detailed view of the architecture, please see [docs/architecture.md](docs/architecture.md).
@@ -73,26 +72,25 @@ For a more detailed view of the architecture, please see [docs/architecture.md](
 
 ## Setup and Installation
 
-2.  **Create and activate a virtual environment**
+1.  **Create and activate a virtual environment**
     ```bash
     python -m venv ee109_final_project
+    source ee109_final_project/bin/activate
     # On Windows
     # venv\Scripts\activate
-    # On macOS/Linux
-    # source ee109_final_project/bin/activate
     ```
 
-3.  **Install dependencies:**
+2.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
 ## Usage
 
-To process an audio file through the full DSP-ASR-NLP pipeline using the example script, follow these steps:
+To process an audio file through the full DSP-ASR-NLP pipeline, follow these steps:
     ```
 
-2.  **Run the Example Script**: Execute the `run_pipeline_example.py` script as a module, providing the path to your audio file as a command-line argument. The script is located at `src/audiolib/run_pipeline_example.py`.
+1.  **Run the Example Script**: Execute the `run_pipeline_example.py` script as a module, providing the path to your audio file as a command-line argument. The script itself is at `src/audiolib/run_pipeline_example.py`.
     ```bash
     python -m src.audiolib.run_pipeline path/to/your/audiofile.wav
     ```
@@ -105,12 +103,6 @@ To process an audio file through the full DSP-ASR-NLP pipeline using the example
     python -m src.audiolib.run_pipeline data/long_sentences/bird.mp3
     ```
 
-3.  **Optional Arguments**:
-    *   `--device`: Specify the processing device (`cpu` or `cuda`). Defaults to `cpu`.
-        ```bash
-        python -m src.audiolib.run_pipeline_example data/short_sentences/harvard_f.wav --device cuda
-        ```
-
     The script will output the transcribed text and the NLP analysis (keyword, topic, summary).
 
 ## Running Tests
@@ -122,15 +114,13 @@ The project uses `pytest` for thorough testing of its components and the integra
 *   `tests/test_NLP/`: Includes tests for the Natural Language Processing module. This involves directly testing functions like `analyze_text` with predefined text inputs to verify keyword, topic, and summary outputs. It may also include performance tests or evaluations of the NLP models if applicable.
 *   `tests/test_pipeline/`: Contains end-to-end integration tests for the full `process_audio_to_nlp` pipeline. These tests run on actual audio files, process them through all stages (DSP -> ASR -> NLP), and then check the final transcript and NLP analysis results against expected outcomes or ground truth data.
 
-1.  **Ensure you have installed the test dependencies** (pytest and jiwer are included in `requirements.txt`).
-
-2.  **Run all tests:**
+1.  **Run all tests:**
     From the project root directory (`Final-Project/`):
     ```bash
     pytest
     ```
 
-3.  **Run specific test files or tests with more verbose output:**
+2.  **Run specific test files or tests with more verbose output:**
     ```bash
     pytest -s tests/test_DSP/test_dsp_single_words.py
     pytest -s tests/test_DSP/test_dsp_short_sentences.py
