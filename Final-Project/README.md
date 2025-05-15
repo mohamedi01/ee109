@@ -90,7 +90,7 @@ For a more detailed view of the architecture, please see [docs/architecture.md](
 To process an audio file through the full DSP-ASR-NLP pipeline, follow these steps:
     ```
 
-1.  **Run the Example Script**: Execute the `run_pipeline_example.py` script as a module, providing the path to your audio file as a command-line argument. The script itself is at `src/audiolib/run_pipeline_example.py`.
+1.  **Run the Example Script**: Execute the `run_pipeline.py` script as a module, providing the path to your audio file as a command-line argument. The script itself is at `src/audiolib/run_pipeline.py`.
     ```bash
     python -m src.audiolib.run_pipeline path/to/your/audiofile.wav
     ```
