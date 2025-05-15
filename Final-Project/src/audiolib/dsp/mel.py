@@ -111,7 +111,7 @@ def wav_to_logmel(
             # sf.read with dtype="float32" and always_2d=False (default) gives 1D float32 array for mono.
             loaded_data, loaded_sr = sf.read(str(path), dtype="float32", always_2d=False)
             if loaded_data.ndim != 1: # Check if mono
-                 raise ValueError(f"Expected mono audio resulting in 1D array from sf.read, got {loaded_data.ndim}D for {path}")
+                raise ValueError(f"Expected mono audio resulting in 1D array from sf.read, got {loaded_data.ndim}D for {path}")
             wav_data_float32 = loaded_data
             actual_sr = loaded_sr
         except Exception as e:

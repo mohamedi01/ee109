@@ -16,6 +16,8 @@ Final-Project/
 │   └─ audiolib/
 │       ├─ __init__.py
 │       ├─ cli.py
+│       ├─ pipeline.py                  # (Provides the integrated DSP->ASR->NLP pipeline function `process_audio_to_nlp`)
+│       ├─ run_pipeline_example.py      # (Example script to run the full pipeline on an audio file from the command line)
 │       ├─ utils.py                     # (Provides utility functions, e.g., loading a canonical map for homophones and numbers)
 │       ├─ dsp/
 │       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
@@ -29,7 +31,6 @@ Final-Project/
 │       │   ├─ __init__.py              # (Finalized for software implementation: Exports core NLP functionalities like `analyze_text`)
 │       │   ├─ nlp.py                   # (Finalized for software implementation: Provides core NLP functions: `analyze_text` for keyword/topic classification and summarization, model loading, performance metrics, and evaluation utilities)
 │       │   └─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities, particularly `analyze_text`)
-│       ├─ pipeline.py                  # (Provides the integrated DSP->ASR->NLP pipeline function `process_audio_to_nlp`)
 │       └─ testutility/
 │           ├─ __init__.py              # (Makes testutility a package)
 │           └─ text_processing_utils.py     # (Utilities for text normalization. Loads a canonical map for homophones and numbers directly from data/Testing-Normalization/homophones.csv for testing purposes) (Finalized)

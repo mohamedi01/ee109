@@ -87,6 +87,32 @@ For a more detailed view of the architecture, please see [docs/architecture.md](
     pip install -r requirements.txt
     ```
 
+## Usage
+
+To process an audio file through the full DSP-ASR-NLP pipeline using the example script, follow these steps:
+    ```
+
+2.  **Run the Example Script**: Execute the `run_pipeline_example.py` script as a module, providing the path to your audio file as a command-line argument. The script is located at `src/audiolib/run_pipeline_example.py`.
+    ```bash
+    python -m src.audiolib.run_pipeline_example path/to/your/audiofile.wav
+    ```
+    For example:
+    ```bash
+    python -m src.audiolib.run_pipeline_example data/short_sentences/harvard_f.wav
+    ```
+    Or for a long sentence:
+    ```bash
+    python -m src.audiolib.run_pipeline_example data/long_sentences/bird.mp3
+    ```
+
+3.  **Optional Arguments**:
+    *   `--device`: Specify the processing device (`cpu` or `cuda`). Defaults to `cpu`.
+        ```bash
+        python -m src.audiolib.run_pipeline_example data/short_sentences/harvard_f.wav --device cuda
+        ```
+
+    The script will output the transcribed text and the NLP analysis (keyword, topic, summary).
+
 ## Running Tests
 
 The project uses `pytest` for thorough testing of its components and the integrated pipeline. The tests are organized into subdirectories within `tests/`:
