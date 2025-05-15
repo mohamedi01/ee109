@@ -17,7 +17,7 @@ Final-Project/
 │       ├─ __init__.py
 │       ├─ cli.py
 │       ├─ pipeline.py                  # (Provides the integrated DSP->ASR->NLP pipeline function `process_audio_to_nlp`)
-│       ├─ run_pipeline_example.py      # (Script to run the full pipeline on an audio file from the command line)
+│       ├─ run_pipeline.py      # (Script to run the full pipeline on an audio file from the command line)
 │       ├─ dsp/
 │       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
 │       │   ├─ mel.py                   # (Finalized for software implementation: provides `wav_to_logmel` for DSP)

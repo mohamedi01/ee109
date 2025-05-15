@@ -94,15 +94,15 @@ To process an audio file through the full DSP-ASR-NLP pipeline using the example
 
 2.  **Run the Example Script**: Execute the `run_pipeline_example.py` script as a module, providing the path to your audio file as a command-line argument. The script is located at `src/audiolib/run_pipeline_example.py`.
     ```bash
-    python -m src.audiolib.run_pipeline_example path/to/your/audiofile.wav
+    python -m src.audiolib.run_pipeline path/to/your/audiofile.wav
     ```
     For example:
     ```bash
-    python -m src.audiolib.run_pipeline_example data/short_sentences/harvard_f.wav
+    python -m src.audiolib.run_pipeline data/short_sentences/harvard_f.wav
     ```
     Or for a long sentence:
     ```bash
-    python -m src.audiolib.run_pipeline_example data/long_sentences/bird.mp3
+    python -m src.audiolib.run_pipeline data/long_sentences/bird.mp3
     ```
 
 3.  **Optional Arguments**:
