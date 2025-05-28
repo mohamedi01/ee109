@@ -1,10 +1,10 @@
 """
-Tests the NLP module (analyze_text) directly using pre-existing transcript files
+Tests the NLP module (summarize_text) directly using pre-existing transcript files
 from short sentences.
 """
 import pytest
 from pathlib import Path
-from audiolib.nlp.nlp import analyze_text
+from audiolib.nlp import summarize_text
 
 TRANSCRIPT_DIR_SHORT_SENTENCES = Path("data/transcripts/short_sentences/")
 TEST_TRANSCRIPT_FILES_SHORT = list(TRANSCRIPT_DIR_SHORT_SENTENCES.glob("*.txt"))
@@ -14,7 +14,7 @@ if not TEST_TRANSCRIPT_FILES_SHORT:
 
 @pytest.mark.parametrize("transcript_file_path", TEST_TRANSCRIPT_FILES_SHORT)
 def test_nlp_on_short_sentence_transcript_smoke(transcript_file_path: Path):
-    """Smoke test for analyze_text using a short sentence transcript file."""
+    """Smoke test for summarize_text using a short sentence transcript file."""
     if not transcript_file_path.exists():
         pytest.skip(f"Transcript file not found: {transcript_file_path}")
 
@@ -24,39 +24,20 @@ def test_nlp_on_short_sentence_transcript_smoke(transcript_file_path: Path):
     if not text_content:
         pytest.skip(f"Transcript file is empty: {transcript_file_path}")
 
-    print(f"\n--- Testing NLP on transcript: {transcript_file_path.name} ---")
+    print(f"\n--- Testing NLP summarize_text on transcript: {transcript_file_path.name} ---")
     print(f"Transcript content (first 100 chars): {text_content[:100]}...")
 
-    res = analyze_text(text_content, device="cpu")
+    summary_output = summarize_text(text_content, device="cpu")
 
-    assert isinstance(res, dict)
-    assert set(res.keys()) == {"keyword", "topic", "summary"}
-    
-    # Summary checks
-    summary = res["summary"]
-    assert isinstance(summary, str)
-    assert len(summary) > 0, "Summary should not be empty if input text is not empty."
+    assert isinstance(summary_output, str)
+    assert len(summary_output) > 0, "Summary should not be empty if input text is not empty."
     # If dummy summarizer is used, summary will be the input text.
     # Add more specific checks if you have golden summaries later.
 
-    # Keyword checks
-    key_label, key_conf = res["keyword"]
-    assert isinstance(key_label, str)
-    assert isinstance(key_conf, float)
-    assert 0.0 <= key_conf <= 1.0
-    assert len(key_label) > 0, "Keyword label should not be empty."
-
-    # Topic checks
-    top_label, top_conf = res["topic"]
-    assert isinstance(top_label, str)
-    assert isinstance(top_conf, float)
-    assert 0.0 <= top_conf <= 1.0
-    assert len(top_label) > 0, "Topic label should not be empty."
-
-    print(f"NLP Analysis for {transcript_file_path.name}: Keyword='{key_label}' ({key_conf:.2f}), Topic='{top_label}' ({top_conf:.2f})")
-    print(f"Summary: {summary}")
+    print(f"Summary for {transcript_file_path.name}: {summary_output}")
 
     # For long transcripts, a real summarizer should produce a summary shorter than the original.
-    if text_content != summary: # Check if a non-dummy summarizer might have run
-        assert len(summary) < len(text_content), \
-            "For long texts and a real summarizer, summary should be shorter than the original text." 
+    # This check might be less relevant for short sentences but kept for consistency if summarizer still shortens.
+    if text_content != summary_output: # Check if a non-dummy summarizer might have run
+        assert len(summary_output) < len(text_content), \
+            "For non-trivial texts and a real summarizer, summary should ideally be shorter than the original text." 

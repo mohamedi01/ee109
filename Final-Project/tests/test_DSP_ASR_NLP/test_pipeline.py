@@ -5,7 +5,7 @@ from typing import Union
 from jiwer import wer
 
 from audiolib.asr import transcribe_audio_file
-from audiolib.nlp import analyze_text
+from audiolib.nlp import summarize_text
 from testutility.text_processing_utils import (
     normalize_text_for_wer,
     apply_canonical_map_to_text,
@@ -29,24 +29,24 @@ EXAMPLE_AUDIO_FILES_WITH_TRUTH = [
 ]
 
 
-def run_full_pipeline(audio_path: Union[str, Path], device: str = "cpu") -> tuple[str, dict]:
-    """Runs DSP->ASR->NLP pipeline: returns transcript and NLP outputs."""
+def run_full_pipeline(audio_path: Union[str, Path], device: str = "cpu") -> tuple[str, str]:
+    """Runs DSP->ASR->NLP pipeline: returns transcript and NLP summary string."""
     transcript = transcribe_audio_file(audio_path, device=device)
-    nlp_out    = analyze_text(transcript, device=device)
-    return transcript, nlp_out
+    summary_str = summarize_text(transcript, device=device)
+    return transcript, summary_str
 
 
 @pytest.mark.parametrize("audio_filepath, expected_transcription_path", EXAMPLE_AUDIO_FILES_WITH_TRUTH)
 def test_full_pipeline_nlp(audio_filepath, expected_transcription_path):
     """
-    End-to-end test: DSP->ASR accuracy vs baseline + NLP output validation.
+    End-to-end test: DSP->ASR accuracy vs baseline + NLP summary string validation.
     """
     # Load expected transcription
     with open(expected_transcription_path, 'r', encoding='utf-8') as f:
         expected_trans = f.read().strip()
 
     # 1. Run custom pipeline
-    pipeline_transcript, nlp_out = run_full_pipeline(audio_filepath, device="cpu")
+    pipeline_transcript, summary_str = run_full_pipeline(audio_filepath, device="cpu")
 
     # 2. Baseline Whisper model transcription
     baseline_model   = whisper.load_model("base")
@@ -78,22 +78,10 @@ def test_full_pipeline_nlp(audio_filepath, expected_transcription_path):
         f"({baseline_wer:.4f} + {tolerance})"
     )
 
-    # 5. Validate NLP outputs
-    assert set(nlp_out.keys()) == {"keyword", "topic", "summary"}
+    # 5. Validate NLP summary string output
 
     # Summary should be non-empty string
-    summary = nlp_out["summary"]
-    assert isinstance(summary, str)
-    assert len(summary) > 0
+    assert isinstance(summary_str, str)
+    assert len(summary_str) > 0
 
-    # Keyword classification
-    kw_label, kw_conf = nlp_out["keyword"]
-    assert isinstance(kw_label, str)
-    assert isinstance(kw_conf, float)
-    assert 0.0 <= kw_conf <= 1.0
-
-    # Topic classification
-    top_label, top_conf = nlp_out["topic"]
-    assert isinstance(top_label, str)
-    assert isinstance(top_conf, float)
-    assert 0.0 <= top_conf <= 1.0
+    # Keyword and Topic classification checks REMOVED
