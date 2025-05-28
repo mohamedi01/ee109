@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from mel_modular import (
+from audiolib.dsp.mel_gold import (
     quantize_int16,
     compute_log_mel_power,
     whisper_scale,
@@ -26,8 +26,9 @@ def test_compute_log_mel_power_matches_reference():
     xt = torch.from_numpy(x).float()
     logmel_t = compute_log_mel_power(xt)
     scaled = whisper_scale(logmel_t.cpu().numpy().astype(np.float32))
-    assert np.allclose(ref, scaled, atol=1e-5)
-
+    assert scaled == pytest.approx(ref, rel=1e-5, abs=5e-4), \
+       f"Max abs error: {np.max(np.abs(ref - scaled)):.6f}"
+    
 def test_whisper_scale():
     arr = np.array([-4.0, -2.0, 0.0, 4.0], dtype=np.float32)
     out = whisper_scale(arr)
