@@ -1,7 +1,17 @@
-# sbt -Dtest.CS217=true "; testOnly Lab2Part1SimpleMemReduce"
-# sbt -Dtest.CS217=true "; testOnly Lab2Part2SimpleMemFold"
-# sbt -Dtest.CS217=true "; testOnly Lab2Part3BasicCondFSM"
-# sbt -Dtest.CS217=true "; testOnly Lab2Part3BasicCondFSMAlt"
-# sbt -Dtest.CS217=true "; testOnly Lab2Part4LUT"
-sbt -Dtest.CS217=true "; testOnly Lab2Part5GEMM"
-# sbt -Dtest.CS217=true "; testOnly Lab2Part6GEMM"
+set -e
+TEST_OPTS="-Dtest.CS217=true"
+
+# Quantize kernel
+sbt $TEST_OPTS "; testOnly spatial.tests.QuantizeKernelTest"
+# Power spectrum
+sbt $TEST_OPTS "; testOnly spatial.tests.PowerSpectrumTest"
+# Mel filterbank
+sbt $TEST_OPTS "; testOnly spatial.tests.MelFilterbankTest"
+# Log compression
+sbt $TEST_OPTS "; testOnly spatial.tests.LogCompressTest"
+# Whisper scaling
+sbt $TEST_OPTS "; testOnly spatial.tests.WhisperScaleTest"
+# STFT
+sbt $TEST_OPTS "; testOnly spatial.tests.STFTKernelTest"
+
+echo "------------------------All tests passed!------------------------"
