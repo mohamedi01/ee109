@@ -2,7 +2,7 @@ import spatial.dsl._
 
 @spatial class MelFilterbankTest extends SpatialTest {
   def main(args: Array[String]): Unit = {
-    type T = Float
+    type T = FixPt[TRUE, _16, _8]
     val BANDS = 2
     val BINS = 3
 
@@ -46,9 +46,11 @@ import spatial.dsl._
     val result = getMem(outDRAM)
 
     // Manual correctness check
-    val d0 = result(0) - gold(0); val e0 = if (d0 < 0) -d0 else d0
-    val d1 = result(1) - gold(1); val e1 = if (d1 < 0) -d1 else d1
-    val pass = if (e0 < 0.001f && e1 < 0.001f) 1 else 0
+   val threshold = 0.01.to[T]
+   val d0 = result(0) - gold(0); val e0 = if (d0 < 0.to[T]) -d0 else d0
+val d1 = result(1) - gold(1); val e1 = if (d1 < 0.to[T]) -d1 else d1
+val pass = if (e0 < threshold && e1 < threshold) 1 else 0
+
 
     println("PASS: " + pass)
     assert(pass == 1)
