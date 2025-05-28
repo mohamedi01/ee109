@@ -1,0 +1,535 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 2.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: x351
+Type: StreamOut[BurstCmd]
+Src:  QuantizeKernelTest.scala:54:15
+Src:        outDRAM store outSRAM
+---------------------------------------------------------------------
+Symbol:     x351 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x359 = StreamOutBankedWrite(x351,ArrayBuffer(x357),ArrayBuffer(Set(x358))) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x362: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x359: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: inSRAM_0 (x280)
+Type: SRAM1[Flt[_24,_8]]
+Src:  QuantizeKernelTest.scala:32:27
+Src:        val inSRAM = SRAM[T](N)
+---------------------------------------------------------------------
+Symbol:     x280 = SRAMNew(List(Const(9)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x313 = SRAMBankedWrite(x280,Vector(x312),Vector(List(Const(0))),Vector(x409),Vector(Set(x410, x411))) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x321 = SRAMBankedRead(x280,Vector(List(Const(0))),Vector(b319),Vector(Set(b320)),Vec[Flt[_24,_8]]) {}
+             val x = inSRAM(i) * 32767.to[T] (QuantizeKernelTest.scala:38:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x244: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x316: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x315: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x314: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x313: SRAMBankedWrite
+  x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x321: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x283
+Type: FIFO[IssuedCmd]
+Src:  QuantizeKernelTest.scala:35:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x283 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x290 = FIFOBankedEnq(x283,ArrayBuffer(x289),ArrayBuffer(Set(Const(true)))) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x295 = FIFOBankedDeq(x283,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x316: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x291: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x290: FIFOBankedEnq
+  x315: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x301: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x295: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x354
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernelTest.scala:54:15
+Src:        outDRAM store outSRAM
+---------------------------------------------------------------------
+Symbol:     x354 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x360 = RegWrite(x354,Const(9),Set()) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x369 = RegRead(x354) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x377: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x362: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x360: RegWrite
+  x376: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x369: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x282
+Type: StreamOut[BurstCmd]
+Src:  QuantizeKernelTest.scala:35:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x282 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x288 = StreamOutBankedWrite(x282,ArrayBuffer(x286),ArrayBuffer(Set(x287))) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x291: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x288: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x294
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernelTest.scala:35:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x294 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x300 = RegWrite(x294,x299,Set()) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x406 = RegRead(x294) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x315: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x301: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x300: RegWrite
+  x314: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x406: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x293
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernelTest.scala:35:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x293 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x298 = RegWrite(x293,x297,Set()) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x308 = RegRead(x293) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x315: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x301: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x298: RegWrite
+  x314: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x308: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x284
+Type: StreamIn[Flt[_24,_8]]
+Src:  QuantizeKernelTest.scala:35:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x284 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x311 = StreamInBankedRead(x284,ArrayBuffer(Set(b306))) {}
+             inSRAM load inDRAM (QuantizeKernelTest.scala:35:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x314: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x311: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x355
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernelTest.scala:54:15
+Src:        outDRAM store outSRAM
+---------------------------------------------------------------------
+Symbol:     x355 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x361 = RegWrite(x355,Const(16),Set()) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x407 = RegRead(x355) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x377: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x362: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x361: RegWrite
+  x376: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x407: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x353
+Type: StreamIn[Bit]
+Src:  QuantizeKernelTest.scala:54:15
+Src:        outDRAM store outSRAM
+---------------------------------------------------------------------
+Symbol:     x353 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x379 = StreamInBankedRead(x353,ArrayBuffer(Set())) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x381: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x379: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x352
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  QuantizeKernelTest.scala:54:15
+Src:        outDRAM store outSRAM
+---------------------------------------------------------------------
+Symbol:     x352 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x375 = StreamOutBankedWrite(x352,ArrayBuffer(x374),ArrayBuffer(Set(x417))) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x376: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x375: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: outSRAM_0 (x281)
+Type: SRAM1[Flt[_24,_8]]
+Src:  QuantizeKernelTest.scala:33:28
+Src:        val outSRAM = SRAM[T](N)
+---------------------------------------------------------------------
+Symbol:     x281 = SRAMNew(List(Const(9)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x336 = SRAMBankedWrite(x281,Vector(x335),Vector(List(Const(0))),Vector(x414),Vector(Set(x415))) {}
+             outSRAM(i) = quantized (QuantizeKernelTest.scala:46:20)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x372 = SRAMBankedRead(x281,Vector(List(Const(0))),Vector(b366),Vector(Set(x371, b367)),Vec[Flt[_24,_8]]) {}
+             outDRAM store outSRAM (QuantizeKernelTest.scala:54:15)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x244: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x336: SRAMBankedWrite
+  x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x377: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x376: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x372: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+

@@ -1,0 +1,2654 @@
+<h3 id=x148><a href=PreExecution_IR.html#x148>x148</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: inDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:26:25<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x7<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x150>x150</a>, <a href=PreExecution_IR.html#x156>x156</a>, <a href=PreExecution_IR.html#x158>x158</a>, <a href=PreExecution_IR.html#x163>x163</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x148>x148</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x149><a href=PreExecution_IR.html#x149>x149</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: outDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:27:26<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x8<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x220>x220</a>, <a href=PreExecution_IR.html#x222>x222</a>, <a href=PreExecution_IR.html#x239>x239</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x149>x149</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x151><a href=PreExecution_IR.html#x151>x151</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: inSRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:32:27<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x10<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x180>x180</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x151>x151</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 0<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x180>x180</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x180><a href=PreExecution_IR.html#x180>x180</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x151>x151</a>,data=<a href=PreExecution_IR.html#x179>x179</a>,addr=[<a href=PreExecution_IR.html#b99>b99</a>],ens=[<a href=PreExecution_IR.html#x178>x178</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x106<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x151}, writes={x151})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x180>x180</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b99>b99</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b99>b99</a>:[<a href=PreExecution_IR.html#b99>b99</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b99>b99</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x180>x180</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b99>b99</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 32<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 1.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x186><a href=PreExecution_IR.html#x186>x186</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x151>x151</a>,addr=[<a href=PreExecution_IR.html#b14>b14</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:38:23<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x16<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>, <a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x151})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b14>b14</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b14>b14</a>:[<a href=PreExecution_IR.html#b14>b14</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b14>b14</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x186>x186</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b14>b14</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 36<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x152><a href=PreExecution_IR.html#x152>x152</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: outSRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:33:28<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x11<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x200>x200</a>, <a href=PreExecution_IR.html#x234>x234</a>, <a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x152>x152</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 1<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x234>x234</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x200>x200</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x200><a href=PreExecution_IR.html#x200>x200</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x152>x152</a>,data=<a href=PreExecution_IR.html#x199>x199</a>,addr=[<a href=PreExecution_IR.html#b14>b14</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:46:20<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x30<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x152}, writes={x152})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x200>x200</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b14>b14</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b14>b14</a>:[<a href=PreExecution_IR.html#b14>b14</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b14>b14</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x200>x200</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b14>b14</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 50<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 64.5<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x234><a href=PreExecution_IR.html#x234>x234</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x152>x152</a>,addr=[<a href=PreExecution_IR.html#b126>b126</a>],ens=[<a href=PreExecution_IR.html#x233>x233</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x132<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x235>x235</a>, <a href=PreExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x152})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x234>x234</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b126>b126</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b126>b126</a>:[<a href=PreExecution_IR.html#b126>b126</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b126>b126</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x234>x234</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b126>b126</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x234>x234</a>, <a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 87<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x153><a href=PreExecution_IR.html#x153>x153</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x75<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x159>x159</a>, <a href=PreExecution_IR.html#x163>x163</a>, <a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x153>x153</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 3<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x159><a href=PreExecution_IR.html#x159>x159</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x153>x153</a>,data=<a href=PreExecution_IR.html#x157>x157</a>,ens=[<a href=PreExecution_IR.html#x158>x158</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x81<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x153}, writes={x153})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x159>x159</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 10<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x154><a href=PreExecution_IR.html#x154>x154</a> = FIFONew(depth=16)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x76<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x161>x161</a>, <a href=PreExecution_IR.html#x166>x166</a>, <a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x154>x154</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 4<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x161>x161</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x161><a href=PreExecution_IR.html#x161>x161</a> = FIFOEnq(mem=<a href=PreExecution_IR.html#x154>x154</a>,data=<a href=PreExecution_IR.html#x160>x160</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x83<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x154}, writes={x154})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x161>x161</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x161>x161</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 12<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x162>x162</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x166><a href=PreExecution_IR.html#x166>x166</a> = FIFODeq(mem=<a href=PreExecution_IR.html#x154>x154</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: IssuedCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x89<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x167>x167</a>, <a href=PreExecution_IR.html#x169>x169</a>, <a href=PreExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x154}, writes={x154})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x166>x166</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 18<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x155><a href=PreExecution_IR.html#x155>x155</a> = StreamInNew(bus=BurstDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x77<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x163>x163</a>, <a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x155>x155</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 5<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x179><a href=PreExecution_IR.html#x179>x179</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x155>x155</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x105<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x180>x180</a>, <a href=PreExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155}, writes={x155})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PreExecution_IR.html#b99>b99</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b99>b99</a>:[<a href=PreExecution_IR.html#b99>b99</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b99>b99</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x179>x179</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b99>b99</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 31<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x164><a href=PreExecution_IR.html#x164>x164</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x87<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>, <a href=PreExecution_IR.html#x176>x176</a>, <a href=PreExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x164>x164</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 15<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x168><a href=PreExecution_IR.html#x168>x168</a> = RegWrite(mem=<a href=PreExecution_IR.html#x164>x164</a>,data=<a href=PreExecution_IR.html#x167>x167</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x93<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x164}, writes={x164})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x168>x168</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 20<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x176><a href=PreExecution_IR.html#x176>x176</a> = RegRead(mem=<a href=PreExecution_IR.html#x164>x164</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x102<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x177>x177</a>, <a href=PreExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x164})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x176>x176</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 28<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x165><a href=PreExecution_IR.html#x165>x165</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x88<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x170>x170</a>, <a href=PreExecution_IR.html#x172>x172</a>, <a href=PreExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x165>x165</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 16<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x170>x170</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x170><a href=PreExecution_IR.html#x170>x170</a> = RegWrite(mem=<a href=PreExecution_IR.html#x165>x165</a>,data=<a href=PreExecution_IR.html#x169>x169</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x95<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x165}, writes={x165})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x170>x170</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x170>x170</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 22<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x172><a href=PreExecution_IR.html#x172>x172</a> = RegRead(mem=<a href=PreExecution_IR.html#x165>x165</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x142, 0031: x97<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x173>x173</a>, <a href=PreExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x165})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[Prod(xs=[<a href=PreExecution_IR.html#x169>x169</a>],m=1)],b=0),allIters={<a href=PreExecution_IR.html#x169>x169</a>:[]},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x172>x172</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 23<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x181>x181</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x215><a href=PreExecution_IR.html#x215>x215</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x110<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x223>x223</a>, <a href=PreExecution_IR.html#x239>x239</a>, <a href=PreExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 65<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x223>x223</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x223><a href=PreExecution_IR.html#x223>x223</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x215>x215</a>,data=<a href=PreExecution_IR.html#x221>x221</a>,ens=[<a href=PreExecution_IR.html#x222>x222</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x119<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x215}, writes={x215})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x223>x223</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x223>x223</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 76<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[Tup2[Flt[_24,_8],Bit]]<br></text>
+<text><strong>Aliases</strong>: 0035: x111<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x239>x239</a>, <a href=PreExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x216>x216</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 66<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x236><a href=PreExecution_IR.html#x236>x236</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x216>x216</a>,data=<a href=PreExecution_IR.html#x235>x235</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x134<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x216}, writes={x216})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PreExecution_IR.html#b126>b126</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b126>b126</a>:[<a href=PreExecution_IR.html#b126>b126</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b126>b126</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x236>x236</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b126>b126</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x234>x234</a>, <a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 89<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 4.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x217><a href=PreExecution_IR.html#x217>x217</a> = StreamInNew(bus=BurstAckBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamIn[Bit]<br></text>
+<text><strong>Aliases</strong>: 0035: x112<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>, <a href=PreExecution_IR.html#x240>x240</a>, <a href=PreExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x217>x217</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 67<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x217>x217</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x138<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x241>x241</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x217}, writes={x217})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x240>x240</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x241>x241</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x241>x241</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 92<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x241>x241</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x218><a href=PreExecution_IR.html#x218>x218</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x114<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>, <a href=PreExecution_IR.html#x231>x231</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x218>x218</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 70<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x224><a href=PreExecution_IR.html#x224>x224</a> = RegWrite(mem=<a href=PreExecution_IR.html#x218>x218</a>,data=9,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x121<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x218}, writes={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x224>x224</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 77<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x231><a href=PreExecution_IR.html#x231>x231</a> = RegRead(mem=<a href=PreExecution_IR.html#x218>x218</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x129<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x232>x232</a>, <a href=PreExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x231>x231</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 84<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x219><a href=PreExecution_IR.html#x219>x219</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x115<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>, <a href=PreExecution_IR.html#x227>x227</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 71<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x225><a href=PreExecution_IR.html#x225>x225</a> = RegWrite(mem=<a href=PreExecution_IR.html#x219>x219</a>,data=16,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x122<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x219}, writes={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x225>x225</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 78<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x227><a href=PreExecution_IR.html#x227>x227</a> = RegRead(mem=<a href=PreExecution_IR.html#x219>x219</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x143, 0031: x124<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=16),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x227>x227</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 79<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x148><a href=PostExecution_IR.html#x148>x148</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: inDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:26:25<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x7<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x150>x150</a>, <a href=PostExecution_IR.html#x156>x156</a>, <a href=PostExecution_IR.html#x158>x158</a>, <a href=PostExecution_IR.html#x163>x163</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x148>x148</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x149><a href=PostExecution_IR.html#x149>x149</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: outDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:27:26<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x8<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x220>x220</a>, <a href=PostExecution_IR.html#x222>x222</a>, <a href=PostExecution_IR.html#x239>x239</a>, <a href=PostExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x149>x149</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x151><a href=PostExecution_IR.html#x151>x151</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: inSRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:32:27<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x10<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x180>x180</a>, <a href=PostExecution_IR.html#x186>x186</a>, <a href=PostExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x151>x151</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 0<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x180>x180</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x180><a href=PostExecution_IR.html#x180>x180</a> = SRAMWrite(mem=<a href=PostExecution_IR.html#x151>x151</a>,data=<a href=PostExecution_IR.html#x179>x179</a>,addr=[<a href=PostExecution_IR.html#b99>b99</a>],ens=[<a href=PostExecution_IR.html#x178>x178</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x106<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x151}, writes={x151})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x180>x180</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PostExecution_IR.html#b99>b99</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b99>b99</a>:[<a href=PostExecution_IR.html#b99>b99</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b99>b99</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x180>x180</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b99>b99</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x179>x179</a>, <a href=PostExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 32<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 1.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x186><a href=PostExecution_IR.html#x186>x186</a> = SRAMRead(mem=<a href=PostExecution_IR.html#x151>x151</a>,addr=[<a href=PostExecution_IR.html#b14>b14</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:38:23<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x16<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x187>x187</a>, <a href=PostExecution_IR.html#x201>x201</a>, <a href=PostExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x151})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PostExecution_IR.html#b14>b14</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b14>b14</a>:[<a href=PostExecution_IR.html#b14>b14</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b14>b14</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x186>x186</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b14>b14</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 36<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x152><a href=PostExecution_IR.html#x152>x152</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: outSRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:33:28<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x11<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x200>x200</a>, <a href=PostExecution_IR.html#x234>x234</a>, <a href=PostExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x152>x152</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 1<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x234>x234</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x200>x200</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x200><a href=PostExecution_IR.html#x200>x200</a> = SRAMWrite(mem=<a href=PostExecution_IR.html#x152>x152</a>,data=<a href=PostExecution_IR.html#x199>x199</a>,addr=[<a href=PostExecution_IR.html#b14>b14</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:46:20<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x30<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x152}, writes={x152})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x200>x200</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PostExecution_IR.html#b14>b14</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b14>b14</a>:[<a href=PostExecution_IR.html#b14>b14</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b14>b14</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x200>x200</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b14>b14</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 50<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x214>x214</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 64.5<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x234><a href=PostExecution_IR.html#x234>x234</a> = SRAMRead(mem=<a href=PostExecution_IR.html#x152>x152</a>,addr=[<a href=PostExecution_IR.html#b126>b126</a>],ens=[<a href=PostExecution_IR.html#x233>x233</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x132<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x235>x235</a>, <a href=PostExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x152})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x234>x234</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PostExecution_IR.html#b126>b126</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b126>b126</a>:[<a href=PostExecution_IR.html#b126>b126</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b126>b126</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x234>x234</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b126>b126</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x234>x234</a>, <a href=PostExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 87<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x153><a href=PostExecution_IR.html#x153>x153</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x75<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x159>x159</a>, <a href=PostExecution_IR.html#x163>x163</a>, <a href=PostExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x153>x153</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 3<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x159>x159</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x159><a href=PostExecution_IR.html#x159>x159</a> = StreamOutWrite(mem=<a href=PostExecution_IR.html#x153>x153</a>,data=<a href=PostExecution_IR.html#x157>x157</a>,ens=[<a href=PostExecution_IR.html#x158>x158</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x81<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x153}, writes={x153})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x159>x159</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 10<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x154><a href=PostExecution_IR.html#x154>x154</a> = FIFONew(depth=16)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x76<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x161>x161</a>, <a href=PostExecution_IR.html#x166>x166</a>, <a href=PostExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x154>x154</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 4<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x161>x161</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x161><a href=PostExecution_IR.html#x161>x161</a> = FIFOEnq(mem=<a href=PostExecution_IR.html#x154>x154</a>,data=<a href=PostExecution_IR.html#x160>x160</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x83<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x154}, writes={x154})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x161>x161</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x161>x161</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 12<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x162>x162</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x166><a href=PostExecution_IR.html#x166>x166</a> = FIFODeq(mem=<a href=PostExecution_IR.html#x154>x154</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: IssuedCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x89<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x167>x167</a>, <a href=PostExecution_IR.html#x169>x169</a>, <a href=PostExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x154}, writes={x154})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x166>x166</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 18<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x155><a href=PostExecution_IR.html#x155>x155</a> = StreamInNew(bus=BurstDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x77<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x163>x163</a>, <a href=PostExecution_IR.html#x179>x179</a>, <a href=PostExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x155>x155</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 5<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x183>x183</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x179>x179</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x179><a href=PostExecution_IR.html#x179>x179</a> = StreamInRead(mem=<a href=PostExecution_IR.html#x155>x155</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x105<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x180>x180</a>, <a href=PostExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155}, writes={x155})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PostExecution_IR.html#b99>b99</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b99>b99</a>:[<a href=PostExecution_IR.html#b99>b99</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b99>b99</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x179>x179</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b99>b99</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 31<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x164><a href=PostExecution_IR.html#x164>x164</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x87<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x168>x168</a>, <a href=PostExecution_IR.html#x176>x176</a>, <a href=PostExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x164>x164</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 15<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x168>x168</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x168><a href=PostExecution_IR.html#x168>x168</a> = RegWrite(mem=<a href=PostExecution_IR.html#x164>x164</a>,data=<a href=PostExecution_IR.html#x167>x167</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x93<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x164}, writes={x164})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x168>x168</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x168>x168</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 20<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x176><a href=PostExecution_IR.html#x176>x176</a> = RegRead(mem=<a href=PostExecution_IR.html#x164>x164</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x102<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x177>x177</a>, <a href=PostExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x164})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x176>x176</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 28<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x165><a href=PostExecution_IR.html#x165>x165</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x88<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x170>x170</a>, <a href=PostExecution_IR.html#x172>x172</a>, <a href=PostExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x165>x165</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 16<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x170>x170</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x170><a href=PostExecution_IR.html#x170>x170</a> = RegWrite(mem=<a href=PostExecution_IR.html#x165>x165</a>,data=<a href=PostExecution_IR.html#x169>x169</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x95<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x165}, writes={x165})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x170>x170</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x170>x170</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 22<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x171>x171</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x172><a href=PostExecution_IR.html#x172>x172</a> = RegRead(mem=<a href=PostExecution_IR.html#x165>x165</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x142, 0031: x97<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x173>x173</a>, <a href=PostExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x165})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[Prod(xs=[<a href=PostExecution_IR.html#x169>x169</a>],m=1)],b=0),allIters={<a href=PostExecution_IR.html#x169>x169</a>:[]},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x172>x172</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x182>x182</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 23<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x181>x181</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x215><a href=PostExecution_IR.html#x215>x215</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x110<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x223>x223</a>, <a href=PostExecution_IR.html#x239>x239</a>, <a href=PostExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 65<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x223>x223</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x223><a href=PostExecution_IR.html#x223>x223</a> = StreamOutWrite(mem=<a href=PostExecution_IR.html#x215>x215</a>,data=<a href=PostExecution_IR.html#x221>x221</a>,ens=[<a href=PostExecution_IR.html#x222>x222</a>])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x119<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x215}, writes={x215})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x223>x223</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x223>x223</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 76<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x216><a href=PostExecution_IR.html#x216>x216</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[Tup2[Flt[_24,_8],Bit]]<br></text>
+<text><strong>Aliases</strong>: 0035: x111<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x236>x236</a>, <a href=PostExecution_IR.html#x239>x239</a>, <a href=PostExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x216>x216</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 66<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x236>x236</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x236><a href=PostExecution_IR.html#x236>x236</a> = StreamOutWrite(mem=<a href=PostExecution_IR.html#x216>x216</a>,data=<a href=PostExecution_IR.html#x235>x235</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x134<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x216}, writes={x216})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x236>x236</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PostExecution_IR.html#b126>b126</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PostExecution_IR.html#b126>b126</a>:[<a href=PostExecution_IR.html#b126>b126</a>],0:[]},iterStarts={<a href=PostExecution_IR.html#b126>b126</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x236>x236</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PostExecution_IR.html#b126>b126</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x234>x234</a>, <a href=PostExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 89<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 4.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x217><a href=PostExecution_IR.html#x217>x217</a> = StreamInNew(bus=BurstAckBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamIn[Bit]<br></text>
+<text><strong>Aliases</strong>: 0035: x112<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x239>x239</a>, <a href=PostExecution_IR.html#x240>x240</a>, <a href=PostExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x217>x217</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 67<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x240>x240</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x240><a href=PostExecution_IR.html#x240>x240</a> = StreamInRead(mem=<a href=PostExecution_IR.html#x217>x217</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x138<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x241>x241</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x217}, writes={x217})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x240>x240</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x241>x241</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x241>x241</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 92<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x241>x241</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x218><a href=PostExecution_IR.html#x218>x218</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x114<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x224>x224</a>, <a href=PostExecution_IR.html#x231>x231</a>, <a href=PostExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x218>x218</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 70<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x224>x224</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x224><a href=PostExecution_IR.html#x224>x224</a> = RegWrite(mem=<a href=PostExecution_IR.html#x218>x218</a>,data=9,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x121<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x218}, writes={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x224>x224</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x224>x224</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 77<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x231><a href=PostExecution_IR.html#x231>x231</a> = RegRead(mem=<a href=PostExecution_IR.html#x218>x218</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x129<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x232>x232</a>, <a href=PostExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x231>x231</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 84<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x219><a href=PostExecution_IR.html#x219>x219</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x115<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x225>x225</a>, <a href=PostExecution_IR.html#x227>x227</a>, <a href=PostExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x219>x219</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 71<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PostExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PostExecution_IR.html#x225>x225</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x225><a href=PostExecution_IR.html#x225>x225</a> = RegWrite(mem=<a href=PostExecution_IR.html#x219>x219</a>,data=16,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x122<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x219}, writes={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x225>x225</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x225>x225</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 78<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x226>x226</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x227><a href=PostExecution_IR.html#x227>x227</a> = RegRead(mem=<a href=PostExecution_IR.html#x219>x219</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x143, 0031: x124<br></text>
+<text><strong>Consumers</strong>: [<a href=PostExecution_IR.html#x228>x228</a>, <a href=PostExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PostExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=16),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PostExecution_IR.html#x227>x227</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PostExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PostExecution_IR.html#x238>x238</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 79<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PostExecution_IR.html#x237>x237</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x277><a href=IR.html#x277>x277</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: inDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:26:25<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0055: x148, 0035: x7<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x279>x279</a>, <a href=IR.html#x285>x285</a>, <a href=IR.html#x287>x287</a>, <a href=IR.html#x292>x292</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x277>x277</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<h3 id=x278><a href=IR.html#x278>x278</a> = DRAMHostNew(dims=[9],zero=0.0)</h3>
+<text><strong>Name</strong>: outDRAM<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:27:26<br></text>
+<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0055: x149, 0035: x8<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x356>x356</a>, <a href=IR.html#x358>x358</a>, <a href=IR.html#x378>x378</a>, <a href=IR.html#x385>x385</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x278>x278</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<h3 id=x280><a href=IR.html#x280>x280</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: inSRAM_0<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:32:27<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0055: x151, 0035: x10<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x313>x313</a>, <a href=IR.html#x321>x321</a>, <a href=IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x280>x280</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 0<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x151>x151</a><br></text>
+<text><strong>Padding</strong>: [0]<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x321>x321</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x313>x313</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x313><a href=IR.html#x313>x313</a> = SRAMBankedWrite(mem=<a href=IR.html#x280>x280</a>,data=[<a href=IR.html#x312>x312</a>],bank=[[0]],ofs=[<a href=IR.html#x409>x409</a>],enss=[[<a href=IR.html#x410>x410</a>, <a href=IR.html#x411>x411</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x314>x314</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x280}, writes={x280})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x313>x313</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x311>x311</a>, <a href=IR.html#x308>x308</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x314>x314</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x314>x314</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 32<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x314>x314</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x180>x180</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 1.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x321><a href=IR.html#x321>x321</a> = SRAMBankedRead(mem=<a href=IR.html#x280>x280</a>,bank=[[0]],ofs=[<a href=IR.html#b319>b319</a>],enss=[[<a href=IR.html#b320>b320</a>]],evidence$4=Vec[Flt[_24,_8]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:38:23<br></text>
+<text><strong>Type</strong>: Vec[Flt[_24,_8]]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x322>x322</a>, <a href=IR.html#x350>x350</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x280})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x321>x321</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x321>x321</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x350>x350</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x350>x350</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 36<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x350>x350</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x186>x186</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x281><a href=IR.html#x281>x281</a> = SRAMNew(dims=[9],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<text><strong>Name</strong>: outSRAM_0<br></text>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:33:28<br></text>
+<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0055: x152, 0035: x11<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x336>x336</a>, <a href=IR.html#x372>x372</a>, <a href=IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x281>x281</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 1<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x152>x152</a><br></text>
+<text><strong>Padding</strong>: [0]<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x372>x372</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x336>x336</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x336><a href=IR.html#x336>x336</a> = SRAMBankedWrite(mem=<a href=IR.html#x281>x281</a>,data=[<a href=IR.html#x335>x335</a>],bank=[[0]],ofs=[<a href=IR.html#x414>x414</a>],enss=[[<a href=IR.html#x415>x415</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:46:20<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x350>x350</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x281}, writes={x281})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x336>x336</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x321>x321</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x350>x350</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x350>x350</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 50<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x350>x350</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x200>x200</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 62.5<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x372><a href=IR.html#x372>x372</a> = SRAMBankedRead(mem=<a href=IR.html#x281>x281</a>,bank=[[0]],ofs=[<a href=IR.html#b366>b366</a>],enss=[[<a href=IR.html#x371>x371</a>, <a href=IR.html#b367>b367</a>]],evidence$4=Vec[Flt[_24,_8]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Vec[Flt[_24,_8]]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x373>x373</a>, <a href=IR.html#x376>x376</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x281})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x372>x372</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x372>x372</a>, <a href=IR.html#x369>x369</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x376>x376</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x376>x376</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 87<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x376>x376</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x234>x234</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x282><a href=IR.html#x282>x282</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0055: x153, 0035: x75<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x288>x288</a>, <a href=IR.html#x292>x292</a>, <a href=IR.html#x316>x316</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x282>x282</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x316>x316</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x316>x316</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 3<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x316>x316</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=IR.html#x288>x288</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x288><a href=IR.html#x288>x288</a> = StreamOutBankedWrite(mem=<a href=IR.html#x282>x282</a>,data=[<a href=IR.html#x286>x286</a>],enss=[[<a href=IR.html#x287>x287</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x291>x291</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x282}, writes={x282})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x282>x282</a>, <a href=IR.html#x286>x286</a>, <a href=IR.html#x287>x287</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x288>x288</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x291>x291</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x291>x291</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 10<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x291>x291</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x159>x159</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x283><a href=IR.html#x283>x283</a> = FIFONew(depth=16)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
+<text><strong>Aliases</strong>: 0055: x154, 0035: x76<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x290>x290</a>, <a href=IR.html#x295>x295</a>, <a href=IR.html#x316>x316</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x283>x283</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x316>x316</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x316>x316</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 4<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x316>x316</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x154>x154</a><br></text>
+<text><strong>Padding</strong>: [0]<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x295>x295</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x290>x290</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x290><a href=IR.html#x290>x290</a> = FIFOBankedEnq(mem=<a href=IR.html#x283>x283</a>,data=[<a href=IR.html#x289>x289</a>],enss=[[true]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x291>x291</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x283}, writes={x283})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x283>x283</a>, <a href=IR.html#x289>x289</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x290>x290</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x291>x291</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x291>x291</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 12<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x291>x291</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x161>x161</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x295><a href=IR.html#x295>x295</a> = FIFOBankedDeq(mem=<a href=IR.html#x283>x283</a>,enss=[[true]],evidence$15=Vec[IssuedCmd])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Vec[IssuedCmd]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x296>x296</a>, <a href=IR.html#x301>x301</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x283}, writes={x283})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x283>x283</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x295>x295</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x295>x295</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x301>x301</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x301>x301</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 18<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x301>x301</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x166>x166</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x284><a href=IR.html#x284>x284</a> = StreamInNew(bus=BurstDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
+<text><strong>Aliases</strong>: 0055: x155, 0035: x77<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x292>x292</a>, <a href=IR.html#x311>x311</a>, <a href=IR.html#x316>x316</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x284>x284</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x316>x316</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x316>x316</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 5<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x316>x316</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=IR.html#x311>x311</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x311><a href=IR.html#x311>x311</a> = StreamInBankedRead(mem=<a href=IR.html#x284>x284</a>,enss=[[<a href=IR.html#b306>b306</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Vec[Flt[_24,_8]]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x408>x408</a>, <a href=IR.html#x314>x314</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x284}, writes={x284})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x284>x284</a>, <a href=IR.html#b306>b306</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x311>x311</a>, <a href=IR.html#x408>x408</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x311>x311</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x314>x314</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x314>x314</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 31<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x314>x314</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x179>x179</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x293><a href=IR.html#x293>x293</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0055: x164, 0035: x87<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x298>x298</a>, <a href=IR.html#x308>x308</a>, <a href=IR.html#x315>x315</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x293>x293</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x315>x315</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x315>x315</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 15<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x315>x315</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x164>x164</a><br></text>
+<text><strong>Padding</strong>: []<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x308>x308</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x298>x298</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x298><a href=IR.html#x298>x298</a> = RegWrite(mem=<a href=IR.html#x293>x293</a>,data=<a href=IR.html#x297>x297</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x301>x301</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x293}, writes={x293})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x293>x293</a>, <a href=IR.html#x297>x297</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x298>x298</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x295>x295</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x301>x301</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x301>x301</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 20<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x301>x301</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x168>x168</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x308><a href=IR.html#x308>x308</a> = RegRead(mem=<a href=IR.html#x293>x293</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x309>x309</a>, <a href=IR.html#x314>x314</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x293})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x293>x293</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x308>x308</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x308>x308</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x314>x314</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x314>x314</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 28<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x314>x314</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x176>x176</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x294><a href=IR.html#x294>x294</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0055: x165, 0035: x88<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x300>x300</a>, <a href=IR.html#x406>x406</a>, <a href=IR.html#x315>x315</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x294>x294</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x315>x315</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x315>x315</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 16<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x315>x315</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x165>x165</a><br></text>
+<text><strong>Padding</strong>: []<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x406>x406</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x300>x300</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x300><a href=IR.html#x300>x300</a> = RegWrite(mem=<a href=IR.html#x294>x294</a>,data=<a href=IR.html#x299>x299</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x301>x301</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x294}, writes={x294})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x294>x294</a>, <a href=IR.html#x299>x299</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x300>x300</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x295>x295</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x301>x301</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x301>x301</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 22<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x301>x301</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x170>x170</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x406><a href=IR.html#x406>x406</a> = RegRead(mem=<a href=IR.html#x294>x294</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:35:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0059: x302<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x303>x303</a>, <a href=IR.html#x315>x315</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x294})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x406>x406</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x406>x406</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x315>x315</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x314>x314</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 23<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x314>x314</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x172>x172</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x351><a href=IR.html#x351>x351</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0055: x215, 0035: x110<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x359>x359</a>, <a href=IR.html#x378>x378</a>, <a href=IR.html#x383>x383</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x351>x351</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x383>x383</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x383>x383</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 65<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x383>x383</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=IR.html#x359>x359</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x359><a href=IR.html#x359>x359</a> = StreamOutBankedWrite(mem=<a href=IR.html#x351>x351</a>,data=[<a href=IR.html#x357>x357</a>],enss=[[<a href=IR.html#x358>x358</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x362>x362</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x351}, writes={x351})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x351>x351</a>, <a href=IR.html#x357>x357</a>, <a href=IR.html#x358>x358</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x359>x359</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x362>x362</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x362>x362</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 76<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x362>x362</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x223>x223</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x352><a href=IR.html#x352>x352</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamOut[Tup2[Flt[_24,_8],Bit]]<br></text>
+<text><strong>Aliases</strong>: 0055: x216, 0035: x111<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x375>x375</a>, <a href=IR.html#x378>x378</a>, <a href=IR.html#x383>x383</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x352>x352</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x383>x383</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x383>x383</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 66<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x383>x383</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=IR.html#x375>x375</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x375><a href=IR.html#x375>x375</a> = StreamOutBankedWrite(mem=<a href=IR.html#x352>x352</a>,data=[<a href=IR.html#x374>x374</a>],enss=[[<a href=IR.html#x417>x417</a>]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x376>x376</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x352}, writes={x352})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x352>x352</a>, <a href=IR.html#x374>x374</a>, <a href=IR.html#x417>x417</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x375>x375</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x372>x372</a>, <a href=IR.html#x369>x369</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x376>x376</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x376>x376</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 89<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x376>x376</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x236>x236</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 2.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x353><a href=IR.html#x353>x353</a> = StreamInNew(bus=BurstAckBus())</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: StreamIn[Bit]<br></text>
+<text><strong>Aliases</strong>: 0055: x217, 0035: x112<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x378>x378</a>, <a href=IR.html#x379>x379</a>, <a href=IR.html#x383>x383</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x353>x353</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x383>x383</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x383>x383</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 67<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x383>x383</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=IR.html#x379>x379</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x379><a href=IR.html#x379>x379</a> = StreamInBankedRead(mem=<a href=IR.html#x353>x353</a>,enss=[[]])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Vec[Bit]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x381>x381</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x353}, writes={x353})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x353>x353</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x379>x379</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x379>x379</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x381>x381</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x381>x381</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 92<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x381>x381</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x240>x240</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x354><a href=IR.html#x354>x354</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0055: x218, 0035: x114<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x360>x360</a>, <a href=IR.html#x369>x369</a>, <a href=IR.html#x377>x377</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x354>x354</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x377>x377</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x377>x377</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 70<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x377>x377</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x218>x218</a><br></text>
+<text><strong>Padding</strong>: []<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x369>x369</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x360>x360</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x360><a href=IR.html#x360>x360</a> = RegWrite(mem=<a href=IR.html#x354>x354</a>,data=9,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x362>x362</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x354}, writes={x354})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x354>x354</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x360>x360</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x362>x362</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x362>x362</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 77<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x362>x362</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x224>x224</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x369><a href=IR.html#x369>x369</a> = RegRead(mem=<a href=IR.html#x354>x354</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x370>x370</a>, <a href=IR.html#x376>x376</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x354})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x354>x354</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x369>x369</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x369>x369</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x376>x376</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x376>x376</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 84<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x376>x376</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x231>x231</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x355><a href=IR.html#x355>x355</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0055: x219, 0035: x115<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x361>x361</a>, <a href=IR.html#x407>x407</a>, <a href=IR.html#x377>x377</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x355>x355</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x377>x377</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x377>x377</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 71<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x377>x377</a>), stage=0, block=0)<br></text>
+<text><strong>BroadcastAddress</strong>: false<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x219>x219</a><br></text>
+<text><strong>Padding</strong>: []<br></text>
+<text><strong>Readers</strong>: [<a href=IR.html#x407>x407</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=IR.html#x361>x361</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>writers(1)</th>
+<td>
+<h3 id=x361><a href=IR.html#x361>x361</a> = RegWrite(mem=<a href=IR.html#x355>x355</a>,data=16,ens=[])</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x362>x362</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x355}, writes={x355})<br></text>
+<text><strong>NestedInputs</strong>: [<a href=IR.html#x355>x355</a>]<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x361>x361</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x362>x362</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x362>x362</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 78<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x362>x362</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x225>x225</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<th>readers(1)</th>
+<td>
+<h3 id=x407><a href=IR.html#x407>x407</a> = RegRead(mem=<a href=IR.html#x355>x355</a>)</h3>
+<text><strong>SrcCtx</strong>: QuantizeKernelTest.scala:54:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0059: x363<br></text>
+<text><strong>Consumers</strong>: [<a href=IR.html#x364>x364</a>, <a href=IR.html#x377>x377</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x355})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=IR.html#x407>x407</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=IR.html#x407>x407</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=IR.html#x377>x377</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=IR.html#x376>x376</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 79<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=IR.html#x376>x376</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>OriginalSym</strong>: <a href=IR.html#x227>x227</a><br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>SegmentMapping</strong>: {0:0}<br></text>
+</td>
+</tr>
+</tbody>
+</table>
