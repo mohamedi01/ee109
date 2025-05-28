@@ -78,6 +78,35 @@ Final-Project/
 │   │       └─ 6_george_0.txt         
 │   └─ normalization                    # Folder for testing and normalization data
 │       └─ homophones.csv               # (Downloaded & edited - Used for text normalization during WER calculation)
+├─ fpga/
+│   ├─ README.md                        # (Placeholder for FPGA specific details)
+│   ├─ build.sbt                        # (sbt build file for Spatial project)
+│   ├─ run.sh                           # (Script to run Spatial tests/compilation)
+│   ├─ LogCompress.scala                # (Spatial kernel for log compression)
+│   ├─ MelFilterbank.scala              # (Spatial kernel for Mel filterbank application)
+│   ├─ PowerSpectrum.scala              # (Spatial kernel for power spectrum calculation)
+│   ├─ QuantizeKernel.scala             # (Spatial kernel for audio quantization)
+│   ├─ STFTKernel.scala                 # (Spatial kernel for STFT - Windowing done, FFT in progress)
+│   ├─ WhisperScale.scala               # (Spatial kernel for Whisper-specific scaling)
+│   ├─ src/
+│   │   └─ test/
+│   │       └─ scala/
+│   │           └─ spatial/
+│   │               └─ tests/
+│   │                   ├─ LogCompressTest.scala      # (Spatial test - Implemented)
+│   │                   ├─ MelFilterbankTest.scala    # (Spatial test - Passing)
+│   │                   ├─ PowerSpectrumTest.scala    # (Spatial test - Passing)
+│   │                   ├─ QuantizeKernelTest.scala   # (Spatial test - Passing)
+│   │                   ├─ STFTKernelTest.scala       # (Spatial test - Placeholder, pending FFT)
+│   │                   └─ WhisperScaleTest.scala     # (Spatial test - Implemented)
+│   ├─ gen/                             # (Generated files by Spatial compiler for different kernels)
+│   │   └─ CS217/
+│   │       └─ (KernelName)Test/         # (Output for each kernel test, e.g., QuantizeKernelTest)
+│   │           ├─ chisel/              # (Generated Chisel code)
+│   │           ├─ logs/                # (Simulation logs)
+│   │           ├─ reports/             # (Compilation reports)
+│   │           └─ ...                  # (Other generated artifacts)
+│   └─ target/                          # (sbt build artifacts for FPGA project)
 └─ tests/  
     ├─ test_DSP/
     │   ├─ test_dsp_single_words.py     # (Tests DSP components on single-word audio) 

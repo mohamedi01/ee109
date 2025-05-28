@@ -47,6 +47,24 @@ The `process_audio_to_nlp` function in `audiolib.pipeline.py` combines these com
 3.  **NLP Stage**: The obtained transcript is then passed to `analyze_text` (from `audiolib.nlp`) for keyword spotting, topic identification, and summarization.
 4.  **Output**: The function returns a dictionary containing the `"transcript"` and a nested dictionary under `"nlp_analysis"` which holds the results from the NLP module (keyword, topic, summary).
 
+## FPGA Acceleration (In Progress - Milestone 2 Focus)
+
+As part of the project, key DSP frontend components are being implemented in Spatial for FPGA acceleration. The goal is to offload these computationally intensive tasks to an FPGA for improved performance and efficiency.
+
+*   **Location:** `Final-Project/fpga/`
+*   **Kernels Implemented in Spatial:**
+    *   `QuantizeKernel.scala`
+    *   `PowerSpectrum.scala`
+    *   `MelFilterbank.scala`
+    *   `LogCompress.scala`
+    *   `WhisperScale.scala`
+    *   `STFTKernel.scala` (Hann windowing implemented; FFT component is a work in progress)
+*   **Testing:** Each Spatial kernel has a corresponding test (`*Test.scala`) in `Final-Project/fpga/src/test/scala/spatial/tests/`.
+    *   **Current Status (as of May 28, 2025):**
+        *   `MelFilterbankTest`, `PowerSpectrumTest`, `QuantizeKernelTest` are passing functional simulations.
+        *   `LogCompressTest` and `WhisperScaleTest` have been implemented and are undergoing final verification.
+        *   `STFTKernelTest` is pending the completion of the FFT implementation within `STFTKernel.scala`.
+
 ## Main Features
 
 *   **Custom DSP Frontend**: Converts audio (WAV, FLAC, MP3, etc.) to Whisper-compatible log-Mel spectrograms (`audiolib.dsp.mel.wav_to_logmel`).
@@ -54,6 +72,14 @@ The `process_audio_to_nlp` function in `audiolib.pipeline.py` combines these com
 *   **NLP Analysis**: Performs keyword spotting, topic identification, and summarization on transcribed text (`audiolib.nlp.nlp.analyze_text`).
 *   **Integrated End-to-End Pipeline**: `audiolib.pipeline.process_audio_to_nlp` provides a single interface for DSP, ASR, and NLP.
 *   **Comprehensive Testing Suite**: Utilizes `pytest` for unit, integration, and pipeline tests, with WER as a key ASR metric.
+*   **Spatial DSP Kernels for FPGA Acceleration**: Implementations of key DSP tasks in Spatial, with ongoing testing and development.
+*   **Complete FPGA DSP Frontend:**
+    *   Finalize and verify all individual Spatial DSP kernels, including the FFT implementation within `STFTKernel.scala` and its corresponding test.
+    *   Implement pre-emphasis filter in Spatial if deemed necessary.
+    *   Integrate the individual Spatial DSP kernels into a single, cohesive hardware pipeline.
+    *   Thoroughly test the integrated Spatial DSP pipeline against the golden Python implementation.
+*   **FPGA Integration with Host:** Develop the mechanisms (e.g., using DMA and AXI-Lite on an AWS F1 instance) to stream data to/from the FPGA and control the accelerated DSP pipeline from the Python host application.
+*   **Performance Evaluation:** Measure end-to-end latency, throughput, and resource utilization of the FPGA-accelerated pipeline.
 
 ## Data Sources
 
