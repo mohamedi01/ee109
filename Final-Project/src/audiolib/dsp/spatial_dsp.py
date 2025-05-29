@@ -82,17 +82,40 @@ def run_spatial_pipeline(audio_path: str):
         )
 
         # 3) LogCompress
+        logcompress_cwd = os.path.join(FPGA_ROOT, "LogCompress")
+        logcompress_cfg = os.path.join(logcompress_cwd, "logcompress_config.txt")
+        with open(logcompress_cfg, "w") as f:
+            f.write(f"{80*frames}\n8.0")
+        
+        # --- Generate CORDIC constants for LogCompress (N=16) ---
+        N = 16
+        # K[j] = exp(2**(-j))
+        K = np.exp(2.0 ** -np.arange(N)).astype(np.float32)
+        consts_path = os.path.join(logcompress_cwd, "logcompress_consts.csv")
+        np.savetxt(consts_path, K, delimiter=",")
+        print(f"[DEBUG] Wrote CORDIC constants to {consts_path}")
+        
+        # --- Generate the shift table 1/(1<<j) so each line is a separate CSV entry ---
+        shifts = (1.0 / (1 << np.arange(N))).astype(np.float32)
+        shifts_path = os.path.join(logcompress_cwd, "logcompress_shifts.csv")
+        np.savetxt(shifts_path, shifts, delimiter=",")
+        print(f"[DEBUG] Wrote shift factors to {shifts_path}")        
+        
         run(
-            'sbt "runMain LogCompress {count} 8.0"'.format(count=80 * frames),
-            cwd=os.path.join(FPGA_ROOT, "LogCompress"),
+            'sbt "run --fpga VCS"',
+            cwd=logcompress_cwd,
             shell=True,
             check=True
         )
 
         # 4) WhisperScale
+        whisper_cwd = os.path.join(FPGA_ROOT, "WhisperScale")
+        whisper_cfg = os.path.join(whisper_cwd, "whisperscale_config.txt")
+        with open(whisper_cfg, "w") as f:
+            f.write(str(80*frames))
         run(
-            'sbt "runMain WhisperScale {count}"'.format(count=80 * frames),
-            cwd=os.path.join(FPGA_ROOT, "WhisperScale"),
+            'sbt "run --fpga VCS"',
+            cwd=whisper_cwd,
             shell=True,
             check=True
         )
@@ -100,45 +123,7 @@ def run_spatial_pipeline(audio_path: str):
     except CalledProcessError as e:
         print("❌ Spatial kernel failed:", e)
         sys.exit(1)
-    # try:
-    #     # 1) PowerSpectrum
-    #     run(
-    #         f'sbt "runMain PowerSpectrum {flat_real.size}"',
-    #         cwd=os.path.join(FPGA_ROOT, "PowerSpectrum"),
-    #         shell=True,
-    #         check=True
-    #     )
-
-    #     # 2) MelFilterbank
-    #     bins   = 400 // 2 + 1
-    #     frames = t.size
-    #     run(
-    #         f'sbt "runMain MelFilterbank 80 {bins}"',
-    #         cwd=os.path.join(FPGA_ROOT, "MelFilterbank"),
-    #         shell=True,
-    #         check=True
-    #     )
-
-    #     # 3) LogCompress
-    #     run(
-    #         f'sbt "runMain LogCompress {80*frames} 8.0"',
-    #         cwd=os.path.join(FPGA_ROOT, "LogCompress"),
-    #         shell=True,
-    #         check=True
-    #     )
-
-    #     # 4) WhisperScale
-    #     run(
-    #         f'sbt "runMain WhisperScale {80*frames}"',
-    #         cwd=os.path.join(FPGA_ROOT, "WhisperScale"),
-    #         shell=True,
-    #         check=True
-    #     )
-
-    # except CalledProcessError as e:
-    #     print(" Spatial kernel failed:", e)
-    #     sys.exit(1)
-
+        
     # ─── Step 7: Load final FPGA output & compare ─────────────────────────────────
     logmel_fpga = np.load("fpga_io/fpga_output.npy")   # make sure WhisperScale writes this
 
