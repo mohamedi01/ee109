@@ -1,0 +1,280 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for PowerSpectrum (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x237 -->
+<TD>
+<font size = "6"><a href=PreExecution_IR.html#x237 target=_blank>x237</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">PowerSpectrum.scala:20:11 <font color="grey">-     Accel {</font></font>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x167 -->
+  <TD>
+  <font size = "6"><a href=PreExecution_IR.html#x167 target=_blank>x167</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">PowerSpectrum.scala:24:16 <font color="grey">-       realSram load realDram</font></font>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x146 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x146 target=_blank>x146</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">PowerSpectrum.scala:24:16 <font color="grey">-       realSram load realDram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x137, x138)----->
+    </font></div>
+    </TD>
+    <!-- End x146-->
+    <!-- Begin x166 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x166 target=_blank>x166</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">PowerSpectrum.scala:24:16 <font color="grey">-       realSram load realDram</font></font>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x155 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x155 target=_blank>x155</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:24:16 <font color="grey">-       realSram load realDram</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x138)
+      </font></div>
+      </TD>
+      <!-- End x155-->
+      <!-- Begin x165 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x165 target=_blank>x165</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:24:16 <font color="grey">-       realSram load realDram</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+      <br><font size = "1">Counter: <a href=PreExecution_IR.html#x158 target=_blank>x158</a> = CounterNew(Const(0),x156,Const(1),Const(1))</font>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x139)
+      </font></div>
+      </TD>
+      <!-- End x165-->
+      </TABLE></div>
+    </TD>
+    <!-- End x166-->
+    </TABLE></div>
+  </TD>
+  <!-- End x167-->
+  <!-- Begin x198 -->
+  <TD>
+  <font size = "6"><a href=PreExecution_IR.html#x198 target=_blank>x198</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">PowerSpectrum.scala:25:16 <font color="grey">-       imagSram load imagDram</font></font>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x177 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x177 target=_blank>x177</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">PowerSpectrum.scala:25:16 <font color="grey">-       imagSram load imagDram</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x169, x168)----->
+    </font></div>
+    </TD>
+    <!-- End x177-->
+    <!-- Begin x197 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x197 target=_blank>x197</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">PowerSpectrum.scala:25:16 <font color="grey">-       imagSram load imagDram</font></font>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x186 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x186 target=_blank>x186</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:25:16 <font color="grey">-       imagSram load imagDram</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x169)
+      </font></div>
+      </TD>
+      <!-- End x186-->
+      <!-- Begin x196 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x196 target=_blank>x196</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:25:16 <font color="grey">-       imagSram load imagDram</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+      <br><font size = "1">Counter: <a href=PreExecution_IR.html#x189 target=_blank>x189</a> = CounterNew(Const(0),x187,Const(1),Const(1))</font>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x170)
+      </font></div>
+      </TD>
+      <!-- End x196-->
+      </TABLE></div>
+    </TD>
+    <!-- End x197-->
+    </TABLE></div>
+  </TD>
+  <!-- End x198-->
+  <!-- Begin x207 -->
+  <TD>
+  <font size = "6"><a href=PreExecution_IR.html#x207 target=_blank>x207</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+  <br><font size = "2">PowerSpectrum.scala:26:23 <font color="grey">-       Foreach(n by 1) { i =></font></font>
+  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+  <br><font size = "1">Counter: <a href=PreExecution_IR.html#x200 target=_blank>x200</a> = CounterNew(Const(0),Const(384312),Const(1),Const(1))</font>
+
+  </TD>
+  <!-- End x207-->
+  <!-- Begin x236 -->
+  <TD>
+  <font size = "6"><a href=PreExecution_IR.html#x236 target=_blank>x236</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x235 -->
+    <TD>
+    <font size = "6"><a href=PreExecution_IR.html#x235 target=_blank>x235</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x231 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x231 target=_blank>x231</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x219 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x219 target=_blank>x219</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x208)----->
+        </font></div>
+        </TD>
+        <!-- End x219-->
+        <!-- Begin x230 -->
+        <TD>
+        <font size = "6"><a href=PreExecution_IR.html#x230 target=_blank>x230</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+        <br><font size = "1">Counter: <a href=PreExecution_IR.html#x222 target=_blank>x222</a> = CounterNew(Const(0),x220,Const(1),Const(1))</font>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x209)----->
+        </font></div>
+        </TD>
+        <!-- End x230-->
+        </TABLE></div>
+      </TD>
+      <!-- End x231-->
+      <!-- Begin x234 -->
+      <TD>
+      <font size = "6"><a href=PreExecution_IR.html#x234 target=_blank>x234</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">PowerSpectrum.scala:29:15 <font color="grey">-       outDram store outSram</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=1</font></mark></p>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x210)
+      </font></div>
+      </TD>
+      <!-- End x234-->
+      </TABLE></div>
+    </TD>
+    <!-- End x235-->
+    </TABLE></div>
+  </TD>
+  <!-- End x236-->
+  </TABLE></div>
+</TD>
+<!-- End x237-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x134 target=_blank>x134</a> (BankedSRAM "realSram")
+<br>volume = 384312 (dims List(384312) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x136 target=_blank>x136</a> (BankedSRAM "outSram")
+<br>volume = 384312 (dims List(384312) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x135 target=_blank>x135</a> (BankedSRAM "imagSram")
+<br>volume = 384312 (dims List(384312) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x138 target=_blank>x138</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x169 target=_blank>x169</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x149 target=_blank>x149</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x211 target=_blank>x211</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x148 target=_blank>x148</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x180 target=_blank>x180</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x212 target=_blank>x212</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x179 target=_blank>x179</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

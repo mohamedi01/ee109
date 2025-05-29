@@ -1,34 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:1:8: not found: object spatial[0m
-[0m[[0m[31merror[0m] [0m[0mimport spatial.dsl._[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:4:2: not found: type spatial[0m
-[0m[[0m[31merror[0m] [0m[0m@spatial object PowerSpectrum {[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:6:24: not found: type I32[0m
-[0m[[0m[31merror[0m] [0m[0m    val n = args(0).to[I32][0m
-[0m[[0m[31merror[0m] [0m[0m                       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:7:20: not found: value DRAM[0m
-[0m[[0m[31merror[0m] [0m[0m    val realDram = DRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:8:20: not found: value DRAM[0m
-[0m[[0m[31merror[0m] [0m[0m    val imagDram = DRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:9:20: not found: value DRAM[0m
-[0m[[0m[31merror[0m] [0m[0m    val outDram  = DRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:10:5: not found: value Accel[0m
-[0m[[0m[31merror[0m] [0m[0m    Accel {[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:11:22: not found: value SRAM[0m
-[0m[[0m[31merror[0m] [0m[0m      val realSram = SRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:12:22: not found: value SRAM[0m
-[0m[[0m[31merror[0m] [0m[0m      val imagSram = SRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:13:22: not found: value SRAM[0m
-[0m[[0m[31merror[0m] [0m[0m      val outSram  = SRAM[Float](n)[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:16:7: not found: value Foreach[0m
-[0m[[0m[31merror[0m] [0m[0m      Foreach(n by 1) { i =>[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
-[0m[[0m[31merror[0m] [0m[0m11 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:13:13: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : n_str.type (with underlying type String)[0m
+[0m[[0m[31merror[0m] [0m[0m required: ?{def to: ?}[0m
+[0m[[0m[31merror[0m] [0m[0mNote that implicit conversions are not applicable because they are ambiguous:[0m
+[0m[[0m[31merror[0m] [0m[0m both method stringToStringOps in trait ImplicitsPriority2 of type (x: String)scala.collection.immutable.StringOps[0m
+[0m[[0m[31merror[0m] [0m[0m and method castType in trait Implicits of type [A](a: A)spatial.dsl.CastType[A][0m
+[0m[[0m[31merror[0m] [0m[0m are possible conversion functions from n_str.type to ?{def to: ?}[0m
+[0m[[0m[31merror[0m] [0m[0m    val n = n_str.to[I32] // Convert string from file to I32[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/PowerSpectrum/PowerSpectrum.scala:13:19: value to is not a member of String[0m
+[0m[[0m[31merror[0m] [0m[0m    val n = n_str.to[I32] // Convert string from file to I32[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

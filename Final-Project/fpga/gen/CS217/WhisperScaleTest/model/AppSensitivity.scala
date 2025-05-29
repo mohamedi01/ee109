@@ -6,6 +6,6 @@ object AppSensitivity extends App {
     val center: Map[String,String] = Map()
     println(s"Center: $center") 
     println(s"Hashcode mapping:")
-    Sensitivity.around("/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/./gen/CS217/WhisperScaleTest///WhisperScaleTest_data.csv", center)
+    Sensitivity.around("/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/./gen/CS217/WhisperScaleTest///WhisperScaleTest_data.csv", center)
   }
 }

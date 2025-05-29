@@ -6,7 +6,7 @@ from subprocess import run, CalledProcessError
 from audiolib.dsp.mel_gold import wav_to_logmel, load_audio, create_mel_filterbank
 
 def simulate_quantization(audio: np.ndarray) -> np.ndarray:
-    """Mimic Whisper’s int16 quantization in float32."""
+    """Mimic Whisper's int16 quantization in float32."""
     scaled = np.clip(audio * 32767, -32768, 32767)
     return scaled.astype(np.int16).astype(np.float32) / 32768.0
 
@@ -27,7 +27,7 @@ def run_spatial_pipeline(audio_path: str):
     f, t, Zxx = stft(quant, fs=sr, nperseg=400, noverlap=240, nfft=400, window='hann')
     power = (Zxx.real**2 + Zxx.imag**2).astype(np.float32)
 
-    # Flatten out into one vector (Spatial’s PowerSpectrum wants a 1D array)
+    # Flatten out into one vector (Spatial's PowerSpectrum wants a 1D array)
     flat_real = Zxx.real.astype(np.float32).ravel()
     flat_imag = Zxx.imag.astype(np.float32).ravel()
     flat_power = power.ravel()
@@ -44,9 +44,20 @@ def run_spatial_pipeline(audio_path: str):
     # ─── Step 6: Invoke each Spatial kernel ──────────────────────────────────────
     try:
         # 1) PowerSpectrum
+        power_spectrum_size = flat_real.size
+        power_spectrum_cwd = os.path.join(FPGA_ROOT, "PowerSpectrum")
+        config_file_path = os.path.join(power_spectrum_cwd, "power_spectrum_config.txt")
+        with open(config_file_path, "w") as f:
+            f.write(str(power_spectrum_size))
+        
+        # sbt command no longer takes the size argument directly
+        power_spectrum_cmd = 'sbt "run --fpga VCS"' 
+        print(f"[DEBUG] Wrote size {power_spectrum_size} to {config_file_path}")
+        print(f"[DEBUG] CWD: {power_spectrum_cwd}")
+        print(f"[DEBUG] CMD: {power_spectrum_cmd}")
         run(
-            'sbt "runMain PowerSpectrum {size}"'.format(size=flat_real.size),
-            cwd=os.path.join(FPGA_ROOT, "PowerSpectrum"),
+            power_spectrum_cmd,
+            cwd=power_spectrum_cwd,
             shell=True,
             check=True
         )
@@ -54,9 +65,18 @@ def run_spatial_pipeline(audio_path: str):
         # 2) MelFilterbank
         bins   = 400 // 2 + 1
         frames = t.size
+        melfilterbank_cwd = os.path.join(FPGA_ROOT, "MelFilterbank")
+        melfilterbank_config_path = os.path.join(melfilterbank_cwd, "melfilterbank_config.txt")
+        with open(melfilterbank_config_path, "w") as f:
+            f.write(f"80\n{bins}\n") # bands is 80, then bins
+
+        melfilterbank_cmd = 'sbt "run --fpga VCS"'
+        print(f"[DEBUG] Wrote args to {melfilterbank_config_path}")
+        print(f"[DEBUG] CWD: {melfilterbank_cwd}")
+        print(f"[DEBUG] CMD: {melfilterbank_cmd}")
         run(
-            'sbt "runMain MelFilterbank 80 {bins}"'.format(bins=bins),
-            cwd=os.path.join(FPGA_ROOT, "MelFilterbank"),
+            melfilterbank_cmd,
+            cwd=melfilterbank_cwd,
             shell=True,
             check=True
         )

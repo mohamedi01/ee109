@@ -29,7 +29,7 @@ object AppRuntimeModel_final extends App {
   }
   
   override def main(args: Array[String]): Unit = {
-    begin("/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/./gen/CS217/MelFilterbankTest///results_final")
+    begin("/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/./gen/CS217/MelFilterbankTest///results_final")
     if (args.size >= 1 && (args.contains("noninteractive") || args.contains("ni"))) {
         interactive = false
         val idx = {0 max args.indexOf("noninteractive")} + {0 max args.indexOf("ni")}
@@ -55,7 +55,7 @@ object AppRuntimeModel_final extends App {
         root.execute()
         emit(s"[final] Runtime results for app MelFilterbankTest")
         root.printResults()
-        root.storeAskMap("/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/./gen/CS217/MelFilterbankTest///model/PreviousAskMap.scala") // Store this run's askmap
+        root.storeAskMap("/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/./gen/CS217/MelFilterbankTest///model/PreviousAskMap.scala") // Store this run's askmap
         emit(s"[final] Total Cycles for App MelFilterbankTest: ${root.totalCycles()}")
     }
     end()
