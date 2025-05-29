@@ -95,6 +95,9 @@ def run_spatial_pipeline(audio_path: str):
     # ─── Step 4: Python STFT (Scipy) → power spectrum → save for Spatial PowerSpectrum kernel input
     from scipy.signal import stft
     f, t, Zxx = stft(quant_for_scipy_stft, fs=sr, nperseg=400, noverlap=240, nfft=400, window='hann')
+    print(f"[DEBUG FOR FILE LENGTH CHECK] Audio path: {audio_path}")
+    print(f"[DEBUG FOR FILE LENGTH CHECK] t.size (num_frames): {t.size}")
+    print(f"[DEBUG FOR FILE LENGTH CHECK] Zxx.shape (freq_bins, num_frames): {Zxx.shape}")
     power = (Zxx.real**2 + Zxx.imag**2).astype(np.float32)
     
     # Scale to match torch's normalization (empirically determined)
@@ -113,8 +116,8 @@ def run_spatial_pipeline(audio_path: str):
     # flat_power = power_scaled.ravel() # Not directly used for PowerSpectrum kernel input files
     print(f"[DEBUG] Flattened real/imag size for PowerSpectrum kernel: {flat_real.size}")
     # Save as CSV for Spatial PowerSpectrum kernel
-    # np.savetxt("fpga_io/real.csv", flat_real, fmt='%f') # No longer using scipy path for MelFilterbank input
-    # np.savetxt("fpga_io/imag.csv", flat_imag, fmt='%f') # No longer using scipy path for MelFilterbank input
+    np.savetxt("fpga_io/real.csv", flat_real, fmt='%f') # No longer using scipy path for MelFilterbank input
+    np.savetxt("fpga_io/imag.csv", flat_imag, fmt='%f') # No longer using scipy path for MelFilterbank input
 
     # ─── Step 5: Export the Mel filterbank ────────────────────────────────────────
     # Attempt to use torchaudio.functional.melscale_fbanks for closer match (Hypothesis A)

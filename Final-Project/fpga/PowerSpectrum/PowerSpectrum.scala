@@ -30,6 +30,7 @@ import scala.io.Source // Needed for reading file
       val outSram  = SRAM[Float](n)
       realSram load realDram
       imagSram load imagDram
+      println(s"DEBUG SCALA ACCEL: n = $n")
       Foreach(n by 1) { i =>
         outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i)
       }
