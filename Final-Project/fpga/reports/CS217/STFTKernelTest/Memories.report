@@ -1,0 +1,1100 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 7.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: x555
+Type: StreamIn[Bit]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x555 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x604 = StreamInBankedRead(x555,ArrayBuffer(Set())) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x606: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x604: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x610
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x610 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x656 = StreamOutBankedWrite(x610,ArrayBuffer(x655),ArrayBuffer(Set(x740))) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x657: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x656: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x561
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x561 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x580 = RegWrite(x561,x568,Set()) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x590 = RegRead(x561) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x602: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x582: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x580: RegWrite
+  x601: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x590: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x472
+Type: FIFO[IssuedCmd]
+Src:  STFTKernelTest.scala:28:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x472 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x479 = FIFOBankedEnq(x472,ArrayBuffer(x478),ArrayBuffer(Set(Const(true)))) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x484 = FIFOBankedDeq(x472,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x505: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x480: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x479: FIFOBankedEnq
+  x504: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x490: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x484: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x553
+Type: StreamOut[BurstCmd]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x553 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x578 = StreamOutBankedWrite(x553,ArrayBuffer(x576),ArrayBuffer(Set(x728))) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x582: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x578: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: winSRAM_0 (x464)
+Type: SRAM1[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:20:28
+Src:        val winSRAM = SRAM[T](NFFT)
+---------------------------------------------------------------------
+Symbol:     x464 = SRAMNew(List(Const(4)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x510 = SRAMBankedWrite(x464,Vector(Const(1)),Vector(List(Const(0))),Vector(b508),Vector(Set(b509))) {}
+             Foreach(NFFT by 1) { i => winSRAM(i) = 1.to[T] } (STFTKernelTest.scala:29:44)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x524 = SRAMBankedRead(x464,Vector(List(Const(0))),Vector(b518),Vector(Set(b519, b515)),Vec[Flt[_24,_8]]) {}
+             frame(i) = inSRAM(f*HOP + i) * winSRAM(i) (STFTKernelTest.scala:33:49)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x710: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x708: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x511: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x510: SRAMBankedWrite
+  x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x528: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x524: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x473
+Type: StreamIn[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:28:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x473 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x500 = StreamInBankedRead(x473,ArrayBuffer(Set(b495))) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x503: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x500: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x471
+Type: StreamOut[BurstCmd]
+Src:  STFTKernelTest.scala:28:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x471 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x477 = StreamOutBankedWrite(x471,ArrayBuffer(x475),ArrayBuffer(Set(x476))) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x480: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x477: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: inSRAM_0 (x465)
+Type: SRAM1[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:21:27
+Src:        val inSRAM = SRAM[T](LEN)
+---------------------------------------------------------------------
+Symbol:     x465 = SRAMNew(List(Const(6)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x502 = SRAMBankedWrite(x465,Vector(x501),Vector(List(Const(0))),Vector(x713),Vector(Set(x714, x712))) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x522 = SRAMBankedRead(x465,Vector(List(Const(0))),Vector(x521),Vector(Set(x716, x715)),Vec[Flt[_24,_8]]) {}
+             frame(i) = inSRAM(f*HOP + i) * winSRAM(i) (STFTKernelTest.scala:33:28)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x710: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x708: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x505: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x504: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x503: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x502: SRAMBankedWrite
+  x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x528: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x522: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: frame_0 (x466)
+Type: SRAM1[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:22:26
+Src:        val frame = SRAM[T](NFFT)
+---------------------------------------------------------------------
+Symbol:     x466 = SRAMNew(List(Const(4)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x527 = SRAMBankedWrite(x466,Vector(x526),Vector(List(Const(0))),Vector(x720),Vector(Set(x719, x718))) {}
+             frame(i) = inSRAM(f*HOP + i) * winSRAM(i) (STFTKernelTest.scala:33:20)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x533 = SRAMBankedRead(x466,Vector(List(Const(0))),Vector(b531),Vector(Set(b532, b515)),Vec[Flt[_24,_8]]) {}
+             real(k) = frame(k) (STFTKernelTest.scala:37:26)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x528: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x527: SRAMBankedWrite
+  x537: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x533: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x560
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x560 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x579 = RegWrite(x560,x567,Set()) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x588 = RegRead(x560) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x602: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x582: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x579: RegWrite
+  x601: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x588: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x616
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x616 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x635 = RegWrite(x616,x623,Set()) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x644 = RegRead(x616) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x658: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x638: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x635: RegWrite
+  x657: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x644: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: real2D_0 (x469)
+Type: SRAM2[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:25:27
+Src:        val real2D = SRAM[T](NFFT/2 + 1, FRAMES)
+---------------------------------------------------------------------
+Symbol:     x469 = SRAMNew(List(Const(3), Const(2)),SRAM2[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0, 0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x547 = SRAMBankedWrite(x469,Vector(x543),Vector(List(Const(0))),Vector(x725),Vector(Set(x726, x724))) {}
+             real2D(i, f) = real(i) (STFTKernelTest.scala:42:24)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x597 = SRAMBankedRead(x469,Vector(List(Const(0))),Vector(x596),Vector(Set(x730, x731)),Vec[Flt[_24,_8]]) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x710: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x551: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x547: SRAMBankedWrite
+  x709: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x608: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x607: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x602: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+          x601: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x597: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: real_0 (x467)
+Type: SRAM1[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:23:25
+Src:        val real = SRAM[T](NFFT/2 + 1)
+---------------------------------------------------------------------
+Symbol:     x467 = SRAMNew(List(Const(3)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x535 = SRAMBankedWrite(x467,Vector(x534),Vector(List(Const(0))),Vector(x722),Vector(Set(x723, x721))) {}
+             real(k) = frame(k) (STFTKernelTest.scala:37:19)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x542 = SRAMBankedRead(x467,Vector(List(Const(0))),Vector(b540),Vector(Set(b541, b515)),Vec[Flt[_24,_8]]) {}
+             real2D(i, f) = real(i) (STFTKernelTest.scala:42:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x537: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x535: SRAMBankedWrite
+  x551: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x542: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x618
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x618 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x637 = RegWrite(x618,x627,Set()) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x703 = RegRead(x618) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x658: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x638: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x637: RegWrite
+  x657: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x703: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x609
+Type: StreamOut[BurstCmd]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x609 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x634 = StreamOutBankedWrite(x609,ArrayBuffer(x632),ArrayBuffer(Set(x735))) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x638: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x634: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x562
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x562 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x581 = RegWrite(x562,x571,Set()) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x702 = RegRead(x562) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x602: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x582: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x581: RegWrite
+  x601: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x702: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x617
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x617 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x636 = RegWrite(x617,x624,Set()) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x646 = RegRead(x617) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x658: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x638: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x636: RegWrite
+  x657: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x646: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x482
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:28:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x482 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x487 = RegWrite(x482,x486,Set()) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x497 = RegRead(x482) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x504: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x490: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x487: RegWrite
+  x503: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x497: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: imag_0 (x468)
+Type: SRAM1[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:24:25
+Src:        val imag = SRAM[T](NFFT/2 + 1)
+---------------------------------------------------------------------
+Symbol:     x468 = SRAMNew(List(Const(3)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x536 = SRAMBankedWrite(x468,Vector(Const(0.0)),Vector(List(Const(0))),Vector(b531),Vector(Set(b532, b515))) {}
+             imag(k) = 0.to[T] (STFTKernelTest.scala:38:19)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x548 = SRAMBankedRead(x468,Vector(List(Const(0))),Vector(b540),Vector(Set(b541, b515)),Vec[Flt[_24,_8]]) {}
+             imag2D(i, f) = imag(i) (STFTKernelTest.scala:43:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x537: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x536: SRAMBankedWrite
+  x551: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x548: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: imag2D_0 (x470)
+Type: SRAM2[Flt[_24,_8]]
+Src:  STFTKernelTest.scala:26:27
+Src:        val imag2D = SRAM[T](NFFT/2 + 1, FRAMES)
+---------------------------------------------------------------------
+Symbol:     x470 = SRAMNew(List(Const(3), Const(2)),SRAM2[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0, 0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0,1}: Cyclic: N=1, B=1, alpha=<1,1>, P=<1,1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x550 = SRAMBankedWrite(x470,Vector(x549),Vector(List(Const(0))),Vector(x725),Vector(Set(x726, x724))) {}
+             imag2D(i, f) = imag(i) (STFTKernelTest.scala:43:24)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x653 = SRAMBankedRead(x470,Vector(List(Const(0))),Vector(x652),Vector(Set(x738, x737)),Vec[Flt[_24,_8]]) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x710: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x552: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x551: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x550: SRAMBankedWrite
+  x709: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x664: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x663: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+        x658: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+          x657: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+            x653: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x611
+Type: StreamIn[Bit]
+Src:  STFTKernelTest.scala:48:16
+Src:        imagDRAM store imag2D
+---------------------------------------------------------------------
+Symbol:     x611 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x660 = StreamInBankedRead(x611,ArrayBuffer(Set())) {}
+             imagDRAM store imag2D (STFTKernelTest.scala:48:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x662: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x660: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x554
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  STFTKernelTest.scala:47:16
+Src:        realDRAM store real2D
+---------------------------------------------------------------------
+Symbol:     x554 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x600 = StreamOutBankedWrite(x554,ArrayBuffer(x599),ArrayBuffer(Set(x733))) {}
+             realDRAM store real2D (STFTKernelTest.scala:47:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x601: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x600: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x483
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  STFTKernelTest.scala:28:14
+Src:        inSRAM load inDRAM
+---------------------------------------------------------------------
+Symbol:     x483 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x489 = RegWrite(x483,x488,Set()) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x701 = RegRead(x483) {}
+             inSRAM load inDRAM (STFTKernelTest.scala:28:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x504: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x490: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x489: RegWrite
+  x503: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x701: RegRead
+---------------------------------------------------------------------
+
+
+
+

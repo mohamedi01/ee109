@@ -1,0 +1,2364 @@
+<h3 id=x153><a href=PreExecution_IR.html#x153>x153</a> = ArrayFromSeq(seq=[10, 0.0078125])</h3>
+<text><strong>Name</strong>: input<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:10:25<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x1<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x157>x157</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x153>x153</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x154><a href=PreExecution_IR.html#x154>x154</a> = ArrayFromSeq(seq=[1, -2])</h3>
+<text><strong>Name</strong>: expected<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:11:28<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x2<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x258>x258</a>, <a href=PreExecution_IR.html#x270>x270</a>, <a href=PreExecution_IR.html#x250>x250</a>, <a href=PreExecution_IR.html#x254>x254</a>, <a href=PreExecution_IR.html#x266>x266</a>, <a href=PreExecution_IR.html#x262>x262</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x154>x154</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x155><a href=PreExecution_IR.html#x155>x155</a> = DRAMHostNew(dims=[2],zero=0)</h3>
+<text><strong>Name</strong>: inDRAM<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:13:25<br></text>
+<text><strong>Type</strong>: DRAM1[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x3<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x157>x157</a>, <a href=PreExecution_IR.html#x163>x163</a>, <a href=PreExecution_IR.html#x165>x165</a>, <a href=PreExecution_IR.html#x170>x170</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x155>x155</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x156><a href=PreExecution_IR.html#x156>x156</a> = DRAMHostNew(dims=[2],zero=0)</h3>
+<text><strong>Name</strong>: outDRAM<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:14:26<br></text>
+<text><strong>Type</strong>: DRAM1[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x4<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x222>x222</a>, <a href=PreExecution_IR.html#x224>x224</a>, <a href=PreExecution_IR.html#x241>x241</a>, <a href=PreExecution_IR.html#x248>x248</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x156>x156</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x157><a href=PreExecution_IR.html#x157>x157</a> = SetMem(dram=<a href=PreExecution_IR.html#x155>x155</a>,data=<a href=PreExecution_IR.html#x153>x153</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:16:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x5<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155}, writes={x155})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x157>x157</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x246><a href=PreExecution_IR.html#x246>x246</a> = AccelScope(block=Block(Const(())))</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:18:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x40<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, simple=true, reads={x156,x155}, writes={x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x194>x194</a>, <a href=PreExecution_IR.html#x195>x195</a>, <a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x242>x242</a>, <a href=PreExecution_IR.html#x183>x183</a>, <a href=PreExecution_IR.html#x202>x202</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x173>x173</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 7.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>InitiationInterval</strong>: 7.0<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x158><a href=PreExecution_IR.html#x158>x158</a> = SRAMNew(dims=[2],evidence$1=SRAM1[Fix[TRUE,_16,_8]])</h3>
+<text><strong>Name</strong>: buf<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:19:24<br></text>
+<text><strong>Type</strong>: SRAM1[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x6<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x194>x194</a>, <a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x187>x187</a>, <a href=PreExecution_IR.html#x205>x205</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x158>x158</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 0<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>AccumulatorType</strong>: Fold()<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: Fold()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x194>x194</a>, <a href=PreExecution_IR.html#x201>x201</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>, <a href=PreExecution_IR.html#x205>x205</a>]<br></text>
+<h3 id=x159><a href=PreExecution_IR.html#x159>x159</a> = SRAMNew(dims=[2],evidence$1=SRAM1[Fix[TRUE,_16,_8]])</h3>
+<text><strong>Name</strong>: out<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:20:24<br></text>
+<text><strong>Type</strong>: SRAM1[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x7<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x211>x211</a>, <a href=PreExecution_IR.html#x213>x213</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 1<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x211>x211</a>, <a href=PreExecution_IR.html#x213>x213</a>]<br></text>
+<h3 id=x190><a href=PreExecution_IR.html#x190>x190</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>Name</strong>: DenseTransfer<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x117<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x155,x158}, writes={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x183>x183</a>, <a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>LoweredTransfer</strong>: DenseLoad()<br></text>
+<text><strong>LoweredTransferSize</strong>: (2,1,24)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 2<br></text>
+<text><strong>ReadDRAMs</strong>: [<a href=PreExecution_IR.html#x155>x155</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Streaming()<br></text>
+<text><strong>StreamPrimitive</strong>: true<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x160><a href=PreExecution_IR.html#x160>x160</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x83<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>, <a href=PreExecution_IR.html#x170>x170</a>, <a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x160>x160</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 3<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<h3 id=x161><a href=PreExecution_IR.html#x161>x161</a> = FIFONew(depth=16)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x84<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>, <a href=PreExecution_IR.html#x173>x173</a>, <a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x161>x161</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 4<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
+<h3 id=x162><a href=PreExecution_IR.html#x162>x162</a> = StreamInNew(bus=BurstDataBus())</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: StreamIn[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x85<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x170>x170</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 5<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<h3 id=x169><a href=PreExecution_IR.html#x169>x169</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x92<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155,x160,x161}, writes={x160,x161})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x169>x169</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [1.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 6<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Sequenced()<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x160>x160</a>, <a href=PreExecution_IR.html#x161>x161</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x163><a href=PreExecution_IR.html#x163>x163</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x155>x155</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x86<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x164>x164</a>, <a href=PreExecution_IR.html#x169>x169</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x163>x163</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 7<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x164><a href=PreExecution_IR.html#x164>x164</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x163>x163</a>), (size,63), (isLoad,true)])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: BurstCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x87<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x164>x164</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 8<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x165><a href=PreExecution_IR.html#x165>x165</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x155>x155</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x88<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>, <a href=PreExecution_IR.html#x169>x169</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x165>x165</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 9<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x166><a href=PreExecution_IR.html#x166>x166</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x160>x160</a>,data=<a href=PreExecution_IR.html#x164>x164</a>,ens=[<a href=PreExecution_IR.html#x165>x165</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x89<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x169>x169</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x160}, writes={x160})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x166>x166</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 10<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x167><a href=PreExecution_IR.html#x167>x167</a> = SimpleStruct(elems=[(size,21), (start,0), (end,2)])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: IssuedCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x90<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x167>x167</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>FixedBits</strong>: true<br></text>
+<text><strong>Global</strong>: true<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 11<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x168><a href=PreExecution_IR.html#x168>x168</a> = FIFOEnq(mem=<a href=PreExecution_IR.html#x161>x161</a>,data=<a href=PreExecution_IR.html#x167>x167</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x91<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x169>x169</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x161}, writes={x161})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x168>x168</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 12<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x169>x169</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x170><a href=PreExecution_IR.html#x170>x170</a> = FringeDenseLoad(dram=<a href=PreExecution_IR.html#x155>x155</a>,cmdStream=<a href=PreExecution_IR.html#x160>x160</a>,dataStream=<a href=PreExecution_IR.html#x162>x162</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x93<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x155,x160,x162}, writes={x162})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x170>x170</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 13<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<h3 id=x189><a href=PreExecution_IR.html#x189>x189</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x116<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x190>x190</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x161,x162,x158}, writes={x161,x162,x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x183>x183</a>, <a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 14<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x190>x190</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x171><a href=PreExecution_IR.html#x171>x171</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x95<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x175>x175</a>, <a href=PreExecution_IR.html#x183>x183</a>, <a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x171>x171</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 15<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x175>x175</a>]<br></text>
+<h3 id=x172><a href=PreExecution_IR.html#x172>x172</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x96<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x177>x177</a>, <a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 16<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x177>x177</a>]<br></text>
+<h3 id=x178><a href=PreExecution_IR.html#x178>x178</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x104<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x161,x171,x172}, writes={x161,x171,x172})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x178>x178</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>BodyLatency</strong>: [1.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 17<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x161>x161</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x171>x171</a>, <a href=PreExecution_IR.html#x172>x172</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x173><a href=PreExecution_IR.html#x173>x173</a> = FIFODeq(mem=<a href=PreExecution_IR.html#x161>x161</a>,ens=[true])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: IssuedCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x97<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x174>x174</a>, <a href=PreExecution_IR.html#x176>x176</a>, <a href=PreExecution_IR.html#x178>x178</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x161}, writes={x161})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x173>x173</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 18<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x174><a href=PreExecution_IR.html#x174>x174</a> = FieldApply(struct=<a href=PreExecution_IR.html#x173>x173</a>,field=end)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x100<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x175>x175</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x174>x174</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 19<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x175><a href=PreExecution_IR.html#x175>x175</a> = RegWrite(mem=<a href=PreExecution_IR.html#x171>x171</a>,data=<a href=PreExecution_IR.html#x174>x174</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x101<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x178>x178</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x171}, writes={x171})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x175>x175</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x175>x175</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 20<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x176><a href=PreExecution_IR.html#x176>x176</a> = FieldApply(struct=<a href=PreExecution_IR.html#x173>x173</a>,field=size)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x102<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x177>x177</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x176>x176</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 21<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x177><a href=PreExecution_IR.html#x177>x177</a> = RegWrite(mem=<a href=PreExecution_IR.html#x172>x172</a>,data=<a href=PreExecution_IR.html#x176>x176</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x103<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x178>x178</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x172}, writes={x172})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x177>x177</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x177>x177</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 22<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x178>x178</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x179><a href=PreExecution_IR.html#x179>x179</a> = RegRead(mem=<a href=PreExecution_IR.html#x172>x172</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x151, 0031: x105<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x180>x180</a>, <a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x172})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[Prod(xs=[<a href=PreExecution_IR.html#x176>x176</a>],m=1)],b=0),allIters={<a href=PreExecution_IR.html#x176>x176</a>:[]},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x179>x179</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 23<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<h3 id=x180><a href=PreExecution_IR.html#x180>x180</a> = CounterNew(start=0,end=<a href=PreExecution_IR.html#x179>x179</a>,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x106<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x181>x181</a>, <a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x180>x180</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x188>x188</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>IterInfo</strong>: <a href=PreExecution_IR.html#b107>b107</a><br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 24<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1, block=-1)<br></text>
+<h3 id=x181><a href=PreExecution_IR.html#x181>x181</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x180>x180</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: CounterChain<br></text>
+<text><strong>Aliases</strong>: 0035: x108<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x188>x188</a>, <a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x181>x181</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>]<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x188>x188</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 25<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1, block=-1)<br></text>
+<h3 id=x188><a href=PreExecution_IR.html#x188>x188</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x181>x181</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b107>b107</a>],stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x115<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x189>x189</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x171,x162,x158}, writes={x162,x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x188>x188</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x179>x179</a>, <a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>BodyLatency</strong>: [4.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 26<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x171>x171</a>, <a href=PreExecution_IR.html#x162>x162</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x189>x189</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: [<a href=PreExecution_IR.html#x96>x96</a>]<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x158>x158</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>binds</h2>
+<h3 id=b107><a href=PreExecution_IR.html#b107>b107</a></h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>, <a href=PreExecution_IR.html#x187>x187</a>, <a href=PreExecution_IR.html#x109>x109</a>, <a href=PreExecution_IR.html#x111>x111</a>, <a href=PreExecution_IR.html#x182>x182</a>, <a href=PreExecution_IR.html#x114>x114</a>]<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b107>b107</a>:1},c=0,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=-1)<br></text>
+<text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x180>x180</a>,lanes=[0])<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x182><a href=PreExecution_IR.html#x182>x182</a> = FixLeq(a=0,b=<a href=PreExecution_IR.html#b107>b107</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x109<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x185>x185</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x182>x182</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 27<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x183><a href=PreExecution_IR.html#x183>x183</a> = RegRead(mem=<a href=PreExecution_IR.html#x171>x171</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x110<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>, <a href=PreExecution_IR.html#x188>x188</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x171})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x183>x183</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 28<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x184><a href=PreExecution_IR.html#x184>x184</a> = FixLst(a=<a href=PreExecution_IR.html#b107>b107</a>,b=<a href=PreExecution_IR.html#x183>x183</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x111<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x185>x185</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x184>x184</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 29<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x185><a href=PreExecution_IR.html#x185>x185</a> = And(a=<a href=PreExecution_IR.html#x182>x182</a>,b=<a href=PreExecution_IR.html#x184>x184</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x112<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x185>x185</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 30<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.4<br></text>
+<h3 id=x186><a href=PreExecution_IR.html#x186>x186</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x162>x162</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x113<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>, <a href=PreExecution_IR.html#x188>x188</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x162}, writes={x162})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PreExecution_IR.html#b107>b107</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b107>b107</a>:[<a href=PreExecution_IR.html#b107>b107</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b107>b107</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x186>x186</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b107>b107</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 31<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x187><a href=PreExecution_IR.html#x187>x187</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x158>x158</a>,data=<a href=PreExecution_IR.html#x186>x186</a>,addr=[<a href=PreExecution_IR.html#b107>b107</a>],ens=[<a href=PreExecution_IR.html#x185>x185</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:22:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x114<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x188>x188</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x158}, writes={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x187>x187</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b107>b107</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b107>b107</a>:[<a href=PreExecution_IR.html#b107>b107</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b107>b107</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x187>x187</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b107>b107</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x183>x183</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 32<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x188>x188</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 1.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x191><a href=PreExecution_IR.html#x191>x191</a> = RegNew(init=0)</h3>
+<text><strong>Name</strong>: mx<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:26<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x9<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x197>x197</a>, <a href=PreExecution_IR.html#x195>x195</a>, <a href=PreExecution_IR.html#x202>x202</a>, <a href=PreExecution_IR.html#x198>x198</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x191>x191</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 33<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: Buff()<br></text>
+</li>
+</ul>
+<text><strong>IterDiff</strong>: 1<br></text>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x195>x195</a>, <a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x197>x197</a>]<br></text>
+<h3 id=x192><a href=PreExecution_IR.html#x192>x192</a> = CounterNew(start=0,end=2,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:33<br></text>
+<text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x10<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x193>x193</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x192>x192</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x198>x198</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>IterInfo</strong>: <a href=PreExecution_IR.html#b14>b14</a><br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 34<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1, block=-1)<br></text>
+<h3 id=x193><a href=PreExecution_IR.html#x193>x193</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x192>x192</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: CounterChain<br></text>
+<text><strong>Aliases</strong>: 0035: x11<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x198>x198</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x193>x193</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x198>x198</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 35<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1, block=-1)<br></text>
+<h3 id=x198><a href=PreExecution_IR.html#x198>x198</a> = OpReduce(ens=[],cchain=<a href=PreExecution_IR.html#x193>x193</a>,accum=<a href=PreExecution_IR.html#x191>x191</a>,map=Block(x194),load=Lambda1(input=<a href=PreExecution_IR.html#x191>x191</a>),reduce=Lambda2(inputA=<a href=PreExecution_IR.html#b12>b12</a>,inputB=<a href=PreExecution_IR.html#b13>b13</a>),store=Lambda2(inputA=<a href=PreExecution_IR.html#x191>x191</a>,inputB=<a href=PreExecution_IR.html#x196>x196</a>),ident=None,fold=None,iters=[<a href=PreExecution_IR.html#b14>b14</a>],stopWhen=None,A=Fix[TRUE,_16,_8])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x19<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x158,x191}, writes={x191})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x198>x198</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x194>x194</a>, <a href=PreExecution_IR.html#x195>x195</a>]<br></text>
+<text><strong>BodyLatency</strong>: [5.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 40<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x158>x158</a>, <a href=PreExecution_IR.html#x191>x191</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x191>x191</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>binds</h2>
+<h3 id=b14><a href=PreExecution_IR.html#b14>b14</a></h3>
+<text><strong>Name</strong>: i<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x15>x15</a>, <a href=PreExecution_IR.html#x194>x194</a>]<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b14>b14</a>:1},c=0,tp=GEQ_ZERO()), SparseConstraint(cols={<a href=PreExecution_IR.html#b14>b14</a>:-1},c=1,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=-1)<br></text>
+<text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x192>x192</a>,lanes=[0])<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1)<br></text>
+<h3 id=b13><a href=PreExecution_IR.html#b13>b13</a></h3>
+<text><strong>Name</strong>: b<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x17>x17</a>, <a href=PreExecution_IR.html#x196>x196</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=-1)<br></text>
+<h3 id=b12><a href=PreExecution_IR.html#b12>b12</a></h3>
+<text><strong>Name</strong>: a<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x17>x17</a>, <a href=PreExecution_IR.html#x196>x196</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=-1)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x194><a href=PreExecution_IR.html#x194>x194</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x158>x158</a>,addr=[<a href=PreExecution_IR.html#b14>b14</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:48<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x15<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x198>x198</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x194>x194</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b14>b14</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b14>b14</a>:[<a href=PreExecution_IR.html#b14>b14</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b14>b14</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x194>x194</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b14>b14</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x194>x194</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 41<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[2]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=1,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 1</h2>
+<h3 id=x195><a href=PreExecution_IR.html#x195>x195</a> = RegRead(mem=<a href=PreExecution_IR.html#x191>x191</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x16<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x198>x198</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x191})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x195>x195</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x195>x195</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x195>x195</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=1)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1)<br></text>
+<text><strong>ProgramOrder</strong>: 42<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>IterDiff</strong>: 1<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=1,castgroup=[1],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 2</h2>
+<h3 id=x196><a href=PreExecution_IR.html#x196>x196</a> = FixMax(a=<a href=PreExecution_IR.html#b12>b12</a>,b=<a href=PreExecution_IR.html#b13>b13</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:67<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x17<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x197>x197</a>, <a href=PreExecution_IR.html#x198>x198</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x196>x196</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=2)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1)<br></text>
+<text><strong>ProgramOrder</strong>: 43<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1, block=1)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 3</h2>
+<h3 id=x197><a href=PreExecution_IR.html#x197>x197</a> = RegWrite(mem=<a href=PreExecution_IR.html#x191>x191</a>,data=<a href=PreExecution_IR.html#x196>x196</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:24:53<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x18<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x198>x198</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x191}, writes={x191})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x197>x197</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x197>x197</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), block=3)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1)<br></text>
+<text><strong>ProgramOrder</strong>: 44<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x198>x198</a>), stage=1, block=2)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x199><a href=PreExecution_IR.html#x199>x199</a> = CounterNew(start=0,end=2,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:26:17<br></text>
+<text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x20<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x200>x200</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x199>x199</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x206>x206</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>IterInfo</strong>: <a href=PreExecution_IR.html#b21>b21</a><br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 45<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1, block=-1)<br></text>
+<h3 id=x200><a href=PreExecution_IR.html#x200>x200</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x199>x199</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:26:22<br></text>
+<text><strong>Type</strong>: CounterChain<br></text>
+<text><strong>Aliases</strong>: 0035: x22<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x206>x206</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x200>x200</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x206>x206</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 46<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1, block=-1)<br></text>
+<h3 id=x206><a href=PreExecution_IR.html#x206>x206</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x200>x200</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b21>b21</a>],stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:26:22<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x28<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x158,x191}, writes={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x206>x206</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x202>x202</a>, <a href=PreExecution_IR.html#x201>x201</a>]<br></text>
+<text><strong>BodyLatency</strong>: [7.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 7.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 7.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 47<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x158>x158</a>, <a href=PreExecution_IR.html#x191>x191</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x158>x158</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>binds</h2>
+<h3 id=b21><a href=PreExecution_IR.html#b21>b21</a></h3>
+<text><strong>Name</strong>: i<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:26:22<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x23>x23</a>, <a href=PreExecution_IR.html#x27>x27</a>, <a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x205>x205</a>]<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b21>b21</a>:1},c=0,tp=GEQ_ZERO()), SparseConstraint(cols={<a href=PreExecution_IR.html#b21>b21</a>:-1},c=1,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=-1)<br></text>
+<text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x199>x199</a>,lanes=[0])<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x201><a href=PreExecution_IR.html#x201>x201</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x158>x158</a>,addr=[<a href=PreExecution_IR.html#b21>b21</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:27:25<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x23<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x204>x204</a>, <a href=PreExecution_IR.html#x206>x206</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x201>x201</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b21>b21</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b21>b21</a>:[<a href=PreExecution_IR.html#b21>b21</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b21>b21</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x201>x201</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b21>b21</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x201>x201</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 48<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
+<text><strong>InCycle</strong>: true<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x202><a href=PreExecution_IR.html#x202>x202</a> = RegRead(mem=<a href=PreExecution_IR.html#x191>x191</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:27:33<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x24<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x203>x203</a>, <a href=PreExecution_IR.html#x206>x206</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x191})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x202>x202</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 49<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x203><a href=PreExecution_IR.html#x203>x203</a> = FixSub(a=<a href=PreExecution_IR.html#x202>x202</a>,b=8)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:27:39<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x25<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x204>x204</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x203>x203</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 50<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x204><a href=PreExecution_IR.html#x204>x204</a> = FixMax(a=<a href=PreExecution_IR.html#x201>x201</a>,b=<a href=PreExecution_IR.html#x203>x203</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:27:21<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x26<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x205>x205</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x204>x204</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 51<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
+<text><strong>InCycle</strong>: true<br></text>
+<text><strong>FullDelay</strong>: 4.0<br></text>
+<h3 id=x205><a href=PreExecution_IR.html#x205>x205</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x158>x158</a>,data=<a href=PreExecution_IR.html#x204>x204</a>,addr=[<a href=PreExecution_IR.html#b21>b21</a>],ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:27:16<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x27<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x206>x206</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x158}, writes={x158})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x205>x205</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b21>b21</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b21>b21</a>:[<a href=PreExecution_IR.html#b21>b21</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b21>b21</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x205>x205</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b21>b21</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x202>x202</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 52<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
+<text><strong>InCycle</strong>: true<br></text>
+<text><strong>AccumulatorType</strong>: Fold()<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[1]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=1,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 4.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x207><a href=PreExecution_IR.html#x207>x207</a> = CounterNew(start=0,end=2,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:30:17<br></text>
+<text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x29<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x208>x208</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x207>x207</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x216>x216</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>IterInfo</strong>: <a href=PreExecution_IR.html#b30>b30</a><br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 53<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1, block=-1)<br></text>
+<h3 id=x208><a href=PreExecution_IR.html#x208>x208</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x207>x207</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:30:22<br></text>
+<text><strong>Type</strong>: CounterChain<br></text>
+<text><strong>Aliases</strong>: 0035: x31<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x216>x216</a>, <a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x208>x208</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x216>x216</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 54<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1, block=-1)<br></text>
+<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x208>x208</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b30>b30</a>],stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:30:22<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x38<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x216>x216</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [3.4]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 55<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>binds</h2>
+<h3 id=b30><a href=PreExecution_IR.html#b30>b30</a></h3>
+<text><strong>Name</strong>: i<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:30:22<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x36>x36</a>, <a href=PreExecution_IR.html#x209>x209</a>, <a href=PreExecution_IR.html#x34>x34</a>, <a href=PreExecution_IR.html#x213>x213</a>, <a href=PreExecution_IR.html#x32>x32</a>, <a href=PreExecution_IR.html#x211>x211</a>, <a href=PreExecution_IR.html#x35>x35</a>]<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b30>b30</a>:1},c=0,tp=GEQ_ZERO()), SparseConstraint(cols={<a href=PreExecution_IR.html#b30>b30</a>:-1},c=1,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), block=-1)<br></text>
+<text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x207>x207</a>,lanes=[0])<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x209><a href=PreExecution_IR.html#x209>x209</a> = FixEql(a=<a href=PreExecution_IR.html#b30>b30</a>,b=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:32:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x34<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x210>x210</a>, <a href=PreExecution_IR.html#x211>x211</a>, <a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x209>x209</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 56<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x210><a href=PreExecution_IR.html#x210>x210</a> = Not(a=<a href=PreExecution_IR.html#x209>x209</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:32:9<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x78<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x213>x213</a>, <a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x210>x210</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 57<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.2<br></text>
+<h3 id=x215><a href=PreExecution_IR.html#x215>x215</a> = Switch(selects=[<a href=PreExecution_IR.html#x209>x209</a>, <a href=PreExecution_IR.html#x210>x210</a>],body=Block(x214))</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:32:9<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x150<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x216>x216</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x212>x212</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=-1)]<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 58<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x216>x216</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>FullDelay</strong>: 3.4<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x212><a href=PreExecution_IR.html#x212>x212</a> = SwitchCase(body=Block(Const(())))</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:32:9<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x79<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x212>x212</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 59<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>FullDelay</strong>: 3.2<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x211><a href=PreExecution_IR.html#x211>x211</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x159>x159</a>,data=1,addr=[<a href=PreExecution_IR.html#b30>b30</a>],ens=[<a href=PreExecution_IR.html#x209>x209</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:33:18<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x35<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x212>x212</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x211>x211</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b30>b30</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b30>b30</a>:[<a href=PreExecution_IR.html#b30>b30</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b30>b30</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x211>x211</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b30>b30</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x212>x212</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x212>x212</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 60<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x212>x212</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.2<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x214><a href=PreExecution_IR.html#x214>x214</a> = SwitchCase(body=Block(Const(())))</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:32:9<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x80<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 61<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x215>x215</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>FullDelay</strong>: 3.4<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x213><a href=PreExecution_IR.html#x213>x213</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x159>x159</a>,data=-2,addr=[<a href=PreExecution_IR.html#b30>b30</a>],ens=[<a href=PreExecution_IR.html#x210>x210</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:35:18<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x36<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x214>x214</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159}, writes={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x213>x213</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b30>b30</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b30>b30</a>:[<a href=PreExecution_IR.html#b30>b30</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b30>b30</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x213>x213</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b30>b30</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 62<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x214>x214</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[1]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=1,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.4<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x245><a href=PreExecution_IR.html#x245>x245</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>Name</strong>: DenseTransfer<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x149<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x156,x159}, writes={x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x245>x245</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>LoweredTransfer</strong>: DenseStore()<br></text>
+<text><strong>LoweredTransferSize</strong>: (2,1,24)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 63<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x246>x246</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Streaming()<br></text>
+<text><strong>StreamPrimitive</strong>: true<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x217><a href=PreExecution_IR.html#x217>x217</a> = StreamOutNew(bus=BurstCmdBus())</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
+<text><strong>Aliases</strong>: 0035: x118<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>, <a href=PreExecution_IR.html#x241>x241</a>, <a href=PreExecution_IR.html#x245>x245</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x217>x217</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>AlignedTransfer</strong>: false<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 64<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
+<h3 id=x218><a href=PreExecution_IR.html#x218>x218</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: StreamOut[Tup2[Fix[TRUE,_16,_8],Bit]]<br></text>
+<text><strong>Aliases</strong>: 0035: x119<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x238>x238</a>, <a href=PreExecution_IR.html#x241>x241</a>, <a href=PreExecution_IR.html#x245>x245</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x218>x218</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 65<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<h3 id=x219><a href=PreExecution_IR.html#x219>x219</a> = StreamInNew(bus=BurstAckBus())</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: StreamIn[Bit]<br></text>
+<text><strong>Aliases</strong>: 0035: x120<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x241>x241</a>, <a href=PreExecution_IR.html#x242>x242</a>, <a href=PreExecution_IR.html#x245>x245</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 66<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: [0]<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<h3 id=x244><a href=PreExecution_IR.html#x244>x244</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x148<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x245>x245</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x159,x218,x156,x217,x219}, writes={x217,x218,x219,x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 67<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x245>x245</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<text><strong>WrittenDRAMs</strong>: [<a href=PreExecution_IR.html#x156>x156</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x144<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x217,x156,x159,x218}, writes={x217,x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)]<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Outer()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 68<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x221>x221</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x220><a href=PreExecution_IR.html#x220>x220</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x122<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x220>x220</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 69<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
+<h3 id=x221><a href=PreExecution_IR.html#x221>x221</a> = RegNew(init=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x123<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x227>x227</a>, <a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x221>x221</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 70<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=0, block=0)<br></text>
+<text><strong>Duplicates</strong><br></text>
+<ul style=list-style-type:disc>
+<li>
+<text><strong>banking</strong><br></text>
+<ul style=list-style-type:none>
+<li>Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)</li>
+</ul>
+<text><strong>depth</strong>: 1<br></text>
+<text><strong>padding</strong>: []<br></text>
+<text><strong>accType</strong>: None()<br></text>
+</li>
+</ul>
+<text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
+<h3 id=x228><a href=PreExecution_IR.html#x228>x228</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x131<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x156,x217,x220,x221}, writes={x217,x220,x221})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [1.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 71<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x217>x217</a>, <a href=PreExecution_IR.html#x220>x220</a>, <a href=PreExecution_IR.html#x221>x221</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x222><a href=PreExecution_IR.html#x222>x222</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x156>x156</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x124<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x223>x223</a>, <a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x222>x222</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 72<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x223><a href=PreExecution_IR.html#x223>x223</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x222>x222</a>), (size,63), (isLoad,false)])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: BurstCmd<br></text>
+<text><strong>Aliases</strong>: 0035: x125<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x223>x223</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 73<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x224><a href=PreExecution_IR.html#x224>x224</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x156>x156</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x126<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x225>x225</a>, <a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 74<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x225><a href=PreExecution_IR.html#x225>x225</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x217>x217</a>,data=<a href=PreExecution_IR.html#x223>x223</a>,ens=[<a href=PreExecution_IR.html#x224>x224</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x127<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x217}, writes={x217})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x225>x225</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 75<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x226><a href=PreExecution_IR.html#x226>x226</a> = RegWrite(mem=<a href=PreExecution_IR.html#x220>x220</a>,data=2,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x129<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x220}, writes={x220})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x226>x226</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 76<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x227><a href=PreExecution_IR.html#x227>x227</a> = RegWrite(mem=<a href=PreExecution_IR.html#x221>x221</a>,data=21,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x130<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x221}, writes={x221})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x227>x227</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=false),unroll=[],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 77<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x228>x228</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x229><a href=PreExecution_IR.html#x229>x229</a> = RegRead(mem=<a href=PreExecution_IR.html#x221>x221</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x152, 0031: x132<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x230>x230</a>, <a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x221})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=21),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x229>x229</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 78<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1, block=-1)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<h3 id=x230><a href=PreExecution_IR.html#x230>x230</a> = CounterNew(start=0,end=<a href=PreExecution_IR.html#x229>x229</a>,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
+<text><strong>Aliases</strong>: 0035: x133<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x231>x231</a>, <a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x230>x230</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x239>x239</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>IterInfo</strong>: <a href=PreExecution_IR.html#b134>b134</a><br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 79<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1, block=-1)<br></text>
+<h3 id=x231><a href=PreExecution_IR.html#x231>x231</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x230>x230</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: CounterChain<br></text>
+<text><strong>Aliases</strong>: 0035: x135<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>, <a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Unique<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x231>x231</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x239>x239</a><br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 80<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1, block=-1)<br></text>
+<h3 id=x239><a href=PreExecution_IR.html#x239>x239</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x231>x231</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b134>b134</a>],stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x143<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x220,x159,x218}, writes={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x229>x229</a>]<br></text>
+<text><strong>BodyLatency</strong>: [4.6]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 81<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x220>x220</a>, <a href=PreExecution_IR.html#x159>x159</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x240>x240</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: [<a href=PreExecution_IR.html#x123>x123</a>]<br></text>
+<text><strong>WrittenMems</strong>: [<a href=PreExecution_IR.html#x218>x218</a>]<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>binds</h2>
+<h3 id=b134><a href=PreExecution_IR.html#b134>b134</a></h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x138>x138</a>, <a href=PreExecution_IR.html#x234>x234</a>, <a href=PreExecution_IR.html#x140>x140</a>, <a href=PreExecution_IR.html#x136>x136</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x232>x232</a>]<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b134>b134</a>:1},c=0,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=-1)<br></text>
+<text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x230>x230</a>,lanes=[0])<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x232><a href=PreExecution_IR.html#x232>x232</a> = FixLeq(a=0,b=<a href=PreExecution_IR.html#b134>b134</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x136<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x235>x235</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x232>x232</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 82<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x233><a href=PreExecution_IR.html#x233>x233</a> = RegRead(mem=<a href=PreExecution_IR.html#x220>x220</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x137<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x234>x234</a>, <a href=PreExecution_IR.html#x239>x239</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (unique=true, reads={x220})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>AccessPattern</strong>: []<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x233>x233</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 83<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x234><a href=PreExecution_IR.html#x234>x234</a> = FixLst(a=<a href=PreExecution_IR.html#b134>b134</a>,b=<a href=PreExecution_IR.html#x233>x233</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x138<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x235>x235</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x234>x234</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 84<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+<h3 id=x235><a href=PreExecution_IR.html#x235>x235</a> = And(a=<a href=PreExecution_IR.html#x232>x232</a>,b=<a href=PreExecution_IR.html#x234>x234</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x139<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x235>x235</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 85<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 0.4<br></text>
+<h3 id=x236><a href=PreExecution_IR.html#x236>x236</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x159>x159</a>,addr=[<a href=PreExecution_IR.html#b134>b134</a>],ens=[<a href=PreExecution_IR.html#x235>x235</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x140<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x237>x237</a>, <a href=PreExecution_IR.html#x239>x239</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x159})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[Prod(xs=[],m=1)],b=0),i=<a href=PreExecution_IR.html#b134>b134</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b134>b134</a>:[<a href=PreExecution_IR.html#b134>b134</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b134>b134</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x236>x236</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b134>b134</a>:1},c=0,allIters={})],isReader=true),unroll=[0],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 86<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.6<br></text>
+<h3 id=x237><a href=PreExecution_IR.html#x237>x237</a> = SimpleStruct(elems=[(_1,<a href=PreExecution_IR.html#x236>x236</a>), (_2,<a href=PreExecution_IR.html#x235>x235</a>)])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Tup2[Fix[TRUE,_16,_8],Bit]<br></text>
+<text><strong>Aliases</strong>: 0035: x141<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x237>x237</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 87<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>FullDelay</strong>: 4.6<br></text>
+<h3 id=x238><a href=PreExecution_IR.html#x238>x238</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x218>x218</a>,data=<a href=PreExecution_IR.html#x237>x237</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x142<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x218}, writes={x218})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x238>x238</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[AffineProduct(a=Sum(ps=[],b=1),i=<a href=PreExecution_IR.html#b134>b134</a>)],ofs=Sum(ps=[],b=0),allIters={<a href=PreExecution_IR.html#b134>b134</a>:[<a href=PreExecution_IR.html#b134>b134</a>],0:[]},iterStarts={<a href=PreExecution_IR.html#b134>b134</a>:0})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x238>x238</a>,matrix=SparseMatrix(rows=[SparseVector(cols={<a href=PreExecution_IR.html#b134>b134</a>:1},c=0,allIters={})],isReader=false),unroll=[0],isReader=false)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x233>x233</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 88<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[0]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 4.6<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x241><a href=PreExecution_IR.html#x241>x241</a> = FringeDenseStore(dram=<a href=PreExecution_IR.html#x156>x156</a>,cmdStream=<a href=PreExecution_IR.html#x217>x217</a>,dataStream=<a href=PreExecution_IR.html#x218>x218</a>,ackStream=<a href=PreExecution_IR.html#x219>x219</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x145<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x156,x217,x218,x219}, writes={x219,x156})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x241>x241</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 89<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<h3 id=x243><a href=PreExecution_IR.html#x243>x243</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x147<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x244>x244</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x219}, writes={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>BodyLatency</strong>: [1.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), block=0)<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 90<br></text>
+<text><strong>ReadMems</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x244>x244</a>), stage=0, block=0)<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<text><strong>UserScheduleDirective</strong>: Pipelined()<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x242><a href=PreExecution_IR.html#x242>x242</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x219>x219</a>,ens=[])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:39:15<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x146<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x243>x243</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x219}, writes={x219})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=0),allIters={},iterStarts={})]<br></text>
+<text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x242>x242</a>,matrix=SparseMatrix(rows=[SparseVector(cols={},c=0,allIters={})],isReader=true),unroll=[],isReader=true)]<br></text>
+<text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), block=0)<br></text>
+<text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=-1)<br></text>
+<text><strong>ProgramOrder</strong>: 91<br></text>
+<text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x243>x243</a>), stage=0, block=0)<br></text>
+<text><strong>Dispatch</strong>: {[]:[0]}<br></text>
+<text><strong>GroupId</strong>: {[]:[0]}<br></text>
+<text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
+<text><strong>FullDelay</strong>: 0.0<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x247><a href=PreExecution_IR.html#x247>x247</a> = ArrayNew(size=2)</h3>
+<text><strong>Name</strong>: result<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:42:24<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
+<text><strong>Aliases</strong>: 0035: x41<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x249>x249</a>, <a href=PreExecution_IR.html#x269>x269</a>, <a href=PreExecution_IR.html#x253>x253</a>, <a href=PreExecution_IR.html#x257>x257</a>, <a href=PreExecution_IR.html#x248>x248</a>, <a href=PreExecution_IR.html#x265>x265</a>, <a href=PreExecution_IR.html#x261>x261</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Mutable<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x247>x247</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x248><a href=PreExecution_IR.html#x248>x248</a> = GetMem(dram=<a href=PreExecution_IR.html#x156>x156</a>,data=<a href=PreExecution_IR.html#x247>x247</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:42:24<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x42<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x156,x247}, writes={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x248>x248</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x249><a href=PreExecution_IR.html#x249>x249</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:24<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x43<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x251>x251</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x249>x249</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x250><a href=PreExecution_IR.html#x250>x250</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:38<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x44<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x251>x251</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x250>x250</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x251><a href=PreExecution_IR.html#x251>x251</a> = FixSub(a=<a href=PreExecution_IR.html#x249>x249</a>,b=<a href=PreExecution_IR.html#x250>x250</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:28<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x45<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x252>x252</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x251>x251</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x252><a href=PreExecution_IR.html#x252>x252</a> = FixLst(a=<a href=PreExecution_IR.html#x251>x251</a>,b=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:42<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x46<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x252>x252</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x260><a href=PreExecution_IR.html#x260>x260</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x252>x252</a>,thenBlk=Block(x256),elseBlk=Block(x259))</h3>
+<text><strong>Name</strong>: e0<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x54<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x273>x273</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [1.6]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x253><a href=PreExecution_IR.html#x253>x253</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:61<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x47<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x255>x255</a>, <a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x253>x253</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=0)<br></text>
+<h3 id=x254><a href=PreExecution_IR.html#x254>x254</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:75<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x48<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x255>x255</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x254>x254</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=0)<br></text>
+<h3 id=x255><a href=PreExecution_IR.html#x255>x255</a> = FixSub(a=<a href=PreExecution_IR.html#x253>x253</a>,b=<a href=PreExecution_IR.html#x254>x254</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:65<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x49<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x256>x256</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x255>x255</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=0)<br></text>
+<h3 id=x256><a href=PreExecution_IR.html#x256>x256</a> = FixNeg(a=<a href=PreExecution_IR.html#x255>x255</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x50<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x256>x256</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=0)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 1</h2>
+<h3 id=x257><a href=PreExecution_IR.html#x257>x257</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:91<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x51<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>, <a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x257>x257</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=1)<br></text>
+<h3 id=x258><a href=PreExecution_IR.html#x258>x258</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:105<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x52<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x258>x258</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=1)<br></text>
+<h3 id=x259><a href=PreExecution_IR.html#x259>x259</a> = FixSub(a=<a href=PreExecution_IR.html#x257>x257</a>,b=<a href=PreExecution_IR.html#x258>x258</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:44:95<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x53<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x260>x260</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x259>x259</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x260>x260</a>), block=1)<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x261><a href=PreExecution_IR.html#x261>x261</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:24<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x55<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x261>x261</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x262><a href=PreExecution_IR.html#x262>x262</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:38<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x56<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x262>x262</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x263><a href=PreExecution_IR.html#x263>x263</a> = FixSub(a=<a href=PreExecution_IR.html#x261>x261</a>,b=<a href=PreExecution_IR.html#x262>x262</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:28<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x57<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x264>x264</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x264><a href=PreExecution_IR.html#x264>x264</a> = FixLst(a=<a href=PreExecution_IR.html#x263>x263</a>,b=0)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:42<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x58<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x264>x264</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x272><a href=PreExecution_IR.html#x272>x272</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x264>x264</a>,thenBlk=Block(x268),elseBlk=Block(x271))</h3>
+<text><strong>Name</strong>: e1<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:14<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x66<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x274>x274</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [1.6]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>InitiationInterval</strong>: 1.0<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+<h3 id=x265><a href=PreExecution_IR.html#x265>x265</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:61<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x59<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x267>x267</a>, <a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x265>x265</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=0)<br></text>
+<h3 id=x266><a href=PreExecution_IR.html#x266>x266</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:75<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x60<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x267>x267</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x266>x266</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=0)<br></text>
+<h3 id=x267><a href=PreExecution_IR.html#x267>x267</a> = FixSub(a=<a href=PreExecution_IR.html#x265>x265</a>,b=<a href=PreExecution_IR.html#x266>x266</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:65<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x61<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x268>x268</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x267>x267</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=0)<br></text>
+<h3 id=x268><a href=PreExecution_IR.html#x268>x268</a> = FixNeg(a=<a href=PreExecution_IR.html#x267>x267</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:53<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x62<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x268>x268</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=0)<br></text>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 1</h2>
+<h3 id=x269><a href=PreExecution_IR.html#x269>x269</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x247>x247</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:91<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x63<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x271>x271</a>, <a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (reads={x247})<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x269>x269</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=1)<br></text>
+<h3 id=x270><a href=PreExecution_IR.html#x270>x270</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x154>x154</a>,i=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:105<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x64<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x271>x271</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x270>x270</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=1)<br></text>
+<h3 id=x271><a href=PreExecution_IR.html#x271>x271</a> = FixSub(a=<a href=PreExecution_IR.html#x269>x269</a>,b=<a href=PreExecution_IR.html#x270>x270</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:45:95<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
+<text><strong>Aliases</strong>: 0035: x65<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x271>x271</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x272>x272</a>), block=1)<br></text>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x273><a href=PreExecution_IR.html#x273>x273</a> = FixLst(a=<a href=PreExecution_IR.html#x260>x260</a>,b=0.09765625)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:46:23<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x67<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x275>x275</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x273>x273</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x274><a href=PreExecution_IR.html#x274>x274</a> = FixLst(a=<a href=PreExecution_IR.html#x272>x272</a>,b=0.09765625)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:46:41<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x68<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x275>x275</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x274>x274</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x275><a href=PreExecution_IR.html#x275>x275</a> = And(a=<a href=PreExecution_IR.html#x273>x273</a>,b=<a href=PreExecution_IR.html#x274>x274</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:46:35<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x69<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x276>x276</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x275>x275</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x276><a href=PreExecution_IR.html#x276>x276</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x275>x275</a>,thenBlk=Block(Const(1)),elseBlk=Block(Const(0)))</h3>
+<text><strong>Name</strong>: pass<br></text>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:46:16<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
+<text><strong>Aliases</strong>: 0035: x70<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x277>x277</a>, <a href=PreExecution_IR.html#x281>x281</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x276>x276</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<text><strong>BodyLatency</strong>: [0.0]<br></text>
+<text><strong>Children</strong>: []<br></text>
+<text><strong>CompilerII</strong>: 1.0<br></text>
+<text><strong>ControlLevel</strong>: Inner()<br></text>
+<text><strong>InitiationInterval</strong>: 0.0<br></text>
+<text><strong>TransientReadMems</strong>: []<br></text>
+<table border=3 cellpadding=10 cellspacing=10>
+<tbody>
+<tr>
+<td>
+<h2>block 0</h2>
+</td>
+</tr>
+<tr>
+<td>
+<h2>block 1</h2>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id=x277><a href=PreExecution_IR.html#x277>x277</a> = FixToText(a=<a href=PreExecution_IR.html#x276>x276</a>,format=None)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:48:22<br></text>
+<text><strong>Type</strong>: Text<br></text>
+<text><strong>Aliases</strong>: 0035: x71<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x278>x278</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x277>x277</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x278><a href=PreExecution_IR.html#x278>x278</a> = TextConcat(parts=[PASS: , <a href=PreExecution_IR.html#x277>x277</a>])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:48:22<br></text>
+<text><strong>Type</strong>: Text<br></text>
+<text><strong>Aliases</strong>: 0035: x72<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x279>x279</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x278>x278</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x279><a href=PreExecution_IR.html#x279>x279</a> = TextConcat(parts=[<a href=PreExecution_IR.html#x278>x278</a>, 
+])</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:48:12<br></text>
+<text><strong>Type</strong>: Text<br></text>
+<text><strong>Aliases</strong>: 0035: x73<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x279>x279</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x280><a href=PreExecution_IR.html#x280>x280</a> = PrintIf(ens=[],x=<a href=PreExecution_IR.html#x279>x279</a>)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:48:12<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x74<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (simple=true)<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x281><a href=PreExecution_IR.html#x281>x281</a> = FixEql(a=<a href=PreExecution_IR.html#x276>x276</a>,b=1)</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:49:17<br></text>
+<text><strong>Type</strong>: Bit<br></text>
+<text><strong>Aliases</strong>: 0035: x75<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x282>x282</a>]<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: Pure<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x281>x281</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>
+<h3 id=x282><a href=PreExecution_IR.html#x282>x282</a> = AssertIf(ens=[],cond=<a href=PreExecution_IR.html#x281>x281</a>,x=Some(LogCompressTest.scala:49:11: Assertion failure))</h3>
+<text><strong>SrcCtx</strong>: LogCompressTest.scala:49:11<br></text>
+<text><strong>Type</strong>: Void<br></text>
+<text><strong>Aliases</strong>: 0035: x77<br></text>
+<text><strong>DeepAliases</strong>: []<br></text>
+<text><strong>Effects</strong>: (global=true)<br></text>
+<text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x282>x282</a>]<br></text>
+<text><strong>ReadUses</strong>: []<br></text>

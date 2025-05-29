@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x510 -> x511 -> x611 -> x612 **/
+/** Hierarchy: x510 -> x511 -> x613 -> x614 **/
 /** BEGIN None x510_outr_UnitPipe **/
 class x510_outr_UnitPipe_kernel(
   list_x478_fifo: List[FIFOInterface],

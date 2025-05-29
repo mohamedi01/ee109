@@ -1,3 +1,4 @@
+package spatial.tests
 import spatial.dsl._
 
 @spatial class QuantizeKernelTest extends SpatialTest {

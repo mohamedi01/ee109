@@ -22,11 +22,11 @@ import Args._
 import scala.collection.immutable._
 
 class x411_matSRAM_0 {
-  lazy val w0 = Access(473, 0, 0, List(0), List(0), None, PortInfo(Some(0), 1, 3, List(1), 32, List(List(RG(0)))))
-  lazy val r0 = Access(525, 0, 0, List(0), List(0), None, PortInfo(Some(0), 1, 3, List(1), 32, List(List(RG(0)))))
+  lazy val w0 = Access(473, 0, 0, List(0), List(0), None, PortInfo(Some(0), 1, 3, List(1), 24, List(List(RG(0)))))
+  lazy val r0 = Access(525, 0, 0, List(0), List(0), None, PortInfo(Some(0), 1, 3, List(1), 24, List(List(RG(0)))))
   lazy val m = Module(new BankedSRAM(
     List[Int](2,3),
-     32, 
+     24, 
     List[Int](1),
     List[Int](1),
     List[Int](1,1),
@@ -35,7 +35,7 @@ class x411_matSRAM_0 {
     BankedMemory, 
     None, 
     true, 
-    0,
+    8,
     2, 
     myName = "x411_matSRAM_0"
   ))

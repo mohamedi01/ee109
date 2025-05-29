@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x474 -> x475 -> x476 -> x611 -> x612 **/
+/** Hierarchy: x474 -> x475 -> x476 -> x613 -> x614 **/
 /** BEGIN None x474_inr_Foreach **/
 class x474_inr_Foreach_kernel(
   list_b444: List[Bool],
@@ -109,33 +109,33 @@ class x474_inr_Foreach_kernel(
       x466 := x463 & x465
       val x467_sub = Wire(new FixedPoint(true, 32, 0)).suggestName("""x467_sub""")
       x467_sub.r := Math.sub(b460,x462_rd_x445,Some(1.0), true.B, Truncate, Wrapping, "x467_sub").r
-      val x468 = Wire(Vec(1, new FloatingPoint(24, 8))).suggestName("""x468""")
+      val x468 = Wire(Vec(1, new FixedPoint(true, 16, 8))).suggestName("""x468""")
       x416.ready := b461 & b444 & (io.sigsIn.datapathEn) 
       (0 until 1).map{ i => x468(i).r := x416.bits.rdata(i).r }
-      val x620 = Wire(Vec(1, new FloatingPoint(24, 8))).suggestName("x620_x468_D1") 
-      (0 until 1).foreach{i => x620(i).r := getRetimed(x468(i).r, 1.toInt, io.sigsIn.backpressure & true.B)}
-      // x469 = VecApply(x620,0)
-      val x469_elem_0 = Wire(new FloatingPoint(24, 8)).suggestName("""x469_elem_0""")
-      x469_elem_0.r := x620(0).r
-      val x606 = Wire(new FixedPoint(true, 32, 0)).suggestName("""x606""")
-      x606.r := Math.arith_left_shift(b443, 1, Some(0.2), true.B,"x606").r
-      val x607_sum = Wire(new FixedPoint(true, 32, 0)).suggestName("""x607_sum""")
-      x607_sum.r := Math.add(x606,b443,Some(1.0), true.B, Truncate, Wrapping, "x607_sum").r
+      val x624 = Wire(Vec(1, new FixedPoint(true, 16, 8))).suggestName("x624_x468_D1") 
+      (0 until 1).foreach{i => x624(i).r := getRetimed(x468(i).r, 1.toInt, io.sigsIn.backpressure & true.B)}
+      // x469 = VecApply(x624,0)
+      val x469_elem_0 = Wire(new FixedPoint(true, 16, 8)).suggestName("""x469_elem_0""")
+      x469_elem_0.r := x624(0).r
+      val x608 = Wire(new FixedPoint(true, 32, 0)).suggestName("""x608""")
+      x608.r := Math.arith_left_shift(b443, 1, Some(0.2), true.B,"x608").r
+      val x609_sum = Wire(new FixedPoint(true, 32, 0)).suggestName("""x609_sum""")
+      x609_sum.r := Math.add(x608,b443,Some(1.0), true.B, Truncate, Wrapping, "x609_sum").r
       val x472_sum = Wire(new FixedPoint(true, 32, 0)).suggestName("""x472_sum""")
-      x472_sum.r := Math.add(x607_sum,x467_sub,Some(1.0), true.B, Truncate, Wrapping, "x472_sum").r
-      val x621 = Wire(Bool()).suggestName("x621_b461_D2") 
-      x621.r := getRetimed(b461.r, 2.toInt, io.sigsIn.backpressure & true.B)
-      val x622 = Wire(Bool()).suggestName("x622_b444_D2") 
-      x622.r := getRetimed(b444.r, 2.toInt, io.sigsIn.backpressure & true.B)
-      val x623 = Wire(Bool()).suggestName("x623_x466_D2") 
-      x623.r := getRetimed(x466.r, 2.toInt, io.sigsIn.backpressure & true.B)
-      val x624 = Wire(new FloatingPoint(24, 8)).suggestName("x624_x469_elem_0_D1") 
-      x624.r := getRetimed(x469_elem_0.r, 1.toInt, io.sigsIn.backpressure & true.B)
+      x472_sum.r := Math.add(x609_sum,x467_sub,Some(1.0), true.B, Truncate, Wrapping, "x472_sum").r
+      val x625 = Wire(Bool()).suggestName("x625_b461_D2") 
+      x625.r := getRetimed(b461.r, 2.toInt, io.sigsIn.backpressure & true.B)
+      val x626 = Wire(Bool()).suggestName("x626_b444_D2") 
+      x626.r := getRetimed(b444.r, 2.toInt, io.sigsIn.backpressure & true.B)
+      val x627 = Wire(Bool()).suggestName("x627_x466_D2") 
+      x627.r := getRetimed(x466.r, 2.toInt, io.sigsIn.backpressure & true.B)
+      val x628 = Wire(new FixedPoint(true, 16, 8)).suggestName("x628_x469_elem_0_D1") 
+      x628.r := getRetimed(x469_elem_0.r, 1.toInt, io.sigsIn.backpressure & true.B)
       val x473_wr_banks = List[UInt](0L.FP(true, 32, 0).r)
       val x473_wr_ofs = List[UInt](x472_sum.r)
       val x473_wr_en = List[Bool](true.B)
-      val x473_wr_data = List[UInt](x624.r)
-      x411_matSRAM_0.connectWPort(473, x473_wr_banks, x473_wr_ofs, x473_wr_data, x473_wr_en.map(_ && ~io.sigsIn.break && (io.sigsIn.datapathEn & io.sigsIn.iiIssue).DS(2.2.toInt, rr, io.sigsIn.backpressure & true.B) & ~io.sigsIn.break && io.sigsIn.backpressure && x623 & x621 & x622))
+      val x473_wr_data = List[UInt](x628.r)
+      x411_matSRAM_0.connectWPort(473, x473_wr_banks, x473_wr_ofs, x473_wr_data, x473_wr_en.map(_ && ~io.sigsIn.break && (io.sigsIn.datapathEn & io.sigsIn.iiIssue).DS(2.2.toInt, rr, io.sigsIn.backpressure & true.B) & ~io.sigsIn.break && io.sigsIn.backpressure && x627 & x625 & x626))
     }
     val module = Module(new x474_inr_Foreach_concrete(sm.p.depth)); module.io := DontCare
     // Connect ports on this kernel to its parent

@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x541 -> x612 **/
+/** Hierarchy: x541 -> x614 **/
 /** BEGIN None x541_outr_Foreach **/
 class x541_outr_Foreach_kernel(
   list_x411_matSRAM_0: List[StandardInterface],
@@ -76,3 +76,44 @@ class x541_outr_Foreach_kernel(
       val b515_chain = Module(new RegChainPass(2, 1, myName = "b515_chain")); b515_chain.io <> DontCare
       b515_chain.chain_pass(b515, io.sigsOut.smDoneIn.head)
       val b515_chain_read_1: Bool = b515_chain.read(1).apply(0)
+      val x516_sum_0 = (new x516_sum_0).m.io.asInstanceOf[FixFMAAccumBundle]
+      val x517_sum_1 = (new x517_sum_1).m.io.asInstanceOf[NBufInterface]
+      val x518_ctr = new CtrObject(Left(Some(0)), Left(Some(3)), Left(Some(1)), 1, 4, false)
+      val x519_ctrchain = (new CChainObject(List[CtrObject](x518_ctr), "x519_ctrchain")).cchain.io 
+      x519_ctrchain.setup.isStream := false.B
+      ModuleParams.addParams("x519_ctrchain_p", (x519_ctrchain.par, x519_ctrchain.widths))
+      val x537_inr_Reduce = new x537_inr_Reduce_kernel(List(b514), List(x517_sum_1), List(b515), List(x516_sum_0), List(x411_matSRAM_0,x412_vecSRAM_0) ,  Some(me), List(x519_ctrchain), 0, 1, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
+      x537_inr_Reduce.sm.io.ctrDone := (x537_inr_Reduce.cchain.head.output.done).DS(1.toInt, rr, io.sigsIn.backpressure & true.B)
+      b514_chain.connectStageCtrl((x537_inr_Reduce.done).DS(1.toInt, rr, x537_inr_Reduce.sm.io.backpressure), x537_inr_Reduce.baseEn, 0)
+      b515_chain.connectStageCtrl((x537_inr_Reduce.done).DS(1.toInt, rr, x537_inr_Reduce.sm.io.backpressure), x537_inr_Reduce.baseEn, 0)
+      x537_inr_Reduce.backpressure := true.B | x537_inr_Reduce.sm.io.doneLatch
+      x537_inr_Reduce.forwardpressure := (true.B) && (true.B) | x537_inr_Reduce.sm.io.doneLatch
+      x537_inr_Reduce.sm.io.enableOut.zip(x537_inr_Reduce.smEnableOuts).foreach{case (l,r) => r := l}
+      x537_inr_Reduce.sm.io.break := false.B
+      x537_inr_Reduce.mask := ~x537_inr_Reduce.cchain.head.output.noop & b515
+      x537_inr_Reduce.configure("x537_inr_Reduce", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
+      x537_inr_Reduce.kernel()
+      val x540_inr_UnitPipe = new x540_inr_UnitPipe_kernel(List(b515_chain_read_1), List(b514_chain_read_1), List(x413_outSRAM_0), List(x517_sum_1) ,  Some(me), List(), 1, 1, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
+      x540_inr_UnitPipe.sm.io.ctrDone := risingEdge(x540_inr_UnitPipe.sm.io.ctrInc)
+      b514_chain.connectStageCtrl((x540_inr_UnitPipe.done).DS(1.toInt, rr, x540_inr_UnitPipe.sm.io.backpressure), x540_inr_UnitPipe.baseEn, 1)
+      b515_chain.connectStageCtrl((x540_inr_UnitPipe.done).DS(1.toInt, rr, x540_inr_UnitPipe.sm.io.backpressure), x540_inr_UnitPipe.baseEn, 1)
+      x540_inr_UnitPipe.backpressure := true.B | x540_inr_UnitPipe.sm.io.doneLatch
+      x540_inr_UnitPipe.forwardpressure := (true.B) && (true.B) | x540_inr_UnitPipe.sm.io.doneLatch
+      x540_inr_UnitPipe.sm.io.enableOut.zip(x540_inr_UnitPipe.smEnableOuts).foreach{case (l,r) => r := l}
+      x540_inr_UnitPipe.sm.io.break := false.B
+      x540_inr_UnitPipe.mask := true.B & b515_chain_read_1
+      x540_inr_UnitPipe.configure("x540_inr_UnitPipe", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
+      x540_inr_UnitPipe.kernel()
+    }
+    val module = Module(new x541_outr_Foreach_concrete(sm.p.depth)); module.io := DontCare
+    // Connect ports on this kernel to its parent
+    connectWires0(module)
+    Ledger.connectInstrCtrs(instrctrs, module.io.in_instrctrs)
+    Ledger.connectBreakpoints(breakpoints, module.io.in_breakpoints)
+    module.io.rr := rr
+    module.io.sigsIn := me.sigsIn
+    me.sigsOut := module.io.sigsOut
+    Ledger.exit()
+  }
+}
+/** END UnrolledForeach x541_outr_Foreach **/

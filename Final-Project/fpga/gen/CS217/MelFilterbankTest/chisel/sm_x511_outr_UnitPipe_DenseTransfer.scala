@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x511 -> x611 -> x612 **/
+/** Hierarchy: x511 -> x613 -> x614 **/
 /** BEGIN Some(DenseTransfer) x511_outr_UnitPipe_DenseTransfer **/
 class x511_outr_UnitPipe_DenseTransfer_kernel(
   list_x407_vecDRAM: List[FixedPoint],

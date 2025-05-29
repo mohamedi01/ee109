@@ -1,0 +1,240 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  </head><body>
+
+    <div data-role="main" class="ui-content" style="overflow-x:scroll;">
+      <h2>Controller Diagram for WhisperScaleTest (Options: SyncMem, Retimed)</h2>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  
+<!-- Begin x201 -->
+<TD>
+<font size = "6"><a href=PostExecution_IR.html#x201 target=_blank>x201</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">WhisperScaleTest.scala:15:11 <font color="grey">-     Accel {</font></font>
+<div>
+<font color="red"> 304 cycles/iter<br>
+<font size="2">(304 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <!-- Begin x164 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x164 target=_blank>x164</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">WhisperScaleTest.scala:17:11 <font color="grey">-       buf load inDRAM</font></font>
+<div>
+<font color="red"> 123 cycles/iter<br>
+<font size="2">(123 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x143 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x143 target=_blank>x143</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScaleTest.scala:17:11 <font color="grey">-       buf load inDRAM</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 123 cycles/iter<br>
+<font size="2">(123 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x135, x134)----->
+    </font></div>
+    </TD>
+    <!-- End x143-->
+    <!-- Begin x163 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x163 target=_blank>x163</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">WhisperScaleTest.scala:17:11 <font color="grey">-       buf load inDRAM</font></font>
+<div>
+<font color="red"> 123 cycles/iter<br>
+<font size="2">(123 total cycles, 1 total iters)<br></font> </font><br></div>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x152 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x152 target=_blank>x152</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">WhisperScaleTest.scala:17:11 <font color="grey">-       buf load inDRAM</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(1 total cycles, 1 total iters)<br></font> </font><br></div>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x135)
+      </font></div>
+      </TD>
+      <!-- End x152-->
+      <!-- Begin x162 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x162 target=_blank>x162</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">WhisperScaleTest.scala:17:11 <font color="grey">-       buf load inDRAM</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+      <br><font size = "1">Counter: <a href=PostExecution_IR.html#x155 target=_blank>x155</a> = CounterNew(Const(0),x153,Const(1),Const(1))</font>
+<div>
+<font color="red"> 116 cycles/iter<br>
+<font size="2">(116 total cycles, 1 total iters)<br></font> </font><br></div>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x136)
+      </font></div>
+      </TD>
+      <!-- End x162-->
+      </TABLE></div>
+    </TD>
+    <!-- End x163-->
+    </TABLE></div>
+  </TD>
+  <!-- End x164-->
+  <!-- Begin x171 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x171 target=_blank>x171</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+  <br><font size = "2">WhisperScaleTest.scala:18:23 <font color="grey">-       Foreach(N by 1) { i =></font></font>
+  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=7,  <b>II=7</b></font></mark></p>
+  <br><font size = "1">Counter: <a href=PostExecution_IR.html#x166 target=_blank>x166</a> = CounterNew(Const(0),Const(4),Const(1),Const(1))</font>
+<div>
+<font color="red"> 27 cycles/iter<br>
+<font size="2">(27 total cycles, 1 total iters)<br></font> </font><br></div>
+
+  </TD>
+  <!-- End x171-->
+  <!-- Begin x200 -->
+  <TD>
+  <font size = "6"><a href=PostExecution_IR.html#x200 target=_blank>x200</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+<div>
+<font color="red"> 145 cycles/iter<br>
+<font size="2">(145 total cycles, 1 total iters)<br></font> </font><br></div>
+
+    <div data-role="collapsible"><h4> </h4>
+    <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+    <!-- Begin x199 -->
+    <TD>
+    <font size = "6"><a href=PostExecution_IR.html#x199 target=_blank>x199</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+<div>
+<font color="red"> 145 cycles/iter<br>
+<font size="2">(145 total cycles, 1 total iters)<br></font> </font><br></div>
+
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <!-- Begin x195 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x195 target=_blank>x195</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+<div>
+<font color="red"> 33 cycles/iter<br>
+<font size="2">(33 total cycles, 1 total iters)<br></font> </font><br></div>
+
+        <div data-role="collapsible"><h4> </h4>
+        <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+        <!-- Begin x183 -->
+        <TD>
+        <font size = "6"><a href=PostExecution_IR.html#x183 target=_blank>x183</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(1 total cycles, 1 total iters)<br></font> </font><br></div>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x172)----->
+        </font></div>
+        </TD>
+        <!-- End x183-->
+        <!-- Begin x194 -->
+        <TD>
+        <font size = "6"><a href=PostExecution_IR.html#x194 target=_blank>x194</a>: Pipelined OpForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
+        <br><font size = "1">Counter: <a href=PostExecution_IR.html#x186 target=_blank>x186</a> = CounterNew(Const(0),x184,Const(1),Const(1))</font>
+<div>
+<font color="red"> 26 cycles/iter<br>
+<font size="2">(26 total cycles, 1 total iters)<br></font> </font><br></div>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="right">Set(x173)----->
+        </font></div>
+        </TD>
+        <!-- End x194-->
+        </TABLE></div>
+      </TD>
+      <!-- End x195-->
+      <!-- Begin x198 -->
+      <TD>
+      <font size = "6"><a href=PostExecution_IR.html#x198 target=_blank>x198</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">WhisperScaleTest.scala:21:15 <font color="grey">-       outDRAM store buf</font></font>
+      <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+<div>
+<font color="red"> 1 cycles/iter<br>
+<font size="2">(1 total cycles, 1 total iters)<br></font> </font><br></div>
+
+      <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x174)
+      </font></div>
+      </TD>
+      <!-- End x198-->
+      </TABLE></div>
+    </TD>
+    <!-- End x199-->
+    </TABLE></div>
+  </TD>
+  <!-- End x200-->
+  </TABLE></div>
+</TD>
+<!-- End x201-->
+</TABLE>
+<h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+<!-- Begin NBuf Mems -->
+<TD>
+NBuf Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  </TABLE></div>
+</TD>
+<!-- End NBuf Mems-->
+<!-- Begin Single-Buffered Mems -->
+<TD>
+Single-Buffered Mems
+  <div data-role="collapsible"><h4> </h4>
+  <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x135 target=_blank>x135</a> (FIFO "")
+<br>volume = 16 (dims List(16) + pads List(0), bw = 96)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x133 target=_blank>x133</a> (BankedSRAM "buf")
+<br>volume = 4 (dims List(4) + pads List(0), bw = 24)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">2</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x146 target=_blank>x146</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x175 target=_blank>x175</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x145 target=_blank>x145</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PostExecution_IR.html#x176 target=_blank>x176</a> (FF "")
+<br>volume = 1 (dims List() + pads List(), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  </TABLE></div>
+</TD>
+<!-- End Single-Buffered Mems-->
+</body>
+</html>

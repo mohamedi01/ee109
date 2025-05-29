@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x509 -> x510 -> x511 -> x611 -> x612 **/
+/** Hierarchy: x509 -> x510 -> x511 -> x613 -> x614 **/
 /** BEGIN None x509_inr_Foreach **/
 class x509_inr_Foreach_kernel(
   list_x479: List[DecoupledIO[AppLoadData]],
@@ -87,25 +87,25 @@ class x509_inr_Foreach_kernel(
       x504.r := Math.lt(b500, x503_rd_x488, Some(0.4), true.B,"x504").r
       val x505 = Wire(Bool()).suggestName("""x505""")
       x505 := x502 & x504
-      val x506 = Wire(Vec(1, new FloatingPoint(24, 8))).suggestName("""x506""")
+      val x506 = Wire(Vec(1, new FixedPoint(true, 16, 8))).suggestName("""x506""")
       x479.ready := b501 & (io.sigsIn.datapathEn) 
       (0 until 1).map{ i => x506(i).r := x479.bits.rdata(i).r }
-      val x625 = Wire(Vec(1, new FloatingPoint(24, 8))).suggestName("x625_x506_D1") 
-      (0 until 1).foreach{i => x625(i).r := getRetimed(x506(i).r, 1.toInt, io.sigsIn.backpressure & true.B)}
-      // x507 = VecApply(x625,0)
-      val x507_elem_0 = Wire(new FloatingPoint(24, 8)).suggestName("""x507_elem_0""")
-      x507_elem_0.r := x625(0).r
-      val x626 = Wire(Bool()).suggestName("x626_b501_D1") 
-      x626.r := getRetimed(b501.r, 1.toInt, io.sigsIn.backpressure & true.B)
-      val x627 = Wire(Bool()).suggestName("x627_x505_D1") 
-      x627.r := getRetimed(x505.r, 1.toInt, io.sigsIn.backpressure & true.B)
-      val x628 = Wire(new FixedPoint(true, 32, 0)).suggestName("x628_b500_D1") 
-      x628.r := getRetimed(b500.r, 1.toInt, io.sigsIn.backpressure & true.B)
+      val x629 = Wire(Vec(1, new FixedPoint(true, 16, 8))).suggestName("x629_x506_D1") 
+      (0 until 1).foreach{i => x629(i).r := getRetimed(x506(i).r, 1.toInt, io.sigsIn.backpressure & true.B)}
+      // x507 = VecApply(x629,0)
+      val x507_elem_0 = Wire(new FixedPoint(true, 16, 8)).suggestName("""x507_elem_0""")
+      x507_elem_0.r := x629(0).r
+      val x630 = Wire(Bool()).suggestName("x630_b501_D1") 
+      x630.r := getRetimed(b501.r, 1.toInt, io.sigsIn.backpressure & true.B)
+      val x631 = Wire(Bool()).suggestName("x631_x505_D1") 
+      x631.r := getRetimed(x505.r, 1.toInt, io.sigsIn.backpressure & true.B)
+      val x632 = Wire(new FixedPoint(true, 32, 0)).suggestName("x632_b500_D1") 
+      x632.r := getRetimed(b500.r, 1.toInt, io.sigsIn.backpressure & true.B)
       val x508_wr_banks = List[UInt](0L.FP(true, 32, 0).r)
-      val x508_wr_ofs = List[UInt](x628.r)
+      val x508_wr_ofs = List[UInt](x632.r)
       val x508_wr_en = List[Bool](true.B)
       val x508_wr_data = List[UInt](x507_elem_0.r)
-      x412_vecSRAM_0.connectWPort(508, x508_wr_banks, x508_wr_ofs, x508_wr_data, x508_wr_en.map(_ && ~io.sigsIn.break && (io.sigsIn.datapathEn & io.sigsIn.iiIssue).DS(1.0.toInt, rr, io.sigsIn.backpressure & true.B) & ~io.sigsIn.break && io.sigsIn.backpressure && x627 & x626))
+      x412_vecSRAM_0.connectWPort(508, x508_wr_banks, x508_wr_ofs, x508_wr_data, x508_wr_en.map(_ && ~io.sigsIn.break && (io.sigsIn.datapathEn & io.sigsIn.iiIssue).DS(1.0.toInt, rr, io.sigsIn.backpressure & true.B) & ~io.sigsIn.break && io.sigsIn.backpressure && x631 & x630))
     }
     val module = Module(new x509_inr_Foreach_concrete(sm.p.depth)); module.io := DontCare
     // Connect ports on this kernel to its parent

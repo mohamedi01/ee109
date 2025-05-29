@@ -24,28 +24,28 @@ import scala.collection.immutable._
 object Main {
   def main(accelUnit: AccelUnit): Unit = {
     accelUnit.io <> DontCare
-    val x282 = accelUnit.io.memStreams.loads(0).cmd // StreamOut
-    ModuleParams.addParams("x282_p", (x282.bits.addrWidth, x282.bits.sizeWidth))  
-    val x284 = accelUnit.io.memStreams.loads(0).data // StreamIn
-    ModuleParams.addParams("x284_p", (x284.bits.v, x284.bits.w))  
+    val x255 = accelUnit.io.memStreams.loads(0).cmd // StreamOut
+    ModuleParams.addParams("x255_p", (x255.bits.addrWidth, x255.bits.sizeWidth))  
+    val x257 = accelUnit.io.memStreams.loads(0).data // StreamIn
+    ModuleParams.addParams("x257_p", (x257.bits.v, x257.bits.w))  
     // scoped in dram is  
-    val x277_inDRAM = Wire(new FixedPoint(true, 64, 0))
-    x277_inDRAM.r := accelUnit.io.argIns(api.INDRAM_ptr)
-    val x351 = accelUnit.io.memStreams.stores(0).cmd // StreamOut
-    ModuleParams.addParams("x351_p", (x351.bits.addrWidth, x351.bits.sizeWidth))  
-    val x352 = accelUnit.io.memStreams.stores(0).data // StreamOut
-    ModuleParams.addParams("x352_p", (x352.bits.v, x352.bits.w))  
-    val x353  = accelUnit.io.memStreams.stores(0).wresp // StreamIn
+    val x250_inDRAM = Wire(new FixedPoint(true, 64, 0))
+    x250_inDRAM.r := accelUnit.io.argIns(api.INDRAM_ptr)
+    val x309 = accelUnit.io.memStreams.stores(0).cmd // StreamOut
+    ModuleParams.addParams("x309_p", (x309.bits.addrWidth, x309.bits.sizeWidth))  
+    val x310 = accelUnit.io.memStreams.stores(0).data // StreamOut
+    ModuleParams.addParams("x310_p", (x310.bits.v, x310.bits.w))  
+    val x311  = accelUnit.io.memStreams.stores(0).wresp // StreamIn
     // scoped in dram is  
-    val x278_outDRAM = Wire(new FixedPoint(true, 64, 0))
-    x278_outDRAM.r := accelUnit.io.argIns(api.OUTDRAM_ptr)
+    val x251_outDRAM = Wire(new FixedPoint(true, 64, 0))
+    x251_outDRAM.r := accelUnit.io.argIns(api.OUTDRAM_ptr)
     val retime_counter = Module(new SingleCounter(1, Some(0), Some(accelUnit.max_latency), Some(1), false)); retime_counter.io <> DontCare // Counter for masking out the noise that comes out of ShiftRegister in the first few cycles of the app
     retime_counter.io.setup.saturate := true.B; retime_counter.io.input.reset := accelUnit.reset.toBool; retime_counter.io.input.enable := true.B;
     val rr = getRetimed(retime_counter.io.output.done, 1, true.B) // break up critical path by delaying this 
     val breakpoints = Wire(Vec(accelUnit.io_numArgOuts_breakpts max 1, Bool())); breakpoints.zipWithIndex.foreach{case(b,i) => b.suggestName(s"breakpoint" + i)}; breakpoints := DontCare
     val instrctrs = List.fill[InstrCtr](api.numCtrls)(Wire(new InstrCtr())); instrctrs.foreach(_ := DontCare)
     val done_latch = Module(new SRFF())
-    val RootController = new RootController_kernel(List(x278_outDRAM,x277_inDRAM), List(x353), List(x284), List(x282,x351), List(x352) ,  None, List(), -1, 3, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
+    val RootController = new RootController_kernel(List(x310), List(x255,x309), List(x257), List(x311), List(x251_outDRAM,x250_inDRAM) ,  None, List(), -1, 3, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
     RootController.baseEn := accelUnit.io.enable && rr && ~done_latch.io.output
     RootController.resetMe := getRetimed(accelUnit.accelReset, 1)
     RootController.mask := true.B
@@ -62,3 +62,8 @@ object Main {
     RootController.mask := true.B & true.B
     RootController.configure("RootController", None, None, isSwitchCase = false)
     RootController.kernel()
+    done_latch.io.input.set := RootController.done
+    Instrument.connect(accelUnit, instrctrs)
+    Ledger.finish()
+  }
+}

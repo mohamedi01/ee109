@@ -1,58 +1,31 @@
-x273 = ArrayFromSeq(ArrayBuffer(Const(-1), Const(-0.75), Const(-0.5), Const(-0.25), Const(0.0), Const(0.25), Const(0.5), Const(0.75), Const(1)))
+x249 = ArrayFromSeq(ArrayBuffer(Const(-1), Const(-0.75), Const(-0.5), Const(-0.25), Const(0), Const(0.25), Const(0.5), Const(0.75), Const(1)))
  - Name: input
- - Type: Array[Flt[_24,_8]]
+ - Type: Array[Fix[TRUE,_16,_8]]
  - Cycle: <no cycle>
  - Latency:          0.0
  - Reduce Latency:   0.0
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x274 = PrintIf(Set(),Const("First 10 input values:\n"))
- - Type: Void
- - Cycle: <no cycle>
- - Latency:          0.0
- - Reduce Latency:   0.0
- - Requires Regs:    false
- - Built-In Latency: 0.0
- - Delays: <none>
-x276 = SeriesForeach(Const(0),Const(10),Const(1),Block((b3) => Const(()))) {
- - Type: Void
- - Cycle: <no cycle>
- - Latency:          0.0
- - Reduce Latency:   0.0
- - Requires Regs:    false
- - Built-In Latency: 0.0
- - Delays: <none>
-  block 0: Block((b3) => Const(())) {
-    x275 = PrintIf(Set(),Const("input(b3) = x4\n"))
-     - Type: Void
-     - Cycle: <no cycle>
-     - Latency:          0.0
-     - Reduce Latency:   0.0
-     - Requires Regs:    false
-     - Built-In Latency: 0.0
-     - Delays: <none>
-  } // End of x276 block #0
-} // End of x276
-x277 = DRAMHostNew(List(Const(9)),Const(0.0))
+x250 = DRAMHostNew(List(Const(9)),Const(0))
  - Name: inDRAM
- - Type: DRAM1[Flt[_24,_8]]
+ - Type: DRAM1[Fix[TRUE,_16,_8]]
  - Cycle: <no cycle>
  - Latency:          0.0
  - Reduce Latency:   0.0
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x278 = DRAMHostNew(List(Const(9)),Const(0.0))
+x251 = DRAMHostNew(List(Const(9)),Const(0))
  - Name: outDRAM
- - Type: DRAM1[Flt[_24,_8]]
+ - Type: DRAM1[Fix[TRUE,_16,_8]]
  - Cycle: <no cycle>
  - Latency:          0.0
  - Reduce Latency:   0.0
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x279 = SetMem(x277,x273)
+x252 = SetMem(x250,x249)
  - Type: Void
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -60,7 +33,7 @@ x279 = SetMem(x277,x273)
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x244 = AccelScope(Block(Const(()))) {
+x213 = AccelScope(Block(Const(()))) {
  - Type: Void
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -69,25 +42,25 @@ x244 = AccelScope(Block(Const(()))) {
  - Built-In Latency: 0.0
  - Delays: <none>
   block 0: Block(Const(())) {
-    x280 = SRAMNew(List(Const(9)),SRAM1[Flt[_24,_8]])
+    x253 = SRAMNew(List(Const(9)),SRAM1[Fix[TRUE,_16,_8]])
      - Name: inSRAM_0
-     - Type: SRAM1[Flt[_24,_8]]
+     - Type: SRAM1[Fix[TRUE,_16,_8]]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x281 = SRAMNew(List(Const(9)),SRAM1[Flt[_24,_8]])
+    x254 = SRAMNew(List(Const(9)),SRAM1[Fix[TRUE,_16,_8]])
      - Name: outSRAM_0
-     - Type: SRAM1[Flt[_24,_8]]
+     - Type: SRAM1[Fix[TRUE,_16,_8]]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x316 = UnitPipe(Set(),Block(Const(())),None) {
+    x289 = UnitPipe(Set(),Block(Const(())),None) {
      - Name: DenseTransfer
      - Type: Void
      - Cycle: <no cycle>
@@ -97,7 +70,7 @@ x244 = AccelScope(Block(Const(()))) {
      - Built-In Latency: 0.0
      - Delays: <none>
       block 0: Block(Const(())) {
-        x282 = StreamOutNew(BurstCmdBus)
+        x255 = StreamOutNew(BurstCmdBus)
          - Type: StreamOut[BurstCmd]
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -105,7 +78,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x283 = FIFONew(Const(16))
+        x256 = FIFONew(Const(16))
          - Type: FIFO[IssuedCmd]
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -113,15 +86,15 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x284 = StreamInNew(BurstDataBus())
-         - Type: StreamIn[Flt[_24,_8]]
+        x257 = StreamInNew(BurstDataBus())
+         - Type: StreamIn[Fix[TRUE,_16,_8]]
          - Cycle: <no cycle>
          - Latency:          0.0
          - Reduce Latency:   0.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x291 = UnitPipe(Set(),Block(Const(())),None) {
+        x264 = UnitPipe(Set(),Block(Const(())),None) {
          - Type: Void
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -130,7 +103,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Built-In Latency: 0.0
          - Delays: <none>
           block 0: Block(Const(())) {
-            x285 = DRAMAddress(x277)
+            x258 = DRAMAddress(x250)
              - Type: Fix[TRUE,_64,_0]
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -138,7 +111,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x286 = SimpleStruct(ArrayBuffer((offset,x285), (size,Const(64)), (isLoad,Const(true))))
+            x259 = SimpleStruct(ArrayBuffer((offset,x258), (size,Const(63)), (isLoad,Const(true))))
              - Type: BurstCmd
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -146,7 +119,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x287 = DRAMIsAlloc(x277)
+            x260 = DRAMIsAlloc(x250)
              - Type: Bit
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -154,7 +127,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x288 = StreamOutBankedWrite(x282,ArrayBuffer(x286),ArrayBuffer(Set(x287)))
+            x261 = StreamOutBankedWrite(x255,ArrayBuffer(x259),ArrayBuffer(Set(x260)))
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -162,7 +135,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x289 = SimpleStruct(ArrayBuffer((size,Const(16)), (start,Const(0)), (end,Const(9))))
+            x262 = SimpleStruct(ArrayBuffer((size,Const(21)), (start,Const(0)), (end,Const(9))))
              - Type: IssuedCmd
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -170,7 +143,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x290 = FIFOBankedEnq(x283,ArrayBuffer(x289),ArrayBuffer(Set(Const(true))))
+            x263 = FIFOBankedEnq(x256,ArrayBuffer(x262),ArrayBuffer(Set(Const(true))))
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          1.0
@@ -178,9 +151,9 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-          } // End of x291 block #0
-        } // End of x291
-        x292 = FringeDenseLoad(x277,x282,x284)
+          } // End of x264 block #0
+        } // End of x264
+        x265 = FringeDenseLoad(x250,x255,x257)
          - Type: Void
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -188,7 +161,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x315 = UnitPipe(Set(),Block(Const(())),None) {
+        x288 = UnitPipe(Set(),Block(Const(())),None) {
          - Type: Void
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -197,7 +170,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Built-In Latency: 0.0
          - Delays: <none>
           block 0: Block(Const(())) {
-            x293 = RegNew(Const(0))
+            x266 = RegNew(Const(0))
              - Type: Reg[Fix[TRUE,_32,_0]]
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -205,7 +178,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x294 = RegNew(Const(0))
+            x267 = RegNew(Const(0))
              - Type: Reg[Fix[TRUE,_32,_0]]
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -213,7 +186,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x301 = UnitPipe(Set(),Block(Const(())),None) {
+            x274 = UnitPipe(Set(),Block(Const(())),None) {
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -222,7 +195,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Built-In Latency: 0.0
              - Delays: <none>
               block 0: Block(Const(())) {
-                x295 = FIFOBankedDeq(x283,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
+                x268 = FIFOBankedDeq(x256,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd])
                  - Type: Vec[IssuedCmd]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -230,7 +203,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    true
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x296 = VecApply(x295,0)
+                x269 = VecApply(x268,0)
                  - Type: IssuedCmd
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -238,7 +211,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x297 = FieldApply(x296,end)
+                x270 = FieldApply(x269,end)
                  - Type: Fix[TRUE,_32,_0]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -246,7 +219,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x298 = RegWrite(x293,x297,Set())
+                x271 = RegWrite(x266,x270,Set())
                  - Type: Void
                  - Cycle: <no cycle>
                  - Latency:          1.0
@@ -254,7 +227,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x299 = FieldApply(x296,size)
+                x272 = FieldApply(x269,size)
                  - Type: Fix[TRUE,_32,_0]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -262,7 +235,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x300 = RegWrite(x294,x299,Set())
+                x273 = RegWrite(x267,x272,Set())
                  - Type: Void
                  - Cycle: <no cycle>
                  - Latency:          1.0
@@ -270,9 +243,9 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-              } // End of x301 block #0
-            } // End of x301
-            x406 = RegRead(x294)
+              } // End of x274 block #0
+            } // End of x274
+            x371 = RegRead(x267)
              - Type: Fix[TRUE,_32,_0]
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -280,7 +253,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x303 = CounterNew(Const(0),x406,Const(1),Const(1))
+            x276 = CounterNew(Const(0),x371,Const(1),Const(1))
              - Type: Counter[Fix[TRUE,_32,_0]]
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -288,7 +261,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x304 = CounterChainNew(List(x303))
+            x277 = CounterChainNew(List(x276))
              - Type: CounterChain
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -296,7 +269,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x314 = UnrolledForeach(Set(),x304,Block(Const(())),List(List(b305)),List(List(b306)),None) {
+            x287 = UnrolledForeach(Set(),x277,Block(Const(())),List(List(b278)),List(List(b279)),None) {
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -305,7 +278,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Built-In Latency: 0.0
              - Delays: <none>
               block 0: Block(Const(())) {
-                x307 = FixLeq(Const(0),b305)
+                x280 = FixLeq(Const(0),b278)
                  - Type: Bit
                  - Cycle: <no cycle>
                  - Latency:          0.4
@@ -313,7 +286,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x308 = RegRead(x293)
+                x281 = RegRead(x266)
                  - Type: Fix[TRUE,_32,_0]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -321,7 +294,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x309 = FixLst(b305,x308)
+                x282 = FixLst(b278,x281)
                  - Type: Bit
                  - Cycle: <no cycle>
                  - Latency:          0.4
@@ -329,7 +302,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x310 = And(x307,x309)
+                x283 = And(x280,x282)
                  - Type: Bit
                  - Cycle: <no cycle>
                  - Latency:          0.2
@@ -337,31 +310,39 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    true
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x311 = StreamInBankedRead(x284,ArrayBuffer(Set(b306)))
-                 - Type: Vec[Flt[_24,_8]]
+                x284 = StreamInBankedRead(x257,ArrayBuffer(Set(b279)))
+                 - Type: Vec[Fix[TRUE,_16,_8]]
                  - Cycle: <no cycle>
                  - Latency:          1.0
                  - Reduce Latency:   1.0
                  - Requires Regs:    true
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x408 = DelayLine(1,x311)
-                 - Type: Vec[Flt[_24,_8]]
+                x376 = DelayLine(1,x284)
+                 - Type: Vec[Fix[TRUE,_16,_8]]
                  - Cycle: <no cycle>
                  - Latency:          0.0
                  - Reduce Latency:   0.0
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x312 = VecApply(x408,0)
-                 - Type: Flt[_24,_8]
+                x285 = VecApply(x376,0)
+                 - Type: Fix[TRUE,_16,_8]
                  - Cycle: <no cycle>
                  - Latency:          0.0
                  - Reduce Latency:   0.0
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x409 = DelayLine(1,b305)
+                x377 = DelayLine(1,x283)
+                 - Type: Bit
+                 - Cycle: <no cycle>
+                 - Latency:          0.0
+                 - Reduce Latency:   0.0
+                 - Requires Regs:    false
+                 - Built-In Latency: 0.0
+                 - Delays: <none>
+                x378 = DelayLine(1,b278)
                  - Type: Fix[TRUE,_32,_0]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -369,7 +350,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x410 = DelayLine(1,x310)
+                x379 = DelayLine(1,b279)
                  - Type: Bit
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -377,15 +358,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x411 = DelayLine(1,b306)
-                 - Type: Bit
-                 - Cycle: <no cycle>
-                 - Latency:          0.0
-                 - Reduce Latency:   0.0
-                 - Requires Regs:    false
-                 - Built-In Latency: 0.0
-                 - Delays: <none>
-                x313 = SRAMBankedWrite(x280,Vector(x312),Vector(List(Const(0))),Vector(x409),Vector(Set(x410, x411)))
+                x286 = SRAMBankedWrite(x253,Vector(x285),Vector(List(Const(0))),Vector(x378),Vector(Set(x377, x379)))
                  - Type: Void
                  - Cycle: <no cycle>
                  - Latency:          1.0
@@ -393,13 +366,13 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-              } // End of x314 block #0
-            } // End of x314
-          } // End of x315 block #0
-        } // End of x315
-      } // End of x316 block #0
-    } // End of x316
-    x317 = CounterNew(Const(0),Const(9),Const(1),Const(1))
+              } // End of x287 block #0
+            } // End of x287
+          } // End of x288 block #0
+        } // End of x288
+      } // End of x289 block #0
+    } // End of x289
+    x290 = CounterNew(Const(0),Const(9),Const(1),Const(1))
      - Type: Counter[Fix[TRUE,_32,_0]]
      - Cycle: <no cycle>
      - Latency:          0.0
@@ -407,7 +380,7 @@ x244 = AccelScope(Block(Const(()))) {
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x318 = CounterChainNew(List(x317))
+    x291 = CounterChainNew(List(x290))
      - Type: CounterChain
      - Cycle: <no cycle>
      - Latency:          0.0
@@ -415,7 +388,7 @@ x244 = AccelScope(Block(Const(()))) {
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x350 = UnrolledForeach(Set(),x318,Block(Const(())),List(List(b319)),List(List(b320)),None) {
+    x308 = UnrolledForeach(Set(),x291,Block(Const(())),List(List(b292)),List(List(b293)),None) {
      - Type: Void
      - Cycle: <no cycle>
      - Latency:          0.0
@@ -424,74 +397,116 @@ x244 = AccelScope(Block(Const(()))) {
      - Built-In Latency: 0.0
      - Delays: <none>
       block 0: Block(Const(())) {
-        x321 = SRAMBankedRead(x280,Vector(List(Const(0))),Vector(b319),Vector(Set(b320)),Vec[Flt[_24,_8]])
-         - Type: Vec[Flt[_24,_8]]
+        x294 = SRAMBankedRead(x253,Vector(List(Const(0))),Vector(b292),Vector(Set(b293)),Vec[Fix[TRUE,_16,_8]])
+         - Type: Vec[Fix[TRUE,_16,_8]]
          - Cycle: <no cycle>
          - Latency:          2.0
          - Reduce Latency:   2.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x322 = VecApply(x321,0)
-         - Type: Flt[_24,_8]
+        x295 = VecApply(x294,0)
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.0
          - Reduce Latency:   0.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x323 = FltMul(x322,Const(32767.00000000000000))
+        x373 = FixNeg(x295)
          - Name: x
-         - Type: Flt[_24,_8]
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
-         - Latency:          8.0
-         - Reduce Latency:   8.0
+         - Latency:          0.1
+         - Reduce Latency:   0.1
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x324 = FltLst(x323,Const(-32768))
+        x374 = FixSLA(x373,Const(-1))
+         - Name: x
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.2
+         - Reduce Latency:   0.2
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x375 = FixSub(x374,x295)
+         - Name: x
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.75
+         - Reduce Latency:   0.75
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x297 = FixLst(x375,Const(-32768))
          - Type: Bit
          - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
+         - Latency:          0.4
+         - Reduce Latency:   0.4
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x325 = FltLst(Const(32767.00000000000000),x323)
+        x298 = FixLst(Const(32767),x375)
          - Type: Bit
          - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
+         - Latency:          0.4
+         - Reduce Latency:   0.4
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x326 = Mux(x325,Const(32767.00000000000000),x323)
-         - Type: Flt[_24,_8]
+        x299 = Mux(x298,Const(32767),x375)
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.5
          - Reduce Latency:   0.5
          - Requires Regs:    true
          - Built-In Latency: 0.0
          - Delays: <none>
-        x327 = Mux(x324,Const(-32768),x326)
+        x300 = Mux(x297,Const(-32768),x299)
          - Name: clipped
-         - Type: Flt[_24,_8]
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.5
          - Reduce Latency:   0.5
          - Requires Regs:    true
          - Built-In Latency: 0.0
          - Delays: <none>
-        x412 = DelayLine(1,x327)
+        x380 = DelayLine(1,x300)
          - Name: clipped_d1
-         - Type: Flt[_24,_8]
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.0
          - Reduce Latency:   0.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x328 = FltLst(x412,Const(0.0))
+        x301 = FixLst(x380,Const(0))
+         - Type: Bit
+         - Cycle: <no cycle>
+         - Latency:          0.4
+         - Reduce Latency:   0.4
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x302 = FixSub(x380,Const(0.5))
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.75
+         - Reduce Latency:   0.75
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x303 = FixAdd(x380,Const(0.5))
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.75
+         - Reduce Latency:   0.75
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+        x381 = DelayLine(1,x301)
          - Type: Bit
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -499,73 +514,32 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x329 = FltSub(x412,Const(0.5))
-         - Type: Flt[_24,_8]
-         - Cycle: <no cycle>
-         - Latency:          12.0
-         - Reduce Latency:   12.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x330 = FltToFix(x329,TRUE,_16,_0)
-         - Type: Fix[TRUE,_16,_0]
-         - Cycle: <no cycle>
-         - Latency:          6.0
-         - Reduce Latency:   6.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x331 = FltAdd(x412,Const(0.5))
-         - Type: Flt[_24,_8]
-         - Cycle: <no cycle>
-         - Latency:          12.0
-         - Reduce Latency:   12.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x332 = FltToFix(x331,TRUE,_16,_0)
-         - Type: Fix[TRUE,_16,_0]
-         - Cycle: <no cycle>
-         - Latency:          6.0
-         - Reduce Latency:   6.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x413 = DelayLine(18,x328)
-         - Type: Bit
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x333 = Mux(x413,x330,x332)
-         - Name: rounded
-         - Type: Fix[TRUE,_16,_0]
+        x304 = Mux(x381,x302,x303)
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.5
          - Reduce Latency:   0.5
          - Requires Regs:    true
          - Built-In Latency: 0.0
          - Delays: <none>
-        x334 = FixToFlt(x333,_24,_8)
-         - Type: Flt[_24,_8]
+        x305 = FixNeg(x304)
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
-         - Latency:          5.0
-         - Reduce Latency:   5.0
+         - Latency:          0.1
+         - Reduce Latency:   0.1
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x335 = FltDiv(x334,Const(32768))
+        x306 = FixDivSRA(x305,Const(-1))
          - Name: quantized
-         - Type: Flt[_24,_8]
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
-         - Latency:          28.0
-         - Reduce Latency:   28.0
+         - Latency:          0.2
+         - Reduce Latency:   0.2
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x414 = DelayLine(62,b319)
+        x382 = DelayLine(6,b292)
          - Type: Fix[TRUE,_32,_0]
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -573,7 +547,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x415 = DelayLine(62,b320)
+        x383 = DelayLine(6,b293)
          - Type: Bit
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -581,7 +555,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x336 = SRAMBankedWrite(x281,Vector(x335),Vector(List(Const(0))),Vector(x414),Vector(Set(x415)))
+        x307 = SRAMBankedWrite(x254,Vector(x306),Vector(List(Const(0))),Vector(x382),Vector(Set(x383)))
          - Type: Void
          - Cycle: <no cycle>
          - Latency:          1.0
@@ -589,113 +563,9 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x337 = FltToText(x322,None)
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x338 = TextConcat(List(Const("Original: "), x337))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x339 = TextConcat(List(x338, Const(", Scaled: ")))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x340 = FltToText(x323,None)
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x341 = TextConcat(List(x339, x340))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x342 = TextConcat(List(x341, Const(", Clipped: ")))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x343 = FltToText(x412,None)
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x344 = TextConcat(List(x342, x343))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x345 = TextConcat(List(x344, Const(", Quantized: ")))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x346 = FltToText(x335,None)
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x347 = TextConcat(List(x345, x346))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x348 = TextConcat(List(x347, Const("\n")))
-         - Type: Text
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-        x349 = PrintIf(Set(x415),x348)
-         - Type: Void
-         - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
-         - Requires Regs:    false
-         - Built-In Latency: 0.0
-         - Delays: <none>
-      } // End of x350 block #0
-    } // End of x350
-    x383 = UnitPipe(Set(),Block(Const(())),None) {
+      } // End of x308 block #0
+    } // End of x308
+    x341 = UnitPipe(Set(),Block(Const(())),None) {
      - Name: DenseTransfer
      - Type: Void
      - Cycle: <no cycle>
@@ -705,7 +575,7 @@ x244 = AccelScope(Block(Const(()))) {
      - Built-In Latency: 0.0
      - Delays: <none>
       block 0: Block(Const(())) {
-        x351 = StreamOutNew(BurstCmdBus)
+        x309 = StreamOutNew(BurstCmdBus)
          - Type: StreamOut[BurstCmd]
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -713,15 +583,15 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x352 = StreamOutNew(BurstFullDataBus())
-         - Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+        x310 = StreamOutNew(BurstFullDataBus())
+         - Type: StreamOut[Tup2[Fix[TRUE,_16,_8],Bit]]
          - Cycle: <no cycle>
          - Latency:          0.0
          - Reduce Latency:   0.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x353 = StreamInNew(BurstAckBus)
+        x311 = StreamInNew(BurstAckBus)
          - Type: StreamIn[Bit]
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -729,7 +599,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x382 = UnitPipe(Set(),Block(Const(())),None) {
+        x340 = UnitPipe(Set(),Block(Const(())),None) {
          - Type: Void
          - Cycle: <no cycle>
          - Latency:          0.0
@@ -738,7 +608,7 @@ x244 = AccelScope(Block(Const(()))) {
          - Built-In Latency: 0.0
          - Delays: <none>
           block 0: Block(Const(())) {
-            x377 = UnitPipe(Set(),Block(Const(())),None) {
+            x335 = UnitPipe(Set(),Block(Const(())),None) {
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -747,7 +617,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Built-In Latency: 0.0
              - Delays: <none>
               block 0: Block(Const(())) {
-                x354 = RegNew(Const(0))
+                x312 = RegNew(Const(0))
                  - Type: Reg[Fix[TRUE,_32,_0]]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -755,7 +625,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x355 = RegNew(Const(0))
+                x313 = RegNew(Const(0))
                  - Type: Reg[Fix[TRUE,_32,_0]]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -763,7 +633,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x362 = UnitPipe(Set(),Block(Const(())),None) {
+                x320 = UnitPipe(Set(),Block(Const(())),None) {
                  - Type: Void
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -772,7 +642,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Built-In Latency: 0.0
                  - Delays: <none>
                   block 0: Block(Const(())) {
-                    x356 = DRAMAddress(x278)
+                    x314 = DRAMAddress(x251)
                      - Type: Fix[TRUE,_64,_0]
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -780,7 +650,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x357 = SimpleStruct(ArrayBuffer((offset,x356), (size,Const(64)), (isLoad,Const(false))))
+                    x315 = SimpleStruct(ArrayBuffer((offset,x314), (size,Const(63)), (isLoad,Const(false))))
                      - Type: BurstCmd
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -788,7 +658,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x358 = DRAMIsAlloc(x278)
+                    x316 = DRAMIsAlloc(x251)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -796,7 +666,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x359 = StreamOutBankedWrite(x351,ArrayBuffer(x357),ArrayBuffer(Set(x358)))
+                    x317 = StreamOutBankedWrite(x309,ArrayBuffer(x315),ArrayBuffer(Set(x316)))
                      - Type: Void
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -804,7 +674,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x360 = RegWrite(x354,Const(9),Set())
+                    x318 = RegWrite(x312,Const(9),Set())
                      - Type: Void
                      - Cycle: <no cycle>
                      - Latency:          1.0
@@ -812,7 +682,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x361 = RegWrite(x355,Const(16),Set())
+                    x319 = RegWrite(x313,Const(21),Set())
                      - Type: Void
                      - Cycle: <no cycle>
                      - Latency:          1.0
@@ -820,9 +690,9 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                  } // End of x362 block #0
-                } // End of x362
-                x407 = RegRead(x355)
+                  } // End of x320 block #0
+                } // End of x320
+                x372 = RegRead(x313)
                  - Type: Fix[TRUE,_32,_0]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -830,7 +700,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x364 = CounterNew(Const(0),x407,Const(1),Const(1))
+                x322 = CounterNew(Const(0),x372,Const(1),Const(1))
                  - Type: Counter[Fix[TRUE,_32,_0]]
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -838,7 +708,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x365 = CounterChainNew(List(x364))
+                x323 = CounterChainNew(List(x322))
                  - Type: CounterChain
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -846,7 +716,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    false
                  - Built-In Latency: 0.0
                  - Delays: <none>
-                x376 = UnrolledForeach(Set(),x365,Block(Const(())),List(List(b366)),List(List(b367)),None) {
+                x334 = UnrolledForeach(Set(),x323,Block(Const(())),List(List(b324)),List(List(b325)),None) {
                  - Type: Void
                  - Cycle: <no cycle>
                  - Latency:          0.0
@@ -855,7 +725,7 @@ x244 = AccelScope(Block(Const(()))) {
                  - Built-In Latency: 0.0
                  - Delays: <none>
                   block 0: Block(Const(())) {
-                    x368 = FixLeq(Const(0),b366)
+                    x326 = FixLeq(Const(0),b324)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.4
@@ -863,7 +733,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x369 = RegRead(x354)
+                    x327 = RegRead(x312)
                      - Type: Fix[TRUE,_32,_0]
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -871,7 +741,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x370 = FixLst(b366,x369)
+                    x328 = FixLst(b324,x327)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.4
@@ -879,7 +749,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x371 = And(x368,x370)
+                    x329 = And(x326,x328)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.2
@@ -887,23 +757,23 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    true
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x372 = SRAMBankedRead(x281,Vector(List(Const(0))),Vector(b366),Vector(Set(x371, b367)),Vec[Flt[_24,_8]])
-                     - Type: Vec[Flt[_24,_8]]
+                    x330 = SRAMBankedRead(x254,Vector(List(Const(0))),Vector(b324),Vector(Set(x329, b325)),Vec[Fix[TRUE,_16,_8]])
+                     - Type: Vec[Fix[TRUE,_16,_8]]
                      - Cycle: <no cycle>
                      - Latency:          2.0
                      - Reduce Latency:   2.0
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x373 = VecApply(x372,0)
-                     - Type: Flt[_24,_8]
+                    x331 = VecApply(x330,0)
+                     - Type: Fix[TRUE,_16,_8]
                      - Cycle: <no cycle>
                      - Latency:          0.0
                      - Reduce Latency:   0.0
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x416 = DelayLine(2,x371)
+                    x384 = DelayLine(2,x329)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -911,15 +781,15 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x374 = SimpleStruct(ArrayBuffer((_1,x373), (_2,x416)))
-                     - Type: Tup2[Flt[_24,_8],Bit]
+                    x332 = SimpleStruct(ArrayBuffer((_1,x331), (_2,x384)))
+                     - Type: Tup2[Fix[TRUE,_16,_8],Bit]
                      - Cycle: <no cycle>
                      - Latency:          0.0
                      - Reduce Latency:   0.0
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x417 = DelayLine(2,b367)
+                    x385 = DelayLine(2,b325)
                      - Type: Bit
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -927,7 +797,7 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                    x375 = StreamOutBankedWrite(x352,ArrayBuffer(x374),ArrayBuffer(Set(x417)))
+                    x333 = StreamOutBankedWrite(x310,ArrayBuffer(x332),ArrayBuffer(Set(x385)))
                      - Type: Void
                      - Cycle: <no cycle>
                      - Latency:          0.0
@@ -935,11 +805,11 @@ x244 = AccelScope(Block(Const(()))) {
                      - Requires Regs:    false
                      - Built-In Latency: 0.0
                      - Delays: <none>
-                  } // End of x376 block #0
-                } // End of x376
-              } // End of x377 block #0
-            } // End of x377
-            x378 = FringeDenseStore(x278,x351,x352,x353)
+                  } // End of x334 block #0
+                } // End of x334
+              } // End of x335 block #0
+            } // End of x335
+            x336 = FringeDenseStore(x251,x309,x310,x311)
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -947,7 +817,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Requires Regs:    false
              - Built-In Latency: 0.0
              - Delays: <none>
-            x381 = UnitPipe(Set(),Block(Const(())),None) {
+            x339 = UnitPipe(Set(),Block(Const(())),None) {
              - Type: Void
              - Cycle: <no cycle>
              - Latency:          0.0
@@ -956,7 +826,7 @@ x244 = AccelScope(Block(Const(()))) {
              - Built-In Latency: 0.0
              - Delays: <none>
               block 0: Block(Const(())) {
-                x379 = StreamInBankedRead(x353,ArrayBuffer(Set()))
+                x337 = StreamInBankedRead(x311,ArrayBuffer(Set()))
                  - Type: Vec[Bit]
                  - Cycle: <no cycle>
                  - Latency:          1.0
@@ -964,24 +834,24 @@ x244 = AccelScope(Block(Const(()))) {
                  - Requires Regs:    true
                  - Built-In Latency: 0.0
                  - Delays: <none>
-              } // End of x381 block #0
-            } // End of x381
-          } // End of x382 block #0
-        } // End of x382
-      } // End of x383 block #0
-    } // End of x383
-  } // End of x244 block #0
-} // End of x244
-x384 = ArrayNew(Const(9))
+              } // End of x339 block #0
+            } // End of x339
+          } // End of x340 block #0
+        } // End of x340
+      } // End of x341 block #0
+    } // End of x341
+  } // End of x213 block #0
+} // End of x213
+x342 = ArrayNew(Const(9))
  - Name: result
- - Type: Array[Flt[_24,_8]]
+ - Type: Array[Fix[TRUE,_16,_8]]
  - Cycle: <no cycle>
  - Latency:          0.0
  - Reduce Latency:   0.0
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x385 = GetMem(x278,x384)
+x343 = GetMem(x251,x342)
  - Type: Void
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -989,47 +859,47 @@ x385 = GetMem(x278,x384)
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x393 = ArrayMap(x273,Block((x273,b49) => x386),Block((x386) => x392)) {
+x356 = ArrayMap(x249,Block((x249,b29) => x344),Block((x344) => x355)) {
  - Name: gold
- - Type: Array[Flt[_24,_8]]
+ - Type: Array[Fix[TRUE,_16,_8]]
  - Cycle: <no cycle>
  - Latency:          0.0
  - Reduce Latency:   0.0
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-  block 0: Block((x273,b49) => x386) {
-    x386 = ArrayApply(x273,b49)
+  block 0: Block((x249,b29) => x344) {
+    x344 = ArrayApply(x249,b29)
      - Name: x
-     - Type: Flt[_24,_8]
+     - Type: Fix[TRUE,_16,_8]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x393 block #0
-  block 1: Block((x386) => x392) {
-    x387 = FltMul(x386,Const(32767.00000000000000))
+  } // End of x356 block #0
+  block 1: Block((x344) => x355) {
+    x345 = FixMul(x344,Const(32767))
      - Name: scaled
-     - Type: Flt[_24,_8]
+     - Type: Fix[TRUE,_16,_8]
      - Cycle: <no cycle>
-     - Latency:          8.0
-     - Reduce Latency:   8.0
+     - Latency:          4.5
+     - Reduce Latency:   4.5
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x388 = FltLst(x387,Const(-32768))
+    x346 = FixLst(x345,Const(-32768))
      - Type: Bit
      - Cycle: <no cycle>
-     - Latency:          0.0
-     - Reduce Latency:   0.0
+     - Latency:          0.4
+     - Reduce Latency:   0.4
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-    x391 = IfThenElse(x388,Block(Const(-32768)),Block(x390)) {
+    x349 = IfThenElse(x346,Block(Const(-32768)),Block(x348)) {
      - Name: clipped
-     - Type: Flt[_24,_8]
+     - Type: Fix[TRUE,_16,_8]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
@@ -1037,42 +907,88 @@ x393 = ArrayMap(x273,Block((x273,b49) => x386),Block((x386) => x392)) {
      - Built-In Latency: 0.0
      - Delays: <none>
       block 0: Block(Const(-32768)) {
-      } // End of x391 block #0
-      block 1: Block(x390) {
-        x389 = FltLst(Const(32767.00000000000000),x387)
+      } // End of x349 block #0
+      block 1: Block(x348) {
+        x347 = FixLst(Const(32767),x345)
          - Type: Bit
          - Cycle: <no cycle>
-         - Latency:          0.0
-         - Reduce Latency:   0.0
+         - Latency:          0.4
+         - Reduce Latency:   0.4
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-        x390 = IfThenElse(x389,Block(Const(32767.00000000000000)),Block(x387)) {
-         - Type: Flt[_24,_8]
+        x348 = IfThenElse(x347,Block(Const(32767)),Block(x345)) {
+         - Type: Fix[TRUE,_16,_8]
          - Cycle: <no cycle>
          - Latency:          0.0
          - Reduce Latency:   0.0
          - Requires Regs:    false
          - Built-In Latency: 0.0
          - Delays: <none>
-          block 0: Block(Const(32767.00000000000000)) {
-          } // End of x390 block #0
-          block 1: Block(x387) {
-          } // End of x390 block #1
-        } // End of x390
-      } // End of x391 block #1
-    } // End of x391
-    x392 = FltDiv(x391,Const(32768))
-     - Type: Flt[_24,_8]
+          block 0: Block(Const(32767)) {
+          } // End of x348 block #0
+          block 1: Block(x345) {
+          } // End of x348 block #1
+        } // End of x348
+      } // End of x349 block #1
+    } // End of x349
+    x350 = FixLst(x349,Const(0))
+     - Type: Bit
      - Cycle: <no cycle>
-     - Latency:          28.0
-     - Reduce Latency:   28.0
+     - Latency:          0.4
+     - Reduce Latency:   0.4
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x393 block #1
-} // End of x393
-x397 = ArrayZip(x384,x393,Block((x384,b58) => x394),Block((x393,b58) => x395),Block((x394,x395) => x396)) {
+    x353 = IfThenElse(x350,Block(x351),Block(x352)) {
+     - Name: rounded
+     - Type: Fix[TRUE,_16,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.0
+     - Reduce Latency:   0.0
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+      block 0: Block(x351) {
+        x351 = FixSub(x349,Const(0.5))
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.75
+         - Reduce Latency:   0.75
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x353 block #0
+      block 1: Block(x352) {
+        x352 = FixAdd(x349,Const(0.5))
+         - Type: Fix[TRUE,_16,_8]
+         - Cycle: <no cycle>
+         - Latency:          0.75
+         - Reduce Latency:   0.75
+         - Requires Regs:    false
+         - Built-In Latency: 0.0
+         - Delays: <none>
+      } // End of x353 block #1
+    } // End of x353
+    x354 = FixNeg(x353)
+     - Type: Fix[TRUE,_16,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.1
+     - Reduce Latency:   0.1
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x355 = FixDivSRA(x354,Const(-1))
+     - Type: Fix[TRUE,_16,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.2
+     - Reduce Latency:   0.2
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+  } // End of x356 block #1
+} // End of x356
+x362 = ArrayZip(x356,x342,Block((x356,b43) => x357),Block((x342,b43) => x358),Block((x357,x358) => x361)) {
  - Type: Array[Bit]
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -1080,40 +996,54 @@ x397 = ArrayZip(x384,x393,Block((x384,b58) => x394),Block((x393,b58) => x395),Bl
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-  block 0: Block((x384,b58) => x394) {
-    x394 = ArrayApply(x384,b58)
-     - Name: x$1
-     - Type: Flt[_24,_8]
+  block 0: Block((x356,b43) => x357) {
+    x357 = ArrayApply(x356,b43)
+     - Type: Fix[TRUE,_16,_8]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x397 block #0
-  block 1: Block((x393,b58) => x395) {
-    x395 = ArrayApply(x393,b58)
-     - Name: x$2
-     - Type: Flt[_24,_8]
+  } // End of x362 block #0
+  block 1: Block((x342,b43) => x358) {
+    x358 = ArrayApply(x342,b43)
+     - Type: Fix[TRUE,_16,_8]
      - Cycle: <no cycle>
      - Latency:          0.0
      - Reduce Latency:   0.0
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x397 block #1
-  block 2: Block((x394,x395) => x396) {
-    x396 = FltEql(x395,x394)
+  } // End of x362 block #1
+  block 2: Block((x357,x358) => x361) {
+    x359 = FixSub(x357,x358)
+     - Type: Fix[TRUE,_16,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.75
+     - Reduce Latency:   0.75
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x360 = FixAbs(x359)
+     - Type: Fix[TRUE,_16,_8]
+     - Cycle: <no cycle>
+     - Latency:          0.5
+     - Reduce Latency:   0.5
+     - Requires Regs:    false
+     - Built-In Latency: 0.0
+     - Delays: <none>
+    x361 = FixLst(x360,Const(0.0078125))
      - Type: Bit
      - Cycle: <no cycle>
-     - Latency:          2.0
-     - Reduce Latency:   2.0
+     - Latency:          0.4
+     - Reduce Latency:   0.4
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x397 block #2
-} // End of x397
-x400 = ArrayReduce(x397,Block((x397,b63) => x398),Block((b64,b65) => x399)) {
+  } // End of x362 block #2
+} // End of x362
+x365 = ArrayReduce(x362,Block((x362,b50) => x363),Block((b51,b52) => x364)) {
  - Name: cksum
  - Type: Bit
  - Cycle: <no cycle>
@@ -1122,8 +1052,8 @@ x400 = ArrayReduce(x397,Block((x397,b63) => x398),Block((b64,b65) => x399)) {
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-  block 0: Block((x397,b63) => x398) {
-    x398 = ArrayApply(x397,b63)
+  block 0: Block((x362,b50) => x363) {
+    x363 = ArrayApply(x362,b50)
      - Type: Bit
      - Cycle: <no cycle>
      - Latency:          0.0
@@ -1131,9 +1061,9 @@ x400 = ArrayReduce(x397,Block((x397,b63) => x398),Block((b64,b65) => x399)) {
      - Requires Regs:    false
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x400 block #0
-  block 1: Block((b64,b65) => x399) {
-    x399 = And(b64,b65)
+  } // End of x365 block #0
+  block 1: Block((b51,b52) => x364) {
+    x364 = And(b51,b52)
      - Type: Bit
      - Cycle: <no cycle>
      - Latency:          0.2
@@ -1141,9 +1071,9 @@ x400 = ArrayReduce(x397,Block((x397,b63) => x398),Block((b64,b65) => x399)) {
      - Requires Regs:    true
      - Built-In Latency: 0.0
      - Delays: <none>
-  } // End of x400 block #1
-} // End of x400
-x401 = BitToText(x400)
+  } // End of x365 block #1
+} // End of x365
+x366 = BitToText(x365)
  - Type: Text
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -1151,7 +1081,7 @@ x401 = BitToText(x400)
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x402 = TextConcat(List(Const("PASS: "), x401))
+x367 = TextConcat(List(Const("PASS: "), x366))
  - Type: Text
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -1159,7 +1089,7 @@ x402 = TextConcat(List(Const("PASS: "), x401))
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x403 = TextConcat(List(x402, Const("\n")))
+x368 = TextConcat(List(x367, Const("\n")))
  - Type: Text
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -1167,7 +1097,7 @@ x403 = TextConcat(List(x402, Const("\n")))
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x404 = PrintIf(Set(),x403)
+x369 = PrintIf(Set(),x368)
  - Type: Void
  - Cycle: <no cycle>
  - Latency:          0.0
@@ -1175,7 +1105,7 @@ x404 = PrintIf(Set(),x403)
  - Requires Regs:    false
  - Built-In Latency: 0.0
  - Delays: <none>
-x405 = AssertIf(Set(),x400,Some(Const("QuantizeKernelTest.scala:66:11: Assertion failure")))
+x370 = AssertIf(Set(),x365,Some(Const("QuantizeKernelTest.scala:50:11: Assertion failure")))
  - Type: Void
  - Cycle: <no cycle>
  - Latency:          0.0

@@ -30,7 +30,7 @@
     <TD>
     <font size = "6"><a href=PreExecution_IR.html#x256 target=_blank>x256</a>: Sequenced OpForeach <font size = "4"> (InnerControl)</font>
     <br><font size = "2">StreamTransformer.scala:65:119 <font color="grey">-           val lhs3 = stageWithFlow(OpForeach(ens, newcchain, stageBlock{blk.stms.foreach(visit)}, newiters, stopWhen)){lhs2 => transferData(x, lhs2)}</font></font>
-    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=9,  <b>II=9</b>, <b>CompilerII=1.0</b></font></mark></p>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=61,  <b>II=61</b>, <b>CompilerII=1.0</b></font></mark></p>
     <br><font size = "1">Counter: <a href=PreExecution_IR.html#x237 target=_blank>x237</a> = CounterNew(Const(0),Const(2),Const(1),Const(1))</font>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
@@ -141,7 +141,7 @@
     <TD>
     <font size = "6"><a href=PreExecution_IR.html#x327 target=_blank>x327</a>: Pipelined OpReduce <font size = "4"> (InnerControl)</font>
     <br><font size = "2">MelFilterbankTest.scala:40:10 <font color="grey">-         }{_ + _}</font></font>
-    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=25,  II=1</font></mark></p>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=10,  II=1</font></mark></p>
     <br><font size = "1">Counter: <a href=PreExecution_IR.html#x320 target=_blank>x320</a> = CounterNew(Const(0),Const(3),Const(1),Const(1))</font>
 
     </TD>
@@ -250,17 +250,17 @@ Single-Buffered Mems
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
   <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x230 target=_blank>x230</a> (BankedSRAM "matSRAM")
-<br>volume = 6 (dims List(2, 3) + pads List(0, 0), bw = 32)
+<br>volume = 6 (dims List(2, 3) + pads List(0, 0), bw = 24)
 <br>nBanks = List(1), B = List(1), a = List(1, 1), p = List(1, 1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
   <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x231 target=_blank>x231</a> (BankedSRAM "vecSRAM")
-<br>volume = 3 (dims List(3) + pads List(0), bw = 32)
+<br>volume = 3 (dims List(3) + pads List(0), bw = 24)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
   <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=PreExecution_IR.html#x232 target=_blank>x232</a> (BankedSRAM "outSRAM")
-<br>volume = 2 (dims List(2) + pads List(0), bw = 32)
+<br>volume = 2 (dims List(2) + pads List(0), bw = 24)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>

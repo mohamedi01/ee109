@@ -69,3 +69,8 @@ object Main {
     RootController.mask := true.B & true.B
     RootController.configure("RootController", None, None, isSwitchCase = false)
     RootController.kernel()
+    done_latch.io.input.set := RootController.done
+    Instrument.connect(accelUnit, instrctrs)
+    Ledger.finish()
+  }
+}

@@ -1,6 +1,6 @@
 <h3 id=x220><a href=PreExecution_IR.html#x220>x220</a> = MapIndices(size=6,func=Lambda1(input=<a href=PreExecution_IR.html#b1>b1</a>))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:11:46<br></text>
-<text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x10<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -56,14 +56,14 @@
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x220>x220</a>), block=0)<br></text>
 <h3 id=x219><a href=PreExecution_IR.html#x219>x219</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x214>x214</a>,thenBlk=Block(x216),elseBlk=Block(x218))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:12:7<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x9<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x220>x220</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<text><strong>BodyLatency</strong>: [12.0]<br></text>
+<text><strong>BodyLatency</strong>: [2.0]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
@@ -85,9 +85,9 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x219>x219</a>), block=0)<br></text>
-<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = FixToFlt(a=<a href=PreExecution_IR.html#x215>x215</a>,f2=FltFmt(m=_24,e=_8))</h3>
+<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = FixToFix(a=<a href=PreExecution_IR.html#x215>x215</a>,f2=FixFmt(s=TRUE,i=_16,f=_8))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:12:27<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x6<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -110,9 +110,9 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x217>x217</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x219>x219</a>), block=1)<br></text>
-<h3 id=x218><a href=PreExecution_IR.html#x218>x218</a> = FixToFlt(a=<a href=PreExecution_IR.html#x217>x217</a>,f2=FltFmt(m=_24,e=_8))</h3>
+<h3 id=x218><a href=PreExecution_IR.html#x218>x218</a> = FixToFix(a=<a href=PreExecution_IR.html#x217>x217</a>,f2=FixFmt(s=TRUE,i=_16,f=_8))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:13:26<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x8<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x219>x219</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -131,7 +131,7 @@
 <h3 id=x221><a href=PreExecution_IR.html#x221>x221</a> = MapIndices(size=3,func=Lambda1(input=<a href=PreExecution_IR.html#b12>b12</a>))</h3>
 <text><strong>Name</strong>: vec<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:16:38<br></text>
-<text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x13<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x229>x229</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -160,7 +160,7 @@
 <h3 id=x224><a href=PreExecution_IR.html#x224>x224</a> = MapIndices(size=2,func=Lambda1(input=<a href=PreExecution_IR.html#b14>b14</a>))</h3>
 <text><strong>Name</strong>: gold<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:17:40<br></text>
-<text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x17<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x365>x365</a>, <a href=PreExecution_IR.html#x371>x371</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -193,9 +193,9 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x222>x222</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x224>x224</a>), block=0)<br></text>
-<h3 id=x223><a href=PreExecution_IR.html#x223>x223</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x222>x222</a>,thenBlk=Block(Const(6.0)),elseBlk=Block(Const(15.000)))</h3>
+<h3 id=x223><a href=PreExecution_IR.html#x223>x223</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x222>x222</a>,thenBlk=Block(Const(6)),elseBlk=Block(Const(15)))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:18:7<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x16<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -227,30 +227,30 @@
 </tr>
 </tbody>
 </table>
-<h3 id=x225><a href=PreExecution_IR.html#x225>x225</a> = DRAMHostNew(dims=[2, 3],zero=0.0)</h3>
+<h3 id=x225><a href=PreExecution_IR.html#x225>x225</a> = DRAMHostNew(dims=[2, 3],zero=0)</h3>
 <text><strong>Name</strong>: matDRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:22:26<br></text>
-<text><strong>Type</strong>: DRAM2[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: DRAM2[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x18<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>, <a href=PreExecution_IR.html#x249>x249</a>, <a href=PreExecution_IR.html#x252>x252</a>, <a href=PreExecution_IR.html#x257>x257</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Mutable<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x226><a href=PreExecution_IR.html#x226>x226</a> = DRAMHostNew(dims=[3],zero=0.0)</h3>
+<h3 id=x226><a href=PreExecution_IR.html#x226>x226</a> = DRAMHostNew(dims=[3],zero=0)</h3>
 <text><strong>Name</strong>: vecDRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:23:26<br></text>
-<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: DRAM1[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x19<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x288>x288</a>, <a href=PreExecution_IR.html#x290>x290</a>, <a href=PreExecution_IR.html#x295>x295</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Mutable<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x227><a href=PreExecution_IR.html#x227>x227</a> = DRAMHostNew(dims=[2],zero=0.0)</h3>
+<h3 id=x227><a href=PreExecution_IR.html#x227>x227</a> = DRAMHostNew(dims=[2],zero=0)</h3>
 <text><strong>Name</strong>: outDRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:24:26<br></text>
-<text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: DRAM1[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x20<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x337>x337</a>, <a href=PreExecution_IR.html#x339>x339</a>, <a href=PreExecution_IR.html#x356>x356</a>, <a href=PreExecution_IR.html#x363>x363</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -282,19 +282,19 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x361>x361</a>]<br></text>
 <text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x328>x328</a>, <a href=PreExecution_IR.html#x280>x280</a>, <a href=PreExecution_IR.html#x274>x274</a>, <a href=PreExecution_IR.html#x311>x311</a>, <a href=PreExecution_IR.html#x263>x263</a>, <a href=PreExecution_IR.html#x304>x304</a>, <a href=PreExecution_IR.html#x298>x298</a>, <a href=PreExecution_IR.html#x348>x348</a>, <a href=PreExecution_IR.html#x321>x321</a>, <a href=PreExecution_IR.html#x324>x324</a>, <a href=PreExecution_IR.html#x357>x357</a>, <a href=PreExecution_IR.html#x308>x308</a>, <a href=PreExecution_IR.html#x276>x276</a>, <a href=PreExecution_IR.html#x271>x271</a>, <a href=PreExecution_IR.html#x351>x351</a>, <a href=PreExecution_IR.html#x344>x344</a>, <a href=PreExecution_IR.html#x322>x322</a>]<br></text>
 <text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x284>x284</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x315>x315</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x331>x331</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x360>x360</a>), stage=-1)]<br></text>
-<text><strong>CompilerII</strong>: 9.8<br></text>
+<text><strong>CompilerII</strong>: 61.0<br></text>
 <text><strong>ControlLevel</strong>: Outer()<br></text>
-<text><strong>InitiationInterval</strong>: 9.8<br></text>
+<text><strong>InitiationInterval</strong>: 61.0<br></text>
 <text><strong>TransientReadMems</strong>: []<br></text>
 <table border=3 cellpadding=10 cellspacing=10>
 <tbody>
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x230><a href=PreExecution_IR.html#x230>x230</a> = SRAMNew(dims=[2, 3],evidence$1=SRAM2[Flt[_24,_8]])</h3>
+<h3 id=x230><a href=PreExecution_IR.html#x230>x230</a> = SRAMNew(dims=[2, 3],evidence$1=SRAM2[Fix[TRUE,_16,_8]])</h3>
 <text><strong>Name</strong>: matSRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:30:28<br></text>
-<text><strong>Type</strong>: SRAM2[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: SRAM2[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x23<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x281>x281</a>, <a href=PreExecution_IR.html#x321>x321</a>, <a href=PreExecution_IR.html#x361>x361</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -319,10 +319,10 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x321>x321</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x281>x281</a>]<br></text>
-<h3 id=x231><a href=PreExecution_IR.html#x231>x231</a> = SRAMNew(dims=[3],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<h3 id=x231><a href=PreExecution_IR.html#x231>x231</a> = SRAMNew(dims=[3],evidence$1=SRAM1[Fix[TRUE,_16,_8]])</h3>
 <text><strong>Name</strong>: vecSRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:31:28<br></text>
-<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: SRAM1[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x24<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x312>x312</a>, <a href=PreExecution_IR.html#x322>x322</a>, <a href=PreExecution_IR.html#x361>x361</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -347,10 +347,10 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x322>x322</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x312>x312</a>]<br></text>
-<h3 id=x232><a href=PreExecution_IR.html#x232>x232</a> = SRAMNew(dims=[2],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<h3 id=x232><a href=PreExecution_IR.html#x232>x232</a> = SRAMNew(dims=[2],evidence$1=SRAM1[Fix[TRUE,_16,_8]])</h3>
 <text><strong>Name</strong>: outSRAM<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:32:28<br></text>
-<text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: SRAM1[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x25<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x329>x329</a>, <a href=PreExecution_IR.html#x351>x351</a>, <a href=PreExecution_IR.html#x361>x361</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -386,12 +386,12 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x284>x284</a>]<br></text>
 <text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x280>x280</a>, <a href=PreExecution_IR.html#x274>x274</a>, <a href=PreExecution_IR.html#x263>x263</a>, <a href=PreExecution_IR.html#x276>x276</a>, <a href=PreExecution_IR.html#x271>x271</a>]<br></text>
 <text><strong>Children</strong>: [Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1), Ctrl(s=Some(<a href=PreExecution_IR.html#x283>x283</a>), stage=-1)]<br></text>
-<text><strong>CompilerII</strong>: 9.8<br></text>
+<text><strong>CompilerII</strong>: 61.0<br></text>
 <text><strong>ControlLevel</strong>: Outer()<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), block=0)<br></text>
-<text><strong>InitiationInterval</strong>: 9.8<br></text>
+<text><strong>InitiationInterval</strong>: 61.0<br></text>
 <text><strong>LoweredTransfer</strong>: DenseLoad()<br></text>
-<text><strong>LoweredTransferSize</strong>: (3,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (3,1,24)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 3<br></text>
 <text><strong>ReadDRAMs</strong>: [<a href=PreExecution_IR.html#x225>x225</a>]<br></text>
@@ -460,7 +460,7 @@
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x255>x255</a>]<br></text>
 <h3 id=x235><a href=PreExecution_IR.html#x235>x235</a> = StreamInNew(bus=BurstDataBus())</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
-<text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: StreamIn[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x79<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x257>x257</a>, <a href=PreExecution_IR.html#x280>x280</a>, <a href=PreExecution_IR.html#x284>x284</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -508,13 +508,13 @@
 <text><strong>Effects</strong>: Unique<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x237>x237</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<text><strong>BodyLatency</strong>: [9.8]<br></text>
+<text><strong>BodyLatency</strong>: [61.0]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
 <text><strong>CounterOwner</strong>: <a href=PreExecution_IR.html#x256>x256</a><br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x284>x284</a>), block=0)<br></text>
-<text><strong>InitiationInterval</strong>: 9.8<br></text>
+<text><strong>InitiationInterval</strong>: 61.0<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 8<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1, block=-1)<br></text>
@@ -529,12 +529,12 @@
 <text><strong>Effects</strong>: (reads={x225,x233,x234}, writes={x233,x234})<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x256>x256</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<text><strong>BodyLatency</strong>: [9.8]<br></text>
+<text><strong>BodyLatency</strong>: [61.0]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x284>x284</a>), block=0)<br></text>
-<text><strong>InitiationInterval</strong>: 9.8<br></text>
+<text><strong>InitiationInterval</strong>: 61.0<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x284>x284</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 9<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x284>x284</a>), stage=0, block=0)<br></text>
@@ -573,11 +573,11 @@
 <text><strong>ProgramOrder</strong>: 10<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x239><a href=PreExecution_IR.html#x239>x239</a> = FixDivSRA(a=<a href=PreExecution_IR.html#x238>x238</a>,b=4)</h3>
+<h3 id=x239><a href=PreExecution_IR.html#x239>x239</a> = FixDiv(a=<a href=PreExecution_IR.html#x238>x238</a>,b=21)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x81<br></text>
-<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x240>x240</a>, <a href=PreExecution_IR.html#x241>x241</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -587,11 +587,11 @@
 <text><strong>ProgramOrder</strong>: 11<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
 <text><strong>FullDelay</strong>: 6.0<br></text>
-<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = FixSLA(a=<a href=PreExecution_IR.html#x239>x239</a>,b=4)</h3>
+<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = FixMul(a=<a href=PreExecution_IR.html#x239>x239</a>,b=21)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x82<br></text>
-<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x241>x241</a>, <a href=PreExecution_IR.html#x242>x242</a>]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x242>x242</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x240>x240</a>]<br></text>
@@ -600,8 +600,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 12<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 6.2<br></text>
-<h3 id=x241><a href=PreExecution_IR.html#x241>x241</a> = FixSLA(a=<a href=PreExecution_IR.html#x240>x240</a>,b=2)</h3>
+<text><strong>FullDelay</strong>: 26.0<br></text>
+<h3 id=x241><a href=PreExecution_IR.html#x241>x241</a> = FixMul(a=<a href=PreExecution_IR.html#x239>x239</a>,b=63)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x83<br></text>
@@ -614,7 +614,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 13<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 6.4<br></text>
+<text><strong>FullDelay</strong>: 26.0<br></text>
 <h3 id=x242><a href=PreExecution_IR.html#x242>x242</a> = FixSub(a=<a href=PreExecution_IR.html#x238>x238</a>,b=<a href=PreExecution_IR.html#x240>x240</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
@@ -628,7 +628,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 14<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 6.4<br></text>
+<text><strong>FullDelay</strong>: 32.0<br></text>
 <h3 id=x243><a href=PreExecution_IR.html#x243>x243</a> = FixAdd(a=<a href=PreExecution_IR.html#x242>x242</a>,b=3)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
@@ -642,8 +642,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 15<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 7.4<br></text>
-<h3 id=x244><a href=PreExecution_IR.html#x244>x244</a> = FixAdd(a=<a href=PreExecution_IR.html#x242>x242</a>,b=18)</h3>
+<text><strong>FullDelay</strong>: 33.0<br></text>
+<h3 id=x244><a href=PreExecution_IR.html#x244>x244</a> = FixAdd(a=<a href=PreExecution_IR.html#x242>x242</a>,b=23)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x86<br></text>
@@ -656,12 +656,12 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 16<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 7.4<br></text>
-<h3 id=x245><a href=PreExecution_IR.html#x245>x245</a> = FixDivSRA(a=<a href=PreExecution_IR.html#x244>x244</a>,b=4)</h3>
+<text><strong>FullDelay</strong>: 33.0<br></text>
+<h3 id=x245><a href=PreExecution_IR.html#x245>x245</a> = FixDiv(a=<a href=PreExecution_IR.html#x244>x244</a>,b=21)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x87<br></text>
-<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>, <a href=PreExecution_IR.html#x247>x247</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x245>x245</a>]<br></text>
@@ -670,12 +670,12 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 17<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 8.4<br></text>
-<h3 id=x246><a href=PreExecution_IR.html#x246>x246</a> = FixSLA(a=<a href=PreExecution_IR.html#x245>x245</a>,b=4)</h3>
+<text><strong>FullDelay</strong>: 34.0<br></text>
+<h3 id=x246><a href=PreExecution_IR.html#x246>x246</a> = FixMul(a=<a href=PreExecution_IR.html#x245>x245</a>,b=21)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x88<br></text>
-<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x247>x247</a>, <a href=PreExecution_IR.html#x254>x254</a>]<br></text>
+<text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x254>x254</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
@@ -684,8 +684,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 18<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 8.6<br></text>
-<h3 id=x247><a href=PreExecution_IR.html#x247>x247</a> = FixSLA(a=<a href=PreExecution_IR.html#x246>x246</a>,b=2)</h3>
+<text><strong>FullDelay</strong>: 54.0<br></text>
+<h3 id=x247><a href=PreExecution_IR.html#x247>x247</a> = FixMul(a=<a href=PreExecution_IR.html#x245>x245</a>,b=63)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x89<br></text>
@@ -698,7 +698,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 19<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 8.8<br></text>
+<text><strong>FullDelay</strong>: 54.0<br></text>
 <h3 id=x248><a href=PreExecution_IR.html#x248>x248</a> = FixToFix(a=<a href=PreExecution_IR.html#x241>x241</a>,f2=FixFmt(s=TRUE,i=_64,f=_0))</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
@@ -712,7 +712,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 20<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 6.6<br></text>
+<text><strong>FullDelay</strong>: 32.0<br></text>
 <h3 id=x249><a href=PreExecution_IR.html#x249>x249</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x225>x225</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
@@ -740,7 +740,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 22<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 6.6<br></text>
+<text><strong>FullDelay</strong>: 32.0<br></text>
 <h3 id=x251><a href=PreExecution_IR.html#x251>x251</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x250>x250</a>), (size,<a href=PreExecution_IR.html#x247>x247</a>), (isLoad,true)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
@@ -754,7 +754,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 23<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 9.0<br></text>
+<text><strong>FullDelay</strong>: 60.0<br></text>
 <h3 id=x252><a href=PreExecution_IR.html#x252>x252</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x225>x225</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
@@ -787,7 +787,7 @@
 <text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<text><strong>FullDelay</strong>: 9.0<br></text>
+<text><strong>FullDelay</strong>: 60.0<br></text>
 <h3 id=x254><a href=PreExecution_IR.html#x254>x254</a> = SimpleStruct(elems=[(size,<a href=PreExecution_IR.html#x246>x246</a>), (start,<a href=PreExecution_IR.html#x242>x242</a>), (end,<a href=PreExecution_IR.html#x243>x243</a>)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
@@ -801,7 +801,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 26<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x256>x256</a>), stage=0, block=0)<br></text>
-<text><strong>FullDelay</strong>: 8.8<br></text>
+<text><strong>FullDelay</strong>: 60.0<br></text>
 <h3 id=x255><a href=PreExecution_IR.html#x255>x255</a> = FIFOEnq(mem=<a href=PreExecution_IR.html#x234>x234</a>,data=<a href=PreExecution_IR.html#x254>x254</a>,ens=[true])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
@@ -820,7 +820,7 @@
 <text><strong>Dispatch</strong>: {[0]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<text><strong>FullDelay</strong>: 8.8<br></text>
+<text><strong>FullDelay</strong>: 60.0<br></text>
 </td>
 </tr>
 </tbody>
@@ -1324,7 +1324,7 @@
 <text><strong>FullDelay</strong>: 0.0<br></text>
 <h3 id=x280><a href=PreExecution_IR.html#x280>x280</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x235>x235</a>,ens=[])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:34:15<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x126<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x281>x281</a>, <a href=PreExecution_IR.html#x282>x282</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -1388,7 +1388,7 @@
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), block=0)<br></text>
 <text><strong>InitiationInterval</strong>: 1.0<br></text>
 <text><strong>LoweredTransfer</strong>: DenseLoad()<br></text>
-<text><strong>LoweredTransferSize</strong>: (3,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (3,1,24)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 55<br></text>
 <text><strong>ReadDRAMs</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
@@ -1457,7 +1457,7 @@
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x293>x293</a>]<br></text>
 <h3 id=x287><a href=PreExecution_IR.html#x287>x287</a> = StreamInNew(bus=BurstDataBus())</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:35:15<br></text>
-<text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: StreamIn[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x133<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x295>x295</a>, <a href=PreExecution_IR.html#x311>x311</a>, <a href=PreExecution_IR.html#x315>x315</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -1521,7 +1521,7 @@
 <text><strong>ProgramOrder</strong>: 60<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x294>x294</a>), stage=0, block=0)<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x289><a href=PreExecution_IR.html#x289>x289</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x288>x288</a>), (size,64), (isLoad,true)])</h3>
+<h3 id=x289><a href=PreExecution_IR.html#x289>x289</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x288>x288</a>), (size,63), (isLoad,true)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:35:15<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
 <text><strong>Aliases</strong>: 0035: x135<br></text>
@@ -1568,7 +1568,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x292><a href=PreExecution_IR.html#x292>x292</a> = SimpleStruct(elems=[(size,16), (start,0), (end,3)])</h3>
+<h3 id=x292><a href=PreExecution_IR.html#x292>x292</a> = SimpleStruct(elems=[(size,21), (start,0), (end,3)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:35:15<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
 <text><strong>Aliases</strong>: 0035: x138<br></text>
@@ -1964,7 +1964,7 @@
 <text><strong>FullDelay</strong>: 0.4<br></text>
 <h3 id=x311><a href=PreExecution_IR.html#x311>x311</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x287>x287</a>,ens=[])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:35:15<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x161<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x312>x312</a>, <a href=PreExecution_IR.html#x313>x313</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2078,10 +2078,10 @@
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x318><a href=PreExecution_IR.html#x318>x318</a> = RegNew(init=0.0)</h3>
+<h3 id=x318><a href=PreExecution_IR.html#x318>x318</a> = RegNew(init=0)</h3>
 <text><strong>Name</strong>: sum<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:38:29<br></text>
-<text><strong>Type</strong>: Reg[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: Reg[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x31<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x328>x328</a>, <a href=PreExecution_IR.html#x326>x326</a>, <a href=PreExecution_IR.html#x324>x324</a>, <a href=PreExecution_IR.html#x331>x331</a>, <a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2145,7 +2145,7 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x327>x327</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 91<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x327>x327</a>), stage=-1, block=-1)<br></text>
-<h3 id=x327><a href=PreExecution_IR.html#x327>x327</a> = OpReduce(ens=[],cchain=<a href=PreExecution_IR.html#x320>x320</a>,accum=<a href=PreExecution_IR.html#x318>x318</a>,map=Block(x323),load=Lambda1(input=<a href=PreExecution_IR.html#x318>x318</a>),reduce=Lambda2(inputA=<a href=PreExecution_IR.html#b34>b34</a>,inputB=<a href=PreExecution_IR.html#b35>b35</a>),store=Lambda2(inputA=<a href=PreExecution_IR.html#x318>x318</a>,inputB=<a href=PreExecution_IR.html#x325>x325</a>),ident=None,fold=None,iters=[<a href=PreExecution_IR.html#b36>b36</a>],stopWhen=None,A=Flt[_24,_8])</h3>
+<h3 id=x327><a href=PreExecution_IR.html#x327>x327</a> = OpReduce(ens=[],cchain=<a href=PreExecution_IR.html#x320>x320</a>,accum=<a href=PreExecution_IR.html#x318>x318</a>,map=Block(x323),load=Lambda1(input=<a href=PreExecution_IR.html#x318>x318</a>),reduce=Lambda2(inputA=<a href=PreExecution_IR.html#b34>b34</a>,inputB=<a href=PreExecution_IR.html#b35>b35</a>),store=Lambda2(inputA=<a href=PreExecution_IR.html#x318>x318</a>,inputB=<a href=PreExecution_IR.html#x325>x325</a>),ident=None,fold=None,iters=[<a href=PreExecution_IR.html#b36>b36</a>],stopWhen=None,A=Fix[TRUE,_16,_8])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:40:10<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0035: x43<br></text>
@@ -2154,7 +2154,7 @@
 <text><strong>Effects</strong>: (unique=true, reads={x230,x231,x318}, writes={x318})<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x321>x321</a>, <a href=PreExecution_IR.html#x324>x324</a>, <a href=PreExecution_IR.html#x322>x322</a>]<br></text>
-<text><strong>BodyLatency</strong>: [25.0]<br></text>
+<text><strong>BodyLatency</strong>: [10.25]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
@@ -2174,13 +2174,13 @@
 <h3 id=b34><a href=PreExecution_IR.html#b34>b34</a></h3>
 <text><strong>Name</strong>: x$1<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:40:10<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x41>x41</a>, <a href=PreExecution_IR.html#x325>x325</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x327>x327</a>), block=-1)<br></text>
 <h3 id=b35><a href=PreExecution_IR.html#b35>b35</a></h3>
 <text><strong>Name</strong>: x$2<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:40:10<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x41>x41</a>, <a href=PreExecution_IR.html#x325>x325</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x327>x327</a>), block=-1)<br></text>
 <h3 id=b36><a href=PreExecution_IR.html#b36>b36</a></h3>
@@ -2199,7 +2199,7 @@
 <h2>block 0</h2>
 <h3 id=x321><a href=PreExecution_IR.html#x321>x321</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x230>x230</a>,addr=[<a href=PreExecution_IR.html#b29>b29</a>, <a href=PreExecution_IR.html#b36>b36</a>],ens=[])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:39:18<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x37<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x323>x323</a>, <a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2218,7 +2218,7 @@
 <text><strong>FullDelay</strong>: 0.0<br></text>
 <h3 id=x322><a href=PreExecution_IR.html#x322>x322</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x231>x231</a>,addr=[<a href=PreExecution_IR.html#b36>b36</a>],ens=[])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:39:34<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x38<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x323>x323</a>, <a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2235,9 +2235,9 @@
 <text><strong>GroupId</strong>: {[0, 0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0, 0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x323><a href=PreExecution_IR.html#x323>x323</a> = FltMul(a=<a href=PreExecution_IR.html#x321>x321</a>,b=<a href=PreExecution_IR.html#x322>x322</a>)</h3>
+<h3 id=x323><a href=PreExecution_IR.html#x323>x323</a> = FixMul(a=<a href=PreExecution_IR.html#x321>x321</a>,b=<a href=PreExecution_IR.html#x322>x322</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:39:25<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x39<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2256,7 +2256,7 @@
 <h2>block 1</h2>
 <h3 id=x324><a href=PreExecution_IR.html#x324>x324</a> = RegRead(mem=<a href=PreExecution_IR.html#x318>x318</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:40:10<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x40<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2279,9 +2279,9 @@
 <tr>
 <td>
 <h2>block 2</h2>
-<h3 id=x325><a href=PreExecution_IR.html#x325>x325</a> = FltAdd(a=<a href=PreExecution_IR.html#b34>b34</a>,b=<a href=PreExecution_IR.html#b35>b35</a>)</h3>
+<h3 id=x325><a href=PreExecution_IR.html#x325>x325</a> = FixAdd(a=<a href=PreExecution_IR.html#b34>b34</a>,b=<a href=PreExecution_IR.html#b35>b35</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:40:13<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x41<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x326>x326</a>, <a href=PreExecution_IR.html#x327>x327</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2347,7 +2347,7 @@
 <h2>block 0</h2>
 <h3 id=x328><a href=PreExecution_IR.html#x328>x328</a> = RegRead(mem=<a href=PreExecution_IR.html#x318>x318</a>)</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:41:26<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x201, 0031: x44<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x329>x329</a>, <a href=PreExecution_IR.html#x330>x330</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2407,7 +2407,7 @@
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), block=0)<br></text>
 <text><strong>InitiationInterval</strong>: 1.0<br></text>
 <text><strong>LoweredTransfer</strong>: DenseStore()<br></text>
-<text><strong>LoweredTransferSize</strong>: (2,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (2,1,24)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 108<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x361>x361</a>), stage=0, block=0)<br></text>
@@ -2448,7 +2448,7 @@
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x340>x340</a>]<br></text>
 <h3 id=x333><a href=PreExecution_IR.html#x333>x333</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:44:15<br></text>
-<text><strong>Type</strong>: StreamOut[Tup2[Flt[_24,_8],Bit]]<br></text>
+<text><strong>Type</strong>: StreamOut[Tup2[Fix[TRUE,_16,_8],Bit]]<br></text>
 <text><strong>Aliases</strong>: 0035: x167<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x353>x353</a>, <a href=PreExecution_IR.html#x356>x356</a>, <a href=PreExecution_IR.html#x360>x360</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2642,7 +2642,7 @@
 <text><strong>ProgramOrder</strong>: 117<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x343>x343</a>), stage=0, block=0)<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x338><a href=PreExecution_IR.html#x338>x338</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x337>x337</a>), (size,64), (isLoad,false)])</h3>
+<h3 id=x338><a href=PreExecution_IR.html#x338>x338</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x337>x337</a>), (size,63), (isLoad,false)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:44:15<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
 <text><strong>Aliases</strong>: 0035: x173<br></text>
@@ -2708,7 +2708,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <text><strong>FullDelay</strong>: 0.0<br></text>
-<h3 id=x342><a href=PreExecution_IR.html#x342>x342</a> = RegWrite(mem=<a href=PreExecution_IR.html#x336>x336</a>,data=16,ens=[])</h3>
+<h3 id=x342><a href=PreExecution_IR.html#x342>x342</a> = RegWrite(mem=<a href=PreExecution_IR.html#x336>x336</a>,data=21,ens=[])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:44:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0035: x178<br></text>
@@ -2739,7 +2739,7 @@
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: (unique=true, reads={x336})<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x344>x344</a>]<br></text>
-<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=16),allIters={},iterStarts={})]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=21),allIters={},iterStarts={})]<br></text>
 <text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x344>x344</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
 <text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x344>x344</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x355>x355</a>), block=0)<br></text>
@@ -2880,7 +2880,7 @@
 <text><strong>FullDelay</strong>: 0.4<br></text>
 <h3 id=x351><a href=PreExecution_IR.html#x351>x351</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x232>x232</a>,addr=[<a href=PreExecution_IR.html#b182>b182</a>],ens=[<a href=PreExecution_IR.html#x350>x350</a>])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:44:15<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x188<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x352>x352</a>, <a href=PreExecution_IR.html#x354>x354</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2899,7 +2899,7 @@
 <text><strong>FullDelay</strong>: 0.6<br></text>
 <h3 id=x352><a href=PreExecution_IR.html#x352>x352</a> = SimpleStruct(elems=[(_1,<a href=PreExecution_IR.html#x351>x351</a>), (_2,<a href=PreExecution_IR.html#x350>x350</a>)])</h3>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:44:15<br></text>
-<text><strong>Type</strong>: Tup2[Flt[_24,_8],Bit]<br></text>
+<text><strong>Type</strong>: Tup2[Fix[TRUE,_16,_8],Bit]<br></text>
 <text><strong>Aliases</strong>: 0035: x189<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x353>x353</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3015,7 +3015,7 @@
 <h3 id=x362><a href=PreExecution_IR.html#x362>x362</a> = ArrayNew(size=2)</h3>
 <text><strong>Name</strong>: result<br></text>
 <text><strong>SrcCtx</strong>: MelFilterbankTest.scala:47:24<br></text>
-<text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
+<text><strong>Type</strong>: Array[Fix[TRUE,_16,_8]]<br></text>
 <text><strong>Aliases</strong>: 0035: x49<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x363>x363</a>, <a href=PreExecution_IR.html#x364>x364</a>, <a href=PreExecution_IR.html#x370>x370</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3031,8 +3031,8 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x363>x363</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x364><a href=PreExecution_IR.html#x364>x364</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x362>x362</a>,i=0)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:20<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:19<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x51<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x366>x366</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3040,26 +3040,26 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x364>x364</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x365><a href=PreExecution_IR.html#x365>x365</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x224>x224</a>,i=0)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:30<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:29<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x52<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x366>x366</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x365>x365</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x366><a href=PreExecution_IR.html#x366>x366</a> = FltSub(a=<a href=PreExecution_IR.html#x364>x364</a>,b=<a href=PreExecution_IR.html#x365>x365</a>)</h3>
+<h3 id=x366><a href=PreExecution_IR.html#x366>x366</a> = FixSub(a=<a href=PreExecution_IR.html#x364>x364</a>,b=<a href=PreExecution_IR.html#x365>x365</a>)</h3>
 <text><strong>Name</strong>: d0<br></text>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:24<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:23<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x53<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x367>x367</a>, <a href=PreExecution_IR.html#x368>x368</a>, <a href=PreExecution_IR.html#x369>x369</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x366>x366</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x367><a href=PreExecution_IR.html#x367>x367</a> = FltLst(a=<a href=PreExecution_IR.html#x366>x366</a>,b=0.0)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:51<br></text>
+<h3 id=x367><a href=PreExecution_IR.html#x367>x367</a> = FixLst(a=<a href=PreExecution_IR.html#x366>x366</a>,b=0)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:50<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x54<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x369>x369</a>]<br></text>
@@ -3069,28 +3069,28 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x369><a href=PreExecution_IR.html#x369>x369</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x367>x367</a>,thenBlk=Block(x368),elseBlk=Block(x366))</h3>
 <text><strong>Name</strong>: e0<br></text>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:44<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:43<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x56<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x376>x376</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x369>x369</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<text><strong>BodyLatency</strong>: [0.0]<br></text>
+<text><strong>BodyLatency</strong>: [0.1]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
-<text><strong>InitiationInterval</strong>: 0.0<br></text>
+<text><strong>InitiationInterval</strong>: 0.1<br></text>
 <text><strong>TransientReadMems</strong>: []<br></text>
 <table border=3 cellpadding=10 cellspacing=10>
 <tbody>
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x368><a href=PreExecution_IR.html#x368>x368</a> = FltNeg(a=<a href=PreExecution_IR.html#x366>x366</a>)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:50:56<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<h3 id=x368><a href=PreExecution_IR.html#x368>x368</a> = FixNeg(a=<a href=PreExecution_IR.html#x366>x366</a>)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:61<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x55<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x369>x369</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3108,8 +3108,8 @@
 </tbody>
 </table>
 <h3 id=x370><a href=PreExecution_IR.html#x370>x370</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x362>x362</a>,i=1)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:20<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:16<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x57<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x372>x372</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3117,26 +3117,26 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x370>x370</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x371><a href=PreExecution_IR.html#x371>x371</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x224>x224</a>,i=1)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:30<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:26<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x58<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x372>x372</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x371>x371</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x372><a href=PreExecution_IR.html#x372>x372</a> = FltSub(a=<a href=PreExecution_IR.html#x370>x370</a>,b=<a href=PreExecution_IR.html#x371>x371</a>)</h3>
+<h3 id=x372><a href=PreExecution_IR.html#x372>x372</a> = FixSub(a=<a href=PreExecution_IR.html#x370>x370</a>,b=<a href=PreExecution_IR.html#x371>x371</a>)</h3>
 <text><strong>Name</strong>: d1<br></text>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:24<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:20<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x59<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x373>x373</a>, <a href=PreExecution_IR.html#x374>x374</a>, <a href=PreExecution_IR.html#x375>x375</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x372>x372</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x373><a href=PreExecution_IR.html#x373>x373</a> = FltLst(a=<a href=PreExecution_IR.html#x372>x372</a>,b=0.0)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:51<br></text>
+<h3 id=x373><a href=PreExecution_IR.html#x373>x373</a> = FixLst(a=<a href=PreExecution_IR.html#x372>x372</a>,b=0)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:47<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x60<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x375>x375</a>]<br></text>
@@ -3146,28 +3146,28 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x375><a href=PreExecution_IR.html#x375>x375</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x373>x373</a>,thenBlk=Block(x374),elseBlk=Block(x372))</h3>
 <text><strong>Name</strong>: e1<br></text>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:44<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:40<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x62<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x377>x377</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x375>x375</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<text><strong>BodyLatency</strong>: [0.0]<br></text>
+<text><strong>BodyLatency</strong>: [0.1]<br></text>
 <text><strong>Children</strong>: []<br></text>
 <text><strong>CompilerII</strong>: 1.0<br></text>
 <text><strong>ControlLevel</strong>: Inner()<br></text>
-<text><strong>InitiationInterval</strong>: 0.0<br></text>
+<text><strong>InitiationInterval</strong>: 0.1<br></text>
 <text><strong>TransientReadMems</strong>: []<br></text>
 <table border=3 cellpadding=10 cellspacing=10>
 <tbody>
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x374><a href=PreExecution_IR.html#x374>x374</a> = FltNeg(a=<a href=PreExecution_IR.html#x372>x372</a>)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:51:56<br></text>
-<text><strong>Type</strong>: Flt[_24,_8]<br></text>
+<h3 id=x374><a href=PreExecution_IR.html#x374>x374</a> = FixNeg(a=<a href=PreExecution_IR.html#x372>x372</a>)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:58<br></text>
+<text><strong>Type</strong>: Fix[TRUE,_16,_8]<br></text>
 <text><strong>Aliases</strong>: 0035: x61<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x375>x375</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3184,8 +3184,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id=x376><a href=PreExecution_IR.html#x376>x376</a> = FltLst(a=<a href=PreExecution_IR.html#x369>x369</a>,b=0.001000000047497451305389404296875)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:23<br></text>
+<h3 id=x376><a href=PreExecution_IR.html#x376>x376</a> = FixLst(a=<a href=PreExecution_IR.html#x369>x369</a>,b=0.0078125)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:53:19<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x63<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x378>x378</a>]<br></text>
@@ -3193,8 +3193,8 @@
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x376>x376</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x377><a href=PreExecution_IR.html#x377>x377</a> = FltLst(a=<a href=PreExecution_IR.html#x375>x375</a>,b=0.001000000047497451305389404296875)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:38<br></text>
+<h3 id=x377><a href=PreExecution_IR.html#x377>x377</a> = FixLst(a=<a href=PreExecution_IR.html#x375>x375</a>,b=0.0078125)</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:53:37<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x64<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x378>x378</a>]<br></text>
@@ -3203,7 +3203,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x377>x377</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x378><a href=PreExecution_IR.html#x378>x378</a> = And(a=<a href=PreExecution_IR.html#x376>x376</a>,b=<a href=PreExecution_IR.html#x377>x377</a>)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:32<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:53:31<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x65<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x379>x379</a>]<br></text>
@@ -3213,7 +3213,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x379><a href=PreExecution_IR.html#x379>x379</a> = IfThenElse(cond=<a href=PreExecution_IR.html#x378>x378</a>,thenBlk=Block(Const(1)),elseBlk=Block(Const(0)))</h3>
 <text><strong>Name</strong>: pass<br></text>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:52:16<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:53:12<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0035: x66<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x380>x380</a>, <a href=PreExecution_IR.html#x384>x384</a>]<br></text>
@@ -3242,7 +3242,7 @@
 </tbody>
 </table>
 <h3 id=x380><a href=PreExecution_IR.html#x380>x380</a> = FixToText(a=<a href=PreExecution_IR.html#x379>x379</a>,format=None)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:54:22<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:56:22<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0035: x67<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x381>x381</a>]<br></text>
@@ -3251,7 +3251,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x380>x380</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x381><a href=PreExecution_IR.html#x381>x381</a> = TextConcat(parts=[PASS: , <a href=PreExecution_IR.html#x380>x380</a>])</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:54:22<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:56:22<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0035: x68<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x382>x382</a>]<br></text>
@@ -3261,7 +3261,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x382><a href=PreExecution_IR.html#x382>x382</a> = TextConcat(parts=[<a href=PreExecution_IR.html#x381>x381</a>, 
 ])</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:54:12<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:56:12<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0035: x69<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x383>x383</a>]<br></text>
@@ -3270,7 +3270,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x382>x382</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x383><a href=PreExecution_IR.html#x383>x383</a> = PrintIf(ens=[],x=<a href=PreExecution_IR.html#x382>x382</a>)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:54:12<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:56:12<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0035: x70<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -3278,7 +3278,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x383>x383</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x384><a href=PreExecution_IR.html#x384>x384</a> = FixEql(a=<a href=PreExecution_IR.html#x379>x379</a>,b=1)</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:55:17<br></text>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:57:17<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0035: x71<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x385>x385</a>]<br></text>
@@ -3286,8 +3286,8 @@
 <text><strong>Effects</strong>: Pure<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x384>x384</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x385><a href=PreExecution_IR.html#x385>x385</a> = AssertIf(ens=[],cond=<a href=PreExecution_IR.html#x384>x384</a>,x=Some(MelFilterbankTest.scala:55:11: Assertion failure))</h3>
-<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:55:11<br></text>
+<h3 id=x385><a href=PreExecution_IR.html#x385>x385</a> = AssertIf(ens=[],cond=<a href=PreExecution_IR.html#x384>x384</a>,x=Some(MelFilterbankTest.scala:57:11: Assertion failure))</h3>
+<text><strong>SrcCtx</strong>: MelFilterbankTest.scala:57:11<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0035: x73<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>

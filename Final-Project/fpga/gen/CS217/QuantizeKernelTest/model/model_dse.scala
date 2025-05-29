@@ -3,18 +3,18 @@ import models.Runtime._
 
 object AppRuntimeModel_dse extends App {
   def build_model(): ControllerModel = {
-    val x32 = new ControllerModel(32, OuterControl, Left(Sequenced), CChainModel(Seq()), 0, 1, Ctx("x32", "27", "Accel {", "x32 = AccelScope(Block(Const(())))"))
-    val x124_ctrlast = CtrModel(0, 9, 1, 1)
-    val x124 = new ControllerModel(124, OuterControl, Left(DenseLoad), List(CChainModel(Seq()), CChainModel(Seq(x124_ctrlast))), 0, 1, Ctx("x124", "30", "inSRAM load inDRAM", "x124 = UnitPipe(Set(),Block(Const(())),None)"), bitsPerCycle = 32.toDouble)
-    val x12 = CtrModel(0, 9, 1, 1)
-    val x14 = CChainModel(List[CtrModel[_,_,_,_]](x12), Ctx("x14", "31", "Foreach(N by 1) { i =>", "List(x12 = CounterNew(Const(0),Const(9),Const(1),Const(1)))"))
-    val x30 = new ControllerModel(30, InnerControl, Left(Pipelined), x14, 67, 1, Ctx("x30", "31", "Foreach(N by 1) { i =>", "x30 = OpForeach(Set(),x14,Block(Const(())),List(b13),None)"))
-    val x156_ctrlast = CtrModel(0, 9, 1, 1)
-    val x156 = new ControllerModel(156, OuterControl, Left(GatedDenseStore), List(CChainModel(Seq()), CChainModel(Seq(x156_ctrlast))), 0, 1, Ctx("x156", "37", "outDRAM store outSRAM", "x156 = UnitPipe(Set(),Block(Const(())),None)"), bitsPerCycle = 32.toDouble)
-    x32.registerChild(x124)
-    x32.registerChild(x30)
-    x32.registerChild(x156)
-    return x32
+    val x26 = new ControllerModel(26, OuterControl, Left(Sequenced), CChainModel(Seq()), 0, 1, Ctx("x26", "21", "Accel {", "x26 = AccelScope(Block(Const(())))"))
+    val x96_ctrlast = CtrModel(0, 9, 1, 1)
+    val x96 = new ControllerModel(96, OuterControl, Left(DenseLoad), List(CChainModel(Seq()), CChainModel(Seq(x96_ctrlast))), 0, 1, Ctx("x96", "25", "inSRAM load inDRAM", "x96 = UnitPipe(Set(),Block(Const(())),None)"), bitsPerCycle = 24.toDouble)
+    val x8 = CtrModel(0, 9, 1, 1)
+    val x10 = CChainModel(List[CtrModel[_,_,_,_]](x8), Ctx("x10", "27", "Foreach(N by 1) { i =>", "List(x8 = CounterNew(Const(0),Const(9),Const(1),Const(1)))"))
+    val x24 = new ControllerModel(24, InnerControl, Left(Pipelined), x10, 14, 1, Ctx("x24", "27", "Foreach(N by 1) { i =>", "x24 = OpForeach(Set(),x10,Block(Const(())),List(b9),None)"))
+    val x128_ctrlast = CtrModel(0, 9, 1, 1)
+    val x128 = new ControllerModel(128, OuterControl, Left(GatedDenseStore), List(CChainModel(Seq()), CChainModel(Seq(x128_ctrlast))), 0, 1, Ctx("x128", "36", "outDRAM store outSRAM", "x128 = UnitPipe(Set(),Block(Const(())),None)"), bitsPerCycle = 24.toDouble)
+    x26.registerChild(x96)
+    x26.registerChild(x24)
+    x26.registerChild(x128)
+    return x26
   }
   
   override def main(args: Array[String]): Unit = {

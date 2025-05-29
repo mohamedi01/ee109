@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x476 -> x611 -> x612 **/
+/** Hierarchy: x476 -> x613 -> x614 **/
 /** BEGIN Some(DenseTransfer) x476_outr_UnitPipe_DenseTransfer **/
 class x476_outr_UnitPipe_DenseTransfer_kernel(
   list_x406_matDRAM: List[FixedPoint],
@@ -82,7 +82,7 @@ class x476_outr_UnitPipe_DenseTransfer_kernel(
       ModuleParams.addParams("x418_ctrchain_p", (x418_ctrchain.par, x418_ctrchain.widths))
       val x439_inr_Foreach = new x439_inr_Foreach_kernel(List(x406_matDRAM), List(x415_fifo), List(x414) ,  Some(me), List(x418_ctrchain), 0, 1, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
       x439_inr_Foreach.sm.io.ctrDone := (x439_inr_Foreach.cchain.head.output.done).DS(1.toInt, rr, io.sigsIn.backpressure & true.B)
-      x439_inr_Foreach.backpressure := (~x415_fifo.full.D(5.0-1) | ~(x415_fifo.active(0).out)) & x414.ready | x439_inr_Foreach.sm.io.doneLatch
+      x439_inr_Foreach.backpressure := (~x415_fifo.full.D(56.2-1) | ~(x415_fifo.active(0).out)) & x414.ready | x439_inr_Foreach.sm.io.doneLatch
       x439_inr_Foreach.forwardpressure := (true.B) && (true.B) | x439_inr_Foreach.sm.io.doneLatch
       x439_inr_Foreach.sm.io.enableOut.zip(x439_inr_Foreach.smEnableOuts).foreach{case (l,r) => r := l}
       x439_inr_Foreach.sm.io.break := false.B

@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x486 -> x511 -> x611 -> x612 **/
+/** Hierarchy: x486 -> x511 -> x613 -> x614 **/
 /** BEGIN None x486_inr_UnitPipe **/
 class x486_inr_UnitPipe_kernel(
   list_x407_vecDRAM: List[FixedPoint],
@@ -76,13 +76,13 @@ class x486_inr_UnitPipe_kernel(
       Ledger.tieInstrCtr(instrctrs.toList, X486_instrctr, cycles_x486_inr_UnitPipe.io.count, iters_x486_inr_UnitPipe.io.count, stalls_x486_inr_UnitPipe.io.count, idles_x486_inr_UnitPipe.io.count)
       val x480 = x407_vecDRAM
       val x481_tuple = Wire(UInt(97.W)).suggestName("""x481_tuple""")
-      x481_tuple.r := ConvAndCat(true.B,64L.FP(true, 32, 0).r,x480.r)
+      x481_tuple.r := ConvAndCat(true.B,63L.FP(true, 32, 0).r,x480.r)
       val x482 = true.B
       x477.valid := (io.sigsIn.datapathEn & io.sigsIn.iiIssue).DS(0.0.toInt.toInt, rr, io.sigsIn.backpressure & true.B) & x482 & io.sigsIn.backpressure
       x477.bits.addr := x481_tuple(63,0)
       x477.bits.size := x481_tuple(95,64)
       val x484_tuple = Wire(UInt(96.W)).suggestName("""x484_tuple""")
-      x484_tuple.r := ConvAndCat(3L.FP(true, 32, 0).r,0L.FP(true, 32, 0).r,16L.FP(true, 32, 0).r)
+      x484_tuple.r := ConvAndCat(3L.FP(true, 32, 0).r,0L.FP(true, 32, 0).r,21L.FP(true, 32, 0).r)
       val x485_enq_x478_banks = List[UInt]()
       val x485_enq_x478_ofs = List[UInt]()
       val x485_enq_x478_en = List[Bool](true.B)

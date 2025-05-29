@@ -21,7 +21,7 @@ import chisel3.util._
 import Args._
 import scala.collection.immutable._
 
-/** Hierarchy: x612 **/
+/** Hierarchy: x614 **/
 /** BEGIN None RootController **/
 class RootController_kernel(
   list_x408_outDRAM: List[FixedPoint],
@@ -99,19 +99,19 @@ class RootController_kernel(
       val iters_RootController = Module(new InstrumentationCounter())
       cycles_RootController.io.enable := io.sigsIn.baseEn
       iters_RootController.io.enable := risingEdge(io.sigsIn.done)
-      Ledger.tieInstrCtr(instrctrs.toList, X612_instrctr, cycles_RootController.io.count, iters_RootController.io.count, 0.U, 0.U)
+      Ledger.tieInstrCtr(instrctrs.toList, X614_instrctr, cycles_RootController.io.count, iters_RootController.io.count, 0.U, 0.U)
       val x411_matSRAM_0 = (new x411_matSRAM_0).m.io.asInstanceOf[StandardInterface]
       val x412_vecSRAM_0 = (new x412_vecSRAM_0).m.io.asInstanceOf[StandardInterface]
       val x413_outSRAM_0 = (new x413_outSRAM_0).m.io.asInstanceOf[StandardInterface]
-      val x611 = new x611_kernel(List(x407_vecDRAM,x406_matDRAM), List(x477,x414), List(x479,x416), List(x411_matSRAM_0,x412_vecSRAM_0) ,  Some(me), List(), 0, 2, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
-      x611.sm.io.ctrDone := risingEdge(x611.sm.io.ctrInc)
-      x611.backpressure := true.B | x611.sm.io.doneLatch
-      x611.forwardpressure := (true.B) && (true.B) | x611.sm.io.doneLatch
-      x611.sm.io.enableOut.zip(x611.smEnableOuts).foreach{case (l,r) => r := l}
-      x611.sm.io.break := false.B
-      x611.mask := true.B & true.B
-      x611.configure("x611", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
-      x611.kernel()
+      val x613 = new x613_kernel(List(x407_vecDRAM,x406_matDRAM), List(x477,x414), List(x479,x416), List(x411_matSRAM_0,x412_vecSRAM_0) ,  Some(me), List(), 0, 2, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
+      x613.sm.io.ctrDone := risingEdge(x613.sm.io.ctrInc)
+      x613.backpressure := true.B | x613.sm.io.doneLatch
+      x613.forwardpressure := (true.B) && (true.B) | x613.sm.io.doneLatch
+      x613.sm.io.enableOut.zip(x613.smEnableOuts).foreach{case (l,r) => r := l}
+      x613.sm.io.break := false.B
+      x613.mask := true.B & true.B
+      x613.configure("x613", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
+      x613.kernel()
       val x512_ctr = new CtrObject(Left(Some(0)), Left(Some(2)), Left(Some(1)), 1, 4, false)
       val x513_ctrchain = (new CChainObject(List[CtrObject](x512_ctr), "x513_ctrchain")).cchain.io 
       x513_ctrchain.setup.isStream := false.B
@@ -125,3 +125,24 @@ class RootController_kernel(
       x541_outr_Foreach.mask := ~x541_outr_Foreach.cchain.head.output.noop & true.B
       x541_outr_Foreach.configure("x541_outr_Foreach", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
       x541_outr_Foreach.kernel()
+      val x574_outr_UnitPipe_DenseTransfer = new x574_outr_UnitPipe_DenseTransfer_kernel(List(x408_outDRAM), List(x544), List(x542), List(x543), List(x413_outSRAM_0) ,  Some(me), List(), 2, 1, 1, List(1), List(32), breakpoints, instrctrs.toList, rr)
+      x574_outr_UnitPipe_DenseTransfer.backpressure := true.B | x574_outr_UnitPipe_DenseTransfer.sm.io.doneLatch
+      x574_outr_UnitPipe_DenseTransfer.forwardpressure := (true.B) && (true.B) | x574_outr_UnitPipe_DenseTransfer.sm.io.doneLatch
+      x574_outr_UnitPipe_DenseTransfer.sm.io.enableOut.zip(x574_outr_UnitPipe_DenseTransfer.smEnableOuts).foreach{case (l,r) => r := l}
+      x574_outr_UnitPipe_DenseTransfer.sm.io.break := false.B
+      x574_outr_UnitPipe_DenseTransfer.mask := true.B & true.B
+      x574_outr_UnitPipe_DenseTransfer.configure("x574_outr_UnitPipe_DenseTransfer", Some(io.sigsIn), Some(io.sigsOut), isSwitchCase = false)
+      x574_outr_UnitPipe_DenseTransfer.kernel()
+    }
+    val module = Module(new RootController_concrete(sm.p.depth)); module.io := DontCare
+    // Connect ports on this kernel to its parent
+    connectWires0(module)
+    Ledger.connectInstrCtrs(instrctrs, module.io.in_instrctrs)
+    Ledger.connectBreakpoints(breakpoints, module.io.in_breakpoints)
+    module.io.rr := rr
+    module.io.sigsIn := me.sigsIn
+    me.sigsOut := module.io.sigsOut
+    Ledger.exit()
+  }
+}
+/** END AccelScope RootController **/
