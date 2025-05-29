@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import os
 import numpy as np
 from subprocess import run, CalledProcessError
 from audiolib.dsp.mel_gold import wav_to_logmel, load_audio, create_mel_filterbank
@@ -37,23 +38,86 @@ def run_spatial_pipeline(audio_path: str):
     mel_mat = create_mel_filterbank(n_fft=400, n_mels=80, sr=sr)
     np.save("fpga_io/mel_filterbank.npy", mel_mat.astype(np.float32))
 
+
+    script_dir = os.path.dirname(__file__)
+    FPGA_ROOT  = os.path.abspath(os.path.join(script_dir, "..", "..", "..", "fpga"))    
     # ─── Step 6: Invoke each Spatial kernel ──────────────────────────────────────
     try:
         # 1) PowerSpectrum
-        run(["sbt", "run", "PowerSpectrum", f"args:{flat_real.size}"], check=True)
+        run(
+            'sbt "runMain PowerSpectrum {size}"'.format(size=flat_real.size),
+            cwd=os.path.join(FPGA_ROOT, "PowerSpectrum"),
+            shell=True,
+            check=True
+        )
+
         # 2) MelFilterbank
-        # input length = number of frequency bins = n_fft/2+1 = 201
-        # number of frames = power.shape[1] = t.size
-        bins = 400//2 + 1
+        bins   = 400 // 2 + 1
         frames = t.size
-        run(["sbt", "run", "MelFilterbank", f"args:80 {bins}"], check=True)
+        run(
+            'sbt "runMain MelFilterbank 80 {bins}"'.format(bins=bins),
+            cwd=os.path.join(FPGA_ROOT, "MelFilterbank"),
+            shell=True,
+            check=True
+        )
+
         # 3) LogCompress
-        run(["sbt", "run", "LogCompress", f"args:{80*frames} 8.0"], check=True)
+        run(
+            'sbt "runMain LogCompress {count} 8.0"'.format(count=80 * frames),
+            cwd=os.path.join(FPGA_ROOT, "LogCompress"),
+            shell=True,
+            check=True
+        )
+
         # 4) WhisperScale
-        run(["sbt", "run", "WhisperScale", f"args:{80*frames}"], check=True)
+        run(
+            'sbt "runMain WhisperScale {count}"'.format(count=80 * frames),
+            cwd=os.path.join(FPGA_ROOT, "WhisperScale"),
+            shell=True,
+            check=True
+        )
+
     except CalledProcessError as e:
-        print("Spatial kernel failed:", e)
+        print("❌ Spatial kernel failed:", e)
         sys.exit(1)
+    # try:
+    #     # 1) PowerSpectrum
+    #     run(
+    #         f'sbt "runMain PowerSpectrum {flat_real.size}"',
+    #         cwd=os.path.join(FPGA_ROOT, "PowerSpectrum"),
+    #         shell=True,
+    #         check=True
+    #     )
+
+    #     # 2) MelFilterbank
+    #     bins   = 400 // 2 + 1
+    #     frames = t.size
+    #     run(
+    #         f'sbt "runMain MelFilterbank 80 {bins}"',
+    #         cwd=os.path.join(FPGA_ROOT, "MelFilterbank"),
+    #         shell=True,
+    #         check=True
+    #     )
+
+    #     # 3) LogCompress
+    #     run(
+    #         f'sbt "runMain LogCompress {80*frames} 8.0"',
+    #         cwd=os.path.join(FPGA_ROOT, "LogCompress"),
+    #         shell=True,
+    #         check=True
+    #     )
+
+    #     # 4) WhisperScale
+    #     run(
+    #         f'sbt "runMain WhisperScale {80*frames}"',
+    #         cwd=os.path.join(FPGA_ROOT, "WhisperScale"),
+    #         shell=True,
+    #         check=True
+    #     )
+
+    # except CalledProcessError as e:
+    #     print(" Spatial kernel failed:", e)
+    #     sys.exit(1)
 
     # ─── Step 7: Load final FPGA output & compare ─────────────────────────────────
     logmel_fpga = np.load("fpga_io/fpga_output.npy")   # make sure WhisperScale writes this
