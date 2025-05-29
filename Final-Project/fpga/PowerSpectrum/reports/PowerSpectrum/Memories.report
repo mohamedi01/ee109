@@ -1,7 +1,7 @@
 ---------------------------
 Estimated Total Memories: 
 ---------------------------
-  RAM36: 30.0
+  RAM36: 27.0
 ---------------------------
 
 
@@ -77,6 +77,57 @@ Instance Summary:
 Control Tree: 
 x427: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
   x425: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: imagSram_0 (x312)
+Type: SRAM1[Flt[_24,_8]]
+Src:  PowerSpectrum.scala:29:33
+Src:        val imagSram = SRAM[Float](n)
+---------------------------------------------------------------------
+Symbol:     x312 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 9.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x380 = SRAMBankedWrite(x312,Vector(x379),Vector(List(Const(0))),Vector(b372),Vector(Set(x377, b373))) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x391 = SRAMBankedRead(x312,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:56)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x443: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x380: SRAMBankedWrite
+  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x391: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
@@ -169,6 +220,57 @@ x323: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
 
 
 ---------------------------------------------------------------------
+Name: outSram_0 (x313)
+Type: SRAM1[Flt[_24,_8]]
+Src:  PowerSpectrum.scala:30:33
+Src:        val outSram  = SRAM[Float](n)
+---------------------------------------------------------------------
+Symbol:     x313 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 9.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x395 = SRAMBankedWrite(x313,Vector(x442),Vector(List(Const(0))),Vector(b386),Vector(Set(b387))) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:20)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x418 = SRAMBankedRead(x313,Vector(List(Const(0))),Vector(b412),Vector(Set(x417, b413)),Vec[Flt[_24,_8]]) {}
+             outDram store outSram (PowerSpectrum.scala:36:15)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x395: SRAMBankedWrite
+  x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x428: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x423: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x418: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
 Name: x325
 Type: Reg[Fix[TRUE,_32,_0]]
 Src:  PowerSpectrum.scala:31:16
@@ -210,57 +312,6 @@ x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
     x330: RegWrite
   x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
     x340: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: outSram_0 (x313)
-Type: SRAM1[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:30:33
-Src:        val outSram  = SRAM[Float](n)
----------------------------------------------------------------------
-Symbol:     x313 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
-Instances: 1
-  RAM36: 10.0
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x395 = SRAMBankedWrite(x313,Vector(x442),Vector(List(Const(0))),Vector(b386),Vector(Set(b387))) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:20)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x418 = SRAMBankedRead(x313,Vector(List(Const(0))),Vector(b412),Vector(Set(x417, b413)),Vec[Flt[_24,_8]]) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x395: SRAMBankedWrite
-  x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-    x428: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-      x423: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x418: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
@@ -335,7 +386,7 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x407 = RegWrite(x401,Const(384320),Set()) {}
+             x407 = RegWrite(x401,Const(338288),Set()) {}
              outDram store outSram (PowerSpectrum.scala:36:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
@@ -403,57 +454,6 @@ x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
     x332: RegWrite
   x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
     x439: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: realSram_0 (x311)
-Type: SRAM1[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:28:33
-Src:        val realSram = SRAM[Float](n)
----------------------------------------------------------------------
-Symbol:     x311 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
-Instances: 1
-  RAM36: 10.0
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x345 = SRAMBankedWrite(x311,Vector(x344),Vector(List(Const(0))),Vector(b337),Vector(Set(x342, b338))) {}
-             realSram load realDram (PowerSpectrum.scala:31:16)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x388 = SRAMBankedRead(x311,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:30)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x443: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x348: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-      x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x345: SRAMBankedWrite
-  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x388: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
@@ -545,14 +545,14 @@ x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
 
 
 ---------------------------------------------------------------------
-Name: imagSram_0 (x312)
+Name: realSram_0 (x311)
 Type: SRAM1[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:29:33
-Src:        val imagSram = SRAM[Float](n)
+Src:  PowerSpectrum.scala:28:33
+Src:        val realSram = SRAM[Float](n)
 ---------------------------------------------------------------------
-Symbol:     x312 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
+Symbol:     x311 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
 Instances: 1
-  RAM36: 10.0
+  RAM36: 9.0
 
 
 Instance Summary: 
@@ -566,15 +566,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x380 = SRAMBankedWrite(x312,Vector(x379),Vector(List(Const(0))),Vector(b372),Vector(Set(x377, b373))) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
+             x345 = SRAMBankedWrite(x311,Vector(x344),Vector(List(Const(0))),Vector(b337),Vector(Set(x342, b338))) {}
+             realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x391 = SRAMBankedRead(x312,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:56)
+             x388 = SRAMBankedRead(x311,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:30)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -584,12 +584,12 @@ Instance Summary:
 Control Tree: 
 x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
   x443: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-      x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x380: SRAMBankedWrite
+    x348: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x345: SRAMBankedWrite
   x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x391: SRAMBankedRead
+    x388: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
@@ -616,7 +616,7 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x406 = RegWrite(x400,Const(384312),Set()) {}
+             x406 = RegWrite(x400,Const(338283),Set()) {}
              outDram store outSram (PowerSpectrum.scala:36:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>

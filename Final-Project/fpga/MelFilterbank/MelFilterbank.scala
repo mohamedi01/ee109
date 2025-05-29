@@ -22,7 +22,7 @@ import scala.io.Source
     
     // Load input data
     val matData = loadCSV2D[Float]("../../../../fpga_io/mel_filterbank.csv", ",", "\n")
-    val vecData = loadCSV1D[Float]("../../../../fpga_io/power_spectrum_first_frame.csv", "\n")
+    val vecData = loadCSV1D[Float]("../../../../fpga_io/power_bins.csv", "\n")
     setMem(matDram, matData)
     setMem(vecDram, vecData)
     

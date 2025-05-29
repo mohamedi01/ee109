@@ -34,7 +34,7 @@ object Main {
       x350
     }
     val x352 = {
-      val file = new java.io.File("../../../../fpga_io/power_spectrum_first_frame.csv")
+      val file = new java.io.File("../../../../fpga_io/power_bins.csv")
       if (false) { // Will write to file
         val writer = new java.io.PrintWriter(file)
         writer.print("")

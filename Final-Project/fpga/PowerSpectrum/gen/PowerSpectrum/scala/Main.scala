@@ -5,10 +5,10 @@ object Main {
   def main(args: Array[String]): Unit = {
     OOB.open()
     val x292 = if (TRUE) System.out.print("DEBUG: PowerSpectrum main method started.\n")
-    val x293 = if (TRUE) System.out.print("DEBUG: Read n = Const(384312) from config file.\n")
-    x294_realDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x295_imagDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x296_outDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    val x293 = if (TRUE) System.out.print("DEBUG: Read n = Const(338283) from config file.\n")
+    x294_realDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x295_imagDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x296_outDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
     val x297 = {
       val file = new java.io.File("../../../../fpga_io/real.csv")
       if (false) { // Will write to file
@@ -91,7 +91,7 @@ object Main {
     }
     val x444_outr_RootController = x444_outr_RootController_kernel.run()
     val x430 = if (TRUE) System.out.print("DEBUG: PowerSpectrum Accel block finished.\n")
-    val x431 = new Array[FloatPoint](FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)))
+    val x431 = new Array[FloatPoint](FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)))
     val x432 = {
       for (i <- 0 until x431.length) {
         try {

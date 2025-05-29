@@ -12,569 +12,560 @@
       <h2>Controller Diagram for LogCompressCORDIC (Options: SyncMem)</h2>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
   
-<!-- Begin x1256 -->
+<!-- Begin x1228 -->
 <TD>
-<font size = "6"><a href=IR.html#x1256 target=_blank>x1256</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
-<br><font size = "2">LogCompress.scala:51:11 <font color="grey">-     Accel {</font></font>
+<font size = "6"><a href=IR.html#x1228 target=_blank>x1228</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">LogCompress.scala:56:11 <font color="grey">-     Accel {</font></font>
 
   <div data-role="collapsible"><h4> </h4>
   <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-  <!-- Begin x1253 -->
+  <!-- Begin x1225 -->
   <TD>
-  <font size = "6"><a href=IR.html#x1253 target=_blank>x1253</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+  <font size = "6"><a href=IR.html#x1225 target=_blank>x1225</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
   <br><font size = "2">BindingTransformer.scala:82:18 <font color="grey">-             stage(ParallelPipe(scala.collection.immutable.Set[Bit](), stageBlock(bundledStms.foreach(visit))))</font></font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x908 -->
+    <!-- Begin x895 -->
     <TD>
-    <font size = "6"><a href=IR.html#x908 target=_blank>x908</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-    <br><font size = "2">LogCompress.scala:59:11 <font color="grey">-       buf load inDram</font></font>
+    <font size = "6"><a href=IR.html#x895 target=_blank>x895</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">LogCompress.scala:64:11 <font color="grey">-       buf load inDram</font></font>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x883 -->
+      <!-- Begin x870 -->
       <TD>
-      <font size = "6"><a href=IR.html#x883 target=_blank>x883</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:59:11 <font color="grey">-       buf load inDram</font></font>
+      <font size = "6"><a href=IR.html#x870 target=_blank>x870</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:64:11 <font color="grey">-       buf load inDram</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  <b>II=2</b>, <b>CompilerII=1.0</b></font></mark></p>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x869, x870)----->
+<p align="right">Set(x856, x857)----->
       </font></div>
       </TD>
-      <!-- End x883-->
-      <!-- Begin x907 -->
+      <!-- End x870-->
+      <!-- Begin x894 -->
       <TD>
-      <font size = "6"><a href=IR.html#x907 target=_blank>x907</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
-      <br><font size = "2">LogCompress.scala:59:11 <font color="grey">-       buf load inDram</font></font>
+      <font size = "6"><a href=IR.html#x894 target=_blank>x894</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">LogCompress.scala:64:11 <font color="grey">-       buf load inDram</font></font>
 
         <div data-role="collapsible"><h4> </h4>
         <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-        <!-- Begin x893 -->
+        <!-- Begin x880 -->
         <TD>
-        <font size = "6"><a href=IR.html#x893 target=_blank>x893</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:59:11 <font color="grey">-       buf load inDram</font></font>
+        <font size = "6"><a href=IR.html#x880 target=_blank>x880</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:64:11 <font color="grey">-       buf load inDram</font></font>
         <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
 
         <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x870)
+<p align="left">----->Set(x857)
+        </font></div>
+        </TD>
+        <!-- End x880-->
+        <!-- Begin x893 -->
+        <TD>
+        <font size = "6"><a href=IR.html#x893 target=_blank>x893</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:64:11 <font color="grey">-       buf load inDram</font></font>
+        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
+        <br><font size = "1">Counter: <a href=IR.html#x883 target=_blank>x883</a> = CounterNew(Const(0),x1215,Const(1),Const(1))</font>
+
+        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
+<p align="left">----->Set(x858)
         </font></div>
         </TD>
         <!-- End x893-->
-        <!-- Begin x906 -->
-        <TD>
-        <font size = "6"><a href=IR.html#x906 target=_blank>x906</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:59:11 <font color="grey">-       buf load inDram</font></font>
-        <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
-        <br><font size = "1">Counter: <a href=IR.html#x896 target=_blank>x896</a> = CounterNew(Const(0),x1242,Const(1),Const(1))</font>
-
-        <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x871)
-        </font></div>
-        </TD>
-        <!-- End x906-->
         </TABLE></div>
       </TD>
-      <!-- End x907-->
+      <!-- End x894-->
       </TABLE></div>
     </TD>
-    <!-- End x908-->
-    <!-- Begin x927 -->
+    <!-- End x895-->
+    <!-- Begin x914 -->
     <TD>
-    <font size = "6"><a href=IR.html#x927 target=_blank>x927</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-    <br><font size = "2">LogCompress.scala:62:16 <font color="grey">-       xLutSram load xLutDram</font></font>
+    <font size = "6"><a href=IR.html#x914 target=_blank>x914</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">LogCompress.scala:67:16 <font color="grey">-       xLutSram load xLutDram</font></font>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x915 -->
+      <!-- Begin x902 -->
       <TD>
-      <font size = "6"><a href=IR.html#x915 target=_blank>x915</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:62:16 <font color="grey">-       xLutSram load xLutDram</font></font>
+      <font size = "6"><a href=IR.html#x902 target=_blank>x902</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:67:16 <font color="grey">-       xLutSram load xLutDram</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x909)----->
+<p align="right">Set(x896)----->
       </font></div>
       </TD>
-      <!-- End x915-->
-      <!-- Begin x926 -->
+      <!-- End x902-->
+      <!-- Begin x913 -->
       <TD>
-      <font size = "6"><a href=IR.html#x926 target=_blank>x926</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:62:16 <font color="grey">-       xLutSram load xLutDram</font></font>
+      <font size = "6"><a href=IR.html#x913 target=_blank>x913</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:67:16 <font color="grey">-       xLutSram load xLutDram</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
-      <br><font size = "1">Counter: <a href=IR.html#x918 target=_blank>x918</a> = CounterNew(Const(0),Const(128),Const(1),Const(1))</font>
+      <br><font size = "1">Counter: <a href=IR.html#x905 target=_blank>x905</a> = CounterNew(Const(0),Const(128),Const(1),Const(1))</font>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x910)
+<p align="left">----->Set(x897)
       </font></div>
       </TD>
-      <!-- End x926-->
+      <!-- End x913-->
       </TABLE></div>
     </TD>
-    <!-- End x927-->
-    <!-- Begin x945 -->
+    <!-- End x914-->
+    <!-- Begin x932 -->
     <TD>
-    <font size = "6"><a href=IR.html#x945 target=_blank>x945</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-    <br><font size = "2">LogCompress.scala:63:16 <font color="grey">-       yLutSram load yLutDram</font></font>
+    <font size = "6"><a href=IR.html#x932 target=_blank>x932</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">LogCompress.scala:68:16 <font color="grey">-       yLutSram load yLutDram</font></font>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x934 -->
+      <!-- Begin x921 -->
       <TD>
-      <font size = "6"><a href=IR.html#x934 target=_blank>x934</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:63:16 <font color="grey">-       yLutSram load yLutDram</font></font>
+      <font size = "6"><a href=IR.html#x921 target=_blank>x921</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:68:16 <font color="grey">-       yLutSram load yLutDram</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x928)----->
+<p align="right">Set(x915)----->
       </font></div>
       </TD>
-      <!-- End x934-->
-      <!-- Begin x944 -->
+      <!-- End x921-->
+      <!-- Begin x931 -->
       <TD>
-      <font size = "6"><a href=IR.html#x944 target=_blank>x944</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:63:16 <font color="grey">-       yLutSram load yLutDram</font></font>
+      <font size = "6"><a href=IR.html#x931 target=_blank>x931</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:68:16 <font color="grey">-       yLutSram load yLutDram</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
-      <br><font size = "1">Counter: <a href=IR.html#x937 target=_blank>x937</a> = CounterNew(Const(0),Const(128),Const(1),Const(1))</font>
+      <br><font size = "1">Counter: <a href=IR.html#x924 target=_blank>x924</a> = CounterNew(Const(0),Const(128),Const(1),Const(1))</font>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x929)
+<p align="left">----->Set(x916)
       </font></div>
       </TD>
-      <!-- End x944-->
+      <!-- End x931-->
       </TABLE></div>
     </TD>
-    <!-- End x945-->
+    <!-- End x932-->
     </TABLE></div>
   </TD>
-  <!-- End x1253-->
-  <!-- Begin x1255 -->
+  <!-- End x1225-->
+  <!-- Begin x1227 -->
   <TD>
-  <font size = "6"><a href=IR.html#x1255 target=_blank>x1255</a>: Pipelined UnrolledForeach <font size = "4"> (OuterControl)</font>
-  <br><font size = "2">LogCompress.scala:77:29 <font color="grey">-       Foreach(Accel_n by 1) { i =></font></font>
-  <br><font size = "1">Counter: <a href=IR.html#x948 target=_blank>x948</a> = CounterNew(Const(0),x1243,Const(1),Const(1))</font>
+  <font size = "6"><a href=IR.html#x1227 target=_blank>x1227</a>: Pipelined UnrolledForeach <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">LogCompress.scala:82:29 <font color="grey">-       Foreach(Accel_n by 1) { i =></font></font>
+  <br><font size = "1">Counter: <a href=IR.html#x935 target=_blank>x935</a> = CounterNew(Const(0),x1216,Const(1),Const(1))</font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x959 -->
+    <!-- Begin x946 -->
     <TD>
-    <font size = "6"><a href=IR.html#x959 target=_blank>x959</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <font size = "6"><a href=IR.html#x946 target=_blank>x946</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
     <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x938 target=_blank>x938</a> (FF "")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
     </TD>
-    <!-- End x959-->
-    <!-- Begin x1006 -->
+    <!-- End x946-->
+    <!-- Begin x993 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1006 target=_blank>x1006</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <font size = "6"><a href=IR.html#x993 target=_blank>x993</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
     <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x938 target=_blank>x938</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x967 target=_blank>x967</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x955 target=_blank>x955</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x963 target=_blank>x963</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x950 target=_blank>x950</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x961 target=_blank>x961</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccb6ff"><font size = "1"><a href=IR.html#x968 target=_blank>x968</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x954 target=_blank>x954</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=IR.html#x964 target=_blank>x964</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x953 target=_blank>x953</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x965 target=_blank>x965</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ff99"><font size = "1"><a href=IR.html#x948 target=_blank>x948</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x970 target=_blank>x970</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x952 target=_blank>x952</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x966 target=_blank>x966</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccffcc"><font size = "1"><a href=IR.html#x957 target=_blank>x957</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x969 target=_blank>x969</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x956 target=_blank>x956</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x962 target=_blank>x962</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x949 target=_blank>x949</a> (FF "")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
     </TD>
-    <!-- End x1006-->
-    <!-- Begin x1254 -->
+    <!-- End x993-->
+    <!-- Begin x1226 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1254 target=_blank>x1254</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
+    <font size = "6"><a href=IR.html#x1226 target=_blank>x1226</a>: ForkJoin ParallelPipe <font size = "4"> (OuterControl)</font>
     <br><font size = "2">BindingTransformer.scala:82:18 <font color="grey">-             stage(ParallelPipe(scala.collection.immutable.Set[Bit](), stageBlock(bundledStms.foreach(visit))))</font></font>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x938 target=_blank>x938</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x967 target=_blank>x967</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x955 target=_blank>x955</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x963 target=_blank>x963</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x950 target=_blank>x950</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x961 target=_blank>x961</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccb6ff"><font size = "1"><a href=IR.html#x968 target=_blank>x968</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x954 target=_blank>x954</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1044 target=_blank>x1044</a> (FF "found_flag_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x953 target=_blank>x953</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=IR.html#x964 target=_blank>x964</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ff99"><font size = "1"><a href=IR.html#x948 target=_blank>x948</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x965 target=_blank>x965</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x952 target=_blank>x952</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x970 target=_blank>x970</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccffcc"><font size = "1"><a href=IR.html#x957 target=_blank>x957</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x966 target=_blank>x966</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x956 target=_blank>x956</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x969 target=_blank>x969</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x949 target=_blank>x949</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x962 target=_blank>x962</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1031 target=_blank>x1031</a> (FF "found_flag_0")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x1042 -->
+      <!-- Begin x1029 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1042 target=_blank>x1042</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <font size = "6"><a href=IR.html#x1029 target=_blank>x1029</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
       <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=10,  II=1</font></mark></p>
 
       </TD>
-      <!-- End x1042-->
-      <!-- Begin x1046 -->
+      <!-- End x1029-->
+      <!-- Begin x1033 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1046 target=_blank>x1046</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <font size = "6"><a href=IR.html#x1033 target=_blank>x1033</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
       <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
 
       </TD>
-      <!-- End x1046-->
+      <!-- End x1033-->
       </TABLE></div>
     </TD>
-    <!-- End x1254-->
-    <!-- Begin x1065 -->
+    <!-- End x1226-->
+    <!-- Begin x1052 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1065 target=_blank>x1065</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">LogCompress.scala:122:39 <font color="grey">-         Foreach(N_LUT_LOG10 - 1 by 1) { j_scan => // j_scan goes from 0 to N_LUT_LOG10 - 2</font></font>
+    <font size = "6"><a href=IR.html#x1052 target=_blank>x1052</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">LogCompress.scala:127:39 <font color="grey">-         Foreach(N_LUT_LOG10 - 1 by 1) { j_scan => // j_scan goes from 0 to N_LUT_LOG10 - 2</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1044 target=_blank>x1044</a> (FF "found_flag_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1031 target=_blank>x1031</a> (FF "found_flag_0")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x1043 target=_blank>x1043</a> (FF "found_idx_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1030 target=_blank>x1030</a> (FF "found_idx_0")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
-    <br><font size = "1">Counter: <a href=IR.html#x1048 target=_blank>x1048</a> = CounterNew(Const(0),Const(127),Const(1),Const(1))</font>
+    <br><font size = "1">Counter: <a href=IR.html#x1035 target=_blank>x1035</a> = CounterNew(Const(0),Const(127),Const(1),Const(1))</font>
 
     </TD>
-    <!-- End x1065-->
-    <!-- Begin x1084 -->
+    <!-- End x1052-->
+    <!-- Begin x1071 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1084 target=_blank>x1084</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <font size = "6"><a href=IR.html#x1071 target=_blank>x1071</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
     <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=4,  II=1</font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #fff7e6"><font size = "1"><a href=IR.html#x1069 target=_blank>x1069</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1056 target=_blank>x1056</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=IR.html#x1066 target=_blank>x1066</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1053 target=_blank>x1053</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1067 target=_blank>x1067</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1054 target=_blank>x1054</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x1043 target=_blank>x1043</a> (FF "found_idx_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1030 target=_blank>x1030</a> (FF "found_idx_0")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1068 target=_blank>x1068</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x1055 target=_blank>x1055</a> (FF "")
+      </font></div></p>
+      </TABLE></div>
+    </TABLE></div>
+
+    </TD>
+    <!-- End x1071-->
+    <!-- Begin x1084 -->
+    <TD>
+    <font size = "6"><a href=IR.html#x1084 target=_blank>x1084</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
+    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=13,  II=1</font></mark></p>
+<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
+<font size=1>NBuf Connections</font>
+      <div data-role="collapsible"><h4> </h4>
+      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1056 target=_blank>x1056</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1053 target=_blank>x1053</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1054 target=_blank>x1054</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x1075 target=_blank>x1075</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1074 target=_blank>x1074</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x1055 target=_blank>x1055</a> (FF "")
+      </font></div></p>
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x1073 target=_blank>x1073</a> (FF "")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
     </TD>
     <!-- End x1084-->
-    <!-- Begin x1097 -->
+    <!-- Begin x1104 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1097 target=_blank>x1097</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
-    <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=13,  II=1</font></mark></p>
-<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
-<font size=1>NBuf Connections</font>
-      <div data-role="collapsible"><h4> </h4>
-      <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #fff7e6"><font size = "1"><a href=IR.html#x1069 target=_blank>x1069</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=IR.html#x1066 target=_blank>x1066</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1067 target=_blank>x1067</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1088 target=_blank>x1088</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1086 target=_blank>x1086</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1087 target=_blank>x1087</a> (FF "")
-      </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1068 target=_blank>x1068</a> (FF "")
-      </font></div></p>
-      </TABLE></div>
-    </TABLE></div>
-
-    </TD>
-    <!-- End x1097-->
-    <!-- Begin x1117 -->
-    <TD>
-    <font size = "6"><a href=IR.html#x1117 target=_blank>x1117</a>: Fork Switch <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">LogCompress.scala:145:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
+    <font size = "6"><a href=IR.html#x1104 target=_blank>x1104</a>: Fork Switch <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">LogCompress.scala:150:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=61,  <b>II=61</b></font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #fff7e6"><font size = "1"><a href=IR.html#x1069 target=_blank>x1069</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1056 target=_blank>x1056</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=IR.html#x1066 target=_blank>x1066</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1053 target=_blank>x1053</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1067 target=_blank>x1067</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1054 target=_blank>x1054</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1088 target=_blank>x1088</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x1075 target=_blank>x1075</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1085 target=_blank>x1085</a> (FF "log10_of_norm_val_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1074 target=_blank>x1074</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1086 target=_blank>x1086</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1072 target=_blank>x1072</a> (FF "log10_of_norm_val_0")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1087 target=_blank>x1087</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x1073 target=_blank>x1073</a> (FF "")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x1112 -->
+      <!-- Begin x1099 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1112 target=_blank>x1112</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:145:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
+      <font size = "6"><a href=IR.html#x1099 target=_blank>x1099</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:150:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=61,  <b>II=61</b>, <b>CompilerII=1.0</b></font></mark></p>
 
       </TD>
-      <!-- End x1112-->
-      <!-- Begin x1116 -->
+      <!-- End x1099-->
+      <!-- Begin x1103 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1116 target=_blank>x1116</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:145:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
+      <font size = "6"><a href=IR.html#x1103 target=_blank>x1103</a>: Sequenced SwitchCase <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:150:9 <font color="grey">-         if (dx > 1e-9f) { // Check for non-zero denominator</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=61,  <b>II=61</b>, <b>CompilerII=1.0</b></font></mark></p>
 
       </TD>
-      <!-- End x1116-->
+      <!-- End x1103-->
       </TABLE></div>
     </TD>
-    <!-- End x1117-->
-    <!-- Begin x1122 -->
+    <!-- End x1104-->
+    <!-- Begin x1109 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1122 target=_blank>x1122</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <font size = "6"><a href=IR.html#x1109 target=_blank>x1109</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
     <br><font size = "2">PipeInserter.scala:189:18 <font color="grey">-             Pipe {</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=13,  II=1</font></mark></p>
 <TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0"><td>
 <font size=1>NBuf Connections</font>
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
       </font></div></p>
-      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1085 target=_blank>x1085</a> (FF "log10_of_norm_val_0")
+      <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1072 target=_blank>x1072</a> (FF "log10_of_norm_val_0")
       </font></div></p>
       </TABLE></div>
     </TABLE></div>
 
     </TD>
-    <!-- End x1122-->
+    <!-- End x1109-->
     </TABLE></div>
   </TD>
-  <!-- End x1255-->
-  <!-- Begin x1161 -->
+  <!-- End x1227-->
+  <!-- Begin x1148 -->
   <TD>
-  <font size = "6"><a href=IR.html#x1161 target=_blank>x1161</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-  <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+  <font size = "6"><a href=IR.html#x1148 target=_blank>x1148</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x1160 -->
+    <!-- Begin x1147 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1160 target=_blank>x1160</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
-    <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+    <font size = "6"><a href=IR.html#x1147 target=_blank>x1147</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x1155 -->
+      <!-- Begin x1142 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1155 target=_blank>x1155</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
-      <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+      <font size = "6"><a href=IR.html#x1142 target=_blank>x1142</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
 
         <div data-role="collapsible"><h4> </h4>
         <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-        <!-- Begin x1140 -->
+        <!-- Begin x1127 -->
         <TD>
-        <font size = "6"><a href=IR.html#x1140 target=_blank>x1140</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+        <font size = "6"><a href=IR.html#x1127 target=_blank>x1127</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
         <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
 
         <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x1124)----->
+<p align="right">Set(x1111)----->
         </font></div>
         </TD>
-        <!-- End x1140-->
-        <!-- Begin x1154 -->
+        <!-- End x1127-->
+        <!-- Begin x1141 -->
         <TD>
-        <font size = "6"><a href=IR.html#x1154 target=_blank>x1154</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+        <font size = "6"><a href=IR.html#x1141 target=_blank>x1141</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
         <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
-        <br><font size = "1">Counter: <a href=IR.html#x1143 target=_blank>x1143</a> = CounterNew(Const(0),x1246,Const(1),Const(1))</font>
+        <br><font size = "1">Counter: <a href=IR.html#x1130 target=_blank>x1130</a> = CounterNew(Const(0),x1219,Const(1),Const(1))</font>
 
         <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x1125)----->
+<p align="right">Set(x1112)----->
         </font></div>
         </TD>
-        <!-- End x1154-->
+        <!-- End x1141-->
         </TABLE></div>
       </TD>
-      <!-- End x1155-->
-      <!-- Begin x1159 -->
+      <!-- End x1142-->
+      <!-- Begin x1146 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1159 target=_blank>x1159</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:156:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
+      <font size = "6"><a href=IR.html#x1146 target=_blank>x1146</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:161:21 <font color="grey">-       rawLogOutDram store outSram(0 :: Accel_n - 1)</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x1126)
+<p align="left">----->Set(x1113)
       </font></div>
       </TD>
-      <!-- End x1159-->
+      <!-- End x1146-->
       </TABLE></div>
     </TD>
-    <!-- End x1160-->
+    <!-- End x1147-->
     </TABLE></div>
   </TD>
-  <!-- End x1161-->
-  <!-- Begin x1175 -->
+  <!-- End x1148-->
+  <!-- Begin x1160 -->
   <TD>
-  <font size = "6"><a href=IR.html#x1175 target=_blank>x1175</a>: Pipelined UnrolledReduce <font size = "4"> (InnerControl)</font>
-  <br><font size = "2">LogCompress.scala:161:62 <font color="grey">-       Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) }</font></font>
-  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=3,  II=1</font></mark></p>
-  <br><font size = "1">Counter: <a href=IR.html#x1164 target=_blank>x1164</a> = CounterNew(Const(0),x1247,Const(1),Const(1))</font>
-
-  </TD>
-  <!-- End x1175-->
-  <!-- Begin x1187 -->
-  <TD>
-  <font size = "6"><a href=IR.html#x1187 target=_blank>x1187</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-  <br><font size = "2">LogCompress.scala:174:29 <font color="grey">-       Foreach(Accel_n by 1) { i =></font></font>
+  <font size = "6"><a href=IR.html#x1160 target=_blank>x1160</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+  <br><font size = "2">LogCompress.scala:180:29 <font color="grey">-       Foreach(Accel_n by 1) { i =></font></font>
   <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=13,  <b>II=3</b></font></mark></p>
-  <br><font size = "1">Counter: <a href=IR.html#x1177 target=_blank>x1177</a> = CounterNew(Const(0),x1248,Const(1),Const(1))</font>
+  <br><font size = "1">Counter: <a href=IR.html#x1150 target=_blank>x1150</a> = CounterNew(Const(0),x1220,Const(1),Const(1))</font>
 
   </TD>
-  <!-- End x1187-->
-  <!-- Begin x1225 -->
+  <!-- End x1160-->
+  <!-- Begin x1198 -->
   <TD>
-  <font size = "6"><a href=IR.html#x1225 target=_blank>x1225</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-  <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+  <font size = "6"><a href=IR.html#x1198 target=_blank>x1198</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x1224 -->
+    <!-- Begin x1197 -->
     <TD>
-    <font size = "6"><a href=IR.html#x1224 target=_blank>x1224</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
-    <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+    <font size = "6"><a href=IR.html#x1197 target=_blank>x1197</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+    <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
 
       <div data-role="collapsible"><h4> </h4>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-      <!-- Begin x1219 -->
+      <!-- Begin x1192 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1219 target=_blank>x1219</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
-      <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+      <font size = "6"><a href=IR.html#x1192 target=_blank>x1192</a>: Sequenced UnitPipe <font size = "4"> (OuterControl)</font>
+      <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
 
         <div data-role="collapsible"><h4> </h4>
         <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-        <!-- Begin x1204 -->
+        <!-- Begin x1177 -->
         <TD>
-        <font size = "6"><a href=IR.html#x1204 target=_blank>x1204</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+        <font size = "6"><a href=IR.html#x1177 target=_blank>x1177</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
         <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
 
         <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x1188)----->
+<p align="right">Set(x1161)----->
         </font></div>
         </TD>
-        <!-- End x1204-->
-        <!-- Begin x1218 -->
+        <!-- End x1177-->
+        <!-- Begin x1191 -->
         <TD>
-        <font size = "6"><a href=IR.html#x1218 target=_blank>x1218</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-        <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+        <font size = "6"><a href=IR.html#x1191 target=_blank>x1191</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+        <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
         <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
-        <br><font size = "1">Counter: <a href=IR.html#x1207 target=_blank>x1207</a> = CounterNew(Const(0),x1249,Const(1),Const(1))</font>
+        <br><font size = "1">Counter: <a href=IR.html#x1180 target=_blank>x1180</a> = CounterNew(Const(0),x1221,Const(1),Const(1))</font>
 
         <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x1189)----->
+<p align="right">Set(x1162)----->
         </font></div>
         </TD>
-        <!-- End x1218-->
+        <!-- End x1191-->
         </TABLE></div>
       </TD>
-      <!-- End x1219-->
-      <!-- Begin x1223 -->
+      <!-- End x1192-->
+      <!-- Begin x1196 -->
       <TD>
-      <font size = "6"><a href=IR.html#x1223 target=_blank>x1223</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-      <br><font size = "2">LogCompress.scala:180:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
+      <font size = "6"><a href=IR.html#x1196 target=_blank>x1196</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+      <br><font size = "2">LogCompress.scala:186:15 <font color="grey">-       outDram store outSram(0 :: Accel_n - 1)</font></font>
       <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
       <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x1190)
+<p align="left">----->Set(x1163)
       </font></div>
       </TD>
-      <!-- End x1223-->
+      <!-- End x1196-->
       </TABLE></div>
     </TD>
-    <!-- End x1224-->
+    <!-- End x1197-->
     </TABLE></div>
   </TD>
-  <!-- End x1225-->
+  <!-- End x1198-->
   </TABLE></div>
 </TD>
-<!-- End x1256-->
+<!-- End x1228-->
 </TABLE>
 <h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
 <!-- Begin NBuf Mems -->
@@ -582,184 +573,184 @@
 NBuf Mems
   <div data-role="collapsible"><h4> </h4>
   <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x971 target=_blank>x971</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x958 target=_blank>x958</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 7
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 7
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x1008 target=_blank>x1008</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x995 target=_blank>x995</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 5
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 5
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x938 target=_blank>x938</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 3
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 3
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #fff7e6"><font size = "1"><a href=IR.html#x1069 target=_blank>x1069</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1056 target=_blank>x1056</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 3
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 3
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #d9b3ff"><font size = "1"><a href=IR.html#x1066 target=_blank>x1066</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1053 target=_blank>x1053</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 3
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 3
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1067 target=_blank>x1067</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1054 target=_blank>x1054</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 3
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 3
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0b77a"><font size = "1"><a href=IR.html#x1044 target=_blank>x1044</a> (FF "found_flag_0")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x955 target=_blank>x955</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x967 target=_blank>x967</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x950 target=_blank>x950</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x963 target=_blank>x963</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x951 target=_blank>x951</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x961 target=_blank>x961</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x954 target=_blank>x954</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccb6ff"><font size = "1"><a href=IR.html#x968 target=_blank>x968</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x953 target=_blank>x953</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #22f5e2"><font size = "1"><a href=IR.html#x964 target=_blank>x964</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ff99"><font size = "1"><a href=IR.html#x948 target=_blank>x948</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e699ff"><font size = "1"><a href=IR.html#x965 target=_blank>x965</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #17eaf7"><font size = "1"><a href=IR.html#x952 target=_blank>x952</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #50d246"><font size = "1"><a href=IR.html#x970 target=_blank>x970</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ccffcc"><font size = "1"><a href=IR.html#x957 target=_blank>x957</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x966 target=_blank>x966</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e0e0d1"><font size = "1"><a href=IR.html#x956 target=_blank>x956</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x969 target=_blank>x969</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x949 target=_blank>x949</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x962 target=_blank>x962</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #efc11b"><font size = "1"><a href=IR.html#x1075 target=_blank>x1075</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ee6c56"><font size = "1"><a href=IR.html#x1043 target=_blank>x1043</a> (FF "found_idx_0")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1074 target=_blank>x1074</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
+<br>nBufs = 2
+<br>volume = 1 (dims List() + pads List(), bw = 1)
+<br>nBufs*volume = 2
+<br>nBanks = List(1), B = List(1), a = List(), p = List()
+<br>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #eefb21"><font size = "1"><a href=IR.html#x1055 target=_blank>x1055</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1085 target=_blank>x1085</a> (FF "log10_of_norm_val_0")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #aed919"><font size = "1"><a href=IR.html#x1073 target=_blank>x1073</a> (FF "")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1088 target=_blank>x1088</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
-<br>nBufs = 2
-<br>volume = 1 (dims List() + pads List(), bw = 1)
-<br>nBufs*volume = 2
-<br>nBanks = List(1), B = List(1), a = List(), p = List()
-<br>
-  </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2e6ff"><font size = "1"><a href=IR.html#x1086 target=_blank>x1086</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1072 target=_blank>x1072</a> (FF "log10_of_norm_val_0")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #f2ffcc"><font size = "1"><a href=IR.html#x1087 target=_blank>x1087</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #e6b3cc"><font size = "1"><a href=IR.html#x1031 target=_blank>x1031</a> (FF "found_flag_0")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 1)
 <br>nBufs*volume = 2
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #ecc6d9"><font size = "1"><a href=IR.html#x1068 target=_blank>x1068</a> (FF "")
-<br>lca = <a href=IR.html#x1255 target=_blank>x1255</a>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #99ddff"><font size = "1"><a href=IR.html#x1030 target=_blank>x1030</a> (FF "found_idx_0")
+<br>lca = <a href=IR.html#x1227 target=_blank>x1227</a>
 <br>nBufs = 2
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBufs*volume = 2
@@ -774,87 +765,82 @@ NBuf Mems
 Single-Buffered Mems
   <div data-role="collapsible"><h4> </h4>
   <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x863 target=_blank>x863</a> (BankedSRAM "buf_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x933 target=_blank>x933</a> (BankedSRAM "outSram_0")
+<br>volume = 400000 (dims List(400000) + pads List(0), bw = 32)
+<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">3</div><div style="border: 1px solid;padding: 5px">2</div> </div>
+  </font></div></p>
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x850 target=_blank>x850</a> (BankedSRAM "buf_0")
 <br>volume = 400000 (dims List(400000) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x946 target=_blank>x946</a> (BankedSRAM "outSram_0")
-<br>volume = 400000 (dims List(400000) + pads List(0), bw = 32)
-<br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
-<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">4</div><div style="border: 1px solid;padding: 5px">2</div> </div>
-  </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x864 target=_blank>x864</a> (BankedSRAM "xLutSram_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x855 target=_blank>x855</a> (BankedSRAM "yLutSram_1")
 <br>volume = 128 (dims List(128) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x868 target=_blank>x868</a> (BankedSRAM "yLutSram_1")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x854 target=_blank>x854</a> (BankedSRAM "yLutSram_0")
 <br>volume = 128 (dims List(128) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x867 target=_blank>x867</a> (BankedSRAM "yLutSram_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x853 target=_blank>x853</a> (BankedSRAM "xLutSram_2")
 <br>volume = 128 (dims List(128) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x866 target=_blank>x866</a> (BankedSRAM "xLutSram_2")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x852 target=_blank>x852</a> (BankedSRAM "xLutSram_1")
 <br>volume = 128 (dims List(128) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x865 target=_blank>x865</a> (BankedSRAM "xLutSram_1")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x851 target=_blank>x851</a> (BankedSRAM "xLutSram_0")
 <br>volume = 128 (dims List(128) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x870 target=_blank>x870</a> (FIFO "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x857 target=_blank>x857</a> (FIFO "")
 <br>volume = 16 (dims List(16) + pads List(0), bw = 96)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1162 target=_blank>x1162</a> (FF "logMaxReg_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x872 target=_blank>x872</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x886 target=_blank>x886</a> (FF "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x994 target=_blank>x994</a> (FF "norm_val_calc_reg_0")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x885 target=_blank>x885</a> (FF "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1115 target=_blank>x1115</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1007 target=_blank>x1007</a> (FF "norm_val_calc_reg_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x947 target=_blank>x947</a> (FF "decade_calc_reg_0")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1128 target=_blank>x1128</a> (FF "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1165 target=_blank>x1165</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1127 target=_blank>x1127</a> (FF "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1114 target=_blank>x1114</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1192 target=_blank>x1192</a> (FF "")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1164 target=_blank>x1164</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x1191 target=_blank>x1191</a> (FF "")
-<br>volume = 1 (dims List() + pads List(), bw = 32)
-<br>nBanks = List(1), B = List(1), a = List(), p = List()
-<br>
-  </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x960 target=_blank>x960</a> (FF "decade_calc_reg_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x873 target=_blank>x873</a> (FF "")
 <br>volume = 1 (dims List() + pads List(), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(), p = List()
 <br>

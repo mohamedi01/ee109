@@ -18,6 +18,7 @@ import torchaudio
 # If wav_to_logmel is adapted, its import might change or it might have a new name
 # for handling data directly. For now, we'll assume it can take a path or data.
 from audiolib.dsp.mel import wav_to_logmel
+# from audiolib.dsp.hw_equivalent_dsp import hw_equivalent_logmel
 from .whisper_features import transcribe_features
 
 # Constants for long transcription
