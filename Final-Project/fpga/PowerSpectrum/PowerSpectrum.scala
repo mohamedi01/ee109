@@ -17,6 +17,13 @@ import scala.io.Source // Needed for reading file
     val realDram = DRAM[Float](n)
     val imagDram = DRAM[Float](n)
     val outDram  = DRAM[Float](n)
+    
+    // Load input data from numpy files
+    val realData = loadCSV1D[Float]("../../../../fpga_io/real.csv", "\n")
+    val imagData = loadCSV1D[Float]("../../../../fpga_io/imag.csv", "\n")
+    setMem(realDram, realData)
+    setMem(imagDram, imagData)
+    
     Accel {
       val realSram = SRAM[Float](n)
       val imagSram = SRAM[Float](n)
@@ -29,5 +36,9 @@ import scala.io.Source // Needed for reading file
       outDram store outSram
     }
     println("DEBUG: PowerSpectrum Accel block finished.")
+    
+    // Write output
+    val result = getMem(outDram)
+    writeCSV1D(result, "../../../../fpga_io/power_spectrum_output.csv", delim="\n")
   }
 }

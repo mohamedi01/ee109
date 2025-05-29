@@ -19,6 +19,13 @@ import scala.io.Source
     val matDram = DRAM[Float](bands, bins)
     val vecDram = DRAM[Float](bins)
     val outDram = DRAM[Float](bands)
+    
+    // Load input data
+    val matData = loadCSV2D[Float]("../../../../fpga_io/mel_filterbank.csv", ",", "\n")
+    val vecData = loadCSV1D[Float]("../../../../fpga_io/power_spectrum_first_frame.csv", "\n")
+    setMem(matDram, matData)
+    setMem(vecDram, vecData)
+    
     Accel {
       val matSram = SRAM[Float](bands, bins)
       val vecSram = SRAM[Float](bins)
@@ -37,5 +44,9 @@ import scala.io.Source
       outDram store outSram
     }
     println("DEBUG: MelFilterbank Accel block finished.")
+    
+    // Write output
+    val result = getMem(outDram)
+    writeCSV1D(result, "../../../../fpga_io/melfilterbank_output.csv", delim="\n")
   }
 }
