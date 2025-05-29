@@ -86,6 +86,50 @@ def quantize_int16(x_np: np.ndarray) -> np.ndarray:
     int16 = clipped.astype(np.int16)
     return int16.astype(np.float32) / 32768.0
 
+def create_mel_filterbank(n_fft: int = 400,
+                          n_mels: int = 80,
+                          sr: int = 16000,
+                          fmin: float = 0.0,
+                          fmax: float = None) -> np.ndarray:
+    """
+    Generate an (n_mels × (n_fft//2 + 1)) Mel filterbank matrix.
+    """
+    if fmax is None:
+        fmax = sr / 2
+    try:
+        import librosa
+        # librosa.filters.mel returns shape (n_mels, n_fft//2 + 1)
+        return librosa.filters.mel(sr=sr, n_fft=n_fft,
+                                   n_mels=n_mels, fmin=fmin, fmax=fmax)
+    except ImportError:
+        # Manual fallback implementation
+        def hz_to_mel(hz):
+            return 2595 * np.log10(1 + hz / 700.0)
+        def mel_to_hz(mel):
+            return 700 * (10**(mel / 2595.0) - 1)
+
+        # Compute equally spaced points in Mel and convert to Hz
+        mel_pts = np.linspace(hz_to_mel(fmin), hz_to_mel(fmax), n_mels + 2)
+        hz_pts  = mel_to_hz(mel_pts)
+
+        # FFT bin center frequencies (0 to sr/2)
+        bin_freqs = np.linspace(0, sr/2, n_fft//2 + 1)
+        fb = np.zeros((n_mels, n_fft//2 + 1), dtype=np.float32)
+
+        for m in range(1, n_mels + 1):
+            f_left, f_center, f_right = hz_pts[m-1], hz_pts[m], hz_pts[m+1]
+            # Convert Hz to nearest FFT bin indices
+            left_bin   = int(np.floor((n_fft + 1) * f_left   / sr))
+            center_bin = int(np.floor((n_fft + 1) * f_center / sr))
+            right_bin  = int(np.floor((n_fft + 1) * f_right  / sr))
+
+            # Triangular weights
+            for k in range(left_bin, center_bin):
+                fb[m-1, k] = (bin_freqs[k] - f_left) / (f_center - f_left)
+            for k in range(center_bin, right_bin):
+                fb[m-1, k] = (f_right - bin_freqs[k]) / (f_right - f_center)
+
+        return fb
 
 def _get_mel_spec(device: torch.device) -> torchaudio.transforms.MelSpectrogram:
     """

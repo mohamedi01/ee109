@@ -1,16 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:18:47: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:3:20: value math is not a member of object spatial.dsl[0m
+[0m[[0m[31merror[0m] [0m[0mimport spatial.dsl.math._[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:19:47: type mismatch;[0m
 [0m[[0m[31merror[0m] [0m[0m found   : argon.lang.Flt[spatial.dsl._24,spatial.dsl._8][0m
 [0m[[0m[31merror[0m] [0m[0m    (which expands to)  argon.lang.Flt[argon.lang.types._24,argon.lang.types._8][0m
 [0m[[0m[31merror[0m] [0m[0m required: argon.Sym[Double][0m
 [0m[[0m[31merror[0m] [0m[0m    (which expands to)  argon.Exp[Any,Double][0m
 [0m[[0m[31merror[0m] [0m[0m      math.log10(if (cl < 1e-10f) 1e-10f else cl).toFloat[0m
 [0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:31:21: overloaded method value apply with alternatives:[0m
-[0m[[0m[31merror[0m] [0m[0m  (domain: Seq[spatial.lang.Counter[spatial.lang.I32]])(map: List[spatial.lang.I32] => argon.lang.api.I32)(reduce: (argon.lang.api.I32, argon.lang.api.I32) => argon.lang.api.I32)(implicit A: spatial.lang.Bits[argon.lang.api.I32], implicit ctx: forge.SrcCtx, implicit state: argon.State)spatial.lang.Reg[argon.lang.api.I32] <and>[0m
-[0m[[0m[31merror[0m] [0m[0m  (domain1: spatial.lang.Counter[spatial.lang.I32])(map: spatial.lang.I32 => argon.lang.api.I32)(reduce: (argon.lang.api.I32, argon.lang.api.I32) => argon.lang.api.I32)(implicit A: spatial.lang.Bits[argon.lang.api.I32], implicit ctx: forge.SrcCtx, implicit state: argon.State)spatial.lang.Reg[argon.lang.api.I32][0m
-[0m[[0m[31merror[0m] [0m[0m cannot be applied to (spatial.lang.SRAM1[T])[0m
-[0m[[0m[31merror[0m] [0m[0m      val m = Reduce(Int.MinValue)(buf){ i => buf(i) }[0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
 [0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:39:9: value update is not a member of spatial.lang.DRAM1[T][0m
 [0m[[0m[31merror[0m] [0m[0m        outD(i) = log10(max(buf(i), 1e-10f))[0m
 [0m[[0m[31merror[0m] [0m[0m        ^[0m
