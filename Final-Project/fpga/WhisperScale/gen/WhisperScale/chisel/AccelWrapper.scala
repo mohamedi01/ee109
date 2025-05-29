@@ -16,7 +16,7 @@ trait AccelWrapper extends Module {
   val io_axiStreamInsInfo = List()
   val io_axiStreamOutsInfo = List()
   // Scalars
-  val io_numArgIns_reg = 2
+  val io_numArgIns_reg = 1
   val io_numArgOuts_reg = 0
   val io_numArgIOs_reg = 0
   val io_argOutLoopbacksMap: scala.collection.immutable.Map[Int,Int] = Map()
@@ -31,14 +31,14 @@ trait AccelWrapper extends Module {
   val io_numAllocators = scala.math.max(1, 0)
   // Root controller for app: WhisperScale
   
-  // Widths: 1, 2, 2, 2, 2, 3
+  // Widths: 2, 3, 3
   //   Widest Outer Controller: 3
-  // Depths: 2, 3, 4, 4, 4, 5, 5
-  //   Deepest Inner Controller: 5
-  // App Characteristics: HasTileLoad,HasUnalignedLoad,HasTileStore,HasUnalignedStore
+  // Depths: 2, 3, 3, 3, 3, 3
+  //   Deepest Inner Controller: 3
+  // App Characteristics: HasTileLoad,HasAlignedLoad,HasTileStore,HasUnalignedStore
   // Instrumentation
   val io_numArgOuts_instr = 0
-  val io_numArgCtrls = 13
+  val io_numArgCtrls = 9
   val io_numArgOuts_breakpts = 0
   // Set Build Info
   val max_latency = 42

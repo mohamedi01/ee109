@@ -125,9 +125,11 @@ def create_mel_filterbank(n_fft: int = 400,
 
             # Triangular weights
             for k in range(left_bin, center_bin):
-                fb[m-1, k] = (bin_freqs[k] - f_left) / (f_center - f_left)
+                weight = (bin_freqs[k] - f_left) / (f_center - f_left)
+                fb[m-1, k] = max(0.0, weight)
             for k in range(center_bin, right_bin):
-                fb[m-1, k] = (f_right - bin_freqs[k]) / (f_right - f_center)
+                weight = (f_right - bin_freqs[k]) / (f_right - f_center)
+                fb[m-1, k] = max(0.0, weight)
 
         return fb
 

@@ -1,12 +1,11 @@
 // API for args in app WhisperScale
 
 // ArgIns
-#define X206_arg 0
-#define ACCEL_N_arg 1
+#define ACCEL_N_arg 0
 
 // DRAM Ptrs:
-#define INDRAM_ptr 2
-#define OUTDRAM_ptr 3
+#define INDRAM_ptr 1
+#define OUTDRAM_ptr 2
 
 // ArgIOs
 

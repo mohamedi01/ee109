@@ -2,12 +2,11 @@ package accel
 object api {
   
 // ArgIns
-  val ACCEL_N_arg = 1
-  val X206_ARGIN_arg = 0
+  val ACCEL_N_arg = 0
   
 // DRAM Ptrs:
-  val INDRAM_ptr = 2
-  val OUTDRAM_ptr = 3
+  val OUTDRAM_ptr = 2
+  val INDRAM_ptr = 1
   
 // ArgIOs
   

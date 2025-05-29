@@ -1,232 +1,18 @@
 ---------------------------
 Estimated Total Memories: 
 ---------------------------
-  RAM36: 24.0
+  RAM36: 27.0
 ---------------------------
 
 
 
 ---------------------------------------------------------------------
-Name: x385
-Type: StreamIn[Flt[_24,_8]]
-Src:  LogCompress.scala:50:18
-Src:        Ktable     load constDram
----------------------------------------------------------------------
-Symbol:     x385 = StreamInNew(BurstDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x396 = StreamInBankedRead(x385,ArrayBuffer(Set(b395))) {}
-             Ktable     load constDram (LogCompress.scala:50:18)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x399: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x396: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x345
-Type: FIFO[IssuedCmd]
-Src:  LogCompress.scala:49:11
-Src:        buf load inDram
----------------------------------------------------------------------
-Symbol:     x345 = FIFONew(Const(16))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x357 = FIFOBankedEnq(x345,ArrayBuffer(x356),ArrayBuffer(Set(Const(true)))) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x362 = FIFOBankedDeq(x345,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-  x358: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x357: FIFOBankedEnq
-  x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-    x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-      x362: FIFOBankedDeq
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x448
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  LogCompress.scala:81:15
-Src:        outDram store outSram(0 :: Accel_n - 1)
----------------------------------------------------------------------
-Symbol:     x448 = RegNew(Const(0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x459 = RegWrite(x448,x450,Set()) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x468 = RegRead(x448) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x476: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x461: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x459: RegWrite
-  x475: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x468: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x337
-Type: Reg[Flt[_24,_8]]
-Src:  FriendlyTransformer.scala:19:28
-Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
----------------------------------------------------------------------
-Symbol:     x337 = ArgInNew(Const(0.0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x338 = SetReg(x337,x323) {}
-             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x439 = RegRead(x337) {}
-             arg.value (FriendlyTransformer.scala:22:9)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-Host
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x346
-Type: StreamIn[Flt[_24,_8]]
-Src:  LogCompress.scala:49:11
-Src:        buf load inDram
----------------------------------------------------------------------
-Symbol:     x346 = StreamInNew(BurstDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x378 = StreamInBankedRead(x346,ArrayBuffer(Set(b373))) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x378: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x445
+Name: x869
 Type: StreamOut[BurstCmd]
-Src:  LogCompress.scala:81:15
-Src:        outDram store outSram(0 :: Accel_n - 1)
+Src:  LogCompress.scala:59:11
+Src:        buf load inDram
 ---------------------------------------------------------------------
-Symbol:     x445 = StreamOutNew(BurstCmdBus)
+Symbol:     x869 = StreamOutNew(BurstCmdBus)
 Instances: 1
 
 
@@ -241,8 +27,8 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x458 = StreamOutBankedWrite(x445,ArrayBuffer(x456),ArrayBuffer(Set(x512))) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
+             x880 = StreamOutBankedWrite(x869,ArrayBuffer(x878),ArrayBuffer(Set(x879))) {}
+             buf load inDram (LogCompress.scala:59:11)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -251,27 +37,285 @@ Instance Summary:
 
 
 Control Tree: 
-x461: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x458: StreamOutBankedWrite
+x883: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x880: StreamOutBankedWrite
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: buf_0 (x341)
+Name: x1088
+Type: Reg[Bit]
+Src:  LogCompress.scala:145:9
+Src:          if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1088 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1096 = RegWrite(x1088,x1093,Set()) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1245 = RegRead(x1088) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:9)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1113 = RegRead(x1088) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1097: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1096: RegWrite
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1245: RegRead
+    x1113: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: yLutSram_1 (x868)
 Type: SRAM1[Flt[_24,_8]]
-Src:  LogCompress.scala:43:35
-Src:        val buf        = SRAM[Float](MAX_N_ELEMENTS)
+Src:  LogCompress.scala:57:35
+Src:        val yLutSram   = SRAM[Float](N_LUT_LOG10)
 ---------------------------------------------------------------------
-Symbol:     x341 = SRAMNew(List(Const(400000)),SRAM1[Flt[_24,_8]])
+Symbol:     x868 = SRAMNew(List(Const(128)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x942 = SRAMBankedWrite(x868,Vector(x941),Vector(List(Const(0))),Vector(b938),Vector(Set(b939))) {}
+             yLutSram load yLutDram (LogCompress.scala:63:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1078 = SRAMBankedRead(x868,Vector(List(Const(0))),Vector(x1075),Vector(Set()),Vec[Flt[_24,_8]]) {}
+             val y_high = yLutSram(j_idx + 1)   // y_j+1 = log10(x_j+1) (LogCompress.scala:139:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x945: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x944: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x942: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1078: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: xLutSram_2 (x866)
+Type: SRAM1[Flt[_24,_8]]
+Src:  LogCompress.scala:56:35
+Src:        val xLutSram   = SRAM[Float](N_LUT_LOG10)
+---------------------------------------------------------------------
+Symbol:     x866 = SRAMNew(List(Const(128)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x924 = SRAMBankedWrite(x866,Vector(x922),Vector(List(Const(0))),Vector(b919),Vector(Set(b920))) {}
+             xLutSram load xLutDram (LogCompress.scala:62:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1076 = SRAMBankedRead(x866,Vector(List(Const(0))),Vector(x1075),Vector(Set()),Vec[Flt[_24,_8]]) {}
+             val x_high = xLutSram(j_idx + 1)   // x_j+1 (LogCompress.scala:138:30)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x927: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x926: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x924: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1076: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x870
+Type: FIFO[IssuedCmd]
+Src:  LogCompress.scala:59:11
+Src:        buf load inDram
+---------------------------------------------------------------------
+Symbol:     x870 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x882 = FIFOBankedEnq(x870,ArrayBuffer(x881),ArrayBuffer(Set(Const(true)))) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x887 = FIFOBankedDeq(x870,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x908: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x883: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x882: FIFOBankedEnq
+  x907: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x893: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x887: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: xLutSram_0 (x864)
+Type: SRAM1[Flt[_24,_8]]
+Src:  LogCompress.scala:56:35
+Src:        val xLutSram   = SRAM[Float](N_LUT_LOG10)
+---------------------------------------------------------------------
+Symbol:     x864 = SRAMNew(List(Const(128)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x923 = SRAMBankedWrite(x864,Vector(x922),Vector(List(Const(0))),Vector(b919),Vector(Set(b920))) {}
+             xLutSram load xLutDram (LogCompress.scala:62:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1054 = SRAMBankedRead(x864,Vector(List(Const(0))),Vector(x1053),Vector(Set(b1050, b950)),Vec[Flt[_24,_8]]) {}
+             if (!found_flag.value && norm_val < xLutSram(j_scan + 1)) { (LogCompress.scala:123:57)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x927: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x926: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x923: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1065: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x1054: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: outSram_0 (x946)
+Type: SRAM1[Flt[_24,_8]]
+Src:  LogCompress.scala:74:32
+Src:        val outSram = SRAM[Float](MAX_N_ELEMENTS)
+---------------------------------------------------------------------
+Symbol:     x946 = SRAMNew(List(Const(400000)),SRAM1[Flt[_24,_8]])
 Instances: 1
   RAM36: 11.0
 
 
 Instance Summary: 
   #0: Banked
-     Resource: BRAM
+     Resource: LUTs
      Depth:    1
      Padding:  List(0)
      Accum:    Fold
@@ -280,27 +324,39 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x380 = SRAMBankedWrite(x341,Vector(x379),Vector(List(Const(0))),Vector(x498),Vector(Set(x497, x496))) {}
-             buf load inDram (LogCompress.scala:49:11)
+             x1121 = SRAMBankedWrite(x946,Vector(x1120),Vector(List(Const(0))),Vector(b949),Vector(Set())) {}
+             outSram(i) = decade_val + log10_of_norm_val.value (LogCompress.scala:152:20)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
            - Mux Port #1: 
-             x442 = SRAMBankedWrite(x341,Vector(x441),Vector(List(Const(0))),Vector(x509),Vector(Set(x510))) {}
-             Foreach(Accel_n by 1) { i => buf(i) = max(buf(i), mx - dynRange) } (LogCompress.scala:59:43)
+             x1186 = SRAMBankedWrite(x946,Vector(x1185),Vector(List(Const(0))),Vector(b1178),Vector(Set(b1179))) {}
+             outSram(i) = max(outSram(i), logMax - dynRange) (LogCompress.scala:175:20)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x436 = SRAMBankedRead(x341,Vector(List(Const(0))),Vector(x507),Vector(Set(x508)),Vec[Flt[_24,_8]]) {}
-             Foreach(Accel_n by 1) { i => buf(i) = max(buf(i), mx - dynRange) } (LogCompress.scala:59:52)
+             x1180 = SRAMBankedRead(x946,Vector(List(Const(0))),Vector(b1178),Vector(Set(b1179)),Vec[Flt[_24,_8]]) {}
+             outSram(i) = max(outSram(i), logMax - dynRange) (LogCompress.scala:175:33)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
            - Mux Port #1: 
-             x423 = SRAMBankedRead(x341,Vector(List(Const(0))),Vector(b421),Vector(Set(b422)),Vec[Flt[_24,_8]]) {}
-             Reduce(maxReg)(0 until Accel_n) { i => buf(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:55:49)
+             x1214 = SRAMBankedRead(x946,Vector(List(Const(0))),Vector(b1208),Vector(Set(x1213, Const(true), b1209)),Vec[Flt[_24,_8]]) {}
+             mem.__read(addr2, ens + c) (MemoryDealiasing.scala:32:17)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #2: 
+             x1150 = SRAMBankedRead(x946,Vector(List(Const(0))),Vector(b1144),Vector(Set(x1149, Const(true), b1145)),Vec[Flt[_24,_8]]) {}
+             mem.__read(addr2, ens + c) (MemoryDealiasing.scala:32:17)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #3: 
+             x1167 = SRAMBankedRead(x946,Vector(List(Const(0))),Vector(b1165),Vector(Set(b1166)),Vec[Flt[_24,_8]]) {}
+             Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:161:56)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -308,30 +364,265 @@ Instance Summary:
 
 
 Control Tree: 
-x491: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x489: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-      x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x380: SRAMBankedWrite
-  x431: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x423: SRAMBankedRead
-  x490: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x443: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-      x436: SRAMBankedRead
-      x442: SRAMBankedWrite
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1122: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1121: SRAMBankedWrite
+  x1161: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x1160: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x1155: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x1154: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1150: SRAMBankedRead
+  x1175: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1167: SRAMBankedRead
+  x1187: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1186: SRAMBankedWrite
+    x1180: SRAMBankedRead
+  x1225: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x1224: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x1219: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x1218: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x1214: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x384
+Name: x1008
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:110:42
+Src:          val norm_val = norm_val_calc_reg.value // This is in [1, 10)(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1008 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    5
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1041 = RegWrite(x1008,x1040,Set()) {}
+             val norm_val = norm_val_calc_reg.value // This is in [1, 10)(Pass 12)(Pass 12) (LogCompress.scala:110:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1056 = RegRead(x1008) {}
+             val norm_val = norm_val_calc_reg.value // This is in [1, 10)(Pass 12)(Pass 12) (LogCompress.scala:110:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+         3 [Type:WR]:
+         3 [Type:RD]:
+         4 [Type:WR]:
+         4 [Type:RD]:
+           - Mux Port #0: 
+             x1101 = RegRead(x1008) {}
+             val norm_val = norm_val_calc_reg.value // This is in [1, 10)(Pass 12)(Pass 12) (LogCompress.scala:110:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1041: RegWrite
+  x1065: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1056: RegRead
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1101: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: Accel_n (x856)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:47:24
+Src:      val Accel_n = ArgIn[I32]
+---------------------------------------------------------------------
+Symbol:     x856 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x857 = SetReg(x856,x834) {}
+             setArg(Accel_n, n_runtime) (LogCompress.scala:48:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1243 = RegRead(x856) {}
+             Foreach(Accel_n by 1) { i => (LogCompress.scala:77:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1247 = RegRead(x856) {}
+             Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:161:33)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+             x1248 = RegRead(x856) {}
+             Foreach(Accel_n by 1) { i => (LogCompress.scala:174:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1087
+Type: Reg[Bit]
+Src:  LogCompress.scala:145:16
+Src:          if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1087 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1095 = RegWrite(x1087,x1092,Set()) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1244 = RegRead(x1087) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1110 = RegRead(x1087) {}
+             if (dx > 1e-9f) { // Check for non-zero denominator(Pass 12)(Pass 12) (LogCompress.scala:145:16)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1097: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1095: RegWrite
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1244: RegRead
+    x1110: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x961
+Type: Reg[Bit]
+Src:  LogCompress.scala:84:39
+Src:          decade_calc_reg := mux(v_safe >= 1.0f, 0.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x961 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x995 = RegWrite(x961,x973,Set()) {}
+             decade_calc_reg := mux(v_safe >= 1.0f, 0.0f,(Pass 12)(Pass 12) (LogCompress.scala:84:39)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1037 = RegRead(x961) {}
+             decade_calc_reg := mux(v_safe >= 1.0f, 0.0f,(Pass 12)(Pass 12) (LogCompress.scala:84:39)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x995: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1037: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x909
 Type: StreamOut[BurstCmd]
-Src:  LogCompress.scala:50:18
-Src:        Ktable     load constDram
+Src:  LogCompress.scala:62:16
+Src:        xLutSram load xLutDram
 ---------------------------------------------------------------------
-Symbol:     x384 = StreamOutNew(BurstCmdBus)
+Symbol:     x909 = StreamOutNew(BurstCmdBus)
 Instances: 1
 
 
@@ -346,8 +637,8 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x389 = StreamOutBankedWrite(x384,ArrayBuffer(x387),ArrayBuffer(Set(x388))) {}
-             Ktable     load constDram (LogCompress.scala:50:18)
+             x914 = StreamOutBankedWrite(x909,ArrayBuffer(x912),ArrayBuffer(Set(x913))) {}
+             xLutSram load xLutDram (LogCompress.scala:62:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -356,20 +647,20 @@ Instance Summary:
 
 
 Control Tree: 
-x390: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x389: StreamOutBankedWrite
+x915: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x914: StreamOutBankedWrite
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x447
-Type: StreamIn[Bit]
-Src:  LogCompress.scala:81:15
-Src:        outDram store outSram(0 :: Accel_n - 1)
+Name: x910
+Type: StreamIn[Flt[_24,_8]]
+Src:  LogCompress.scala:62:16
+Src:        xLutSram load xLutDram
 ---------------------------------------------------------------------
-Symbol:     x447 = StreamInNew(BurstAckBus)
+Symbol:     x910 = StreamInNew(BurstDataBus())
 Instances: 1
 
 
@@ -385,8 +676,8 @@ Instance Summary:
          0 [Type:WR]:
          0 [Type:RD]:
            - Mux Port #0: 
-             x478 = StreamInBankedRead(x447,ArrayBuffer(Set())) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
+             x921 = StreamInBankedRead(x910,ArrayBuffer(Set(b920))) {}
+             xLutSram load xLutDram (LogCompress.scala:62:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -394,60 +685,1466 @@ Instance Summary:
 
 
 Control Tree: 
-x480: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x478: StreamInBankedRead
+x926: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x921: StreamInBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x446
-Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
-Src:  LogCompress.scala:81:15
-Src:        outDram store outSram(0 :: Accel_n - 1)
----------------------------------------------------------------------
-Symbol:     x446 = StreamOutNew(BurstFullDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x474 = StreamOutBankedWrite(x446,ArrayBuffer(x473),ArrayBuffer(Set(x514))) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x475: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x474: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: outSram_0 (x444)
+Name: buf_0 (x863)
 Type: SRAM1[Flt[_24,_8]]
-Src:  LogCompress.scala:62:32
-Src:        val outSram = SRAM[Float](MAX_N_ELEMENTS)
+Src:  LogCompress.scala:53:35
+Src:        val buf        = SRAM[Float](MAX_N_ELEMENTS)
 ---------------------------------------------------------------------
-Symbol:     x444 = SRAMNew(List(Const(400000)),SRAM1[Flt[_24,_8]])
+Symbol:     x863 = SRAMNew(List(Const(400000)),SRAM1[Flt[_24,_8]])
 Instances: 1
   RAM36: 11.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x905 = SRAMBankedWrite(x863,Vector(x904),Vector(List(Const(0))),Vector(b897),Vector(Set(x902, b898))) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x952 = SRAMBankedRead(x863,Vector(List(Const(0))),Vector(b949),Vector(Set()),Vec[Flt[_24,_8]]) {}
+             val v0 = buf(i) (LogCompress.scala:78:21)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x908: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x907: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x906: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x905: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x959: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x952: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: norm_val_calc_reg_0 (x1007)
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:96:43
+Src:          val norm_val_calc_reg = Reg[Float](0.0f)
+---------------------------------------------------------------------
+Symbol:     x1007 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1039 = RegWrite(x1007,x1038,Set()) {}
+             norm_val_calc_reg := mux(v_safe >= 1.0f, v_safe, (LogCompress.scala:97:27)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1040 = RegRead(x1007) {}
+             val norm_val = norm_val_calc_reg.value // This is in [1, 10) (LogCompress.scala:110:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1040: RegRead
+  x1039: RegWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1126
+Type: StreamIn[Bit]
+Src:  LogCompress.scala:156:21
+Src:        rawLogOutDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1126 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1157 = StreamInBankedRead(x1126,ArrayBuffer(Set())) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1159: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1157: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: log10_of_norm_val_0 (x1085)
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:142:36
+Src:          val log10_of_norm_val = Reg[Float]
+---------------------------------------------------------------------
+Symbol:     x1085 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1111 = RegWrite(x1085,x1109,Set(x1110)) {}
+             log10_of_norm_val := y_low + (norm_val - x_low) * (y_high - y_low) / dx (LogCompress.scala:146:31)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+           - Mux Port #1: 
+             x1115 = RegWrite(x1085,x1114,Set(x1113)) {}
+             log10_of_norm_val := y_low (LogCompress.scala:148:31)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1118 = RegRead(x1085) {}
+             outSram(i) = decade_val + log10_of_norm_val.value (LogCompress.scala:152:53)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1111: RegWrite
+    x1115: RegWrite
+  x1122: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1118: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1191
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:180:15
+Src:        outDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1191 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1202 = RegWrite(x1191,x1193,Set()) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1211 = RegRead(x1191) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1219: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1204: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1202: RegWrite
+  x1218: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1211: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x971
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:109:42
+Src:          val decade_val = decade_calc_reg.value(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x971 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    7
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1005 = RegWrite(x971,x994,Set()) {}
+             val decade_val = decade_calc_reg.value(Pass 12)(Pass 12) (LogCompress.scala:109:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+         2 [Type:WR]:
+         2 [Type:RD]:
+         3 [Type:WR]:
+         3 [Type:RD]:
+         4 [Type:WR]:
+         4 [Type:RD]:
+         5 [Type:WR]:
+         5 [Type:RD]:
+         6 [Type:WR]:
+         6 [Type:RD]:
+           - Mux Port #0: 
+             x1119 = RegRead(x971) {}
+             val decade_val = decade_calc_reg.value(Pass 12)(Pass 12) (LogCompress.scala:109:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1005: RegWrite
+  x1122: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1119: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x929
+Type: StreamIn[Flt[_24,_8]]
+Src:  LogCompress.scala:63:16
+Src:        yLutSram load yLutDram
+---------------------------------------------------------------------
+Symbol:     x929 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x940 = StreamInBankedRead(x929,ArrayBuffer(Set(b939))) {}
+             yLutSram load yLutDram (LogCompress.scala:63:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x944: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x940: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x965
+Type: Reg[Bit]
+Src:  LogCompress.scala:88:37
+Src:                           mux(v_safe >= 0.0001f, -4.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x965 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x999 = RegWrite(x965,x977,Set()) {}
+             mux(v_safe >= 0.0001f, -4.0f,(Pass 12)(Pass 12) (LogCompress.scala:88:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1029 = RegRead(x965) {}
+             mux(v_safe >= 0.0001f, -4.0f,(Pass 12)(Pass 12) (LogCompress.scala:88:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x999: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1029: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1128
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:156:21
+Src:        rawLogOutDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1128 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1139 = RegWrite(x1128,x1132,Set()) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1246 = RegRead(x1128) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1155: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1140: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1139: RegWrite
+  x1154: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1246: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x963
+Type: Reg[Bit]
+Src:  LogCompress.scala:86:37
+Src:                           mux(v_safe >= 0.01f, -2.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x963 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x997 = RegWrite(x963,x975,Set()) {}
+             mux(v_safe >= 0.01f, -2.0f,(Pass 12)(Pass 12) (LogCompress.scala:86:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1033 = RegRead(x963) {}
+             mux(v_safe >= 0.01f, -2.0f,(Pass 12)(Pass 12) (LogCompress.scala:86:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x997: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1033: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1069
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:139:30
+Src:          val y_high = yLutSram(j_idx + 1)   // y_j+1 = log10(x_j+1)(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1069 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1083 = RegWrite(x1069,x1079,Set()) {}
+             val y_high = yLutSram(j_idx + 1)   // y_j+1 = log10(x_j+1)(Pass 12)(Pass 12) (LogCompress.scala:139:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1103 = RegRead(x1069) {}
+             val y_high = yLutSram(j_idx + 1)   // y_j+1 = log10(x_j+1)(Pass 12)(Pass 12) (LogCompress.scala:139:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1083: RegWrite
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1103: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x885
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:59:11
+Src:        buf load inDram
+---------------------------------------------------------------------
+Symbol:     x885 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x890 = RegWrite(x885,x889,Set()) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x900 = RegRead(x885) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x907: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x893: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x890: RegWrite
+  x906: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x900: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x839
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  FriendlyTransformer.scala:19:28
+Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
+---------------------------------------------------------------------
+Symbol:     x839 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x840 = SetReg(x839,x834) {}
+             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x872 = RegRead(x839) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x1129 = RegRead(x839) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (2)>
+
+             x1193 = RegRead(x839) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+           - Mux Port #1: 
+             x841 = RegRead(x839) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x966
+Type: Reg[Bit]
+Src:  LogCompress.scala:89:37
+Src:                           mux(v_safe >= 0.00001f, -5.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x966 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1000 = RegWrite(x966,x978,Set()) {}
+             mux(v_safe >= 0.00001f, -5.0f,(Pass 12)(Pass 12) (LogCompress.scala:89:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1027 = RegRead(x966) {}
+             mux(v_safe >= 0.00001f, -5.0f,(Pass 12)(Pass 12) (LogCompress.scala:89:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1000: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1027: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1067
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:137:29
+Src:          val y_low = yLutSram(j_idx)        // y_j = log10(x_j)(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1067 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1081 = RegWrite(x1067,x1074,Set()) {}
+             val y_low = yLutSram(j_idx)        // y_j = log10(x_j)(Pass 12)(Pass 12) (LogCompress.scala:137:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1104 = RegRead(x1067) {}
+             val y_low = yLutSram(j_idx)        // y_j = log10(x_j)(Pass 12)(Pass 12) (LogCompress.scala:137:29)
+               Directly Banked: false
+               Port: <offset: 1, castgroup: (1), broadcast: (0)>
+
+             x1114 = RegRead(x1067) {}
+             val y_low = yLutSram(j_idx)        // y_j = log10(x_j)(Pass 12)(Pass 12) (LogCompress.scala:137:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1081: RegWrite
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1104: RegRead
+    x1114: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: found_idx_0 (x1043)
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:118:33
+Src:          val found_idx = Reg[Int](N_LUT_LOG10 - 2).buffer 
+---------------------------------------------------------------------
+Symbol:     x1043 = RegNew(Const(126))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1060 = RegWrite(x1043,b1049,Set(x1058)) {}
+             found_idx := j_scan (LogCompress.scala:124:27)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1070 = RegRead(x1043) {}
+             val j_idx = found_idx.value (LogCompress.scala:135:31)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1065: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1060: RegWrite
+  x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1070: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1068
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:138:30
+Src:          val x_high = xLutSram(j_idx + 1)   // x_j+1(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1068 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1082 = RegWrite(x1068,x1077,Set()) {}
+             val x_high = xLutSram(j_idx + 1)   // x_j+1(Pass 12)(Pass 12) (LogCompress.scala:138:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1089 = RegRead(x1068) {}
+             val x_high = xLutSram(j_idx + 1)   // x_j+1(Pass 12)(Pass 12) (LogCompress.scala:138:30)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1082: RegWrite
+  x1097: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1089: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1124
+Type: StreamOut[BurstCmd]
+Src:  LogCompress.scala:156:21
+Src:        rawLogOutDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1124 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1137 = StreamOutBankedWrite(x1124,ArrayBuffer(x1135),ArrayBuffer(Set(x1136))) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1140: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1137: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x969
+Type: Reg[Bit]
+Src:  LogCompress.scala:92:37
+Src:                           mux(v_safe >= 0.00000001f, -8.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x969 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1003 = RegWrite(x969,x981,Set()) {}
+             mux(v_safe >= 0.00000001f, -8.0f,(Pass 12)(Pass 12) (LogCompress.scala:92:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1021 = RegRead(x969) {}
+             mux(v_safe >= 0.00000001f, -8.0f,(Pass 12)(Pass 12) (LogCompress.scala:92:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1003: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1021: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: found_flag_0 (x1044)
+Type: Reg[Bit]
+Src:  LogCompress.scala:119:34
+Src:          val found_flag = Reg[Bit](false.to[Bit]).buffer
+---------------------------------------------------------------------
+Symbol:     x1044 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    Fold
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1045 = RegWrite(x1044,Const(false),Set()) {}
+             found_flag := false.to[Bit] // Reset for each norm_val (LogCompress.scala:120:20)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+           - Mux Port #0: 
+             x1061 = RegWrite(x1044,Const(true),Set(x1058)) {}
+             found_flag := true.to[Bit] (LogCompress.scala:125:28)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1051 = RegRead(x1044) {}
+             if (!found_flag.value && norm_val < xLutSram(j_scan + 1)) { (LogCompress.scala:123:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1046: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1045: RegWrite
+  x1065: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1051: RegRead
+    x1061: RegWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x886
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:59:11
+Src:        buf load inDram
+---------------------------------------------------------------------
+Symbol:     x886 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x892 = RegWrite(x886,x891,Set()) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1242 = RegRead(x886) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x907: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x893: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x892: RegWrite
+  x906: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1242: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x970
+Type: Reg[Bit]
+Src:  LogCompress.scala:93:37
+Src:                           mux(v_safe >= 0.000000001f, -9.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x970 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1004 = RegWrite(x970,x982,Set()) {}
+             mux(v_safe >= 0.000000001f, -9.0f,(Pass 12)(Pass 12) (LogCompress.scala:93:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1019 = RegRead(x970) {}
+             mux(v_safe >= 0.000000001f, -9.0f,(Pass 12)(Pass 12) (LogCompress.scala:93:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1004: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1019: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x858
+Type: Reg[Flt[_24,_8]]
+Src:  FriendlyTransformer.scala:19:28
+Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
+---------------------------------------------------------------------
+Symbol:     x858 = ArgInNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x859 = SetReg(x858,x836) {}
+             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1183 = RegRead(x858) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: decade_calc_reg_0 (x960)
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:83:41
+Src:          val decade_calc_reg = Reg[Float](0.0f)
+---------------------------------------------------------------------
+Symbol:     x960 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x993 = RegWrite(x960,x992,Set()) {}
+             decade_calc_reg := mux(v_safe >= 1.0f, 0.0f, (LogCompress.scala:84:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x994 = RegRead(x960) {}
+             val decade_val = decade_calc_reg.value (LogCompress.scala:109:42)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x994: RegRead
+  x993: RegWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1192
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:180:15
+Src:        outDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1192 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1203 = RegWrite(x1192,x1196,Set()) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1249 = RegRead(x1192) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1219: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1204: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1203: RegWrite
+  x1218: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1249: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x951
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:80:25
+Src:          val v_safe = max(v_abs, 1e-10f)(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x951 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x958 = RegWrite(x951,x957,Set()) {}
+             val v_safe = max(v_abs, 1e-10f)(Pass 12)(Pass 12) (LogCompress.scala:80:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x972 = RegRead(x951) {}
+             val v_safe = max(v_abs, 1e-10f)(Pass 12)(Pass 12) (LogCompress.scala:80:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1009 = RegRead(x951) {}
+             val v_safe = max(v_abs, 1e-10f)(Pass 12)(Pass 12) (LogCompress.scala:80:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x959: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x958: RegWrite
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x972: RegRead
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1009: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1066
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:136:29
+Src:          val x_low = xLutSram(j_idx)        // x_j(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x1066 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    3
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1080 = RegWrite(x1066,x1072,Set()) {}
+             val x_low = xLutSram(j_idx)        // x_j(Pass 12)(Pass 12) (LogCompress.scala:136:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1090 = RegRead(x1066) {}
+             val x_low = xLutSram(j_idx)        // x_j(Pass 12)(Pass 12) (LogCompress.scala:136:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x1100 = RegRead(x1066) {}
+             val x_low = xLutSram(j_idx)        // x_j(Pass 12)(Pass 12) (LogCompress.scala:136:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1080: RegWrite
+  x1097: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1090: RegRead
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1100: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x871
+Type: StreamIn[Flt[_24,_8]]
+Src:  LogCompress.scala:59:11
+Src:        buf load inDram
+---------------------------------------------------------------------
+Symbol:     x871 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x903 = StreamInBankedRead(x871,ArrayBuffer(Set(b898))) {}
+             buf load inDram (LogCompress.scala:59:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x906: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x903: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1190
+Type: StreamIn[Bit]
+Src:  LogCompress.scala:180:15
+Src:        outDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1190 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x1221 = StreamInBankedRead(x1190,ArrayBuffer(Set())) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x1223: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1221: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: xLutSram_1 (x865)
+Type: SRAM1[Flt[_24,_8]]
+Src:  LogCompress.scala:56:35
+Src:        val xLutSram   = SRAM[Float](N_LUT_LOG10)
+---------------------------------------------------------------------
+Symbol:     x865 = SRAMNew(List(Const(128)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
 
 
 Instance Summary: 
@@ -460,10 +2157,16 @@ Instance Summary:
        Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
      Ports: 
          0 [Type:WR]:
+           - Mux Port #0: 
+             x925 = SRAMBankedWrite(x865,Vector(x922),Vector(List(Const(0))),Vector(b919),Vector(Set(b920))) {}
+             xLutSram load xLutDram (LogCompress.scala:62:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
          0 [Type:RD]:
            - Mux Port #0: 
-             x471 = SRAMBankedRead(x444,Vector(List(Const(0))),Vector(b465),Vector(Set(x470, Const(true), b466)),Vec[Flt[_24,_8]]) {}
-             mem.__read(addr2, ens + c) (MemoryDealiasing.scala:32:17)
+             x1071 = SRAMBankedRead(x865,Vector(List(Const(0))),Vector(x1070),Vector(Set()),Vec[Flt[_24,_8]]) {}
+             val x_low = xLutSram(j_idx)        // x_j (LogCompress.scala:136:29)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -471,27 +2174,33 @@ Instance Summary:
 
 
 Control Tree: 
-x475: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x471: SRAMBankedRead
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x927: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x926: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x925: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1071: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: Accel_n (x335)
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  LogCompress.scala:37:24
-Src:      val Accel_n = ArgIn[I32]
+Name: x968
+Type: Reg[Bit]
+Src:  LogCompress.scala:91:37
+Src:                           mux(v_safe >= 0.0000001f, -7.0f,(Pass 12)
 ---------------------------------------------------------------------
-Symbol:     x335 = ArgInNew(Const(0))
+Symbol:     x968 = RegNew(Const(false))
 Instances: 1
 
 
 Instance Summary: 
   #0: Banked
      Resource: LUTs
-     Depth:    1
+     Depth:    2
      Padding:  List()
      Accum:    None
      Banks:    1 <Flat>
@@ -499,47 +2208,51 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x336 = SetReg(x335,x321) {}
-             setArg(Accel_n, n_runtime) (LogCompress.scala:38:11)
+             x1002 = RegWrite(x968,x980,Set()) {}
+             mux(v_safe >= 0.0000001f, -7.0f,(Pass 12)(Pass 12) (LogCompress.scala:91:37)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
            - Mux Port #0: 
-             x484 = RegRead(x335) {}
-             Reduce(maxReg)(0 until Accel_n) { i => buf(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:55:30)
+             x1023 = RegRead(x968) {}
+             mux(v_safe >= 0.0000001f, -7.0f,(Pass 12)(Pass 12) (LogCompress.scala:91:37)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
-             x485 = RegRead(x335) {}
-             Foreach(Accel_n by 1) { i => buf(i) = max(buf(i), mx - dynRange) } (LogCompress.scala:59:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (1)>
-
+         M [Type:WR]:
+         M [Type:RD]:
 
 
 
 Control Tree: 
-Host
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1002: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1023: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: twoNegSram_0 (x343)
+Name: yLutSram_0 (x867)
 Type: SRAM1[Flt[_24,_8]]
-Src:  LogCompress.scala:45:35
-Src:        val twoNegSram = SRAM[Float](N)
+Src:  LogCompress.scala:57:35
+Src:        val yLutSram   = SRAM[Float](N_LUT_LOG10)
 ---------------------------------------------------------------------
-Symbol:     x343 = SRAMNew(List(Const(16)),SRAM1[Flt[_24,_8]])
+Symbol:     x867 = SRAMNew(List(Const(128)),SRAM1[Flt[_24,_8]])
 Instances: 1
   RAM36: 1.0
 
 
 Instance Summary: 
   #0: Banked
-     Resource: LUTs
+     Resource: BRAM
      Depth:    1
      Padding:  List(0)
      Accum:    None
@@ -548,284 +2261,80 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x415 = SRAMBankedWrite(x343,Vector(x414),Vector(List(Const(0))),Vector(x503),Vector(Set(x504))) {}
-             twoNegSram load twoNegDram (LogCompress.scala:51:18)
+             x943 = SRAMBankedWrite(x867,Vector(x941),Vector(List(Const(0))),Vector(b938),Vector(Set(b939))) {}
+             yLutSram load yLutDram (LogCompress.scala:63:16)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
-
-
-
-Control Tree: 
-x416: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x415: SRAMBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x344
-Type: StreamOut[BurstCmd]
-Src:  LogCompress.scala:49:11
-Src:        buf load inDram
----------------------------------------------------------------------
-Symbol:     x344 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
            - Mux Port #0: 
-             x355 = StreamOutBankedWrite(x344,ArrayBuffer(x353),ArrayBuffer(Set(x493))) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x358: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x355: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x401
-Type: StreamOut[BurstCmd]
-Src:  LogCompress.scala:51:18
-Src:        twoNegSram load twoNegDram
----------------------------------------------------------------------
-Symbol:     x401 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x406 = StreamOutBankedWrite(x401,ArrayBuffer(x404),ArrayBuffer(Set(x405))) {}
-             twoNegSram load twoNegDram (LogCompress.scala:51:18)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x407: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x406: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x326
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  FriendlyTransformer.scala:19:28
-Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
----------------------------------------------------------------------
-Symbol:     x326 = ArgInNew(Const(0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    Buffer
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x327 = SetReg(x326,x321) {}
-             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x347 = RegRead(x326) {}
-             arg.value (FriendlyTransformer.scala:22:9)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (1)>
-
-             x450 = RegRead(x326) {}
-             arg.value (FriendlyTransformer.scala:22:9)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-           - Mux Port #1: 
-             x328 = RegRead(x326) {}
-             arg.value (FriendlyTransformer.scala:22:9)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-Host
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x402
-Type: StreamIn[Flt[_24,_8]]
-Src:  LogCompress.scala:51:18
-Src:        twoNegSram load twoNegDram
----------------------------------------------------------------------
-Symbol:     x402 = StreamInNew(BurstDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x413 = StreamInBankedRead(x402,ArrayBuffer(Set(b412))) {}
-             twoNegSram load twoNegDram (LogCompress.scala:51:18)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x416: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x413: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x360
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  LogCompress.scala:49:11
-Src:        buf load inDram
----------------------------------------------------------------------
-Symbol:     x360 = RegNew(Const(0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x365 = RegWrite(x360,x364,Set()) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x375 = RegRead(x360) {}
-             buf load inDram (LogCompress.scala:49:11)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x365: RegWrite
-  x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x375: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: Ktable_0 (x342)
-Type: SRAM1[Flt[_24,_8]]
-Src:  LogCompress.scala:44:35
-Src:        val Ktable     = SRAM[Float](N)
----------------------------------------------------------------------
-Symbol:     x342 = SRAMNew(List(Const(16)),SRAM1[Flt[_24,_8]])
-Instances: 1
-  RAM36: 1.0
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x398 = SRAMBankedWrite(x342,Vector(x397),Vector(List(Const(0))),Vector(x501),Vector(Set(x500))) {}
-             Ktable     load constDram (LogCompress.scala:50:18)
+             x1073 = SRAMBankedRead(x867,Vector(List(Const(0))),Vector(x1070),Vector(Set()),Vec[Flt[_24,_8]]) {}
+             val y_low = yLutSram(j_idx)        // y_j = log10(x_j) (LogCompress.scala:137:29)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
-         0 [Type:RD]:
 
 
 
 Control Tree: 
-x399: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x398: SRAMBankedWrite
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1253: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x945: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x944: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x943: SRAMBankedWrite
+  x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x1084: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1073: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x449
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  LogCompress.scala:81:15
+Name: x1188
+Type: StreamOut[BurstCmd]
+Src:  LogCompress.scala:180:15
 Src:        outDram store outSram(0 :: Accel_n - 1)
 ---------------------------------------------------------------------
-Symbol:     x449 = RegNew(Const(0))
+Symbol:     x1188 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1201 = StreamOutBankedWrite(x1188,ArrayBuffer(x1199),ArrayBuffer(Set(x1200))) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1204: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x1201: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1127
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  LogCompress.scala:156:21
+Src:        rawLogOutDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1127 = RegNew(Const(0))
 Instances: 1
 
 
@@ -840,15 +2349,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x460 = RegWrite(x449,x453,Set()) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
+             x1138 = RegWrite(x1127,x1129,Set()) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x486 = RegRead(x449) {}
-             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:81:15)
+             x1147 = RegRead(x1127) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -856,23 +2365,254 @@ Instance Summary:
 
 
 Control Tree: 
-x476: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x461: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x460: RegWrite
-  x475: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x486: RegRead
+x1155: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1140: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1138: RegWrite
+  x1154: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1147: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: maxReg_0 (x418)
+Name: x964
+Type: Reg[Bit]
+Src:  LogCompress.scala:87:37
+Src:                           mux(v_safe >= 0.001f, -3.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x964 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x998 = RegWrite(x964,x976,Set()) {}
+             mux(v_safe >= 0.001f, -3.0f,(Pass 12)(Pass 12) (LogCompress.scala:87:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1031 = RegRead(x964) {}
+             mux(v_safe >= 0.001f, -3.0f,(Pass 12)(Pass 12) (LogCompress.scala:87:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x998: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1031: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x928
+Type: StreamOut[BurstCmd]
+Src:  LogCompress.scala:63:16
+Src:        yLutSram load yLutDram
+---------------------------------------------------------------------
+Symbol:     x928 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x933 = StreamOutBankedWrite(x928,ArrayBuffer(x931),ArrayBuffer(Set(x932))) {}
+             yLutSram load yLutDram (LogCompress.scala:63:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x934: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x933: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1125
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  LogCompress.scala:156:21
+Src:        rawLogOutDram store outSram(0 :: Accel_n - 1)
+---------------------------------------------------------------------
+Symbol:     x1125 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1153 = StreamOutBankedWrite(x1125,ArrayBuffer(x1152),ArrayBuffer(Set(b1145))) {}
+             rawLogOutDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:156:21)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1154: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x1153: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x1086
 Type: Reg[Flt[_24,_8]]
-Src:  LogCompress.scala:54:30
-Src:        val maxReg = Reg[Float](0.to[Float])
+Src:  LogCompress.scala:143:25
+Src:          val dx = x_high - x_low(Pass 12)
 ---------------------------------------------------------------------
-Symbol:     x418 = RegNew(Const(0.0))
+Symbol:     x1086 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1094 = RegWrite(x1086,x1091,Set()) {}
+             val dx = x_high - x_low(Pass 12)(Pass 12) (LogCompress.scala:143:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1107 = RegRead(x1086) {}
+             val dx = x_high - x_low(Pass 12)(Pass 12) (LogCompress.scala:143:25)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1097: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1094: RegWrite
+  x1117: Switch (-1) [Level: InnerControl, Loop: Single, Schedule: Fork]
+    x1107: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x967
+Type: Reg[Bit]
+Src:  LogCompress.scala:90:37
+Src:                           mux(v_safe >= 0.000001f, -6.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x967 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1001 = RegWrite(x967,x979,Set()) {}
+             mux(v_safe >= 0.000001f, -6.0f,(Pass 12)(Pass 12) (LogCompress.scala:90:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x1025 = RegRead(x967) {}
+             mux(v_safe >= 0.000001f, -6.0f,(Pass 12)(Pass 12) (LogCompress.scala:90:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x1001: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1025: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: logMaxReg_0 (x1162)
+Type: Reg[Flt[_24,_8]]
+Src:  LogCompress.scala:160:33
+Src:        val logMaxReg = Reg[Float](-1000.0f) // Initialize to very negative
+---------------------------------------------------------------------
+Symbol:     x1162 = RegNew(Const(-1000.000000))
 Instances: 1
 
 
@@ -887,20 +2627,20 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x430 = RegWrite(x418,x506,Set()) {}
-             Reduce(maxReg)(0 until Accel_n) { i => buf(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:55:55)
+             x1174 = RegWrite(x1162,x1173,Set()) {}
+             Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:161:62)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x425 = RegRead(x418) {}
-             Reduce(maxReg)(0 until Accel_n) { i => buf(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:55:55)
+             x1169 = RegRead(x1162) {}
+             Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) } (LogCompress.scala:161:62)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
-             x438 = RegRead(x418) {}
-             val mx = maxReg.value (LogCompress.scala:56:23)
+             x1182 = RegRead(x1162) {}
+             val logMax = logMaxReg.value (LogCompress.scala:162:30)
                Directly Banked: false
                Port: <offset: 1, castgroup: (1), broadcast: (0)>
 
@@ -908,25 +2648,24 @@ Instance Summary:
 
 
 Control Tree: 
-x491: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x431: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x425: RegRead
-    x430: RegWrite
-  x490: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x443: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-      x438: RegRead
+x1256: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x1175: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1169: RegRead
+    x1174: RegWrite
+  x1187: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x1182: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x361
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  LogCompress.scala:49:11
-Src:        buf load inDram
+Name: x1189
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  LogCompress.scala:180:15
+Src:        outDram store outSram(0 :: Accel_n - 1)
 ---------------------------------------------------------------------
-Symbol:     x361 = RegNew(Const(0))
+Symbol:     x1189 = StreamOutNew(BurstFullDataBus())
 Instances: 1
 
 
@@ -934,6 +2673,44 @@ Instance Summary:
   #0: Banked
      Resource: LUTs
      Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x1217 = StreamOutBankedWrite(x1189,ArrayBuffer(x1216),ArrayBuffer(Set(b1209))) {}
+             outDram store outSram(0 :: Accel_n - 1) (LogCompress.scala:180:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x1218: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x1217: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x962
+Type: Reg[Bit]
+Src:  LogCompress.scala:85:37
+Src:                           mux(v_safe >= 0.1f, -1.0f,(Pass 12)
+---------------------------------------------------------------------
+Symbol:     x962 = RegNew(Const(false))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
      Padding:  List()
      Accum:    None
      Banks:    1 <Flat>
@@ -941,27 +2718,32 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x367 = RegWrite(x361,x366,Set()) {}
-             buf load inDram (LogCompress.scala:49:11)
+             x996 = RegWrite(x962,x974,Set()) {}
+             mux(v_safe >= 0.1f, -1.0f,(Pass 12)(Pass 12) (LogCompress.scala:85:37)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
            - Mux Port #0: 
-             x483 = RegRead(x361) {}
-             buf load inDram (LogCompress.scala:49:11)
+             x1035 = RegRead(x962) {}
+             mux(v_safe >= 0.1f, -1.0f,(Pass 12)(Pass 12) (LogCompress.scala:85:37)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
+         M [Type:WR]:
+         M [Type:RD]:
 
 
 
 Control Tree: 
-x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x367: RegWrite
-  x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x483: RegRead
+x1255: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x1006: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x996: RegWrite
+  x1254: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x1042: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x1035: RegRead
 ---------------------------------------------------------------------
 
 

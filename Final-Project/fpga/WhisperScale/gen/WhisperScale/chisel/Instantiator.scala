@@ -24,11 +24,10 @@ object Instantiator extends CommonMain {
     val axiStreamOutsInfo = List()
     
     // Scalars
-    val numArgIns_reg = 2
+    val numArgIns_reg = 1
     val numArgOuts_reg = 0
     val numArgIOs_reg = 0
-    //x206_argIn = argIns(1) (  )
-    //x211_Accel_n = argIns(0) ( Accel_n )
+    //x149_Accel_n = argIns(0) ( Accel_n )
     val io_argOutLoopbacksMap: scala.collection.immutable.Map[Int,Int] = Map()
     
     // Memory streams
@@ -42,7 +41,7 @@ object Instantiator extends CommonMain {
     
     // Instrumentation
     val numArgOuts_instr = 0
-    val numCtrls = 13
+    val numCtrls = 9
     val numArgOuts_breakpts = 0
     /* Breakpoint Contexts:
     */

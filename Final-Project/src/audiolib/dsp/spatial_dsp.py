@@ -72,10 +72,7 @@ def run_spatial_pipeline(audio_path: str):
     # ─── Step 5: Export the Mel filterbank ────────────────────────────────────────
     mel_mat = create_mel_filterbank(n_fft=400, n_mels=80, sr=sr)
     print(f"[DEBUG] mel_mat (filterbank weights) original shape: {mel_mat.shape}, min: {mel_mat.min()}, max: {mel_mat.max()}")
-    # WORKAROUND: Clip mel_mat to be non-negative as it unexpectedly contains negative values
-    mel_mat_clipped = np.maximum(mel_mat, 0.0)
-    print(f"[DEBUG] mel_mat_clipped (filterbank weights) shape: {mel_mat_clipped.shape}, min: {mel_mat_clipped.min()}, max: {mel_mat_clipped.max()}")
-    np.savetxt("fpga_io/mel_filterbank.csv", mel_mat_clipped.astype(np.float32), fmt='%f', delimiter=',')
+    np.savetxt("fpga_io/mel_filterbank.csv", mel_mat.astype(np.float32), fmt='%f', delimiter=',')
     
     # Save power spectrum for MelFilterbank
     # MelFilterbank expects to process each frame, so save frame-by-frame power spectra
@@ -187,9 +184,9 @@ def run_spatial_pipeline(audio_path: str):
         np.savetxt("fpga_io/debug_logcompress_input_fpga.csv", melfb_output_fpga, fmt='%e')
 
         # --- MelFilterbank Gold Check ---
-        # Gold MelFilterbank output is dot product of *clipped* mel_mat and *FPGA's* power spectrum output (which was just verified)
+        # Gold MelFilterbank output is dot product of mel_mat and *FPGA's* power spectrum output (which was just verified)
         # This isolates the MelFilterbank kernel.
-        gold_melfb_output = np.dot(mel_mat_clipped, power_spectrum_fpga_first_frame)
+        gold_melfb_output = np.dot(mel_mat, power_spectrum_fpga_first_frame)
         print(f"[DEBUG] MelFilterbank Check: FPGA output sample: {melfb_output_fpga[:5]}")
         print(f"[DEBUG] MelFilterbank Check: Gold output sample: {gold_melfb_output[:5]}")
         np.testing.assert_allclose(melfb_output_fpga, gold_melfb_output, \
@@ -352,40 +349,52 @@ def run_spatial_pipeline(audio_path: str):
     # ─── Step 7: Load final FPGA output & compare ─────────────────────────────────
     # This final comparison is against the original wav_to_logmel gold standard.
     # It will only pass if create_mel_filterbank is fixed AND all kernels match their staged gold checks.
-    logmel_fpga_final_check = np.loadtxt("fpga_io/whisperscale_output.csv", dtype=np.float32)
-    # logmel_gold_first_frame_final_check = logmel_gold[:, 0]  # First frame only
+    logmel_fpga_full = np.loadtxt("fpga_io/whisperscale_output.csv", dtype=np.float32)
+    # Assuming logmel_gold is (n_mels, T) and whisper_scale output is also (n_mels, T)
+    # For now, we are processing one frame through the later Spatial kernels
+    logmel_fpga_first_frame = logmel_fpga_full 
 
-    # --- Recompute gold standard using the CLIPPED mel_mat for end-to-end check with workaround ---
-    # 1. STFT power (already have `power_scaled` which matches FPGA PowerSpectrum input)
-    # 2. Mel Spectrogram with clipped weights
-    #    Input power_spectrum_fpga_first_frame is verified against gold_power_first_frame
-    #    So, using gold_power_first_frame is fine here.
-    mel_power_gold_WORKAROUND = np.dot(mel_mat_clipped, gold_power_first_frame) 
-    # 3. Log10 (clamp to avoid log(0))
-    log_mel_power_gold_WORKAROUND = np.log10(np.maximum(mel_power_gold_WORKAROUND, 1e-10))
-    # 4. Dynamic Range Compression (as in LogCompress gold)
-    log_max_WORKAROUND = np.max(log_mel_power_gold_WORKAROUND)
-    log_mel_compressed_gold_WORKAROUND = np.maximum(log_mel_power_gold_WORKAROUND, log_max_WORKAROUND - DYN_RANGE_DB_FOR_WHISPER)
-    # 5. Whisper Scaling (as in WhisperScale gold)
-    l_max_gold_WORKAROUND = np.max(log_mel_compressed_gold_WORKAROUND)
-    l_centered_gold_WORKAROUND = log_mel_compressed_gold_WORKAROUND - l_max_gold_WORKAROUND
-    l_clipped_gold_WORKAROUND = np.maximum(l_centered_gold_WORKAROUND, -DYN_RANGE_DB_FOR_WHISPER)
-    logmel_gold_first_frame_WORKAROUND_final = (l_clipped_gold_WORKAROUND + DYN_RANGE_DB_FOR_WHISPER) / DYN_RANGE_DB_FOR_WHISPER
-    # --- End Recomputation ---
+    logmel_gold_first_frame = logmel_gold[:, 0] # From original wav_to_logmel
 
-    print(f"[DEBUG] Recalculated Gold (with mel_mat_clipped workaround) sample: {logmel_gold_first_frame_WORKAROUND_final[:5]}")
+    print(f"[DEBUG] Final FPGA LogMel output sample: {logmel_fpga_first_frame[:5]}")
+    print(f"[DEBUG] Original Gold LogMel (wav_to_logmel) output sample: {logmel_gold_first_frame[:5]}")
 
-    # DEBUG: Save the arrays being compared by assert_allclose
-    np.savetxt("fpga_io/debug_final_fpga_output_for_assert.csv", logmel_fpga_final_check, fmt='%e')
-    # np.savetxt("fpga_io/debug_final_gold_output_for_assert.csv", logmel_gold_first_frame_final_check, fmt='%e')
-    np.savetxt("fpga_io/debug_final_gold_WORKAROUND_output_for_assert.csv", logmel_gold_first_frame_WORKAROUND_final, fmt='%e')
+    # --- Recompute Python gold for the first frame using intermediate gold values and original mel_mat ---
+    # This re-computation is to have a Python gold standard that follows the exact
+    # sequence of operations and intermediate values that the FPGA *should* be getting.
+    
+    DYN_RANGE_DB = 8.0 # Consistent dynamic range
 
-    # Compare
-    print(f"[DEBUG] FPGA output shape: {logmel_fpga_final_check.shape}")
-    # print(f"[DEBUG] Gold first frame shape: {logmel_gold_first_frame_final_check.shape}")
-    print(f"[DEBUG] Gold WORKAROUND first frame shape: {logmel_gold_first_frame_WORKAROUND_final.shape}")
-    np.testing.assert_allclose(logmel_fpga_final_check, logmel_gold_first_frame_WORKAROUND_final, rtol=1e-3, atol=1e-4)
-    print("FPGA output matches Python gold model (first frame, using mel_mat_clipped workaround)!")
+    # 1. Start with gold_power_first_frame (this is the Python STFT power for the first frame)
+    #    This was verified against the output of the Spatial PowerSpectrum kernel.
+    # 2. Apply Mel filterbank (using the original, now fixed, mel_mat)
+    recalc_mel_power = np.dot(mel_mat, gold_power_first_frame)
+    # 3. Log10 (clamp to avoid log(0)), this matches LogCompress input stage logic
+    recalc_log_mel_power = np.log10(np.maximum(recalc_mel_power, 1e-10))
+    # 4. Dynamic Range Compression (as in LogCompress kernel)
+    recalc_log_max = np.max(recalc_log_mel_power)
+    recalc_log_mel_compressed = np.maximum(recalc_log_mel_power, recalc_log_max - DYN_RANGE_DB)
+    # 5. Whisper Scaling (as in WhisperScale kernel: L_scaled = ((L - L.max())_clipped + DYN_RANGE) / DYN_RANGE)
+    #    Input to WhisperScale is recalc_log_mel_compressed
+    l_max_for_scale = np.max(recalc_log_mel_compressed)
+    l_centered = recalc_log_mel_compressed - l_max_for_scale
+    l_clipped = np.maximum(l_centered, -DYN_RANGE_DB) # Clip to -DYN_RANGE_DB relative to max
+    logmel_recalculated_gold_final = (l_clipped + DYN_RANGE_DB) / DYN_RANGE_DB
+    
+    print(f"[DEBUG] Recalculated Python Gold (using original mel_mat and staged logic) sample: {logmel_recalculated_gold_final[:5]}")
+
+    np.testing.assert_allclose(logmel_fpga_first_frame, logmel_recalculated_gold_final, rtol=1e-3, atol=1e-4, 
+                               err_msg="Full pipeline output (FPGA vs. Recalculated Python Gold) mismatch")
+    print("[INFO] Full pipeline FPGA output matches Recalculated Python gold model (first frame, using original mel_mat and staged logic).")
+
+    # Final sanity check against the direct output of wav_to_logmel
+    np.testing.assert_allclose(logmel_fpga_first_frame, logmel_gold_first_frame, rtol=1e-3, atol=1e-4, 
+                               err_msg="Full pipeline output (FPGA vs. original wav_to_logmel Gold) mismatch")
+    print("[INFO] Full pipeline FPGA output also matches original wav_to_logmel gold output (first frame).")
+
+    print("───────────────────────────────────────────────────────────────────────────────")
+    print(" ✅✅✅ End-to-end test PASSED (FPGA vs. Python Gold) ✅✅✅ ")
+    print("───────────────────────────────────────────────────────────────────────────────")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
