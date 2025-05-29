@@ -35,7 +35,7 @@ trait AccelWrapper extends Module {
   //   Widest Outer Controller: 3
   // Depths: 2, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6
   //   Deepest Inner Controller: 6
-  // App Characteristics: HasUnalignedLoad,HasAlignedLoad,HasTileLoad,HasUnalignedStore,HasTileStore
+  // App Characteristics: HasUnalignedLoad,HasUnalignedStore,HasTileStore,HasAlignedLoad,HasTileLoad
   // Instrumentation
   val io_numArgOuts_instr = 0
   val io_numArgCtrls = 22
