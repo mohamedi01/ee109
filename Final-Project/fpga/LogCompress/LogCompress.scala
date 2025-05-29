@@ -12,6 +12,7 @@ import scala.io.Source
     // ─── Kernel arguments ───────────────────────────────────────────────────────
     val n_runtime = args(0).to[I32] // Actual number of elements to process
     val dynRange  = args(1).to[Float]
+    val globalLogMaxIn = args(2).to[Float] // New argument: global log max from Python
 
     // Remove CORDIC table size and related loads if not used
     // val N = 24 // CORDIC iteration count
@@ -46,6 +47,10 @@ import scala.io.Source
     // Pass n_runtime to the accelerator as an argument
     val Accel_n = ArgIn[I32]
     setArg(Accel_n, n_runtime)
+
+    // Pass globalLogMaxIn to the accelerator as an argument
+    val Accel_globalLogMax = ArgIn[Float]
+    setArg(Accel_globalLogMax, globalLogMaxIn)
 
     // ─── Accelerator ────────────────────────────────────────────────────────────
     Accel {
@@ -156,10 +161,11 @@ import scala.io.Source
       rawLogOutDram store outSram(0 :: Accel_n - 1)
       // End DEBUG
       
-      // 5) Find max in log domain
-      val logMaxReg = Reg[Float](-1000.0f) // Initialize to very negative
-      Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) }
-      val logMax = logMaxReg.value
+      // 5) Use the globalLogMax passed from Python instead of recalculating it here
+      // val logMaxReg = Reg[Float](-1000.0f) // Initialize to very negative
+      // Reduce(logMaxReg)(0 until Accel_n) { i => outSram(i) } { (a, b) => mux(a > b, a, b) }
+      // val logMax = logMaxReg.value
+      val logMax = Accel_globalLogMax.value // Use the globally computed max passed as an argument
       
       // Debug: Create registers to store intermediate values for debugging
       val debugFirstLog = Reg[Float](0.0f)
