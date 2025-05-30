@@ -244,3 +244,64 @@ EE109 Audio Transcription & Analysis Pipeline – Block Diagram
 }
 </pre>
 
+## FPGA DSP Frontend Verification (`spatial_dsp.py`)
+
+To verify the hardware DSP pipeline, a standalone test script (`src/audiolib/dsp/spatial_dsp.py`) was developed. This script runs the complete Spatial-based DSP frontend in software simulation mode and validates its correctness by comparing the outputs of each hardware stage against Python reference results computed using `mel_gold.py`, which replicates Whisper’s preprocessing pipeline.
+
+The purpose of this test is to ensure that each Spatial kernel behaves identically to its Python counterpart. It validates that the entire DSP pipeline—from raw audio to Whisper-scaled log-Mel spectrogram—produces numerically equivalent output for the first frame of audio input.
+
+The Spatial kernels involved are:
+
+- Power Spectrum: `fpga/PowerSpectrum/PowerSpectrum.scala`
+- Mel Filterbank: `fpga/MelFilterbank/MelFilterbank.scala`
+- Log Compression: `fpga/LogCompress/LogCompress.scala`
+- Whisper Scaling: `fpga/WhisperScale/WhisperScale.scala`
+
+The script performs the following sequence of actions:
+
+1. Loads and resamples a test audio file using `mel_gold.py`.
+2. Computes Python gold reference outputs for quantization, STFT, Mel filtering, log compression, and Whisper scaling.
+3. Generates input `.csv` files for the Spatial kernels, such as `real.csv`, `imag.csv`, `power_bins.csv`, and `mel_filterbank.csv`.
+4. Automatically compiles each Spatial kernel using `sbt "run --sim"` and executes the generated `run.sh` script.
+5. Collects the FPGA output `.csv` files and compares them to the Python reference outputs using `np.testing.assert_allclose`, with strict relative and absolute tolerances.
+6. Logs and prints detailed mismatches, including value differences, index positions, and potential causes like clamping issues or filter misalignment.
+
+All intermediate files are saved in the `fpga_io/` directory. Key outputs include:
+
+- `real.csv`, `imag.csv`: STFT input components for the Power Spectrum kernel
+- `power_spectrum_output.csv`: Output of PowerSpectrum.scala
+- `mel_filterbank.csv`: Filterbank matrix used by MelFilterbank.scala
+- `melfilterbank_output.csv`: Output of MelFilterbank.scala
+- `logcompress_output.csv`: Output of LogCompress.scala
+- `whisperscale_output.csv`: Final output from WhisperScale.scala
+
+On successful execution, the test confirms correct behavior with messages such as:
+
+[INFO] PowerSpectrum FPGA output matches Python Scipy STFT power path.  
+[INFO] MelFilterbank FPGA output matches mel_gold.py/torchaudio output.  
+[INFO] LogCompress Final FPGA output matches mel_gold.py pipeline's 1st frame.  
+[INFO] WhisperScale FPGA output matches mel_gold.py pipeline output.  
+[INFO] FINAL OUTPUT MATCHES: Full FPGA pipeline output matches mel_gold.py equivalent output.
+
+This test provides high-confidence validation that the Spatial kernels correctly reproduce Whisper-compatible DSP behavior and are ready for integration into an end-to-end hardware deployment.
+
+### Requirements
+
+- Python 3.8+ and packages listed in `requirements.txt`
+- Scala + SBT (for compiling Spatial code)
+
+### How to Run
+
+From the project root (`Final-Project/`), run the following command:
+
+```
+python3 src/audiolib/dsp/spatial_dsp.py data/short_sentences/harvard_m.wav
+```
+
+Alternatively, to test with a different audio sample:
+
+```
+python3 src/audiolib/dsp/spatial_dsp.py data/short_sentences/harvard_f.wav
+```
+
+This will execute all DSP stages, generate and compare outputs, and display verification results in the console.
