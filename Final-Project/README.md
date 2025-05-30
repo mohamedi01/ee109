@@ -244,7 +244,7 @@ EE109 Audio Transcription & Analysis Pipeline – Block Diagram
 }
 </pre>
 
-## FPGA DSP Frontend Verification (`spatial_dsp.py`)
+## Milestone 2: Hardware Implementation and FPGA DSP Frontend Verification (`spatial_dsp.py`)
 
 To verify the hardware DSP pipeline, a standalone test script (`src/audiolib/dsp/spatial_dsp.py`) was developed. This script runs the complete Spatial-based DSP frontend in software simulation mode and validates its correctness by comparing the outputs of each hardware stage against Python reference results computed using `mel_gold.py`, which replicates Whisper’s preprocessing pipeline.
 
