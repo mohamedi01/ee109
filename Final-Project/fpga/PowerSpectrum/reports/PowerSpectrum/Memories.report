@@ -1,282 +1,18 @@
 ---------------------------
 Estimated Total Memories: 
 ---------------------------
-  RAM36: 27.0
+  RAM36: 30.0
 ---------------------------
 
 
 
 ---------------------------------------------------------------------
-Name: x351
-Type: StreamIn[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:32:16
-Src:        imagSram load imagDram
----------------------------------------------------------------------
-Symbol:     x351 = StreamInNew(BurstDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x378 = StreamInBankedRead(x351,ArrayBuffer(Set(b373))) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x378: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x399
-Type: StreamIn[Bit]
-Src:  PowerSpectrum.scala:36:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x399 = StreamInNew(BurstAckBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x425 = StreamInBankedRead(x399,ArrayBuffer(Set())) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x427: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x425: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: imagSram_0 (x312)
-Type: SRAM1[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:29:33
-Src:        val imagSram = SRAM[Float](n)
----------------------------------------------------------------------
-Symbol:     x312 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
-Instances: 1
-  RAM36: 9.0
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x380 = SRAMBankedWrite(x312,Vector(x379),Vector(List(Const(0))),Vector(b372),Vector(Set(x377, b373))) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x391 = SRAMBankedRead(x312,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:56)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x443: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-      x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x380: SRAMBankedWrite
-  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x391: SRAMBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x315
-Type: FIFO[IssuedCmd]
-Src:  PowerSpectrum.scala:31:16
-Src:        realSram load realDram
----------------------------------------------------------------------
-Symbol:     x315 = FIFONew(Const(16))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x322 = FIFOBankedEnq(x315,ArrayBuffer(x321),ArrayBuffer(Set(Const(true)))) {}
-             realSram load realDram (PowerSpectrum.scala:31:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x327 = FIFOBankedDeq(x315,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
-             realSram load realDram (PowerSpectrum.scala:31:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x348: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-  x323: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x322: FIFOBankedEnq
-  x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-    x333: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-      x327: FIFOBankedDeq
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x314
-Type: StreamOut[BurstCmd]
-Src:  PowerSpectrum.scala:31:16
-Src:        realSram load realDram
----------------------------------------------------------------------
-Symbol:     x314 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x320 = StreamOutBankedWrite(x314,ArrayBuffer(x318),ArrayBuffer(Set(x319))) {}
-             realSram load realDram (PowerSpectrum.scala:31:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x323: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x320: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: outSram_0 (x313)
-Type: SRAM1[Flt[_24,_8]]
-Src:  PowerSpectrum.scala:30:33
-Src:        val outSram  = SRAM[Float](n)
----------------------------------------------------------------------
-Symbol:     x313 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
-Instances: 1
-  RAM36: 9.0
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x395 = SRAMBankedWrite(x313,Vector(x442),Vector(List(Const(0))),Vector(b386),Vector(Set(b387))) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:20)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x418 = SRAMBankedRead(x313,Vector(List(Const(0))),Vector(b412),Vector(Set(x417, b413)),Vec[Flt[_24,_8]]) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x395: SRAMBankedWrite
-  x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-    x428: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-      x423: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x418: SRAMBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x325
+Name: x329
 Type: Reg[Fix[TRUE,_32,_0]]
 Src:  PowerSpectrum.scala:31:16
 Src:        realSram load realDram
 ---------------------------------------------------------------------
-Symbol:     x325 = RegNew(Const(0))
+Symbol:     x329 = RegNew(Const(0))
 Instances: 1
 
 
@@ -291,14 +27,14 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x330 = RegWrite(x325,x329,Set()) {}
+             x334 = RegWrite(x329,x333,Set()) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x340 = RegRead(x325) {}
+             x344 = RegRead(x329) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
@@ -307,118 +43,23 @@ Instance Summary:
 
 
 Control Tree: 
-x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x333: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x330: RegWrite
-  x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x340: RegRead
+x351: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x337: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x334: RegWrite
+  x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x344: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x350
-Type: FIFO[IssuedCmd]
-Src:  PowerSpectrum.scala:32:16
-Src:        imagSram load imagDram
----------------------------------------------------------------------
-Symbol:     x350 = FIFONew(Const(16))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x357 = FIFOBankedEnq(x350,ArrayBuffer(x356),ArrayBuffer(Set(Const(true)))) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x362 = FIFOBankedDeq(x350,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x383: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-  x358: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x357: FIFOBankedEnq
-  x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-    x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-      x362: FIFOBankedDeq
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x401
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  PowerSpectrum.scala:36:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x401 = RegNew(Const(0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x407 = RegWrite(x401,Const(338288),Set()) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x441 = RegRead(x401) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x423: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x408: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x407: RegWrite
-  x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x441: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x326
+Name: x330
 Type: Reg[Fix[TRUE,_32,_0]]
 Src:  PowerSpectrum.scala:31:16
 Src:        realSram load realDram
 ---------------------------------------------------------------------
-Symbol:     x326 = RegNew(Const(0))
+Symbol:     x330 = RegNew(Const(0))
 Instances: 1
 
 
@@ -433,14 +74,14 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x332 = RegWrite(x326,x331,Set()) {}
+             x336 = RegWrite(x330,x335,Set()) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x439 = RegRead(x326) {}
+             x445 = RegRead(x330) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
@@ -449,23 +90,23 @@ Instance Summary:
 
 
 Control Tree: 
-x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x333: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x332: RegWrite
-  x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x439: RegRead
+x351: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x337: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x336: RegWrite
+  x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x445: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x316
+Name: x320
 Type: StreamIn[Flt[_24,_8]]
 Src:  PowerSpectrum.scala:31:16
 Src:        realSram load realDram
 ---------------------------------------------------------------------
-Symbol:     x316 = StreamInNew(BurstDataBus())
+Symbol:     x320 = StreamInNew(BurstDataBus())
 Instances: 1
 
 
@@ -481,7 +122,7 @@ Instance Summary:
          0 [Type:WR]:
          0 [Type:RD]:
            - Mux Port #0: 
-             x343 = StreamInBankedRead(x316,ArrayBuffer(Set(b338))) {}
+             x347 = StreamInBankedRead(x320,ArrayBuffer(Set(b342))) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
@@ -490,20 +131,20 @@ Instance Summary:
 
 
 Control Tree: 
-x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x343: StreamInBankedRead
+x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x347: StreamInBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x360
-Type: Reg[Fix[TRUE,_32,_0]]
+Name: x354
+Type: FIFO[IssuedCmd]
 Src:  PowerSpectrum.scala:32:16
 Src:        imagSram load imagDram
 ---------------------------------------------------------------------
-Symbol:     x360 = RegNew(Const(0))
+Symbol:     x354 = FIFONew(Const(16))
 Instances: 1
 
 
@@ -511,21 +152,21 @@ Instance Summary:
   #0: Banked
      Resource: LUTs
      Depth:    1
-     Padding:  List()
+     Padding:  List(0)
      Accum:    None
      Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x365 = RegWrite(x360,x364,Set()) {}
+             x361 = FIFOBankedEnq(x354,ArrayBuffer(x360),ArrayBuffer(Set(Const(true)))) {}
              imagSram load imagDram (PowerSpectrum.scala:32:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x375 = RegRead(x360) {}
+             x366 = FIFOBankedDeq(x354,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
              imagSram load imagDram (PowerSpectrum.scala:32:16)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
@@ -534,25 +175,26 @@ Instance Summary:
 
 
 Control Tree: 
-x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x365: RegWrite
-  x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x375: RegRead
+x387: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x362: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x361: FIFOBankedEnq
+  x386: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x372: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x366: FIFOBankedDeq
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: realSram_0 (x311)
+Name: realSram_0 (x315)
 Type: SRAM1[Flt[_24,_8]]
 Src:  PowerSpectrum.scala:28:33
 Src:        val realSram = SRAM[Float](n)
 ---------------------------------------------------------------------
-Symbol:     x311 = SRAMNew(List(Const(338283)),SRAM1[Flt[_24,_8]])
+Symbol:     x315 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
 Instances: 1
-  RAM36: 9.0
+  RAM36: 10.0
 
 
 Instance Summary: 
@@ -566,15 +208,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x345 = SRAMBankedWrite(x311,Vector(x344),Vector(List(Const(0))),Vector(b337),Vector(Set(x342, b338))) {}
+             x349 = SRAMBankedWrite(x315,Vector(x348),Vector(List(Const(0))),Vector(b341),Vector(Set(x346, b342))) {}
              realSram load realDram (PowerSpectrum.scala:31:16)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x388 = SRAMBankedRead(x311,Vector(List(Const(0))),Vector(b386),Vector(Set(b387)),Vec[Flt[_24,_8]]) {}
-             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:34:30)
+             x394 = SRAMBankedRead(x315,Vector(List(Const(0))),Vector(b392),Vector(Set(b393)),Vec[Flt[_24,_8]]) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:35:30)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -582,26 +224,26 @@ Instance Summary:
 
 
 Control Tree: 
-x444: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x443: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
-    x348: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-      x347: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-        x346: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-          x345: SRAMBankedWrite
-  x396: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x388: SRAMBankedRead
+x450: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x449: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x352: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x351: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x350: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x349: SRAMBankedWrite
+  x402: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x394: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x400
+Name: x406
 Type: Reg[Fix[TRUE,_32,_0]]
-Src:  PowerSpectrum.scala:36:15
+Src:  PowerSpectrum.scala:37:15
 Src:        outDram store outSram
 ---------------------------------------------------------------------
-Symbol:     x400 = RegNew(Const(0))
+Symbol:     x406 = RegNew(Const(0))
 Instances: 1
 
 
@@ -616,15 +258,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x406 = RegWrite(x400,Const(338283),Set()) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
+             x412 = RegWrite(x406,Const(384312),Set()) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x415 = RegRead(x400) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
+             x421 = RegRead(x406) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -632,146 +274,23 @@ Instance Summary:
 
 
 Control Tree: 
-x423: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x408: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x406: RegWrite
-  x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x415: RegRead
+x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x414: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x412: RegWrite
+  x428: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x421: RegRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x361
-Type: Reg[Fix[TRUE,_32,_0]]
-Src:  PowerSpectrum.scala:32:16
-Src:        imagSram load imagDram
----------------------------------------------------------------------
-Symbol:     x361 = RegNew(Const(0))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x367 = RegWrite(x361,x366,Set()) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x440 = RegRead(x361) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x382: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x368: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-    x367: RegWrite
-  x381: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x440: RegRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x397
-Type: StreamOut[BurstCmd]
-Src:  PowerSpectrum.scala:36:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x397 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x405 = StreamOutBankedWrite(x397,ArrayBuffer(x403),ArrayBuffer(Set(x404))) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x408: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x405: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x349
-Type: StreamOut[BurstCmd]
-Src:  PowerSpectrum.scala:32:16
-Src:        imagSram load imagDram
----------------------------------------------------------------------
-Symbol:     x349 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x355 = StreamOutBankedWrite(x349,ArrayBuffer(x353),ArrayBuffer(Set(x354))) {}
-             imagSram load imagDram (PowerSpectrum.scala:32:16)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x358: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x355: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x398
+Name: x404
 Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
-Src:  PowerSpectrum.scala:36:15
+Src:  PowerSpectrum.scala:37:15
 Src:        outDram store outSram
 ---------------------------------------------------------------------
-Symbol:     x398 = StreamOutNew(BurstFullDataBus())
+Symbol:     x404 = StreamOutNew(BurstFullDataBus())
 Instances: 1
 
 
@@ -786,8 +305,8 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x421 = StreamOutBankedWrite(x398,ArrayBuffer(x420),ArrayBuffer(Set(b413))) {}
-             outDram store outSram (PowerSpectrum.scala:36:15)
+             x427 = StreamOutBankedWrite(x404,ArrayBuffer(x426),ArrayBuffer(Set(b419))) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -796,8 +315,489 @@ Instance Summary:
 
 
 Control Tree: 
-x422: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x421: StreamOutBankedWrite
+x428: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x427: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x403
+Type: StreamOut[BurstCmd]
+Src:  PowerSpectrum.scala:37:15
+Src:        outDram store outSram
+---------------------------------------------------------------------
+Symbol:     x403 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x411 = StreamOutBankedWrite(x403,ArrayBuffer(x409),ArrayBuffer(Set(x410))) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x414: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x411: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x405
+Type: StreamIn[Bit]
+Src:  PowerSpectrum.scala:37:15
+Src:        outDram store outSram
+---------------------------------------------------------------------
+Symbol:     x405 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x431 = StreamInBankedRead(x405,ArrayBuffer(Set())) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x433: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x431: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x407
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  PowerSpectrum.scala:37:15
+Src:        outDram store outSram
+---------------------------------------------------------------------
+Symbol:     x407 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x413 = RegWrite(x407,Const(384320),Set()) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x447 = RegRead(x407) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x414: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x413: RegWrite
+  x428: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x447: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x365
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  PowerSpectrum.scala:32:16
+Src:        imagSram load imagDram
+---------------------------------------------------------------------
+Symbol:     x365 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x371 = RegWrite(x365,x370,Set()) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x446 = RegRead(x365) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x386: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x372: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x371: RegWrite
+  x385: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x446: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x318
+Type: StreamOut[BurstCmd]
+Src:  PowerSpectrum.scala:31:16
+Src:        realSram load realDram
+---------------------------------------------------------------------
+Symbol:     x318 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x324 = StreamOutBankedWrite(x318,ArrayBuffer(x322),ArrayBuffer(Set(x323))) {}
+             realSram load realDram (PowerSpectrum.scala:31:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x327: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x324: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: imagSram_0 (x316)
+Type: SRAM1[Flt[_24,_8]]
+Src:  PowerSpectrum.scala:29:33
+Src:        val imagSram = SRAM[Float](n)
+---------------------------------------------------------------------
+Symbol:     x316 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 10.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x384 = SRAMBankedWrite(x316,Vector(x383),Vector(List(Const(0))),Vector(b376),Vector(Set(x381, b377))) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x397 = SRAMBankedRead(x316,Vector(List(Const(0))),Vector(b392),Vector(Set(b393)),Vec[Flt[_24,_8]]) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:35:56)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x450: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x449: ParallelPipe (-1) [Level: OuterControl, Loop: Single, Schedule: ForkJoin]
+    x387: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+      x386: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x385: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x384: SRAMBankedWrite
+  x402: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x397: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x355
+Type: StreamIn[Flt[_24,_8]]
+Src:  PowerSpectrum.scala:32:16
+Src:        imagSram load imagDram
+---------------------------------------------------------------------
+Symbol:     x355 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x382 = StreamInBankedRead(x355,ArrayBuffer(Set(b377))) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x385: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x382: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: outSram_0 (x317)
+Type: SRAM1[Flt[_24,_8]]
+Src:  PowerSpectrum.scala:30:33
+Src:        val outSram  = SRAM[Float](n)
+---------------------------------------------------------------------
+Symbol:     x317 = SRAMNew(List(Const(384312)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 10.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x401 = SRAMBankedWrite(x317,Vector(x448),Vector(List(Const(0))),Vector(b392),Vector(Set(b393))) {}
+             outSram(i) = realSram(i)*realSram(i) + imagSram(i)*imagSram(i) (PowerSpectrum.scala:35:20)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x424 = SRAMBankedRead(x317,Vector(List(Const(0))),Vector(b418),Vector(Set(x423, b419)),Vec[Flt[_24,_8]]) {}
+             outDram store outSram (PowerSpectrum.scala:37:15)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x450: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x402: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x401: SRAMBankedWrite
+  x435: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x434: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x429: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x428: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x424: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x353
+Type: StreamOut[BurstCmd]
+Src:  PowerSpectrum.scala:32:16
+Src:        imagSram load imagDram
+---------------------------------------------------------------------
+Symbol:     x353 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x359 = StreamOutBankedWrite(x353,ArrayBuffer(x357),ArrayBuffer(Set(x358))) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x362: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x359: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x319
+Type: FIFO[IssuedCmd]
+Src:  PowerSpectrum.scala:31:16
+Src:        realSram load realDram
+---------------------------------------------------------------------
+Symbol:     x319 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x326 = FIFOBankedEnq(x319,ArrayBuffer(x325),ArrayBuffer(Set(Const(true)))) {}
+             realSram load realDram (PowerSpectrum.scala:31:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x331 = FIFOBankedDeq(x319,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             realSram load realDram (PowerSpectrum.scala:31:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x352: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x327: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x326: FIFOBankedEnq
+  x351: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x337: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x331: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x364
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  PowerSpectrum.scala:32:16
+Src:        imagSram load imagDram
+---------------------------------------------------------------------
+Symbol:     x364 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x369 = RegWrite(x364,x368,Set()) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x379 = RegRead(x364) {}
+             imagSram load imagDram (PowerSpectrum.scala:32:16)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x386: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x372: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x369: RegWrite
+  x385: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x379: RegRead
 ---------------------------------------------------------------------
 
 

@@ -4,12 +4,12 @@ import emul.implicits._
 object Main {
   def main(args: Array[String]): Unit = {
     OOB.open()
-    val x292 = if (TRUE) System.out.print("DEBUG: PowerSpectrum main method started.\n")
-    val x293 = if (TRUE) System.out.print("DEBUG: Read n = Const(338283) from config file.\n")
-    x294_realDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x295_imagDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x296_outDram.initMem(FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    val x297 = {
+    val x296 = if (TRUE) System.out.print("DEBUG: PowerSpectrum main method started.\n")
+    val x297 = if (TRUE) System.out.print("DEBUG: Read n = Const(384312) from config file.\n")
+    x298_realDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x299_imagDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x300_outDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    val x301 = {
       val file = new java.io.File("../../../../fpga_io/real.csv")
       if (false) { // Will write to file
         val writer = new java.io.PrintWriter(file)
@@ -17,8 +17,8 @@ object Main {
       }
       file
     }
-    val x298 = {
-      val scanner = new java.util.Scanner(x297)
+    val x302 = {
+      val scanner = new java.util.Scanner(x301)
       val tokens = new scala.collection.mutable.ArrayBuffer[String]() 
       scanner.useDelimiter("\\s*" + "\n" + "\\s*|\\s*\n\\s*")
       while (scanner.hasNext) {
@@ -27,13 +27,13 @@ object Main {
       scanner.close()
       tokens.toArray
     }
-    val x302 = Array.tabulate(x298.length){bbb => 
+    val x306 = Array.tabulate(x302.length){bbb => 
       val b9 = FixedPoint.fromInt(bbb)
-      val x300 = x298.apply(b9)
-      val x301 = FloatPoint(x300, FltFormat(23,8))
-      x301
+      val x304 = x302.apply(b9)
+      val x305 = FloatPoint(x304, FltFormat(23,8))
+      x305
     }
-    val x303 = {
+    val x307 = {
       val file = new java.io.File("../../../../fpga_io/imag.csv")
       if (false) { // Will write to file
         val writer = new java.io.PrintWriter(file)
@@ -41,8 +41,8 @@ object Main {
       }
       file
     }
-    val x304 = {
-      val scanner = new java.util.Scanner(x303)
+    val x308 = {
+      val scanner = new java.util.Scanner(x307)
       val tokens = new scala.collection.mutable.ArrayBuffer[String]() 
       scanner.useDelimiter("\\s*" + "\n" + "\\s*|\\s*\n\\s*")
       while (scanner.hasNext) {
@@ -51,17 +51,17 @@ object Main {
       scanner.close()
       tokens.toArray
     }
-    val x308 = Array.tabulate(x304.length){bbb => 
+    val x312 = Array.tabulate(x308.length){bbb => 
       val b16 = FixedPoint.fromInt(bbb)
-      val x306 = x304.apply(b16)
-      val x307 = FloatPoint(x306, FltFormat(23,8))
-      x307
+      val x310 = x308.apply(b16)
+      val x311 = FloatPoint(x310, FltFormat(23,8))
+      x311
     }
-    val x309 = {
-      for (i <- 0 until x302.length) {
+    val x313 = {
+      for (i <- 0 until x306.length) {
         try {
           try {
-            x294_realDram(i) = x302(i)
+            x298_realDram(i) = x306(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
             System.out.println("[warn] PowerSpectrum.scala:24:11 Memory realData: Out of bounds read at address " + err.getMessage)
@@ -73,11 +73,11 @@ object Main {
         }
       }
     }
-    val x310 = {
-      for (i <- 0 until x308.length) {
+    val x314 = {
+      for (i <- 0 until x312.length) {
         try {
           try {
-            x295_imagDram(i) = x308(i)
+            x299_imagDram(i) = x312(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
             System.out.println("[warn] PowerSpectrum.scala:25:11 Memory imagData: Out of bounds read at address " + err.getMessage)
@@ -89,26 +89,26 @@ object Main {
         }
       }
     }
-    val x444_outr_RootController = x444_outr_RootController_kernel.run()
-    val x430 = if (TRUE) System.out.print("DEBUG: PowerSpectrum Accel block finished.\n")
-    val x431 = new Array[FloatPoint](FixedPoint(BigDecimal("338283"),FixFormat(true,32,0)))
-    val x432 = {
-      for (i <- 0 until x431.length) {
+    val x450_outr_RootController = x450_outr_RootController_kernel.run()
+    val x436 = if (TRUE) System.out.print("DEBUG: PowerSpectrum Accel block finished.\n")
+    val x437 = new Array[FloatPoint](FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)))
+    val x438 = {
+      for (i <- 0 until x437.length) {
         try {
           try {
-            x431(i) = x296_outDram(i)
+            x437(i) = x300_outDram(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-            System.out.println("[warn] PowerSpectrum.scala:41:24 Memory outDram: Out of bounds read at address " + err.getMessage)
+            System.out.println("[warn] PowerSpectrum.scala:42:24 Memory outDram: Out of bounds read at address " + err.getMessage)
             FloatPoint.invalid(FltFormat(23,8))
           }
         }
         catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-          System.out.println("[warn] PowerSpectrum.scala:41:24 Memory result: Out of bounds write at address " + err.getMessage)
+          System.out.println("[warn] PowerSpectrum.scala:42:24 Memory result: Out of bounds write at address " + err.getMessage)
         }
       }
     }
-    val x433 = {
+    val x439 = {
       val file = new java.io.File("../../../../fpga_io/power_spectrum_output.csv")
       if (true) { // Will write to file
         val writer = new java.io.PrintWriter(file)
@@ -116,14 +116,14 @@ object Main {
       }
       file
     }
-    val x434 = FixedPoint.fromInt(x431.length)
-    val x437 = {
-      val writer = new java.io.PrintWriter(new java.io.FileOutputStream(x433, true /*append*/))
-      (0 until x434.toInt).foreach{b44 => 
+    val x440 = FixedPoint.fromInt(x437.length)
+    val x443 = {
+      val writer = new java.io.PrintWriter(new java.io.FileOutputStream(x439, true /*append*/))
+      (0 until x440.toInt).foreach{b45 => 
         writer.write("\n")
-        val x435 = x431.apply(b44)
-        val x436 = x435.toString
-        writer.write(x436)
+        val x441 = x437.apply(b45)
+        val x442 = x441.toString
+        writer.write(x442)
       }
       writer.close()
     }
