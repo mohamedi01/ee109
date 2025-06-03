@@ -153,18 +153,75 @@ def _get_mel_spec(device: torch.device) -> torchaudio.transforms.MelSpectrogram:
     return _MEL_CACHE[device]
 
 
+def compute_stft(x: torch.Tensor, n_fft: int = 400, hop_length: int = 160, win_length: int = 400) -> torch.Tensor:
+    """
+    Compute the STFT of the input audio tensor.
+    Returns a complex tensor of shape (freq_bins, frames).
+    """
+    window = torch.hann_window(win_length, device=x.device)
+    stft = torch.stft(
+        x, n_fft=n_fft, hop_length=hop_length, win_length=win_length,
+        window=window, center=True, return_complex=True
+    )
+    return stft
+
+def compute_power_spectrum(stft: torch.Tensor) -> torch.Tensor:
+    """
+    Compute the power spectrum (magnitude squared) from the STFT.
+    """
+    return stft.abs() ** 2
+
+def apply_mel_filterbank(
+    power_spectrum: torch.Tensor,
+    sample_rate: int = DEFAULT_SAMPLE_RATE,
+    n_fft: int = DEFAULT_N_FFT,
+    n_mels: int = DEFAULT_N_MELS,
+    f_min: float = DEFAULT_F_MIN,
+    f_max: float = DEFAULT_F_MAX,
+    device: torch.device = torch.device("cpu")
+) -> torch.Tensor:
+    """
+    Apply a Mel filterbank to the power spectrum.
+    Returns a tensor of shape (n_mels, frames).
+    """
+    mel_fb = torchaudio.functional.melscale_fbanks(
+        n_freqs=power_spectrum.shape[0],
+        f_min=f_min,
+        f_max=f_max,
+        n_mels=n_mels,
+        sample_rate=sample_rate,
+        norm=None,
+        mel_scale="htk"
+    ).to(device)
+    # Ensure mel_fb shape is (n_mels, n_freqs)
+    if mel_fb.shape[0] != n_mels:
+        mel_fb = mel_fb.T
+    mel_spec = torch.matmul(mel_fb, power_spectrum)
+    return mel_spec
+
 def compute_log_mel_power(x: torch.Tensor,
                           dynamic_range_db: float = 8.0) -> torch.Tensor:
     """
     Given a 1D torch audio tensor at 16kHz, compute the log-Mel spectrogram:
-      1) Mel power
-      2) log10 clamp
-      3) dynamic-range compression
+      1) STFT
+      2) Power spectrum
+      3) Mel filterbank
+      4) log10 clamp
+      5) dynamic-range compression
     Returns a torch.Tensor of shape (n_mels, T).
     """
-    mel_power = _get_mel_spec(x.device)(x)
+    stft = compute_stft(x, n_fft=DEFAULT_N_FFT, hop_length=DEFAULT_HOP_LENGTH, win_length=DEFAULT_N_FFT)
+    power_spec = compute_power_spectrum(stft)
+    mel_power = apply_mel_filterbank(
+        power_spec,
+        sample_rate=DEFAULT_SAMPLE_RATE,
+        n_fft=DEFAULT_N_FFT,
+        n_mels=DEFAULT_N_MELS,
+        f_min=DEFAULT_F_MIN,
+        f_max=DEFAULT_F_MAX,
+        device=x.device
+    )
     log_spec = torch.log10(torch.clamp(mel_power, min=EPSILON))
-    # dynamic-range compression
     max_val = log_spec.max()
     log_spec = torch.maximum(log_spec, max_val - dynamic_range_db)
     return log_spec

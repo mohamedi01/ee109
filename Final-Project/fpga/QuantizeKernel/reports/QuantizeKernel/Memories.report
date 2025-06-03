@@ -1,0 +1,535 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 58.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: inSram_0 (x229)
+Type: SRAM1[Flt[_24,_8]]
+Src:  QuantizeKernel.scala:27:32
+Src:        val inSram  = SRAM[Float](MAX_SAMPLES)
+---------------------------------------------------------------------
+Symbol:     x229 = SRAMNew(List(Const(1048576)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 29.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x262 = SRAMBankedWrite(x229,Vector(x261),Vector(List(Const(0))),Vector(b254),Vector(Set(x259, b255))) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x270 = SRAMBankedRead(x229,Vector(List(Const(0))),Vector(b268),Vector(Set(b269)),Vec[Flt[_24,_8]]) {}
+             val scaled  = inSram(i) * 32767.to[Float] (QuantizeKernel.scala:34:29)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x203: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x265: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x264: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x263: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x262: SRAMBankedWrite
+  x281: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x270: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x283
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  QuantizeKernel.scala:43:43
+Src:        outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
+---------------------------------------------------------------------
+Symbol:     x283 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x306 = StreamOutBankedWrite(x283,ArrayBuffer(x305),ArrayBuffer(Set(b298))) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x307: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x306: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x242
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernel.scala:31:14
+Src:        inSram load inDram(0 :: n_runtime_spatial_i32)
+---------------------------------------------------------------------
+Symbol:     x242 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x247 = RegWrite(x242,x246,Set()) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x257 = RegRead(x242) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x264: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x250: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x247: RegWrite
+  x263: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x257: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x243
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernel.scala:31:14
+Src:        inSram load inDram(0 :: n_runtime_spatial_i32)
+---------------------------------------------------------------------
+Symbol:     x243 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x249 = RegWrite(x243,x248,Set()) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x325 = RegRead(x243) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x264: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x250: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x249: RegWrite
+  x263: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x325: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x282
+Type: StreamOut[BurstCmd]
+Src:  QuantizeKernel.scala:43:43
+Src:        outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
+---------------------------------------------------------------------
+Symbol:     x282 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x290 = StreamOutBankedWrite(x282,ArrayBuffer(x288),ArrayBuffer(Set(x289))) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x293: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x290: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x232
+Type: FIFO[IssuedCmd]
+Src:  QuantizeKernel.scala:31:14
+Src:        inSram load inDram(0 :: n_runtime_spatial_i32)
+---------------------------------------------------------------------
+Symbol:     x232 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x239 = FIFOBankedEnq(x232,ArrayBuffer(x238),ArrayBuffer(Set(Const(true)))) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x244 = FIFOBankedDeq(x232,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x265: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x240: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x239: FIFOBankedEnq
+  x264: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x250: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x244: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x286
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernel.scala:43:43
+Src:        outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
+---------------------------------------------------------------------
+Symbol:     x286 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x292 = RegWrite(x286,Const(305728),Set()) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x326 = RegRead(x286) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x308: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x293: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x292: RegWrite
+  x307: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x326: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x233
+Type: StreamIn[Flt[_24,_8]]
+Src:  QuantizeKernel.scala:31:14
+Src:        inSram load inDram(0 :: n_runtime_spatial_i32)
+---------------------------------------------------------------------
+Symbol:     x233 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x260 = StreamInBankedRead(x233,ArrayBuffer(Set(b255))) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x263: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x260: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x284
+Type: StreamIn[Bit]
+Src:  QuantizeKernel.scala:43:43
+Src:        outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
+---------------------------------------------------------------------
+Symbol:     x284 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x310 = StreamInBankedRead(x284,ArrayBuffer(Set())) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x312: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x310: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x231
+Type: StreamOut[BurstCmd]
+Src:  QuantizeKernel.scala:31:14
+Src:        inSram load inDram(0 :: n_runtime_spatial_i32)
+---------------------------------------------------------------------
+Symbol:     x231 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x237 = StreamOutBankedWrite(x231,ArrayBuffer(x235),ArrayBuffer(Set(x236))) {}
+             inSram load inDram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:31:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x240: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x237: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x285
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  QuantizeKernel.scala:43:43
+Src:        outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
+---------------------------------------------------------------------
+Symbol:     x285 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x291 = RegWrite(x285,Const(305717),Set()) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x300 = RegRead(x285) {}
+             outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) (QuantizeKernel.scala:43:43)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x308: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x293: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x291: RegWrite
+  x307: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x300: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: outSram_0 (x230)
+Type: SRAM1[Flt[_24,_8]]
+Src:  QuantizeKernel.scala:28:32
+Src:        val outSram = SRAM[Float](MAX_SAMPLES)
+---------------------------------------------------------------------
+Symbol:     x230 = SRAMNew(List(Const(1048576)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 29.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x280 = SRAMBankedWrite(x230,Vector(x279),Vector(List(Const(0))),Vector(b268),Vector(Set(b269))) {}
+             outSram(i) = int16_val.to[Float] / 32768.to[Float] (QuantizeKernel.scala:39:20)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x303 = SRAMBankedRead(x230,Vector(List(Const(0))),Vector(b297),Vector(Set(x302, Const(true), b298)),Vec[Flt[_24,_8]]) {}
+             mem.__read(addr2, ens + c) (MemoryDealiasing.scala:32:17)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x203: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x281: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x280: SRAMBankedWrite
+  x314: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x313: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x308: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x307: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x303: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
