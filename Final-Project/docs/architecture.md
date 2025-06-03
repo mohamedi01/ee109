@@ -1,128 +1,69 @@
 # Project Architecture
 
-This document outlines the structure and components of the EE109 Final Project.
+This document describes the structure and organization of the EE109 Final Project repository.
 
 ## Directory Structure
 
+```
 Final-Project/
-├─ README.md                            # (Up to Date)             
-├─ project_proposal.md                  # (Up to Date)
-├─ pyproject.toml                       # (Up to Date)
-├─ requirements.txt                     # (Up to Date)
-├─ .gitignore                           # (Up to Date)
-├─ docs/
-│   └─ architecture.md                  # (Up to Date)
-├─ submissions/                         # (Project submission documents)
-│   ├─ Milestone_1_Submission.md        # (Milestone 1 submission document)
-│   └─ Milestone_1_Submission.pdf       # (PDF version of Milestone 1 submission)
-├─ src/
-│   └─ audiolib/
-│       ├─ __init__.py
-│       ├─ cli.py
-│       ├─ pipeline.py                  # (Provides the integrated DSP->ASR->NLP pipeline function `process_audio_to_nlp`)
-│       ├─ run_pipeline.py      # (Script to run the full pipeline on an audio file from the command line)
-│       ├─ dsp/
-│       │   ├─ __init__.py              # (Up to Date for DSP -> ASR software implementation)
-│       │   ├─ mel.py                   # (Finalized for software implementation: provides `wav_to_logmel` for DSP)
-│       ├─ asr/
-│       │   ├─ __init__.py              # (Finalized for software implementation: Exports core ASR functions.)
-│       │   ├─ transcribe.py            # (Finalized for software implementation: Provides `transcribe_audio_file`, the main ASR entry point.)
-│       │   └─ whisper_features.py      # (Finalized for software implementation: Provides `transcribe_features` for running Whisper model inference on Mel spectrograms.)
-│       │
-│       ├─ nlp/
-│       │   ├─ __init__.py              # (Finalized for software implementation: Exports core NLP functionalities)
-│       │   ├─ nlp.py                   # (Finalized for software implementation: Provides core NLP functions)
-│       │   ├─ debug_nlp.py             # (Finalized for software implementation: Script for debugging NLP functionalities)
-│       │   └─ models/                  # (NLP models and training scripts)
-│       │       ├─ __init__.py          # (Initializes the models module)
-│       │       ├─ train_keyword_spotter.py # (Script for training keyword spotter)
-│       │       └─ train_topic_segmenter.py # (Script for training topic segmenter)
-│       └─ testutility/
-│           ├─ __init__.py              # (Makes testutility a package)
-│           └─ text_processing_utils.py # (Utilities for text normalization)
-├─ data/
-│   ├─ short_sentences/                 # (~30 second audio clips with multiple sentences)
-│   │   ├─ harvard_f.wav               
-│   │   └─ harvard_m.wav                
-│   ├─ long_sentences/                  # (Longer audio clips, e.g., 1-5 minutes, for more extensive pipeline testing)
-│   │   ├─ bird.mp3
-│   │   ├─ cold.mp3
-│   │   ├─ face.mp3
-│   │   └─ hot.mp3      
-│   ├─ single_words/                    # (~1 second audio clips with single numbers)
-│   │   ├─ 0_jackson_0.wav              
-│   │   ├─ 1_jackson_0.wav              
-│   │   ├─ 2_jackson_0.wav             
-│   │   ├─ 3_theo_0.wav                
-│   │   ├─ 4_theo_0.wav                
-│   │   ├─ 5_george_0.wav              
-│   │   └─ 6_george_0.wav              
-│   ├─ transcripts/                     # Transcriptions for testing
-│   │   ├─ short_sentences/             # Transcripts for short sentence audio files
-│   │   │   ├─ harvard_f.txt           
-│   │   │   └─ harvard_m.txt          
-│   │   │
-│   │   ├─ long_sentences/              # Transcripts for long sentence audio files
-│   │   │   ├─ bird.txt
-│   │   │   ├─ cold.txt
-│   │   │   ├─ face.txt
-│   │   │   └─ hot.txt
-│   │   │
-│   │   └─ single_words/               # Transcripts for single word audio files
-│   │       ├─ 0_jackson_0.txt        
-│   │       ├─ 1_jackson_0.txt         
-│   │       ├─ 2_jackson_0.txt         
-│   │       ├─ 3_theo_0.txt           
-│   │       ├─ 4_theo_0.txt            
-│   │       ├─ 5_george_0.txt          
-│   │       └─ 6_george_0.txt         
-│   └─ normalization                    # Folder for testing and normalization data
-│       └─ homophones.csv               # (Downloaded & edited - Used for text normalization during WER calculation)
-├─ fpga/
-│   ├─ README.md                        # (Placeholder for FPGA specific details)
-│   ├─ build.sbt                        # (sbt build file for Spatial project)
-│   ├─ run.sh                           # (Script to run Spatial tests/compilation)
-│   ├─ LogCompress.scala                # (Spatial kernel for log compression)
-│   ├─ MelFilterbank.scala              # (Spatial kernel for Mel filterbank application)
-│   ├─ PowerSpectrum.scala              # (Spatial kernel for power spectrum calculation)
-│   ├─ QuantizeKernel.scala             # (Spatial kernel for audio quantization)
-│   ├─ STFTKernel.scala                 # (Spatial kernel for STFT - Windowing done, FFT in progress)
-│   ├─ WhisperScale.scala               # (Spatial kernel for Whisper-specific scaling)
-│   ├─ src/
-│   │   └─ test/
-│   │       └─ scala/
-│   │           └─ spatial/
-│   │               └─ tests/
-│   │                   ├─ LogCompressTest.scala      # (Spatial test - Implemented)
-│   │                   ├─ MelFilterbankTest.scala    # (Spatial test - Passing)
-│   │                   ├─ PowerSpectrumTest.scala    # (Spatial test - Passing)
-│   │                   ├─ QuantizeKernelTest.scala   # (Spatial test - Passing)
-│   │                   ├─ STFTKernelTest.scala       # (Spatial test - Placeholder, pending FFT)
-│   │                   └─ WhisperScaleTest.scala     # (Spatial test - Implemented)
-│   ├─ gen/                             # (Generated files by Spatial compiler for different kernels)
-│   │   └─ CS217/
-│   │       └─ (KernelName)Test/         # (Output for each kernel test, e.g., QuantizeKernelTest)
-│   │           ├─ chisel/              # (Generated Chisel code)
-│   │           ├─ logs/                # (Simulation logs)
-│   │           ├─ reports/             # (Compilation reports)
-│   │           └─ ...                  # (Other generated artifacts)
-│   └─ target/                          # (sbt build artifacts for FPGA project)
-└─ tests/  
-    ├─ test_DSP/
-    │   ├─ test_dsp_single_words.py     # (Tests DSP components on single-word audio) 
-    │   ├─ test_dsp_short_sentences.py  # (Tests DSP components on short-sentence audio) 
-    │   └─ test_dsp_long_sentences.py   # (Tests DSP components on long-sentence audio)
-    │
-    ├─ test_DSP_to_ASR/                 # Tests for the DSP to ASR pipeline 
-    │   ├─ test_asr_short_sentences.py  # (Tests ASR on short-sentence audio) 
-    │   ├─ test_asr_single_words.py     # (Tests ASR on single-word audio) 
-    │   └─ test_asr_long_sentences.py   # (Tests ASR on long-sentence audio)
-    │
-    ├─ test_NLP/                                     # (Tests NLP functionalities)
-    │   ├─ test_nlp.py                              
-    │   ├─ test_nlp_on_short_sentence_transcripts.py # (Tests NLP module on short-sentence transcripts)
-    │   └─ test_nlp_on_long_sentence_transcripts.py  # (Tests NLP module on long-sentence transcripts)
-    │
-    └─ test_pipeline/                      # Tests for the full DSP->ASR->NLP integrated pipeline
-        ├─ test_short_sentence_pipeline.py # (Tests full pipeline short-sentence audio)
-        └─ test_long_sentence_pipeline.py  # (Tests full pipeline on long-sentence audio)
+├── data/                # Audio data and transcripts for testing
+│   ├── long_sentences/
+│   ├── normalization/
+│   ├── short_sentences/
+│   ├── single_words/
+│   └── transcripts/
+├── docs/                # Project documentation
+│   └── architecture.md
+├── ee109_final_project/ # (If used: Python virtual environment or build artifacts, ignored)
+├── fpga/                # All FPGA/Spatial kernel source, build, and generated files
+│   ├── LogCompress/
+│   ├── MelFilterbank/
+│   ├── PowerSpectrum/
+│   ├── QuantizeKernel/
+│   ├── STFTKernel/
+│   ├── WhisperScale/
+│   ├── gen/             # Generated code and simulation outputs (ignored by git)
+│   ├── logs/            # Kernel logs (ignored by git)
+│   ├── reports/         # Build and simulation reports (ignored by git)
+│   ├── target/          # SBT build artifacts (ignored by git)
+│   ├── src/             # Scala/Spatial test sources
+│   └── build.sbt        # SBT build file for FPGA project
+├── fpga_io/             # Intermediate CSV files for Python <-> FPGA data exchange (ignored by git)
+├── src/                 # Python source code
+│   └── audiolib/
+│       ├── asr/
+│       ├── dsp/
+│       ├── nlp/
+│       └── testutility/
+├── submissions/         # Submission documents
+├── target/              # Top-level build artifacts (ignored by git)
+├── tests/               # Python test scripts for DSP, ASR, NLP, and pipeline
+├── .gitignore           # Ignore rules for build artifacts, data, and IDE files
+├── project_proposal.md  # Project proposal document
+├── pyproject.toml       # Python project configuration
+├── README.md            # Project overview and instructions
+├── requirements.txt     # Python dependencies
+```
+
+## Key Points
+
+- **`data/`**: Contains all audio and transcript files for testing and development.
+- **`fpga/`**: Contains all FPGA/Spatial kernel code, build files, and generated outputs. Each kernel (e.g., `QuantizeKernel`, `STFTKernel`) is in its own folder.
+- **`fpga_io/`**: Used for exchanging CSV data between Python and FPGA/Spatial simulations. This directory is ignored by git.
+- **`src/audiolib/`**: Main Python source code, organized by functionality (DSP, ASR, NLP, utilities).
+- **`tests/`**: Python test scripts for each pipeline stage and the full pipeline.
+- **`submissions/`**: Contains submission documents.
+- **`target/`, `gen/`, `logs/`, `reports/`**: Build artifacts and generated files, all ignored by git.
+- **`.gitignore`**: Ensures that all build artifacts, intermediate files, and virtual environments are not tracked by git.
+
+## Data Flow
+
+- **Python ↔ FPGA/Spatial**: The `fpga_io/` directory is the bridge for data exchange (e.g., CSV files) between the Python pipeline and FPGA/Spatial kernels.
+- **Build Artifacts**: All build outputs, logs, and reports are ignored by git to keep the repository clean.
+- **Source Code**: All source code for Python and FPGA/Spatial is kept under `src/` and `fpga/` respectively.
+
+## Running and Testing
+
+- **Python**: Run and test the pipeline using scripts in `src/` and `tests/`.
+- **FPGA/Spatial**: Each kernel in `fpga/` can be built and simulated independently. Use the provided `run.sh` scripts or SBT commands in each kernel directory.
+- **Integration**: The Python pipeline can invoke FPGA kernels and compare results using the shared `fpga_io/` directory.
