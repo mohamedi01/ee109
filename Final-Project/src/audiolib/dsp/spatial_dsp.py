@@ -193,14 +193,10 @@ def run_spatial_pipeline(audio_path: str):
     # Normal pipeline run
     audio_np, sr = load_audio(path=audio_path, audio_data=None, sr_in=None)
     python_ref = python_reference_pipeline(audio_np)
-
-    # Save Hann window to fpga_io/hann_window.csv if it doesn't exist
-    hann_path = os.path.join(IO_DIR, "hann_window.csv")
-    if not os.path.exists(hann_path):
-        hann = np.hanning(DEFAULT_N_FFT)
-        np.savetxt(hann_path, hann, fmt="%.18e")
-
+    print(f"[PASS] Python reference pipeline complete.")
+    print(f"[INFO] Running spatial pipeline and comparing with Python reference...")
     spatial_pipeline_and_compare_isolated(python_ref, IO_DIR, FPGA_ROOT, audio_np)
+    print(f"[PASS] Spatial pipeline and comparison complete.")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
