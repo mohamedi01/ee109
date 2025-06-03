@@ -1,3 +1,9 @@
+"""
+whisper_features.py – Handles feature extraction for Whisper ASR.
+
+This module provides functionality to transcribe audio features using the Whisper model.
+"""
+
 from functools import lru_cache
 from typing import Union
 import torch, numpy as np, transformers

@@ -7,18 +7,18 @@
 <text><strong>Effects</strong>: Simple<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x156>x156</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x157><a href=PreExecution_IR.html#x157>x157</a> = PrintIf(ens=[],x=DEBUG: Read n = Const(384312) from config file.
+<h3 id=x157><a href=PreExecution_IR.html#x157>x157</a> = PrintIf(ens=[],x=DEBUG: Read n_bins = 201 from config file.
 )</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:15:12<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:14:12<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x2<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: (simple=true)<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x157>x157</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x158><a href=PreExecution_IR.html#x158>x158</a> = DRAMHostNew(dims=[384312],zero=0.0)</h3>
+<h3 id=x158><a href=PreExecution_IR.html#x158>x158</a> = DRAMHostNew(dims=[201],zero=0.0)</h3>
 <text><strong>Name</strong>: realDram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:17:31<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:20:31<br></text>
 <text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x3<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x173>x173</a>, <a href=PreExecution_IR.html#x181>x181</a>, <a href=PreExecution_IR.html#x183>x183</a>, <a href=PreExecution_IR.html#x188>x188</a>]<br></text>
@@ -26,9 +26,9 @@
 <text><strong>Effects</strong>: Mutable<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x158>x158</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x159><a href=PreExecution_IR.html#x159>x159</a> = DRAMHostNew(dims=[384312],zero=0.0)</h3>
+<h3 id=x159><a href=PreExecution_IR.html#x159>x159</a> = DRAMHostNew(dims=[201],zero=0.0)</h3>
 <text><strong>Name</strong>: imagDram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:18:31<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:21:31<br></text>
 <text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x4<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x174>x174</a>, <a href=PreExecution_IR.html#x212>x212</a>, <a href=PreExecution_IR.html#x214>x214</a>, <a href=PreExecution_IR.html#x219>x219</a>]<br></text>
@@ -36,9 +36,9 @@
 <text><strong>Effects</strong>: Mutable<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x160><a href=PreExecution_IR.html#x160>x160</a> = DRAMHostNew(dims=[384312],zero=0.0)</h3>
+<h3 id=x160><a href=PreExecution_IR.html#x160>x160</a> = DRAMHostNew(dims=[201],zero=0.0)</h3>
 <text><strong>Name</strong>: outDram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:19:31<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:31<br></text>
 <text><strong>Type</strong>: DRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x5<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x256>x256</a>, <a href=PreExecution_IR.html#x258>x258</a>, <a href=PreExecution_IR.html#x275>x275</a>, <a href=PreExecution_IR.html#x283>x283</a>]<br></text>
@@ -47,7 +47,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x160>x160</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x161><a href=PreExecution_IR.html#x161>x161</a> = OpenCSVFile(filename=../../../../fpga_io/real.csv,write=false)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: CSVFile<br></text>
 <text><strong>Aliases</strong>: 0016: x6<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x162>x162</a>, <a href=PreExecution_IR.html#x163>x163</a>]<br></text>
@@ -57,7 +57,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x162><a href=PreExecution_IR.html#x162>x162</a> = ReadTokens(file=<a href=PreExecution_IR.html#x161>x161</a>,delim=
 )</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Array[Text]<br></text>
 <text><strong>Aliases</strong>: 0016: x7<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x164>x164</a>, <a href=PreExecution_IR.html#x166>x166</a>]<br></text>
@@ -66,7 +66,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x162>x162</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x163><a href=PreExecution_IR.html#x163>x163</a> = CloseCSVFile(file=<a href=PreExecution_IR.html#x161>x161</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x8<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -75,7 +75,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x166><a href=PreExecution_IR.html#x166>x166</a> = ArrayMap(array=<a href=PreExecution_IR.html#x162>x162</a>,apply=Lambda2(inputA=<a href=PreExecution_IR.html#x162>x162</a>,inputB=<a href=PreExecution_IR.html#b9>b9</a>),func=Lambda1(input=<a href=PreExecution_IR.html#x164>x164</a>))</h3>
 <text><strong>Name</strong>: realData<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x12<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
@@ -89,7 +89,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b9><a href=PreExecution_IR.html#b9>b9</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x10>x10</a>, <a href=PreExecution_IR.html#x164>x164</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x166>x166</a>), block=-1)<br></text>
@@ -99,7 +99,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x164><a href=PreExecution_IR.html#x164>x164</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x162>x162</a>,i=<a href=PreExecution_IR.html#b9>b9</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0016: x10<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x165>x165</a>, <a href=PreExecution_IR.html#x166>x166</a>]<br></text>
@@ -114,7 +114,7 @@
 <td>
 <h2>block 1</h2>
 <h3 id=x165><a href=PreExecution_IR.html#x165>x165</a> = TextToFlt(t=<a href=PreExecution_IR.html#x164>x164</a>,fm=FltFmt(m=_24,e=_8))</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:22:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:36<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x11<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x166>x166</a>]<br></text>
@@ -128,7 +128,7 @@
 </tbody>
 </table>
 <h3 id=x167><a href=PreExecution_IR.html#x167>x167</a> = OpenCSVFile(filename=../../../../fpga_io/imag.csv,write=false)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: CSVFile<br></text>
 <text><strong>Aliases</strong>: 0016: x13<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x168>x168</a>, <a href=PreExecution_IR.html#x169>x169</a>]<br></text>
@@ -138,7 +138,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x168><a href=PreExecution_IR.html#x168>x168</a> = ReadTokens(file=<a href=PreExecution_IR.html#x167>x167</a>,delim=
 )</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Array[Text]<br></text>
 <text><strong>Aliases</strong>: 0016: x14<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x170>x170</a>, <a href=PreExecution_IR.html#x172>x172</a>]<br></text>
@@ -147,7 +147,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x168>x168</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x169><a href=PreExecution_IR.html#x169>x169</a> = CloseCSVFile(file=<a href=PreExecution_IR.html#x167>x167</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x15<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -156,7 +156,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x172><a href=PreExecution_IR.html#x172>x172</a> = ArrayMap(array=<a href=PreExecution_IR.html#x168>x168</a>,apply=Lambda2(inputA=<a href=PreExecution_IR.html#x168>x168</a>,inputB=<a href=PreExecution_IR.html#b16>b16</a>),func=Lambda1(input=<a href=PreExecution_IR.html#x170>x170</a>))</h3>
 <text><strong>Name</strong>: imagData<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x19<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x174>x174</a>]<br></text>
@@ -170,7 +170,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b16><a href=PreExecution_IR.html#b16>b16</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x17>x17</a>, <a href=PreExecution_IR.html#x170>x170</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x172>x172</a>), block=-1)<br></text>
@@ -180,7 +180,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x170><a href=PreExecution_IR.html#x170>x170</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x168>x168</a>,i=<a href=PreExecution_IR.html#b16>b16</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0016: x17<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x171>x171</a>, <a href=PreExecution_IR.html#x172>x172</a>]<br></text>
@@ -195,7 +195,7 @@
 <td>
 <h2>block 1</h2>
 <h3 id=x171><a href=PreExecution_IR.html#x171>x171</a> = TextToFlt(t=<a href=PreExecution_IR.html#x170>x170</a>,fm=FltFmt(m=_24,e=_8))</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:23:36<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:36<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x18<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x172>x172</a>]<br></text>
@@ -209,7 +209,7 @@
 </tbody>
 </table>
 <h3 id=x173><a href=PreExecution_IR.html#x173>x173</a> = SetMem(dram=<a href=PreExecution_IR.html#x158>x158</a>,data=<a href=PreExecution_IR.html#x166>x166</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:24:11<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:26:11<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x20<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -217,7 +217,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x173>x173</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x174><a href=PreExecution_IR.html#x174>x174</a> = SetMem(dram=<a href=PreExecution_IR.html#x159>x159</a>,data=<a href=PreExecution_IR.html#x172>x172</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:25:11<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:27:11<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x21<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -225,7 +225,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x174>x174</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x280><a href=PreExecution_IR.html#x280>x280</a> = AccelScope(block=Block(Const(())))</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:27:11<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:29:11<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x39<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -240,9 +240,9 @@
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x175><a href=PreExecution_IR.html#x175>x175</a> = SRAMNew(dims=[384312],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<h3 id=x175><a href=PreExecution_IR.html#x175>x175</a> = SRAMNew(dims=[201],evidence$1=SRAM1[Flt[_24,_8]])</h3>
 <text><strong>Name</strong>: realSram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:28:33<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:30:33<br></text>
 <text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x22<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x205>x205</a>, <a href=PreExecution_IR.html#x244>x244</a>, <a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -268,9 +268,9 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x244>x244</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x205>x205</a>]<br></text>
-<h3 id=x176><a href=PreExecution_IR.html#x176>x176</a> = SRAMNew(dims=[384312],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<h3 id=x176><a href=PreExecution_IR.html#x176>x176</a> = SRAMNew(dims=[201],evidence$1=SRAM1[Flt[_24,_8]])</h3>
 <text><strong>Name</strong>: imagSram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:29:33<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:33<br></text>
 <text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x23<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x246>x246</a>, <a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -296,9 +296,9 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x246>x246</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
-<h3 id=x177><a href=PreExecution_IR.html#x177>x177</a> = SRAMNew(dims=[384312],evidence$1=SRAM1[Flt[_24,_8]])</h3>
+<h3 id=x177><a href=PreExecution_IR.html#x177>x177</a> = SRAMNew(dims=[201],evidence$1=SRAM1[Flt[_24,_8]])</h3>
 <text><strong>Name</strong>: outSram<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:30:33<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:33<br></text>
 <text><strong>Type</strong>: SRAM1[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x24<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x249>x249</a>, <a href=PreExecution_IR.html#x270>x270</a>, <a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -326,7 +326,7 @@
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x249>x249</a>]<br></text>
 <h3 id=x208><a href=PreExecution_IR.html#x208>x208</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
 <text><strong>Name</strong>: DenseTransfer<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x84<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -338,7 +338,7 @@
 <text><strong>ControlLevel</strong>: Outer()<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), block=0)<br></text>
 <text><strong>LoweredTransfer</strong>: DenseLoad()<br></text>
-<text><strong>LoweredTransferSize</strong>: (384312,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (201,1,32)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 3<br></text>
 <text><strong>ReadDRAMs</strong>: [<a href=PreExecution_IR.html#x158>x158</a>]<br></text>
@@ -352,7 +352,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x178><a href=PreExecution_IR.html#x178>x178</a> = StreamOutNew(bus=BurstCmdBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
 <text><strong>Aliases</strong>: 0016: x50<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>, <a href=PreExecution_IR.html#x188>x188</a>, <a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -379,7 +379,7 @@
 </ul>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>]<br></text>
 <h3 id=x179><a href=PreExecution_IR.html#x179>x179</a> = FIFONew(depth=16)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
 <text><strong>Aliases</strong>: 0016: x51<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x186>x186</a>, <a href=PreExecution_IR.html#x191>x191</a>, <a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -406,7 +406,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x191>x191</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
 <h3 id=x180><a href=PreExecution_IR.html#x180>x180</a> = StreamInNew(bus=BurstDataBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x52<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x188>x188</a>, <a href=PreExecution_IR.html#x204>x204</a>, <a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -432,7 +432,7 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x204>x204</a>]<br></text>
 <h3 id=x187><a href=PreExecution_IR.html#x187>x187</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x59<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -455,7 +455,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x181><a href=PreExecution_IR.html#x181>x181</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x158>x158</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x53<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x182>x182</a>, <a href=PreExecution_IR.html#x187>x187</a>]<br></text>
@@ -467,8 +467,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x187>x187</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 8<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x187>x187</a>), stage=0, block=0)<br></text>
-<h3 id=x182><a href=PreExecution_IR.html#x182>x182</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x181>x181</a>), (size,1537280), (isLoad,true)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<h3 id=x182><a href=PreExecution_IR.html#x182>x182</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x181>x181</a>), (size,832), (isLoad,true)])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x54<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>]<br></text>
@@ -481,7 +481,7 @@
 <text><strong>ProgramOrder</strong>: 9<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x187>x187</a>), stage=0, block=0)<br></text>
 <h3 id=x183><a href=PreExecution_IR.html#x183>x183</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x158>x158</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x55<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x184>x184</a>, <a href=PreExecution_IR.html#x187>x187</a>]<br></text>
@@ -494,7 +494,7 @@
 <text><strong>ProgramOrder</strong>: 10<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x187>x187</a>), stage=0, block=0)<br></text>
 <h3 id=x184><a href=PreExecution_IR.html#x184>x184</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x178>x178</a>,data=<a href=PreExecution_IR.html#x182>x182</a>,ens=[<a href=PreExecution_IR.html#x183>x183</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x56<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>]<br></text>
@@ -511,8 +511,8 @@
 <text><strong>Dispatch</strong>: {[]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<h3 id=x185><a href=PreExecution_IR.html#x185>x185</a> = SimpleStruct(elems=[(size,384320), (start,0), (end,384312)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<h3 id=x185><a href=PreExecution_IR.html#x185>x185</a> = SimpleStruct(elems=[(size,208), (start,0), (end,201)])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x57<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x186>x186</a>]<br></text>
@@ -527,7 +527,7 @@
 <text><strong>ProgramOrder</strong>: 12<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x187>x187</a>), stage=0, block=0)<br></text>
 <h3 id=x186><a href=PreExecution_IR.html#x186>x186</a> = FIFOEnq(mem=<a href=PreExecution_IR.html#x179>x179</a>,data=<a href=PreExecution_IR.html#x185>x185</a>,ens=[true])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x58<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x187>x187</a>]<br></text>
@@ -549,7 +549,7 @@
 </tbody>
 </table>
 <h3 id=x188><a href=PreExecution_IR.html#x188>x188</a> = FringeDenseLoad(dram=<a href=PreExecution_IR.html#x158>x158</a>,cmdStream=<a href=PreExecution_IR.html#x178>x178</a>,dataStream=<a href=PreExecution_IR.html#x180>x180</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x60<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -562,7 +562,7 @@
 <text><strong>ProgramOrder</strong>: 14<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x208>x208</a>), stage=0, block=0)<br></text>
 <h3 id=x207><a href=PreExecution_IR.html#x207>x207</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x83<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x208>x208</a>]<br></text>
@@ -585,7 +585,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x189><a href=PreExecution_IR.html#x189>x189</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x62<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x193>x193</a>, <a href=PreExecution_IR.html#x201>x201</a>, <a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -612,7 +612,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x201>x201</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x193>x193</a>]<br></text>
 <h3 id=x190><a href=PreExecution_IR.html#x190>x190</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x63<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x195>x195</a>, <a href=PreExecution_IR.html#x197>x197</a>, <a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -639,7 +639,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x197>x197</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x195>x195</a>]<br></text>
 <h3 id=x196><a href=PreExecution_IR.html#x196>x196</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x71<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -663,7 +663,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x191><a href=PreExecution_IR.html#x191>x191</a> = FIFODeq(mem=<a href=PreExecution_IR.html#x179>x179</a>,ens=[true])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x64<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x192>x192</a>, <a href=PreExecution_IR.html#x194>x194</a>, <a href=PreExecution_IR.html#x196>x196</a>]<br></text>
@@ -681,7 +681,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x192><a href=PreExecution_IR.html#x192>x192</a> = FieldApply(struct=<a href=PreExecution_IR.html#x191>x191</a>,field=end)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x67<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x193>x193</a>]<br></text>
@@ -694,7 +694,7 @@
 <text><strong>ProgramOrder</strong>: 20<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x196>x196</a>), stage=0, block=0)<br></text>
 <h3 id=x193><a href=PreExecution_IR.html#x193>x193</a> = RegWrite(mem=<a href=PreExecution_IR.html#x189>x189</a>,data=<a href=PreExecution_IR.html#x192>x192</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x68<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x196>x196</a>]<br></text>
@@ -712,7 +712,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x194><a href=PreExecution_IR.html#x194>x194</a> = FieldApply(struct=<a href=PreExecution_IR.html#x191>x191</a>,field=size)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x69<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x195>x195</a>]<br></text>
@@ -725,7 +725,7 @@
 <text><strong>ProgramOrder</strong>: 22<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x196>x196</a>), stage=0, block=0)<br></text>
 <h3 id=x195><a href=PreExecution_IR.html#x195>x195</a> = RegWrite(mem=<a href=PreExecution_IR.html#x190>x190</a>,data=<a href=PreExecution_IR.html#x194>x194</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x70<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x196>x196</a>]<br></text>
@@ -747,7 +747,7 @@
 </tbody>
 </table>
 <h3 id=x197><a href=PreExecution_IR.html#x197>x197</a> = RegRead(mem=<a href=PreExecution_IR.html#x190>x190</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x153, 0014: x72<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x198>x198</a>, <a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -765,7 +765,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x198><a href=PreExecution_IR.html#x198>x198</a> = CounterNew(start=0,end=<a href=PreExecution_IR.html#x197>x197</a>,step=1,par=1)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x73<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x199>x199</a>, <a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -780,7 +780,7 @@
 <text><strong>ProgramOrder</strong>: 25<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1, block=-1)<br></text>
 <h3 id=x199><a href=PreExecution_IR.html#x199>x199</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x198>x198</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: CounterChain<br></text>
 <text><strong>Aliases</strong>: 0016: x75<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x206>x206</a>, <a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -794,7 +794,7 @@
 <text><strong>ProgramOrder</strong>: 26<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=-1, block=-1)<br></text>
 <h3 id=x206><a href=PreExecution_IR.html#x206>x206</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x199>x199</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b74>b74</a>],stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x82<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x207>x207</a>]<br></text>
@@ -817,7 +817,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b74><a href=PreExecution_IR.html#b74>b74</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x76>x76</a>, <a href=PreExecution_IR.html#x81>x81</a>, <a href=PreExecution_IR.html#x78>x78</a>, <a href=PreExecution_IR.html#x200>x200</a>, <a href=PreExecution_IR.html#x202>x202</a>, <a href=PreExecution_IR.html#x205>x205</a>]<br></text>
 <text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b74>b74</a>:1},c=0,tp=GEQ_ZERO())],hasDomain=false)<br></text>
@@ -830,7 +830,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x200><a href=PreExecution_IR.html#x200>x200</a> = FixLeq(a=0,b=<a href=PreExecution_IR.html#b74>b74</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x76<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x203>x203</a>]<br></text>
@@ -843,7 +843,7 @@
 <text><strong>ProgramOrder</strong>: 28<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
 <h3 id=x201><a href=PreExecution_IR.html#x201>x201</a> = RegRead(mem=<a href=PreExecution_IR.html#x189>x189</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x77<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x202>x202</a>, <a href=PreExecution_IR.html#x206>x206</a>]<br></text>
@@ -861,7 +861,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x202><a href=PreExecution_IR.html#x202>x202</a> = FixLst(a=<a href=PreExecution_IR.html#b74>b74</a>,b=<a href=PreExecution_IR.html#x201>x201</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x78<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x203>x203</a>]<br></text>
@@ -874,7 +874,7 @@
 <text><strong>ProgramOrder</strong>: 30<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
 <h3 id=x203><a href=PreExecution_IR.html#x203>x203</a> = And(a=<a href=PreExecution_IR.html#x200>x200</a>,b=<a href=PreExecution_IR.html#x202>x202</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x79<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x205>x205</a>]<br></text>
@@ -887,7 +887,7 @@
 <text><strong>ProgramOrder</strong>: 31<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x206>x206</a>), stage=0, block=0)<br></text>
 <h3 id=x204><a href=PreExecution_IR.html#x204>x204</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x180>x180</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x80<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x205>x205</a>, <a href=PreExecution_IR.html#x206>x206</a>]<br></text>
@@ -905,7 +905,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x205><a href=PreExecution_IR.html#x205>x205</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x175>x175</a>,data=<a href=PreExecution_IR.html#x204>x204</a>,addr=[<a href=PreExecution_IR.html#b74>b74</a>],ens=[<a href=PreExecution_IR.html#x203>x203</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:31:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x81<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x206>x206</a>]<br></text>
@@ -936,7 +936,7 @@
 </table>
 <h3 id=x239><a href=PreExecution_IR.html#x239>x239</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
 <text><strong>Name</strong>: DenseTransfer<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x119<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -948,7 +948,7 @@
 <text><strong>ControlLevel</strong>: Outer()<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), block=0)<br></text>
 <text><strong>LoweredTransfer</strong>: DenseLoad()<br></text>
-<text><strong>LoweredTransferSize</strong>: (384312,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (201,1,32)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 34<br></text>
 <text><strong>ReadDRAMs</strong>: [<a href=PreExecution_IR.html#x159>x159</a>]<br></text>
@@ -962,7 +962,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x209><a href=PreExecution_IR.html#x209>x209</a> = StreamOutNew(bus=BurstCmdBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
 <text><strong>Aliases</strong>: 0016: x85<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>, <a href=PreExecution_IR.html#x219>x219</a>, <a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -989,7 +989,7 @@
 </ul>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
 <h3 id=x210><a href=PreExecution_IR.html#x210>x210</a> = FIFONew(depth=16)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: FIFO[IssuedCmd]<br></text>
 <text><strong>Aliases</strong>: 0016: x86<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x217>x217</a>, <a href=PreExecution_IR.html#x222>x222</a>, <a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -1016,7 +1016,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x222>x222</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x217>x217</a>]<br></text>
 <h3 id=x211><a href=PreExecution_IR.html#x211>x211</a> = StreamInNew(bus=BurstDataBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: StreamIn[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x87<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x219>x219</a>, <a href=PreExecution_IR.html#x235>x235</a>, <a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -1042,7 +1042,7 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x235>x235</a>]<br></text>
 <h3 id=x218><a href=PreExecution_IR.html#x218>x218</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x94<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -1065,7 +1065,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x212><a href=PreExecution_IR.html#x212>x212</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x159>x159</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x88<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x213>x213</a>, <a href=PreExecution_IR.html#x218>x218</a>]<br></text>
@@ -1077,8 +1077,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x218>x218</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 39<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x218>x218</a>), stage=0, block=0)<br></text>
-<h3 id=x213><a href=PreExecution_IR.html#x213>x213</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x212>x212</a>), (size,1537280), (isLoad,true)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<h3 id=x213><a href=PreExecution_IR.html#x213>x213</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x212>x212</a>), (size,832), (isLoad,true)])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x89<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>]<br></text>
@@ -1091,7 +1091,7 @@
 <text><strong>ProgramOrder</strong>: 40<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x218>x218</a>), stage=0, block=0)<br></text>
 <h3 id=x214><a href=PreExecution_IR.html#x214>x214</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x159>x159</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x90<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x215>x215</a>, <a href=PreExecution_IR.html#x218>x218</a>]<br></text>
@@ -1104,7 +1104,7 @@
 <text><strong>ProgramOrder</strong>: 41<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x218>x218</a>), stage=0, block=0)<br></text>
 <h3 id=x215><a href=PreExecution_IR.html#x215>x215</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x209>x209</a>,data=<a href=PreExecution_IR.html#x213>x213</a>,ens=[<a href=PreExecution_IR.html#x214>x214</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x91<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x218>x218</a>]<br></text>
@@ -1121,8 +1121,8 @@
 <text><strong>Dispatch</strong>: {[]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = SimpleStruct(elems=[(size,384320), (start,0), (end,384312)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<h3 id=x216><a href=PreExecution_IR.html#x216>x216</a> = SimpleStruct(elems=[(size,208), (start,0), (end,201)])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x92<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x217>x217</a>]<br></text>
@@ -1137,7 +1137,7 @@
 <text><strong>ProgramOrder</strong>: 43<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x218>x218</a>), stage=0, block=0)<br></text>
 <h3 id=x217><a href=PreExecution_IR.html#x217>x217</a> = FIFOEnq(mem=<a href=PreExecution_IR.html#x210>x210</a>,data=<a href=PreExecution_IR.html#x216>x216</a>,ens=[true])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x93<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x218>x218</a>]<br></text>
@@ -1159,7 +1159,7 @@
 </tbody>
 </table>
 <h3 id=x219><a href=PreExecution_IR.html#x219>x219</a> = FringeDenseLoad(dram=<a href=PreExecution_IR.html#x159>x159</a>,cmdStream=<a href=PreExecution_IR.html#x209>x209</a>,dataStream=<a href=PreExecution_IR.html#x211>x211</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x95<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -1172,7 +1172,7 @@
 <text><strong>ProgramOrder</strong>: 45<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x239>x239</a>), stage=0, block=0)<br></text>
 <h3 id=x238><a href=PreExecution_IR.html#x238>x238</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x118<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x239>x239</a>]<br></text>
@@ -1195,7 +1195,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x220><a href=PreExecution_IR.html#x220>x220</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x97<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>, <a href=PreExecution_IR.html#x232>x232</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1222,7 +1222,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x232>x232</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
 <h3 id=x221><a href=PreExecution_IR.html#x221>x221</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x98<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>, <a href=PreExecution_IR.html#x228>x228</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1249,7 +1249,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x228>x228</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
 <h3 id=x227><a href=PreExecution_IR.html#x227>x227</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x106<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1273,7 +1273,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x222><a href=PreExecution_IR.html#x222>x222</a> = FIFODeq(mem=<a href=PreExecution_IR.html#x210>x210</a>,ens=[true])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: IssuedCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x99<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x223>x223</a>, <a href=PreExecution_IR.html#x225>x225</a>, <a href=PreExecution_IR.html#x227>x227</a>]<br></text>
@@ -1291,7 +1291,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x223><a href=PreExecution_IR.html#x223>x223</a> = FieldApply(struct=<a href=PreExecution_IR.html#x222>x222</a>,field=end)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x102<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x224>x224</a>]<br></text>
@@ -1304,7 +1304,7 @@
 <text><strong>ProgramOrder</strong>: 51<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x227>x227</a>), stage=0, block=0)<br></text>
 <h3 id=x224><a href=PreExecution_IR.html#x224>x224</a> = RegWrite(mem=<a href=PreExecution_IR.html#x220>x220</a>,data=<a href=PreExecution_IR.html#x223>x223</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x103<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
@@ -1322,7 +1322,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x225><a href=PreExecution_IR.html#x225>x225</a> = FieldApply(struct=<a href=PreExecution_IR.html#x222>x222</a>,field=size)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x104<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x226>x226</a>]<br></text>
@@ -1335,7 +1335,7 @@
 <text><strong>ProgramOrder</strong>: 53<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x227>x227</a>), stage=0, block=0)<br></text>
 <h3 id=x226><a href=PreExecution_IR.html#x226>x226</a> = RegWrite(mem=<a href=PreExecution_IR.html#x221>x221</a>,data=<a href=PreExecution_IR.html#x225>x225</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x105<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x227>x227</a>]<br></text>
@@ -1357,7 +1357,7 @@
 </tbody>
 </table>
 <h3 id=x228><a href=PreExecution_IR.html#x228>x228</a> = RegRead(mem=<a href=PreExecution_IR.html#x221>x221</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x154, 0014: x107<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x229>x229</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1375,7 +1375,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x229><a href=PreExecution_IR.html#x229>x229</a> = CounterNew(start=0,end=<a href=PreExecution_IR.html#x228>x228</a>,step=1,par=1)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x108<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x230>x230</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1390,7 +1390,7 @@
 <text><strong>ProgramOrder</strong>: 56<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1, block=-1)<br></text>
 <h3 id=x230><a href=PreExecution_IR.html#x230>x230</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x229>x229</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: CounterChain<br></text>
 <text><strong>Aliases</strong>: 0016: x110<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x237>x237</a>, <a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1404,7 +1404,7 @@
 <text><strong>ProgramOrder</strong>: 57<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=-1, block=-1)<br></text>
 <h3 id=x237><a href=PreExecution_IR.html#x237>x237</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x230>x230</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b109>b109</a>],stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x117<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x238>x238</a>]<br></text>
@@ -1427,7 +1427,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b109><a href=PreExecution_IR.html#b109>b109</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x113>x113</a>, <a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x116>x116</a>, <a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x111>x111</a>, <a href=PreExecution_IR.html#x231>x231</a>]<br></text>
 <text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b109>b109</a>:1},c=0,tp=GEQ_ZERO())],hasDomain=false)<br></text>
@@ -1440,7 +1440,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x231><a href=PreExecution_IR.html#x231>x231</a> = FixLeq(a=0,b=<a href=PreExecution_IR.html#b109>b109</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x111<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x234>x234</a>]<br></text>
@@ -1453,7 +1453,7 @@
 <text><strong>ProgramOrder</strong>: 59<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
 <h3 id=x232><a href=PreExecution_IR.html#x232>x232</a> = RegRead(mem=<a href=PreExecution_IR.html#x220>x220</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x112<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x233>x233</a>, <a href=PreExecution_IR.html#x237>x237</a>]<br></text>
@@ -1471,7 +1471,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x233><a href=PreExecution_IR.html#x233>x233</a> = FixLst(a=<a href=PreExecution_IR.html#b109>b109</a>,b=<a href=PreExecution_IR.html#x232>x232</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x113<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x234>x234</a>]<br></text>
@@ -1484,7 +1484,7 @@
 <text><strong>ProgramOrder</strong>: 61<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
 <h3 id=x234><a href=PreExecution_IR.html#x234>x234</a> = And(a=<a href=PreExecution_IR.html#x231>x231</a>,b=<a href=PreExecution_IR.html#x233>x233</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x114<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>]<br></text>
@@ -1497,7 +1497,7 @@
 <text><strong>ProgramOrder</strong>: 62<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x237>x237</a>), stage=0, block=0)<br></text>
 <h3 id=x235><a href=PreExecution_IR.html#x235>x235</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x211>x211</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x115<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x236>x236</a>, <a href=PreExecution_IR.html#x237>x237</a>]<br></text>
@@ -1515,7 +1515,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x236><a href=PreExecution_IR.html#x236>x236</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x176>x176</a>,data=<a href=PreExecution_IR.html#x235>x235</a>,addr=[<a href=PreExecution_IR.html#b109>b109</a>],ens=[<a href=PreExecution_IR.html#x234>x234</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:32:16<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:16<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x116<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x237>x237</a>]<br></text>
@@ -1566,9 +1566,9 @@
 <tr>
 <td>
 <h2>block 0</h2>
-<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = PrintIf(ens=[],x=DEBUG SCALA ACCEL: n = Const(384312)
+<h3 id=x240><a href=PreExecution_IR.html#x240>x240</a> = PrintIf(ens=[],x=DEBUG SCALA ACCEL: n_bins = Const(201)
 )</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:33:14<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:14<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x27<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x241>x241</a>]<br></text>
@@ -1584,8 +1584,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id=x242><a href=PreExecution_IR.html#x242>x242</a> = CounterNew(start=0,end=384312,step=1,par=1)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:17<br></text>
+<h3 id=x242><a href=PreExecution_IR.html#x242>x242</a> = CounterNew(start=0,end=201,step=1,par=1)</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:34<br></text>
 <text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x28<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x243>x243</a>, <a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -1600,7 +1600,7 @@
 <text><strong>ProgramOrder</strong>: 67<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=-1, block=-1)<br></text>
 <h3 id=x243><a href=PreExecution_IR.html#x243>x243</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x242>x242</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:23<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:40<br></text>
 <text><strong>Type</strong>: CounterChain<br></text>
 <text><strong>Aliases</strong>: 0016: x30<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x250>x250</a>, <a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -1614,7 +1614,7 @@
 <text><strong>ProgramOrder</strong>: 68<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=-1, block=-1)<br></text>
 <h3 id=x250><a href=PreExecution_IR.html#x250>x250</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x243>x243</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b29>b29</a>],stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:23<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:40<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x37<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -1638,10 +1638,10 @@
 <h2>binds</h2>
 <h3 id=b29><a href=PreExecution_IR.html#b29>b29</a></h3>
 <text><strong>Name</strong>: i<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:34:23<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:40<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x36>x36</a>, <a href=PreExecution_IR.html#x249>x249</a>, <a href=PreExecution_IR.html#x33>x33</a>, <a href=PreExecution_IR.html#x244>x244</a>, <a href=PreExecution_IR.html#x246>x246</a>, <a href=PreExecution_IR.html#x31>x31</a>]<br></text>
-<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b29>b29</a>:1},c=0,tp=GEQ_ZERO()), SparseConstraint(cols={<a href=PreExecution_IR.html#b29>b29</a>:-1},c=384311,tp=GEQ_ZERO())],hasDomain=false)<br></text>
+<text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b29>b29</a>:1},c=0,tp=GEQ_ZERO()), SparseConstraint(cols={<a href=PreExecution_IR.html#b29>b29</a>:-1},c=200,tp=GEQ_ZERO())],hasDomain=false)<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), block=-1)<br></text>
 <text><strong>IndexCounter</strong>: IndexCounterInfo(ctr=<a href=PreExecution_IR.html#x242>x242</a>,lanes=[0])<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=-1)<br></text>
@@ -1651,7 +1651,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x244><a href=PreExecution_IR.html#x244>x244</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x175>x175</a>,addr=[<a href=PreExecution_IR.html#b29>b29</a>],ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:30<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:38:28<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x31<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x245>x245</a>, <a href=PreExecution_IR.html#x250>x250</a>]<br></text>
@@ -1669,7 +1669,8 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x245><a href=PreExecution_IR.html#x245>x245</a> = FltMul(a=<a href=PreExecution_IR.html#x244>x244</a>,b=<a href=PreExecution_IR.html#x244>x244</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:33<br></text>
+<text><strong>Name</strong>: r_sq<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:38:31<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x32<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x248>x248</a>]<br></text>
@@ -1682,7 +1683,7 @@
 <text><strong>ProgramOrder</strong>: 71<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=0, block=0)<br></text>
 <h3 id=x246><a href=PreExecution_IR.html#x246>x246</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x176>x176</a>,addr=[<a href=PreExecution_IR.html#b29>b29</a>],ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:56<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:39:28<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x33<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x247>x247</a>, <a href=PreExecution_IR.html#x250>x250</a>]<br></text>
@@ -1700,7 +1701,8 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x247><a href=PreExecution_IR.html#x247>x247</a> = FltMul(a=<a href=PreExecution_IR.html#x246>x246</a>,b=<a href=PreExecution_IR.html#x246>x246</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:59<br></text>
+<text><strong>Name</strong>: i_sq<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:39:31<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x34<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x248>x248</a>]<br></text>
@@ -1713,7 +1715,7 @@
 <text><strong>ProgramOrder</strong>: 73<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=0, block=0)<br></text>
 <h3 id=x248><a href=PreExecution_IR.html#x248>x248</a> = FltAdd(a=<a href=PreExecution_IR.html#x245>x245</a>,b=<a href=PreExecution_IR.html#x247>x247</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:46<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:40:27<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x35<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x249>x249</a>]<br></text>
@@ -1726,7 +1728,7 @@
 <text><strong>ProgramOrder</strong>: 74<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x250>x250</a>), stage=0, block=0)<br></text>
 <h3 id=x249><a href=PreExecution_IR.html#x249>x249</a> = SRAMWrite(mem=<a href=PreExecution_IR.html#x177>x177</a>,data=<a href=PreExecution_IR.html#x248>x248</a>,addr=[<a href=PreExecution_IR.html#b29>b29</a>],ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:35:20<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:40:20<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x36<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x250>x250</a>]<br></text>
@@ -1749,7 +1751,7 @@
 </table>
 <h3 id=x279><a href=PreExecution_IR.html#x279>x279</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
 <text><strong>Name</strong>: DenseTransfer<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x151<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x280>x280</a>]<br></text>
@@ -1761,7 +1763,7 @@
 <text><strong>ControlLevel</strong>: Outer()<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), block=0)<br></text>
 <text><strong>LoweredTransfer</strong>: DenseStore()<br></text>
-<text><strong>LoweredTransferSize</strong>: (384312,1,32)<br></text>
+<text><strong>LoweredTransferSize</strong>: (201,1,32)<br></text>
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 76<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x280>x280</a>), stage=0, block=0)<br></text>
@@ -1774,7 +1776,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x251><a href=PreExecution_IR.html#x251>x251</a> = StreamOutNew(bus=BurstCmdBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: StreamOut[BurstCmd]<br></text>
 <text><strong>Aliases</strong>: 0016: x120<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>, <a href=PreExecution_IR.html#x275>x275</a>, <a href=PreExecution_IR.html#x279>x279</a>]<br></text>
@@ -1801,7 +1803,7 @@
 </ul>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>]<br></text>
 <h3 id=x252><a href=PreExecution_IR.html#x252>x252</a> = StreamOutNew(bus=BurstFullDataBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: StreamOut[Tup2[Flt[_24,_8],Bit]]<br></text>
 <text><strong>Aliases</strong>: 0016: x121<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>, <a href=PreExecution_IR.html#x275>x275</a>, <a href=PreExecution_IR.html#x279>x279</a>]<br></text>
@@ -1827,7 +1829,7 @@
 </ul>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
 <h3 id=x253><a href=PreExecution_IR.html#x253>x253</a> = StreamInNew(bus=BurstAckBus())</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: StreamIn[Bit]<br></text>
 <text><strong>Aliases</strong>: 0016: x122<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x275>x275</a>, <a href=PreExecution_IR.html#x276>x276</a>, <a href=PreExecution_IR.html#x279>x279</a>]<br></text>
@@ -1853,7 +1855,7 @@
 </ul>
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x276>x276</a>]<br></text>
 <h3 id=x278><a href=PreExecution_IR.html#x278>x278</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x150<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x279>x279</a>]<br></text>
@@ -1876,7 +1878,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x274><a href=PreExecution_IR.html#x274>x274</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x146<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x278>x278</a>]<br></text>
@@ -1899,7 +1901,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x254><a href=PreExecution_IR.html#x254>x254</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x124<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x260>x260</a>, <a href=PreExecution_IR.html#x267>x267</a>, <a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -1926,7 +1928,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x267>x267</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x260>x260</a>]<br></text>
 <h3 id=x255><a href=PreExecution_IR.html#x255>x255</a> = RegNew(init=0)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Reg[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x125<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x261>x261</a>, <a href=PreExecution_IR.html#x263>x263</a>, <a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -1953,7 +1955,7 @@
 <text><strong>Readers</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
 <text><strong>Writers</strong>: [<a href=PreExecution_IR.html#x261>x261</a>]<br></text>
 <h3 id=x262><a href=PreExecution_IR.html#x262>x262</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x133<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -1976,7 +1978,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x256><a href=PreExecution_IR.html#x256>x256</a> = DRAMAddress(dram=<a href=PreExecution_IR.html#x160>x160</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_64,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x126<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x257>x257</a>, <a href=PreExecution_IR.html#x262>x262</a>]<br></text>
@@ -1988,8 +1990,8 @@
 <text><strong>ParentCtrl</strong>: Ctrl(s=Some(<a href=PreExecution_IR.html#x262>x262</a>), stage=-1)<br></text>
 <text><strong>ProgramOrder</strong>: 85<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x262>x262</a>), stage=0, block=0)<br></text>
-<h3 id=x257><a href=PreExecution_IR.html#x257>x257</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x256>x256</a>), (size,1537280), (isLoad,false)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<h3 id=x257><a href=PreExecution_IR.html#x257>x257</a> = SimpleStruct(elems=[(offset,<a href=PreExecution_IR.html#x256>x256</a>), (size,832), (isLoad,false)])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: BurstCmd<br></text>
 <text><strong>Aliases</strong>: 0016: x127<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>]<br></text>
@@ -2002,7 +2004,7 @@
 <text><strong>ProgramOrder</strong>: 86<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x262>x262</a>), stage=0, block=0)<br></text>
 <h3 id=x258><a href=PreExecution_IR.html#x258>x258</a> = DRAMIsAlloc(dram=<a href=PreExecution_IR.html#x160>x160</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x128<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x259>x259</a>, <a href=PreExecution_IR.html#x262>x262</a>]<br></text>
@@ -2015,7 +2017,7 @@
 <text><strong>ProgramOrder</strong>: 87<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x262>x262</a>), stage=0, block=0)<br></text>
 <h3 id=x259><a href=PreExecution_IR.html#x259>x259</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x251>x251</a>,data=<a href=PreExecution_IR.html#x257>x257</a>,ens=[<a href=PreExecution_IR.html#x258>x258</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x129<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x262>x262</a>]<br></text>
@@ -2032,8 +2034,8 @@
 <text><strong>Dispatch</strong>: {[]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<h3 id=x260><a href=PreExecution_IR.html#x260>x260</a> = RegWrite(mem=<a href=PreExecution_IR.html#x254>x254</a>,data=384312,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<h3 id=x260><a href=PreExecution_IR.html#x260>x260</a> = RegWrite(mem=<a href=PreExecution_IR.html#x254>x254</a>,data=201,ens=[])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x131<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x262>x262</a>]<br></text>
@@ -2050,8 +2052,8 @@
 <text><strong>Dispatch</strong>: {[]:[0]}<br></text>
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
-<h3 id=x261><a href=PreExecution_IR.html#x261>x261</a> = RegWrite(mem=<a href=PreExecution_IR.html#x255>x255</a>,data=384320,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<h3 id=x261><a href=PreExecution_IR.html#x261>x261</a> = RegWrite(mem=<a href=PreExecution_IR.html#x255>x255</a>,data=208,ens=[])</h3>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x132<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x262>x262</a>]<br></text>
@@ -2073,14 +2075,14 @@
 </tbody>
 </table>
 <h3 id=x263><a href=PreExecution_IR.html#x263>x263</a> = RegRead(mem=<a href=PreExecution_IR.html#x255>x255</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x155, 0014: x134<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x264>x264</a>, <a href=PreExecution_IR.html#x274>x274</a>]<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: (unique=true, reads={x255})<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
-<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=384320),allIters={},iterStarts={})]<br></text>
+<text><strong>AccessPattern</strong>: [AddressPattern(comps=[],ofs=Sum(ps=[],b=208),allIters={},iterStarts={})]<br></text>
 <text><strong>AffineMatrices</strong>: [AccessMatrix(access=<a href=PreExecution_IR.html#x263>x263</a>,matrix=SparseMatrix(rows=[],isReader=true),unroll=[],isReader=true)]<br></text>
 <text><strong>ReadUses</strong>: [<a href=PreExecution_IR.html#x263>x263</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x274>x274</a>), block=0)<br></text>
@@ -2091,7 +2093,7 @@
 <text><strong>GroupId</strong>: {[]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x264><a href=PreExecution_IR.html#x264>x264</a> = CounterNew(start=0,end=<a href=PreExecution_IR.html#x263>x263</a>,step=1,par=1)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Counter[Fix[TRUE,_32,_0]]<br></text>
 <text><strong>Aliases</strong>: 0016: x135<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x265>x265</a>, <a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -2106,7 +2108,7 @@
 <text><strong>ProgramOrder</strong>: 92<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=-1, block=-1)<br></text>
 <h3 id=x265><a href=PreExecution_IR.html#x265>x265</a> = CounterChainNew(counters=[<a href=PreExecution_IR.html#x264>x264</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: CounterChain<br></text>
 <text><strong>Aliases</strong>: 0016: x137<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x273>x273</a>, <a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -2120,7 +2122,7 @@
 <text><strong>ProgramOrder</strong>: 93<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=-1, block=-1)<br></text>
 <h3 id=x273><a href=PreExecution_IR.html#x273>x273</a> = OpForeach(ens=[],cchain=<a href=PreExecution_IR.html#x265>x265</a>,block=Block(Const(())),iters=[<a href=PreExecution_IR.html#b136>b136</a>],stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x145<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x274>x274</a>]<br></text>
@@ -2143,7 +2145,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b136><a href=PreExecution_IR.html#b136>b136</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x138>x138</a>, <a href=PreExecution_IR.html#x140>x140</a>, <a href=PreExecution_IR.html#x270>x270</a>, <a href=PreExecution_IR.html#x268>x268</a>, <a href=PreExecution_IR.html#x142>x142</a>, <a href=PreExecution_IR.html#x266>x266</a>]<br></text>
 <text><strong>Domain</strong>: ConstraintMatrix(rows=[SparseConstraint(cols={<a href=PreExecution_IR.html#b136>b136</a>:1},c=0,tp=GEQ_ZERO())],hasDomain=false)<br></text>
@@ -2156,7 +2158,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x266><a href=PreExecution_IR.html#x266>x266</a> = FixLeq(a=0,b=<a href=PreExecution_IR.html#b136>b136</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x138<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x269>x269</a>]<br></text>
@@ -2169,7 +2171,7 @@
 <text><strong>ProgramOrder</strong>: 95<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=0, block=0)<br></text>
 <h3 id=x267><a href=PreExecution_IR.html#x267>x267</a> = RegRead(mem=<a href=PreExecution_IR.html#x254>x254</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x139<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x268>x268</a>, <a href=PreExecution_IR.html#x273>x273</a>]<br></text>
@@ -2187,7 +2189,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x268><a href=PreExecution_IR.html#x268>x268</a> = FixLst(a=<a href=PreExecution_IR.html#b136>b136</a>,b=<a href=PreExecution_IR.html#x267>x267</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x140<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x269>x269</a>]<br></text>
@@ -2200,7 +2202,7 @@
 <text><strong>ProgramOrder</strong>: 97<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=0, block=0)<br></text>
 <h3 id=x269><a href=PreExecution_IR.html#x269>x269</a> = And(a=<a href=PreExecution_IR.html#x266>x266</a>,b=<a href=PreExecution_IR.html#x268>x268</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x141<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x270>x270</a>, <a href=PreExecution_IR.html#x271>x271</a>]<br></text>
@@ -2213,7 +2215,7 @@
 <text><strong>ProgramOrder</strong>: 98<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=0, block=0)<br></text>
 <h3 id=x270><a href=PreExecution_IR.html#x270>x270</a> = SRAMRead(mem=<a href=PreExecution_IR.html#x177>x177</a>,addr=[<a href=PreExecution_IR.html#b136>b136</a>],ens=[<a href=PreExecution_IR.html#x269>x269</a>])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x142<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x271>x271</a>, <a href=PreExecution_IR.html#x273>x273</a>]<br></text>
@@ -2231,7 +2233,7 @@
 <text><strong>GroupId</strong>: {[0]:[0]}<br></text>
 <text><strong>Ports</strong>: {0:{[0]:Port(bufferPort=Some(0),muxPort=0,muxOfs=0,castgroup=[0],broadcast=[0])}}<br></text>
 <h3 id=x271><a href=PreExecution_IR.html#x271>x271</a> = SimpleStruct(elems=[(_1,<a href=PreExecution_IR.html#x270>x270</a>), (_2,<a href=PreExecution_IR.html#x269>x269</a>)])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Tup2[Flt[_24,_8],Bit]<br></text>
 <text><strong>Aliases</strong>: 0016: x143<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x272>x272</a>]<br></text>
@@ -2244,7 +2246,7 @@
 <text><strong>ProgramOrder</strong>: 100<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x273>x273</a>), stage=0, block=0)<br></text>
 <h3 id=x272><a href=PreExecution_IR.html#x272>x272</a> = StreamOutWrite(mem=<a href=PreExecution_IR.html#x252>x252</a>,data=<a href=PreExecution_IR.html#x271>x271</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x144<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x273>x273</a>]<br></text>
@@ -2270,7 +2272,7 @@
 </tbody>
 </table>
 <h3 id=x275><a href=PreExecution_IR.html#x275>x275</a> = FringeDenseStore(dram=<a href=PreExecution_IR.html#x160>x160</a>,cmdStream=<a href=PreExecution_IR.html#x251>x251</a>,dataStream=<a href=PreExecution_IR.html#x252>x252</a>,ackStream=<a href=PreExecution_IR.html#x253>x253</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x147<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x278>x278</a>]<br></text>
@@ -2283,7 +2285,7 @@
 <text><strong>ProgramOrder</strong>: 102<br></text>
 <text><strong>ScopeCtrl</strong>: Scope(s=Some(<a href=PreExecution_IR.html#x278>x278</a>), stage=0, block=0)<br></text>
 <h3 id=x277><a href=PreExecution_IR.html#x277>x277</a> = UnitPipe(ens=[],block=Block(Const(())),stopWhen=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x149<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x278>x278</a>]<br></text>
@@ -2306,7 +2308,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x276><a href=PreExecution_IR.html#x276>x276</a> = StreamInRead(mem=<a href=PreExecution_IR.html#x253>x253</a>,ens=[])</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:37:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:15<br></text>
 <text><strong>Type</strong>: Bit<br></text>
 <text><strong>Aliases</strong>: 0016: x148<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x277>x277</a>]<br></text>
@@ -2341,16 +2343,16 @@
 </table>
 <h3 id=x281><a href=PreExecution_IR.html#x281>x281</a> = PrintIf(ens=[],x=DEBUG: PowerSpectrum Accel block finished.
 )</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:39:12<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:44:12<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x40<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
 <text><strong>Effects</strong>: (simple=true)<br></text>
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x281>x281</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
-<h3 id=x282><a href=PreExecution_IR.html#x282>x282</a> = ArrayNew(size=384312)</h3>
+<h3 id=x282><a href=PreExecution_IR.html#x282>x282</a> = ArrayNew(size=201)</h3>
 <text><strong>Name</strong>: result<br></text>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:24<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:46:24<br></text>
 <text><strong>Type</strong>: Array[Flt[_24,_8]]<br></text>
 <text><strong>Aliases</strong>: 0016: x41<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x283>x283</a>, <a href=PreExecution_IR.html#x285>x285</a>, <a href=PreExecution_IR.html#x286>x286</a>]<br></text>
@@ -2359,7 +2361,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x282>x282</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x283><a href=PreExecution_IR.html#x283>x283</a> = GetMem(dram=<a href=PreExecution_IR.html#x160>x160</a>,data=<a href=PreExecution_IR.html#x282>x282</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:42:24<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:46:24<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x42<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2367,7 +2369,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x283>x283</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x284><a href=PreExecution_IR.html#x284>x284</a> = OpenCSVFile(filename=../../../../fpga_io/power_spectrum_output.csv,write=true)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: CSVFile<br></text>
 <text><strong>Aliases</strong>: 0016: x43<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x288>x288</a>, <a href=PreExecution_IR.html#x289>x289</a>]<br></text>
@@ -2376,7 +2378,7 @@
 <text><strong>ShallowAliases</strong>: [<a href=PreExecution_IR.html#x284>x284</a>]<br></text>
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x285><a href=PreExecution_IR.html#x285>x285</a> = ArrayLength(array=<a href=PreExecution_IR.html#x282>x282</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Aliases</strong>: 0016: x44<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x288>x288</a>]<br></text>
@@ -2386,7 +2388,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <h3 id=x288><a href=PreExecution_IR.html#x288>x288</a> = WriteTokens(file=<a href=PreExecution_IR.html#x284>x284</a>,delim=
 ,len=<a href=PreExecution_IR.html#x285>x285</a>,token=Lambda1(input=<a href=PreExecution_IR.html#b45>b45</a>))</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x48<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>
@@ -2399,7 +2401,7 @@
 <td>
 <h2>binds</h2>
 <h3 id=b45><a href=PreExecution_IR.html#b45>b45</a></h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Fix[TRUE,_32,_0]<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x46>x46</a>, <a href=PreExecution_IR.html#x286>x286</a>]<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x288>x288</a>), block=-1)<br></text>
@@ -2409,7 +2411,7 @@
 <td>
 <h2>block 0</h2>
 <h3 id=x286><a href=PreExecution_IR.html#x286>x286</a> = ArrayApply(coll=<a href=PreExecution_IR.html#x282>x282</a>,i=<a href=PreExecution_IR.html#b45>b45</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Flt[_24,_8]<br></text>
 <text><strong>Aliases</strong>: 0016: x46<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x287>x287</a>, <a href=PreExecution_IR.html#x288>x288</a>]<br></text>
@@ -2419,7 +2421,7 @@
 <text><strong>ReadUses</strong>: []<br></text>
 <text><strong>DefiningBlk</strong>: Blk(s=Some(<a href=PreExecution_IR.html#x288>x288</a>), block=0)<br></text>
 <h3 id=x287><a href=PreExecution_IR.html#x287>x287</a> = FltToText(a=<a href=PreExecution_IR.html#x286>x286</a>,format=None)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Text<br></text>
 <text><strong>Aliases</strong>: 0016: x47<br></text>
 <text><strong>Consumers</strong>: [<a href=PreExecution_IR.html#x288>x288</a>]<br></text>
@@ -2433,7 +2435,7 @@
 </tbody>
 </table>
 <h3 id=x289><a href=PreExecution_IR.html#x289>x289</a> = CloseCSVFile(file=<a href=PreExecution_IR.html#x284>x284</a>)</h3>
-<text><strong>SrcCtx</strong>: PowerSpectrum.scala:43:15<br></text>
+<text><strong>SrcCtx</strong>: PowerSpectrum.scala:47:15<br></text>
 <text><strong>Type</strong>: Void<br></text>
 <text><strong>Aliases</strong>: 0016: x49<br></text>
 <text><strong>DeepAliases</strong>: []<br></text>

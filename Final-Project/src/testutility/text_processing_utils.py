@@ -1,3 +1,11 @@
+"""
+text_processing_utils.py – Utility functions for text processing.
+
+This module provides utility functions for text processing, including:
+- Normalizing text for WER calculation
+- Applying a canonical mapping to text
+"""
+
 import csv
 from pathlib import Path
 import re

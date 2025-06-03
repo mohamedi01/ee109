@@ -2,7 +2,7 @@ set -e
 # TEST_OPTS="-Dtest.CS217=true"
 
 # Quantize kernel
-sbt -Dtest.CS217=true "; testOnly spatial.tests.QuantizeKernelTest"
+sbt -Dtest.CS217=true "; testOnly spatial.tests.QuantizeKernelTestObject"
 
 # Power spectrum
 sbt -Dtest.CS217=true "; testOnly spatial.tests.PowerSpectrumTest"

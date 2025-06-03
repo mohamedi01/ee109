@@ -1,52 +1,52 @@
-package spatial.tests
 import spatial.dsl._
+import scala.io.Source // Needed for reading file
+// import spatial.dsl.Mux // Explicit import for Mux - Removed as mux is lowercase and covered by wildcard
 
-@spatial class QuantizeKernelTest extends SpatialTest {
-  override def runtimeArgs: Args = "128"
+//=== QuantizeKernel.scala ===
+@spatial class QuantizeKernel extends SpatialTest {
+  val MAX_SAMPLES = 1024*1024 // Compile-time maximum size for memories
 
   def main(args: Array[String]): Unit = {
-    type T = FixPt[TRUE,_16,_8]
-    
-    val input = Array[T](
-      -1.to[T], -0.75.to[T], -0.5.to[T], -0.25.to[T],
-       0.to[T],  0.25.to[T],  0.5.to[T],  0.75.to[T],  1.to[T]
-    )
-    val N = 9
+    val configSource = Source.fromFile("quantize_kernel_config.txt")
+    val n_runtime_str = configSource.getLines.next()
+    configSource.close()
+    val n_runtime_scala_int: scala.Int = n_runtime_str.trim.toInt
+    val n_runtime_spatial_i32: I32 = n_runtime_scala_int.to[I32]
 
-    val inDRAM = DRAM[T](N)
-    val outDRAM = DRAM[T](N)
+    // Declare DRAMs with the compile-time maximum size
+    val inDram = DRAM[Float](MAX_SAMPLES)
+    val outDram = DRAM[Float](MAX_SAMPLES)
 
-    setMem(inDRAM, input)
+    // Load input data from CSV. The CSV file should contain n_runtime_scala_int elements.
+    val input_data_csv = loadCSV1D[Float]("../../../../fpga_io/input_audio_for_quantize.csv", "\n")
+    setMem(inDram, input_data_csv) 
 
     Accel {
-      val inSRAM = SRAM[T](N)
-      val outSRAM = SRAM[T](N)
+      // Declare SRAMs with the compile-time maximum size
+      val inSram  = SRAM[Float](MAX_SAMPLES)
+      val outSram = SRAM[Float](MAX_SAMPLES)
 
-      inSRAM load inDRAM
+      // Load only the 'n_runtime_spatial_i32' portion from DRAM to SRAM
+      inSram load inDram(0 :: n_runtime_spatial_i32)
 
-      Foreach(N by 1) { i =>
-        val x = inSRAM(i) * 32767.to[T]
-        val clipped = mux(x < -32768.to[T], -32768.to[T], mux(x > 32767.to[T], 32767.to[T], x))
-        val quantized = mux(clipped < 0.to[T],
-                            (clipped - 0.5.to[T]),
-                            (clipped + 0.5.to[T])) / 32768.to[T]
-        outSRAM(i) = quantized
+      Foreach(n_runtime_spatial_i32 by 1) { i => // Loop based on actual runtime size
+        val scaled  = inSram(i) * 32767.to[Float]
+        val min_val = -32768.to[Float]
+        val max_val =  32767.to[Float]
+        val clipped = mux(scaled < min_val, min_val, mux(scaled > max_val, max_val, scaled)) // Use lowercase mux
+        val int16_val = clipped.to[I16] 
+        outSram(i) = int16_val.to[Float] / 32768.to[Float]
       }
 
-      outDRAM store outSRAM
+      // Store only the 'n_runtime_spatial_i32' portion from SRAM to DRAM
+      outDram(0 :: n_runtime_spatial_i32) store outSram(0 :: n_runtime_spatial_i32) 
     }
 
-    val result = getMem(outDRAM)
-
-    val gold = input.map { x =>
-      val scaled = x * 32767.to[T]
-      val clipped = if (scaled < -32768.to[T]) -32768.to[T] else if (scaled > 32767.to[T]) 32767.to[T] else scaled
-      val rounded = if (clipped < 0.to[T]) (clipped - 0.5.to[T]) else (clipped + 0.5.to[T])
-      rounded / 32768.to[T]
-    }
-
-    val cksum = gold.zip(result){ case (g, r) => abs(g - r) < 0.01.to[T] }.reduce(_ && _)
-    println("PASS: " + cksum)
-    assert(cksum == 1)
+    // Get all data from outDram (up to MAX_SAMPLES)
+    val full_dram_output = getMem(outDram)
+    // Create a new CPU-side Array with only the n_runtime_scala_int elements
+    val actual_output_to_write = Array.tabulate(n_runtime_scala_int){ i => full_dram_output(i) }
+    // Write only the 'n_runtime_scala_int' portion of the output to CSV
+    writeCSV1D(actual_output_to_write, "../../../../fpga_io/quantize_output.csv", "\n")
   }
 }

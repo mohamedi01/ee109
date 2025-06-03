@@ -1,3 +1,9 @@
+"""
+run_pipeline.py – Main entry point for running the DSP-ASR-NLP pipeline.
+
+This script provides a command-line interface for processing audio files through the DSP-ASR-NLP pipeline.
+"""
+
 from pathlib import Path
 import json # For pretty printing the output
 import argparse # Import argparse

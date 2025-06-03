@@ -1,3 +1,9 @@
+"""
+pipeline.py – Main pipeline for audio processing.
+
+This module provides a unified interface for processing audio through ASR and NLP stages.
+"""
+
 from pathlib import Path
 from typing import Union, Dict, Any
 

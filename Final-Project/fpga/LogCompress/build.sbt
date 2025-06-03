@@ -14,7 +14,6 @@ libraryDependencies ++= Seq(
   "edu.stanford.cs.dawn" %% "spatial" % "1.1-cs217"
 )
 
-// If you use @spatial directly, you also need Macro Paradise
 addCompilerPlugin(
   "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
 )

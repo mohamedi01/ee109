@@ -1,7 +1,7 @@
 source ./exports.sh
 
 # Quantize kernel
-sbt -Dtest.VCS=true "; testOnly spatial.tests.QuantizeKernelTest"
+sbt -Dtest.VCS=true "; runMain spatial.tests.QuantizeKernelTest"
 
 # Power spectrum
 sbt -Dtest.VCS=true "; testOnly spatial.tests.PowerSpectrumTest"

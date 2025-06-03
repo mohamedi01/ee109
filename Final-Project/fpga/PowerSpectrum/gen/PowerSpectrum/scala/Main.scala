@@ -5,10 +5,10 @@ object Main {
   def main(args: Array[String]): Unit = {
     OOB.open()
     val x296 = if (TRUE) System.out.print("DEBUG: PowerSpectrum main method started.\n")
-    val x297 = if (TRUE) System.out.print("DEBUG: Read n = Const(384312) from config file.\n")
-    x298_realDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x299_imagDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
-    x300_outDram.initMem(FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    val x297 = if (TRUE) System.out.print("DEBUG: Read n_bins = 201 from config file.\n")
+    x298_realDram.initMem(FixedPoint(BigDecimal("201"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x299_imagDram.initMem(FixedPoint(BigDecimal("201"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
+    x300_outDram.initMem(FixedPoint(BigDecimal("201"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
     val x301 = {
       val file = new java.io.File("../../../../fpga_io/real.csv")
       if (false) { // Will write to file
@@ -64,12 +64,12 @@ object Main {
             x298_realDram(i) = x306(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-            System.out.println("[warn] PowerSpectrum.scala:24:11 Memory realData: Out of bounds read at address " + err.getMessage)
+            System.out.println("[warn] PowerSpectrum.scala:26:11 Memory realData: Out of bounds read at address " + err.getMessage)
             FloatPoint.invalid(FltFormat(23,8))
           }
         }
         catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-          System.out.println("[warn] PowerSpectrum.scala:24:11 Memory realDram: Out of bounds write at address " + err.getMessage)
+          System.out.println("[warn] PowerSpectrum.scala:26:11 Memory realDram: Out of bounds write at address " + err.getMessage)
         }
       }
     }
@@ -80,18 +80,18 @@ object Main {
             x299_imagDram(i) = x312(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-            System.out.println("[warn] PowerSpectrum.scala:25:11 Memory imagData: Out of bounds read at address " + err.getMessage)
+            System.out.println("[warn] PowerSpectrum.scala:27:11 Memory imagData: Out of bounds read at address " + err.getMessage)
             FloatPoint.invalid(FltFormat(23,8))
           }
         }
         catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-          System.out.println("[warn] PowerSpectrum.scala:25:11 Memory imagDram: Out of bounds write at address " + err.getMessage)
+          System.out.println("[warn] PowerSpectrum.scala:27:11 Memory imagDram: Out of bounds write at address " + err.getMessage)
         }
       }
     }
     val x450_outr_RootController = x450_outr_RootController_kernel.run()
     val x436 = if (TRUE) System.out.print("DEBUG: PowerSpectrum Accel block finished.\n")
-    val x437 = new Array[FloatPoint](FixedPoint(BigDecimal("384312"),FixFormat(true,32,0)))
+    val x437 = new Array[FloatPoint](FixedPoint(BigDecimal("201"),FixFormat(true,32,0)))
     val x438 = {
       for (i <- 0 until x437.length) {
         try {
@@ -99,12 +99,12 @@ object Main {
             x437(i) = x300_outDram(i)
           }
           catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-            System.out.println("[warn] PowerSpectrum.scala:42:24 Memory outDram: Out of bounds read at address " + err.getMessage)
+            System.out.println("[warn] PowerSpectrum.scala:46:24 Memory outDram: Out of bounds read at address " + err.getMessage)
             FloatPoint.invalid(FltFormat(23,8))
           }
         }
         catch {case err: java.lang.ArrayIndexOutOfBoundsException => 
-          System.out.println("[warn] PowerSpectrum.scala:42:24 Memory result: Out of bounds write at address " + err.getMessage)
+          System.out.println("[warn] PowerSpectrum.scala:46:24 Memory result: Out of bounds write at address " + err.getMessage)
         }
       }
     }

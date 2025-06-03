@@ -1,17 +1,14 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:3:20: value math is not a member of object spatial.dsl[0m
-[0m[[0m[31merror[0m] [0m[0mimport spatial.dsl.math._[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:19:47: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : argon.lang.Flt[spatial.dsl._24,spatial.dsl._8][0m
-[0m[[0m[31merror[0m] [0m[0m    (which expands to)  argon.lang.Flt[argon.lang.types._24,argon.lang.types._8][0m
-[0m[[0m[31merror[0m] [0m[0m required: argon.Sym[Double][0m
-[0m[[0m[31merror[0m] [0m[0m    (which expands to)  argon.Exp[Any,Double][0m
-[0m[[0m[31merror[0m] [0m[0m      math.log10(if (cl < 1e-10f) 1e-10f else cl).toFloat[0m
-[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:39:9: value update is not a member of spatial.lang.DRAM1[T][0m
-[0m[[0m[31merror[0m] [0m[0m        outD(i) = log10(max(buf(i), 1e-10f))[0m
-[0m[[0m[31merror[0m] [0m[0m        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/mohamedismail/Desktop/EE109/ee109/Final-Project/fpga/src/test/scala/spatial/tests/LogCompressTest.scala:39:19: not found: value log10[0m
-[0m[[0m[31merror[0m] [0m[0m        outD(i) = log10(max(buf(i), 1e-10f))[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/src/test/scala/spatial/tests/QuantizeKernelTestObject.scala:7:28: could not find implicit value for evidence parameter of type argon.Type[Float][0m
+[0m[[0m[31merror[0m] [0m[0m      val testInput = Array(-1.0f, -0.5f, 0.0f, 0.5f, 1.0f)[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/src/test/scala/spatial/tests/QuantizeKernelTestObject.scala:35:26: missing argument list for method zip in class Array[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `zip _` or `zip(_)(_)(_,_,_,_)` instead of `zip`.[0m
+[0m[[0m[31merror[0m] [0m[0m    val pass = result.zip(gold).forall { case (a, b) => Math.abs(a - b) < 1e-4 }[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/williambriger/Documents/Stanford/Junior Year /Spring Quarter/EE 109/ee109-1/Final-Project/fpga/src/test/scala/spatial/tests/QuantizeKernelTestObject.scala:35:70: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: forge.VarLike[?][0m
+[0m[[0m[31merror[0m] [0m[0m    val pass = result.zip(gold).forall { case (a, b) => Math.abs(a - b) < 1e-4 }[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
