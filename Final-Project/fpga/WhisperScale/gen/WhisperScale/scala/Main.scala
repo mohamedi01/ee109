@@ -7,7 +7,7 @@ object Main {
     x132_inDram.initMem(FixedPoint(BigDecimal("80"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
     x133_outDram.initMem(FixedPoint(BigDecimal("80"),FixFormat(true,32,0)) + 16,FloatPoint("-0.0", FltFormat(23,8)))
     val x134 = {
-      val file = new java.io.File("../../../../fpga_io/logcompress_input.csv")
+      val file = new java.io.File("../../../../fpga_io/whisperscale_input.csv")
       if (false) { // Will write to file
         val writer = new java.io.PrintWriter(file)
         writer.print("")

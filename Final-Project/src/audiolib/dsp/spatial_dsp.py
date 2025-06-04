@@ -134,15 +134,22 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
 
     # 5. LogCompressKernel (input: melfb_output_fpga, output: log_spec_fpga)
     print("[INFO] Using Python log10 output for LogCompress.")
-    log_spec_fpga = python_ref["log_spec"][:, 0].cpu().numpy()
-    # Write raw log-mel values for FPGA WhisperScale kernel (centering/clamping/scaling now done in hardware)
-    np.savetxt(os.path.join(io_dir, "logcompress_input.csv"), log_spec_fpga, fmt='%.18e')
+    log_spec_fpga = np.log10(np.clip(melfb_output_fpga, a_min=EPSILON, a_max=None))            #python_ref["log_spec"][:, 0].cpu().numpy()
+    max_val = np.max(log_spec_fpga)
+    log_spec_fpga = np.maximum(log_spec_fpga, max_val - 8.0)
+    np.savetxt(os.path.join(io_dir, "whisperscale_input.csv"), log_spec_fpga, fmt='%.18e')
+
+    # 6. Write raw log-mel values for FPGA WhisperScale kernel (centering/clamping/scaling now done in hardware)
     whisperscale_cwd = os.path.join(fpga_root, "WhisperScale")
     run_fpga_kernel('sbt "reload; clean; update; run --sim"', whisperscale_cwd)
     run_fpga_kernel('chmod +x run.sh', os.path.join(whisperscale_cwd, "gen", "WhisperScale"))
     run_fpga_kernel('./run.sh', os.path.join(whisperscale_cwd, "gen", "WhisperScale"))
     fpga_whisper = np.loadtxt(os.path.join(io_dir, "whisperscale_output.csv"), dtype=np.float32)
-    whisper_scaled = python_ref["whisper_scaled"][:, 0]
+    
+    log = np.log10(np.clip(melfb_output_fpga, a_min=EPSILON, a_max=None))
+    max_val = np.max(log)
+    log = np.maximum(log, max_val - 8.0) 
+    whisper_scaled = (log + 4.0) / 4 #python_ref["whisper_scaled"][:, 0]
     # Debug: Compare input to WhisperScale FPGA and Python reference
     print("Input to WhisperScale FPGA (first 10):", log_spec_fpga[:10])
     print("Python whisper_scaled (first 10):", whisper_scaled[:10])

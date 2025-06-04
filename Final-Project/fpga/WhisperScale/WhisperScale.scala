@@ -17,7 +17,7 @@ import emul.FloatPoint
     val outDram = DRAM[Float](n_runtime)
 
     // Input data is assumed to be log-Mel values AFTER dynamic range compression
-    val inputData = loadCSV1D[Float]("../../../../fpga_io/logcompress_input.csv", "\n")
+    val inputData = loadCSV1D[Float]("../../../../fpga_io/whisperscale_input.csv", "\n")
     setMem(inDram, inputData)
 
     Accel {
