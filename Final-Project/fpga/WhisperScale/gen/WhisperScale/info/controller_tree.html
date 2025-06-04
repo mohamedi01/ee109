@@ -12,111 +12,102 @@
       <h2>Controller Diagram for WhisperScale (Options: SyncMem)</h2>
       <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
   
-<!-- Begin x137 -->
+<!-- Begin x117 -->
 <TD>
-<font size = "6"><a href=IR.html#x137 target=_blank>x137</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
-<br><font size = "2">WhisperScale.scala:26:11 <font color="grey">-     Accel {</font></font>
+<font size = "6"><a href=IR.html#x117 target=_blank>x117</a>: Sequenced AccelScope <font size = "4"> (OuterControl)</font>
+<br><font size = "2">WhisperScale.scala:23:11 <font color="grey">-     Accel {</font></font>
 
   <div data-role="collapsible"><h4> </h4>
   <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-  <!-- Begin x179 -->
+  <!-- Begin x159 -->
   <TD>
-  <font size = "6"><a href=IR.html#x179 target=_blank>x179</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-  <br><font size = "2">WhisperScale.scala:29:14 <font color="grey">-       inSram load inDram</font></font>
+  <font size = "6"><a href=IR.html#x159 target=_blank>x159</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">WhisperScale.scala:26:14 <font color="grey">-       inSram load inDram</font></font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x169 -->
+    <!-- Begin x149 -->
     <TD>
-    <font size = "6"><a href=IR.html#x169 target=_blank>x169</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">WhisperScale.scala:29:14 <font color="grey">-       inSram load inDram</font></font>
+    <font size = "6"><a href=IR.html#x149 target=_blank>x149</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScale.scala:26:14 <font color="grey">-       inSram load inDram</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x163)----->
+<p align="right">Set(x143)----->
     </font></div>
     </TD>
-    <!-- End x169-->
-    <!-- Begin x178 -->
+    <!-- End x149-->
+    <!-- Begin x158 -->
     <TD>
-    <font size = "6"><a href=IR.html#x178 target=_blank>x178</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">WhisperScale.scala:29:14 <font color="grey">-       inSram load inDram</font></font>
+    <font size = "6"><a href=IR.html#x158 target=_blank>x158</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScale.scala:26:14 <font color="grey">-       inSram load inDram</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=1,  II=1</font></mark></p>
-    <br><font size = "1">Counter: <a href=IR.html#x172 target=_blank>x172</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
+    <br><font size = "1">Counter: <a href=IR.html#x152 target=_blank>x152</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x164)
+<p align="left">----->Set(x144)
     </font></div>
     </TD>
-    <!-- End x178-->
+    <!-- End x158-->
     </TABLE></div>
   </TD>
-  <!-- End x179-->
-  <!-- Begin x192 -->
+  <!-- End x159-->
+  <!-- Begin x169 -->
   <TD>
-  <font size = "6"><a href=IR.html#x192 target=_blank>x192</a>: Pipelined UnrolledReduce <font size = "4"> (InnerControl)</font>
-  <br><font size = "2">WhisperScale.scala:33:68 <font color="grey">-       Reduce(currentMaxReg)(n_runtime by 1 par 1){ k => inSram(k) }{ (a,b) => max(a,b) }</font></font>
-  <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=5,  II=1</font></mark></p>
-  <br><font size = "1">Counter: <a href=IR.html#x182 target=_blank>x182</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
-
-  </TD>
-  <!-- End x192-->
-  <!-- Begin x202 -->
-  <TD>
-  <font size = "6"><a href=IR.html#x202 target=_blank>x202</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-  <br><font size = "2">WhisperScale.scala:36:31 <font color="grey">-       Foreach(n_runtime by 1) { i =></font></font>
+  <font size = "6"><a href=IR.html#x169 target=_blank>x169</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+  <br><font size = "2">WhisperScale.scala:28:31 <font color="grey">-       Foreach(n_runtime by 1) { i =></font></font>
   <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=43,  II=1</font></mark></p>
-  <br><font size = "1">Counter: <a href=IR.html#x194 target=_blank>x194</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
+  <br><font size = "1">Counter: <a href=IR.html#x161 target=_blank>x161</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
 
   </TD>
-  <!-- End x202-->
-  <!-- Begin x224 -->
+  <!-- End x169-->
+  <!-- Begin x191 -->
   <TD>
-  <font size = "6"><a href=IR.html#x224 target=_blank>x224</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
-  <br><font size = "2">WhisperScale.scala:50:15 <font color="grey">-       outDram store outSram</font></font>
+  <font size = "6"><a href=IR.html#x191 target=_blank>x191</a>: Streaming UnitPipe <font size = "4"> (OuterControl)</font>
+  <br><font size = "2">WhisperScale.scala:33:15 <font color="grey">-       outDram store outSram</font></font>
 
     <div data-role="collapsible"><h4> </h4>
     <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-    <!-- Begin x210 -->
+    <!-- Begin x177 -->
     <TD>
-    <font size = "6"><a href=IR.html#x210 target=_blank>x210</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">WhisperScale.scala:50:15 <font color="grey">-       outDram store outSram</font></font>
+    <font size = "6"><a href=IR.html#x177 target=_blank>x177</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScale.scala:33:15 <font color="grey">-       outDram store outSram</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x203)----->
+<p align="right">Set(x170)----->
     </font></div>
     </TD>
-    <!-- End x210-->
-    <!-- Begin x219 -->
+    <!-- End x177-->
+    <!-- Begin x186 -->
     <TD>
-    <font size = "6"><a href=IR.html#x219 target=_blank>x219</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">WhisperScale.scala:50:15 <font color="grey">-       outDram store outSram</font></font>
+    <font size = "6"><a href=IR.html#x186 target=_blank>x186</a>: Pipelined UnrolledForeach <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScale.scala:33:15 <font color="grey">-       outDram store outSram</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=2,  II=1</font></mark></p>
-    <br><font size = "1">Counter: <a href=IR.html#x212 target=_blank>x212</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
+    <br><font size = "1">Counter: <a href=IR.html#x179 target=_blank>x179</a> = CounterNew(Const(0),Const(80),Const(1),Const(1))</font>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="right">Set(x204)----->
+<p align="right">Set(x171)----->
     </font></div>
     </TD>
-    <!-- End x219-->
-    <!-- Begin x223 -->
+    <!-- End x186-->
+    <!-- Begin x190 -->
     <TD>
-    <font size = "6"><a href=IR.html#x223 target=_blank>x223</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
-    <br><font size = "2">WhisperScale.scala:50:15 <font color="grey">-       outDram store outSram</font></font>
+    <font size = "6"><a href=IR.html#x190 target=_blank>x190</a>: Sequenced UnitPipe <font size = "4"> (InnerControl)</font>
+    <br><font size = "2">WhisperScale.scala:33:15 <font color="grey">-       outDram store outSram</font></font>
     <p><mark style="border:1px; border-style:solid; border-color:black; padding: 1px; background: #ccc"><font size = "2">Latency=0,  II=0, <b>CompilerII=1.0</b></font></mark></p>
 
     <div style="border:1px solid black"><font size = "2">Stream Info</font><br><font size = "1"> 
-<p align="left">----->Set(x205)
+<p align="left">----->Set(x172)
     </font></div>
     </TD>
-    <!-- End x223-->
+    <!-- End x190-->
     </TABLE></div>
   </TD>
-  <!-- End x224-->
+  <!-- End x191-->
   </TABLE></div>
 </TD>
-<!-- End x137-->
+<!-- End x117-->
 </TABLE>
 <h4> </h4><TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
 <!-- Begin NBuf Mems -->
@@ -132,20 +123,15 @@ NBuf Mems
 Single-Buffered Mems
   <div data-role="collapsible"><h4> </h4>
   <TABLE BORDER="3" CELLPADDING="10" CELLSPACING="10">
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x162 target=_blank>x162</a> (BankedSRAM "outSram_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x142 target=_blank>x142</a> (BankedSRAM "outSram_0")
 <br>volume = 80 (dims List(80) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
 <br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x161 target=_blank>x161</a> (BankedSRAM "inSram_0")
+  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x141 target=_blank>x141</a> (BankedSRAM "inSram_0")
 <br>volume = 80 (dims List(80) + pads List(0), bw = 32)
 <br>nBanks = List(1), B = List(1), a = List(1), p = List(1)
-<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">2</div><div style="border: 1px solid;padding: 5px">1</div> </div>
-  </font></div></p>
-  <p><div style="padding: 10px; border: 1px;display:inline-block;background-color: #cce6ff"><font size = "1"><a href=IR.html#x180 target=_blank>x180</a> (FF "currentMaxReg_0")
-<br>volume = 1 (dims List() + pads List(), bw = 32)
-<br>nBanks = List(1), B = List(1), a = List(), p = List()
-<br>
+<br><div style="display:grid;grid-template-columns: max-content max-content max-content"><div style="border: 1px solid;padding: 5px"><b>muxwidth</b></div> <div style="border: 1px solid;padding: 5px"><b># R lanes</b></div><div style="border: 1px solid;padding: 5px"><b># W Lanes</b></div> <div style="border: 1px solid;padding: 5px">1</div> <div style="border: 1px solid;padding: 5px">1</div><div style="border: 1px solid;padding: 5px">1</div> </div>
   </font></div></p>
   </TABLE></div>
 </TD>

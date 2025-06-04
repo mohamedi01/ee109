@@ -80,6 +80,7 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
     print("[PASS] QuantizeKernel matches Python reference.")
     print("\u2500"*79)
 
+    # THIS FAILS FOR HAVARD_F.WAV
     # 2. STFTKernel (input: FPGA quantized, output: stft)
     stft_kernel_cwd = os.path.join(fpga_root, "STFTKernel")
     # Pad input with N_FFT//2 zeros at the beginning to match torch.stft(center=True)
@@ -131,12 +132,10 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
     print("[PASS] MelFilterbankKernel matches Python reference.")
     print("───────────────────────────────────────────────────────────────────────────────")
 
-    # 5. WhisperScaleKernel (input: fpga_mel, output: fpga_whisper)
-    print("[INFO] Feeding FPGA mel output (log-mel) to WhisperScaleKernel.")
-    # Apply log10 and dynamic range compression to FPGA mel output
-    log_spec_fpga = np.log10(np.clip(melfb_output_fpga, a_min=EPSILON, a_max=None))
-    max_val = np.max(log_spec_fpga)
-    log_spec_fpga = np.maximum(log_spec_fpga, max_val - 8.0)
+    # 5. LogCompressKernel (input: melfb_output_fpga, output: log_spec_fpga)
+    print("[INFO] Using Python log10 output for LogCompress.")
+    log_spec_fpga = python_ref["log_spec"][:, 0].cpu().numpy()
+    # Write raw log-mel values for FPGA WhisperScale kernel (centering/clamping/scaling now done in hardware)
     np.savetxt(os.path.join(io_dir, "logcompress_input.csv"), log_spec_fpga, fmt='%.18e')
     whisperscale_cwd = os.path.join(fpga_root, "WhisperScale")
     run_fpga_kernel('sbt "reload; clean; update; run --sim"', whisperscale_cwd)
@@ -144,9 +143,14 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
     run_fpga_kernel('./run.sh', os.path.join(whisperscale_cwd, "gen", "WhisperScale"))
     fpga_whisper = np.loadtxt(os.path.join(io_dir, "whisperscale_output.csv"), dtype=np.float32)
     whisper_scaled = python_ref["whisper_scaled"][:, 0]
+    # Debug: Compare input to WhisperScale FPGA and Python reference
+    print("Input to WhisperScale FPGA (first 10):", log_spec_fpga[:10])
+    print("Python whisper_scaled (first 10):", whisper_scaled[:10])
+    print("Input min/max:", np.min(log_spec_fpga), np.max(log_spec_fpga))
+    print("Python whisper_scaled min/max:", np.min(whisper_scaled), np.max(whisper_scaled))
     np.testing.assert_allclose(fpga_whisper, whisper_scaled, rtol=1e-3, atol=1e-4)
     print("[PASS] WhisperScaleKernel matches Python reference.")
-    print("───────────────────────────────────────────────────────────────────────────────")
+    print("\u2500"*79)
     
 def spatial_pipeline_and_compare_stft_only(python_ref, io_dir, fpga_root, raw_audio):
     """Run STFT kernel only and compare with Python reference."""
@@ -161,6 +165,7 @@ def spatial_pipeline_and_compare_stft_only(python_ref, io_dir, fpga_root, raw_au
     run_fpga_kernel('sbt "run --sim"', stft_cwd)
     run_fpga_kernel('chmod +x run.sh', os.path.join(stft_cwd, "gen", "STFT"))
     run_fpga_kernel('./run.sh', os.path.join(stft_cwd, "gen", "STFT"))
+    
     
     # Load FPGA STFT output and compare with Python reference
     fpga_stft_real = np.loadtxt(os.path.join(io_dir, "stft_real_output.csv"), dtype=np.float32)

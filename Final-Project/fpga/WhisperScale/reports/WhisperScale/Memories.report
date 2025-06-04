@@ -7,12 +7,88 @@ Estimated Total Memories:
 
 
 ---------------------------------------------------------------------
-Name: inSram_0 (x161)
+Name: x170
+Type: StreamOut[BurstCmd]
+Src:  WhisperScale.scala:33:15
+Src:        outDram store outSram
+---------------------------------------------------------------------
+Symbol:     x170 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x176 = StreamOutBankedWrite(x170,ArrayBuffer(x174),ArrayBuffer(Set(x175))) {}
+             outDram store outSram (WhisperScale.scala:33:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x177: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x176: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x143
+Type: StreamOut[BurstCmd]
+Src:  WhisperScale.scala:26:14
+Src:        inSram load inDram
+---------------------------------------------------------------------
+Symbol:     x143 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x148 = StreamOutBankedWrite(x143,ArrayBuffer(x146),ArrayBuffer(Set(x147))) {}
+             inSram load inDram (WhisperScale.scala:26:14)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x149: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x148: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: inSram_0 (x141)
 Type: SRAM1[Flt[_24,_8]]
-Src:  WhisperScale.scala:27:32
+Src:  WhisperScale.scala:24:32
 Src:        val inSram  = SRAM[Float](n_runtime)
 ---------------------------------------------------------------------
-Symbol:     x161 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
+Symbol:     x141 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
 Instances: 1
   RAM36: 1.0
 
@@ -28,21 +104,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x177 = SRAMBankedWrite(x161,Vector(x176),Vector(List(Const(0))),Vector(b173),Vector(Set(b174))) {}
-             inSram load inDram (WhisperScale.scala:29:14)
+             x157 = SRAMBankedWrite(x141,Vector(x156),Vector(List(Const(0))),Vector(b153),Vector(Set(b154))) {}
+             inSram load inDram (WhisperScale.scala:26:14)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x197 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b195),Vector(Set(b196)),Vec[Flt[_24,_8]]) {}
-             outSram(i) = (inSram(i) + 4.0f) / 4.0f (WhisperScale.scala:48:29)
-               Directly Banked: true
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-           - Mux Port #1: 
-             x185 = SRAMBankedRead(x161,Vector(List(Const(0))),Vector(b183),Vector(Set(b184)),Vec[Flt[_24,_8]]) {}
-             Reduce(currentMaxReg)(n_runtime by 1 par 1){ k => inSram(k) }{ (a,b) => max(a,b) } (WhisperScale.scala:33:63)
+             x164 = SRAMBankedRead(x141,Vector(List(Const(0))),Vector(b162),Vector(Set(b163)),Vec[Flt[_24,_8]]) {}
+             val l_val = inSram(i) // l_val is "log-Mel after dynamic range compression" (WhisperScale.scala:29:27)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -50,172 +120,24 @@ Instance Summary:
 
 
 Control Tree: 
-x137: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x179: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-    x178: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-      x177: SRAMBankedWrite
-  x192: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x185: SRAMBankedRead
-  x202: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x197: SRAMBankedRead
+x117: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x159: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x158: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x157: SRAMBankedWrite
+  x169: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x164: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x205
-Type: StreamIn[Bit]
-Src:  WhisperScale.scala:50:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x205 = StreamInNew(BurstAckBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-           - Mux Port #0: 
-             x221 = StreamInBankedRead(x205,ArrayBuffer(Set())) {}
-             outDram store outSram (WhisperScale.scala:50:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-
-
-
-Control Tree: 
-x223: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x221: StreamInBankedRead
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: currentMaxReg_0 (x180)
-Type: Reg[Flt[_24,_8]]
-Src:  WhisperScale.scala:32:37
-Src:        val currentMaxReg = Reg[Float](-1000.0f)
----------------------------------------------------------------------
-Symbol:     x180 = RegNew(Const(-1000.000000))
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List()
-     Accum:    Buffer
-     Banks:    1 <Flat>
-       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x192: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x233: RegAccumOp
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x203
-Type: StreamOut[BurstCmd]
-Src:  WhisperScale.scala:50:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x203 = StreamOutNew(BurstCmdBus)
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x209 = StreamOutBankedWrite(x203,ArrayBuffer(x207),ArrayBuffer(Set(x208))) {}
-             outDram store outSram (WhisperScale.scala:50:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x210: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x209: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x204
-Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
-Src:  WhisperScale.scala:50:15
-Src:        outDram store outSram
----------------------------------------------------------------------
-Symbol:     x204 = StreamOutNew(BurstFullDataBus())
-Instances: 1
-
-
-Instance Summary: 
-  #0: Banked
-     Resource: LUTs
-     Depth:    1
-     Padding:  List(0)
-     Accum:    None
-     Banks:    1 <Flat>
-       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
-     Ports: 
-         0 [Type:WR]:
-           - Mux Port #0: 
-             x218 = StreamOutBankedWrite(x204,ArrayBuffer(x217),ArrayBuffer(Set(b214))) {}
-             outDram store outSram (WhisperScale.scala:50:15)
-               Directly Banked: false
-               Port: <offset: 0, castgroup: (0), broadcast: (0)>
-
-         0 [Type:RD]:
-
-
-
-Control Tree: 
-x219: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x218: StreamOutBankedWrite
----------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------
-Name: x164
+Name: x144
 Type: StreamIn[Flt[_24,_8]]
-Src:  WhisperScale.scala:29:14
+Src:  WhisperScale.scala:26:14
 Src:        inSram load inDram
 ---------------------------------------------------------------------
-Symbol:     x164 = StreamInNew(BurstDataBus())
+Symbol:     x144 = StreamInNew(BurstDataBus())
 Instances: 1
 
 
@@ -231,8 +153,8 @@ Instance Summary:
          0 [Type:WR]:
          0 [Type:RD]:
            - Mux Port #0: 
-             x175 = StreamInBankedRead(x164,ArrayBuffer(Set(b174))) {}
-             inSram load inDram (WhisperScale.scala:29:14)
+             x155 = StreamInBankedRead(x144,ArrayBuffer(Set(b154))) {}
+             inSram load inDram (WhisperScale.scala:26:14)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -240,20 +162,20 @@ Instance Summary:
 
 
 Control Tree: 
-x178: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-  x175: StreamInBankedRead
+x158: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x155: StreamInBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: outSram_0 (x162)
+Name: outSram_0 (x142)
 Type: SRAM1[Flt[_24,_8]]
-Src:  WhisperScale.scala:28:32
+Src:  WhisperScale.scala:25:32
 Src:        val outSram = SRAM[Float](n_runtime)
 ---------------------------------------------------------------------
-Symbol:     x162 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
+Symbol:     x142 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
 Instances: 1
   RAM36: 1.0
 
@@ -269,15 +191,15 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x201 = SRAMBankedWrite(x162,Vector(x200),Vector(List(Const(0))),Vector(b195),Vector(Set(b196))) {}
-             outSram(i) = (inSram(i) + 4.0f) / 4.0f (WhisperScale.scala:48:20)
+             x168 = SRAMBankedWrite(x142,Vector(x167),Vector(List(Const(0))),Vector(b162),Vector(Set(b163))) {}
+             outSram(i) = (l_val + 4.0f) / 4.0f (WhisperScale.scala:31:20)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
          0 [Type:RD]:
            - Mux Port #0: 
-             x215 = SRAMBankedRead(x162,Vector(List(Const(0))),Vector(b213),Vector(Set(b214)),Vec[Flt[_24,_8]]) {}
-             outDram store outSram (WhisperScale.scala:50:15)
+             x182 = SRAMBankedRead(x142,Vector(List(Const(0))),Vector(b180),Vector(Set(b181)),Vec[Flt[_24,_8]]) {}
+             outDram store outSram (WhisperScale.scala:33:15)
                Directly Banked: true
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -285,24 +207,24 @@ Instance Summary:
 
 
 Control Tree: 
-x137: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
-  x202: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-    x201: SRAMBankedWrite
-  x224: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
-    x219: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
-      x215: SRAMBankedRead
+x117: AccelScope (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x169: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x168: SRAMBankedWrite
+  x191: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x186: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x182: SRAMBankedRead
 ---------------------------------------------------------------------
 
 
 
 
 ---------------------------------------------------------------------
-Name: x163
-Type: StreamOut[BurstCmd]
-Src:  WhisperScale.scala:29:14
-Src:        inSram load inDram
+Name: x171
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  WhisperScale.scala:33:15
+Src:        outDram store outSram
 ---------------------------------------------------------------------
-Symbol:     x163 = StreamOutNew(BurstCmdBus)
+Symbol:     x171 = StreamOutNew(BurstFullDataBus())
 Instances: 1
 
 
@@ -317,8 +239,8 @@ Instance Summary:
      Ports: 
          0 [Type:WR]:
            - Mux Port #0: 
-             x168 = StreamOutBankedWrite(x163,ArrayBuffer(x166),ArrayBuffer(Set(x167))) {}
-             inSram load inDram (WhisperScale.scala:29:14)
+             x185 = StreamOutBankedWrite(x171,ArrayBuffer(x184),ArrayBuffer(Set(b181))) {}
+             outDram store outSram (WhisperScale.scala:33:15)
                Directly Banked: false
                Port: <offset: 0, castgroup: (0), broadcast: (0)>
 
@@ -327,8 +249,46 @@ Instance Summary:
 
 
 Control Tree: 
-x169: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
-  x168: StreamOutBankedWrite
+x186: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x185: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x172
+Type: StreamIn[Bit]
+Src:  WhisperScale.scala:33:15
+Src:        outDram store outSram
+---------------------------------------------------------------------
+Symbol:     x172 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x188 = StreamInBankedRead(x172,ArrayBuffer(Set())) {}
+             outDram store outSram (WhisperScale.scala:33:15)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x190: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x188: StreamInBankedRead
 ---------------------------------------------------------------------
 
 
