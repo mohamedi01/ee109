@@ -1,6 +1,6 @@
 # EE109 Digital Systems Final Report
 
-Chris Gutierrez, Will Briger, Mohamed Ismail
+Will Briger, Mohamed Ismail, Chris Gutierrez
 
 [Final Presentation](https://docs.google.com/presentation/d/1r-FnH7z8U7ozwVBeGQ0wLh01cEzEG6EEDA1MYnHPUiU/edit?usp=sharing)
 
@@ -20,7 +20,7 @@ Chris Gutierrez, Will Briger, Mohamed Ismail
 
 For our EE109 final project, we implemented a hardware-accelerated audio preprocessing pipeline designed to support real-time speech recognition. The system focuses on the frontend of modern speech transcription stacks, which typically begin by transforming raw audio into log-Mel spectrograms.
 
-Our goal was to offload this preprocessing to an FPGA to reduce latency, improve power efficiency, and enable deployment in edge devices. We modularized the digital signal processing (DSP) stack using Spatial DSL and validated our hardware output against a software implementation. The completed pipeline integrates with Whisper for automatic speech recognition (ASR) and a lightweight NLP model for downstream summarization.
+Our goal was to offload this preprocessing to an FPGA to reduce latency, improve power efficiency, and enable deployment in edge devices. We modularized the digital signal processing (DSP) stack using Spatial DSL and validated our hardware output against a software implementation. The completed pipeline integrates with Whisper for automatic speech recognition (ASR) and a lightweight NLP model for downstream summarization [1](https://doi.org/10.3390/electronics11121831).
 
 This work demonstrates the feasibility of domain-specific acceleration for speech-driven AI applications in resource-constrained or privacy-sensitive environments.
 
@@ -160,3 +160,13 @@ Whisper successfully accepted hardware-generated spectrograms, producing accurat
 All source code is available at: 
 
 ## References
+
+J. Park, H. Noh, H. Nam, W.-C. Lee, and H.-J. Park, "A Low-Latency Streaming On-Device Automatic Speech Recognition System Using a CNN Acoustic Model on FPGA and a Language Model on Smartphone," Electronics, vol. 11, no. 12, p. 1831, 2022. https://doi.org/10.3390/electronics11121831
+
+Y.-K. Choi, K. You, and W. Sung, "FPGA-Based Implementation of a Real-Time 5000-Word Continuous Speech Recognizer," EUSIPCO 2008. https://www.eurasip.org/Proceedings/Eusipco/Eusipco2008/papers/1569101650.pdf
+
+M. Lee et al., "FPGA-Based Low-Power Speech Recognition with Recurrent Neural Networks," arXiv preprint arXiv:1610.00552, 2016. https://arxiv.org/abs/1610.00552
+
+S. Han et al., "ESE: Efficient Speech Recognition Engine with Sparse LSTM on FPGA," arXiv preprint arXiv:1612.00694, 2016. https://arxiv.org/abs/1612.00694
+
+
