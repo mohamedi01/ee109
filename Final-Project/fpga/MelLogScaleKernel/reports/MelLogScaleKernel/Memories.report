@@ -1,0 +1,1296 @@
+---------------------------
+Estimated Total Memories: 
+---------------------------
+  RAM36: 4.0
+---------------------------
+
+
+
+---------------------------------------------------------------------
+Name: x613
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x613 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x620 = RegWrite(x613,x619,Set()) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x631 = RegRead(x613) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x623: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x620: RegWrite
+  x637: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x631: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x757
+Type: StreamOut[BurstCmd]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x757 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x784 = StreamOutBankedWrite(x757,ArrayBuffer(x782),ArrayBuffer(Set(x783))) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x788: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x784: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x759
+Type: StreamIn[Bit]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x759 = StreamInNew(BurstAckBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x806 = StreamInBankedRead(x759,ArrayBuffer(Set())) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x808: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x806: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x581
+Type: StreamIn[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x581 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x634 = StreamInBankedRead(x581,ArrayBuffer(Set(b628, b611))) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x637: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x634: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: acc_0 (x699)
+Type: Reg[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:43:38
+Src:            val acc = Reduce(Reg[Float](0f))(0 until N_BINS) { i =>
+---------------------------------------------------------------------
+Symbol:     x699 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x718: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x829: RegAccumFMA
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x758
+Type: StreamOut[Tup2[Flt[_24,_8],Bit]]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x758 = StreamOutNew(BurstFullDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x802 = StreamOutBankedWrite(x758,ArrayBuffer(x801),ArrayBuffer(Set(b793))) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x803: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x802: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: powerCol_0 (x578)
+Type: SRAM1[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:30:35
+Src:          val powerCol = SRAM[Float](N_BINS)
+---------------------------------------------------------------------
+Symbol:     x578 = SRAMNew(List(Const(201)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x636 = SRAMBankedWrite(x578,Vector(x635),Vector(List(Const(0))),Vector(b610),Vector(Set(x633, b628, b611))) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x705 = SRAMBankedRead(x578,Vector(List(Const(0))),Vector(b703),Vector(Set(b704, b645, b577)),Vec[Flt[_24,_8]]) {}
+             powerCol(i) * melRow(i) (MelLogScaleKernel.scala:44:21)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x811: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x639: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x637: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x636: SRAMBankedWrite
+  x722: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x718: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+      x705: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x647
+Type: StreamOut[BurstCmd]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x647 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x665 = StreamOutBankedWrite(x647,ArrayBuffer(x663),ArrayBuffer(Set(x664))) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x668: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+  x665: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: acc_1 (x700)
+Type: Reg[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:43:38
+Src:            val acc = Reduce(Reg[Float](0f))(0 until N_BINS) { i =>
+---------------------------------------------------------------------
+Symbol:     x700 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x717 = RegWrite(x700,x829,Set()) {}
+             }{ _ + _ } (MelLogScaleKernel.scala:45:12)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x719 = RegRead(x700) {}
+             melFrame(m) = acc.value (MelLogScaleKernel.scala:46:29)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x722: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x718: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x717: RegWrite
+  x721: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x719: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x671
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x671 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x678 = RegWrite(x671,x677,Set()) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x689 = RegRead(x671) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x697: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x681: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x678: RegWrite
+  x696: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x689: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: maxVal_0 (x723)
+Type: Reg[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:50:39
+Src:          val maxVal = Reduce(Reg[Float](0f))(0 until N_MELS) { i =>
+---------------------------------------------------------------------
+Symbol:     x723 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x738 = RegWrite(x723,x737,Set()) {}
+             }{ (a, b) => mux(a > b, a, b) } (MelLogScaleKernel.scala:52:10)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x733 = RegRead(x723) {}
+             }{ (a, b) => mux(a > b, a, b) } (MelLogScaleKernel.scala:52:10)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x740: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x733: RegRead
+  x738: RegWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x614
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x614 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x622 = RegWrite(x614,x621,Set()) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x817 = RegRead(x614) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x623: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x622: RegWrite
+  x637: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x817: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x765
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x765 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x786 = RegWrite(x765,x774,Set()) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x796 = RegRead(x765) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x804: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x788: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x786: RegWrite
+  x803: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x796: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x648
+Type: FIFO[IssuedCmd]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x648 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x667 = FIFOBankedEnq(x648,ArrayBuffer(x666),ArrayBuffer(Set(Const(true)))) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x673 = FIFOBankedDeq(x648,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x698: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x668: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x667: FIFOBankedEnq
+  x697: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+    x681: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x673: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x672
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x672 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x680 = RegWrite(x672,x679,Set()) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x818 = RegRead(x672) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x697: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x681: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x680: RegWrite
+  x696: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x818: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: melFrame_0 (x640)
+Type: SRAM1[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:33:38
+Src:          val melFrame    = SRAM[Float](N_MELS)
+---------------------------------------------------------------------
+Symbol:     x640 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    3
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x720 = SRAMBankedWrite(x640,Vector(x719),Vector(List(Const(0))),Vector(b644),Vector(Set())) {}
+             melFrame(m) = acc.value (MelLogScaleKernel.scala:46:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x729 = SRAMBankedRead(x640,Vector(List(Const(0))),Vector(b727),Vector(Set(b728, b577)),Vec[Flt[_24,_8]]) {}
+             max(melFrame(i), EPS) (MelLogScaleKernel.scala:51:23)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         2 [Type:WR]:
+         2 [Type:RD]:
+           - Mux Port #0: 
+             x745 = SRAMBankedRead(x640,Vector(List(Const(0))),Vector(b743),Vector(Set(b744, b577)),Vec[Flt[_24,_8]]) {}
+             val x       = max(melFrame(i), EPS) (MelLogScaleKernel.scala:56:37)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x811: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x722: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+    x721: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x720: SRAMBankedWrite
+  x740: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x729: SRAMBankedRead
+  x756: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x745: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x766
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x766 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x787 = RegWrite(x766,x777,Set()) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x819 = RegRead(x766) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x804: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x788: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x787: RegWrite
+  x803: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x819: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x580
+Type: FIFO[IssuedCmd]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x580 = FIFONew(Const(16))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x605 = FIFOBankedEnq(x580,ArrayBuffer(x604),ArrayBuffer(Set(Const(true), b585))) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x615 = FIFOBankedDeq(x580,ArrayBuffer(Set(Const(true))),Vec[IssuedCmd]) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x639: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+  x606: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+    x605: FIFOBankedEnq
+  x638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+    x623: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+      x615: FIFOBankedDeq
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x579
+Type: StreamOut[BurstCmd]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x579 = StreamOutNew(BurstCmdBus)
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x603 = StreamOutBankedWrite(x579,ArrayBuffer(x601),ArrayBuffer(Set(x602, b585))) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+
+
+
+Control Tree: 
+x606: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Sequenced]
+  x603: StreamOutBankedWrite
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x563
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  FriendlyTransformer.scala:19:28
+Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
+---------------------------------------------------------------------
+Symbol:     x563 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    Buffer
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x564 = SetReg(x563,x556) {}
+             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x586 = RegRead(x563) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+             x767 = RegRead(x563) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (1)>
+
+           - Mux Port #1: 
+             x565 = RegRead(x563) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: logMelFrame_0 (x641)
+Type: SRAM1[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:34:38
+Src:          val logMelFrame = SRAM[Float](N_MELS)
+---------------------------------------------------------------------
+Symbol:     x641 = SRAMNew(List(Const(80)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x755 = SRAMBankedWrite(x641,Vector(x754),Vector(List(Const(0))),Vector(b743),Vector(Set(b744, b577))) {}
+             logMelFrame(i) = (clamped + 4f) / 4f (MelLogScaleKernel.scala:59:26)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x799 = SRAMBankedRead(x641,Vector(List(Const(0))),Vector(b762),Vector(Set(x798, b793)),Vec[Flt[_24,_8]]) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x811: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x756: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x755: SRAMBankedWrite
+  x810: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x809: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+      x804: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+        x803: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+          x799: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: maxVal_1 (x724)
+Type: Reg[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:50:39
+Src:          val maxVal = Reduce(Reg[Float](0f))(0 until N_MELS) { i =>
+---------------------------------------------------------------------
+Symbol:     x724 = RegNew(Const(0.0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    2
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x739 = RegWrite(x724,x737,Set()) {}
+             }{ (a, b) => mux(a > b, a, b) } (MelLogScaleKernel.scala:52:10)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x750 = RegRead(x724) {}
+             val clamped = max(log10x, maxVal - 8f) (MelLogScaleKernel.scala:58:37)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x811: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x740: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x739: RegWrite
+  x756: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x750: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: melRow_0 (x646)
+Type: SRAM1[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:39:35
+Src:            val melRow = SRAM[Float](N_BINS)
+---------------------------------------------------------------------
+Symbol:     x646 = SRAMNew(List(Const(201)),SRAM1[Flt[_24,_8]])
+Instances: 1
+  RAM36: 1.0
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: BRAM
+     Depth:    2
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x695 = SRAMBankedWrite(x646,Vector(x694),Vector(List(Const(0))),Vector(x692),Vector(Set(x691, b686))) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+         1 [Type:WR]:
+         1 [Type:RD]:
+           - Mux Port #0: 
+             x707 = SRAMBankedRead(x646,Vector(List(Const(0))),Vector(b703),Vector(Set(b704, b645, b577)),Vec[Flt[_24,_8]]) {}
+             powerCol(i) * melRow(i) (MelLogScaleKernel.scala:44:33)
+               Directly Banked: true
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         M [Type:WR]:
+         M [Type:RD]:
+
+
+
+Control Tree: 
+x722: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Pipelined]
+  x698: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Streaming]
+    x697: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+      x696: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+        x695: SRAMBankedWrite
+  x718: UnrolledReduce (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x707: SRAMBankedRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x612
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:31:18
+Src:          powerCol load powerDRAM(0 :: N_BINS, t)
+---------------------------------------------------------------------
+Symbol:     x612 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x618 = RegWrite(x612,x617,Set()) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x629 = RegRead(x612) {}
+             powerCol load powerDRAM(0 :: N_BINS, t) (MelLogScaleKernel.scala:31:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x638: UnrolledForeach (-1) [Level: OuterControl, Loop: Looped, Schedule: Sequenced]
+  x623: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x618: RegWrite
+  x637: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x629: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x764
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:63:32
+Src:          logmel(0 :: N_MELS, t) store logMelFrame
+---------------------------------------------------------------------
+Symbol:     x764 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x785 = RegWrite(x764,x773,Set()) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x794 = RegRead(x764) {}
+             logmel(0 :: N_MELS, t) store logMelFrame (MelLogScaleKernel.scala:63:32)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x804: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x788: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x785: RegWrite
+  x803: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x794: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x571
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  FriendlyTransformer.scala:19:28
+Src:      val arg: Reg[A] = stage(ArgInNew[A](bA.zero))
+---------------------------------------------------------------------
+Symbol:     x571 = ArgInNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x572 = SetReg(x571,x556) {}
+             setArg(arg,x.unbox) (FriendlyTransformer.scala:21:11)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x816 = RegRead(x571) {}
+             arg.value (FriendlyTransformer.scala:22:9)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+Host
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x670
+Type: Reg[Fix[TRUE,_32,_0]]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x670 = RegNew(Const(0))
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List()
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {}: Cyclic: N=1, B=1, alpha=<>, P=<> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+           - Mux Port #0: 
+             x676 = RegWrite(x670,x675,Set()) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x687 = RegRead(x670) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x697: UnitPipe (-1) [Level: OuterControl, Loop: Single, Schedule: Sequenced]
+  x681: UnitPipe (-1) [Level: InnerControl, Loop: Single, Schedule: Sequenced]
+    x676: RegWrite
+  x696: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+    x687: RegRead
+---------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------
+Name: x649
+Type: StreamIn[Flt[_24,_8]]
+Src:  MelLogScaleKernel.scala:40:18
+Src:            melRow load melDRAM(m, 0 :: N_BINS)
+---------------------------------------------------------------------
+Symbol:     x649 = StreamInNew(BurstDataBus())
+Instances: 1
+
+
+Instance Summary: 
+  #0: Banked
+     Resource: LUTs
+     Depth:    1
+     Padding:  List(0)
+     Accum:    None
+     Banks:    1 <Flat>
+       Dims {0}: Cyclic: N=1, B=1, alpha=<1>, P=<1> (1 solutions, 0 checks)
+     Ports: 
+         0 [Type:WR]:
+         0 [Type:RD]:
+           - Mux Port #0: 
+             x693 = StreamInBankedRead(x649,ArrayBuffer(Set(b686))) {}
+             melRow load melDRAM(m, 0 :: N_BINS) (MelLogScaleKernel.scala:40:18)
+               Directly Banked: false
+               Port: <offset: 0, castgroup: (0), broadcast: (0)>
+
+
+
+
+Control Tree: 
+x696: UnrolledForeach (-1) [Level: InnerControl, Loop: Looped, Schedule: Pipelined]
+  x693: StreamInBankedRead
+---------------------------------------------------------------------
+
+
+
+

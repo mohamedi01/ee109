@@ -7,12 +7,7 @@ import numpy as np
 import torch
 import json
 
-# === Adjusted imports to match your actual files ===
-#  - spatial_dsp.run_spatial_pipeline lives in src/audiolib/dsp/spatial_dsp.py
-#  - whisper_features.transcribe_features lives in src/audiolib/asr/whisper_features.py
-#  - nlp.summarize_text lives in src/audiolib/nlp/nlp.py
-#
-# (You must have an __init__.py in each folder so Python treats them as packages.)
+# === Imports adjusted to match your project structure ===
 from audiolib.dsp.spatial_dsp import run_spatial_pipeline
 from audiolib.asr.whisper_features import transcribe_features
 from audiolib.nlp.nlp import summarize_text
@@ -31,13 +26,13 @@ def main():
         type=str,
         default="cpu",
         choices=["cpu", "cuda"],
-        help="Device for ASR inference. Default: cpu",
+        help="Device for ASR inference (cpu or cuda). Default: cpu",
     )
     parser.add_argument(
         "--fpga-root",
         type=Path,
         default=Path(__file__).resolve().parent / "fpga",
-        help="Path to the top‐level fpga/ directory (contains QuantizeKernel/, STFTKernel/, …).",
+        help="Path to the top‐level fpga/ directory (contains MelLogScaleKernel/, etc.).",
     )
     parser.add_argument(
         "--io-dir",
@@ -45,9 +40,16 @@ def main():
         default=None,
         help=(
             "Path to the fpga_io/ directory. "
-            "If unset, it will be inferred as sibling of --fpga-root (i.e. ../fpga_io)."
+            "If unset, will be inferred as sibling of --fpga-root."
         ),
     )
+
+    parser.add_argument(
+        "--skip_rtl",
+        action="store_true",
+        help="Skip RTL simulator; use fast Scala --sim only",
+    )
+
     args = parser.parse_args()
 
     audio_path = args.audio_file
@@ -73,29 +75,30 @@ def main():
     print(f"I/O directory: {io_dir}")
     print(f"ASR device:    {device}\n")
 
-    # --- STEP 1: RUN THE FPGA‐ACCELERATED DSP (ALL 6 KERNELS) ---
-    # This writes intermediate CSVs into fpga_io/, then computes log‐Mel + scale
-    # and writes fpga_io/whisperscale_output.csv.
+    # --- STEP 1: RUN THE FPGA‐ACCELERATED DSP (Power→Mel→Log→Scale) ---
+    # This writes fpga_io/whisperscale_output.csv with shape (80 × T)
     try:
-        run_spatial_pipeline(str(audio_path))
+        run_spatial_pipeline(str(audio_path), skip_rtl=args.skip_rtl)
     except Exception as e:
         print(f"[ERROR] DSP step failed: {e}")
         sys.exit(1)
 
-    # After run_spatial_pipeline, `fpga_io/whisperscale_output.csv` should exist.
+    # Now expect fpga_io/whisperscale_output.csv
     ws_csv = io_dir / "whisperscale_output.csv"
     if not ws_csv.is_file():
         print(f"Error: Expected `whisperscale_output.csv` not found in {io_dir}")
         sys.exit(1)
 
-    # --- STEP 2: LOAD WHISPER‐SCALED FEATURES FOR ASR ---
-    # Each row of `whisperscale_output.csv` is one time‐frame's log‐Mel vector (float32).
-    logmels = np.loadtxt(ws_csv, dtype=np.float32)  # shape = (n_mels, n_frames)
+    # --- STEP 2: LOAD & SHAPE WHISPER‐SCALED FEATURES FOR ASR ---
+    logmels = np.loadtxt(ws_csv, dtype=np.float32, delimiter=",")
+    # After merging, logmels should be shape (80, T). If instead it's (T, 80), transpose.
+    if logmels.ndim == 2 and logmels.shape[0] != DEFAULT_N_MELS:
+        logmels = logmels.T
+
+    # Convert to tensor on chosen device
     logmels_tensor = torch.from_numpy(logmels).to(device)
 
     # --- STEP 3: RUN ASR ON LOG‐MEL FEATURES ---
-    # `transcribe_features` expects a numpy array or torch.Tensor of shape [n_mels, n_frames].
-    # It will pad/crop internally to 3000 frames (30 s) and return a transcript string.
     try:
         transcript = transcribe_features(logmels_tensor, device=device)
     except Exception as e:
@@ -106,7 +109,6 @@ def main():
     print(transcript)
 
     # --- STEP 4: RUN NLP SUMMARIZATION ON THE TRANSCRIPT ---
-    # `summarize_text` returns a summary string.
     try:
         summary = summarize_text(transcript)
     except Exception as e:
@@ -116,13 +118,10 @@ def main():
     print("\n--- NLP Summary ---")
     print(summary)
 
-    # (Optionally, you could add keyword/topic extraction later if you implement such functions.)
-    # For now, we only summarize, because nlp.py only provides `summarize_text(...)`.
-
-    # Print a JSON‐style summary of results
+    # Print JSON summary of results
     pipeline_output = {
         "transcript": transcript,
-        "summary": transcript if len(transcript) < 1 else summary
+        "summary": summary
     }
     print("\n--- JSON Output ---")
     print(json.dumps(pipeline_output, indent=2))
