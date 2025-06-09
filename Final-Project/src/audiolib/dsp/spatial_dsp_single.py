@@ -80,7 +80,7 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
     print("[PASS] QuantizeKernel matches Python reference.")
     print("\u2500"*79)
 
-    # THIS FAILS FOR HAVARD_F.WAV
+  
     # 2. STFTKernel (input: FPGA quantized, output: stft)
     stft_kernel_cwd = os.path.join(fpga_root, "STFTKernel")
     # Pad input with N_FFT//2 zeros at the beginning to match torch.stft(center=True)
@@ -150,7 +150,6 @@ def spatial_pipeline_and_compare_isolated(python_ref, io_dir, fpga_root, raw_aud
     max_val = np.max(log)
     log = np.maximum(log, max_val - 8.0) 
     whisper_scaled = (log + 4.0) / 4 #python_ref["whisper_scaled"][:, 0]
-    # Debug: Compare input to WhisperScale FPGA and Python reference
     print("Input to WhisperScale FPGA (first 10):", log_spec_fpga[:10])
     print("Python whisper_scaled (first 10):", whisper_scaled[:10])
     print("Input min/max:", np.min(log_spec_fpga), np.max(log_spec_fpga))
