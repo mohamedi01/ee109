@@ -7,10 +7,12 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+src/audiolib.egg-info/
 
 # Virtual Environments
+# (top-level or in src/)
 ee109_final_project/
-venv/ # Common name for virtual environments
+venv/
 ENV/
 
 # Pytest Cache
@@ -23,27 +25,41 @@ Thumbs.db
 # Log files
 *.log
 
-# Scala/SBT build artifacts
+# FPGA/Scala/SBT build artifacts and generated files
+# (ignore in all relevant subdirs)
 target/
 project/project/target/
 project/target/
 gen/
 .bsp/
-
-# FPGA IO files (intermediate data)
-
-
-# IDE specific
-.idea/
-.vscode/
-
-# Common temporary files
-*.swp
-*~
-
-# SBT/Scala build artifacts
 **/target/
 **/global-logging/
 **/scala-2.12/
 **/streams/
 **/task-temp-directory/
+
+# FPGA IO intermediate data (but NOT data/)
+fpga_io/*.csv
+fpga/*/logs/
+fpga/*/reports/
+
+# IDE/project files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Common temporary/backup files
+*.swp
+*~
+*.bak
+*.old
+*.orig
+
+# Jupyter notebook checkpoints
+*.ipynb_checkpoints
+
+# ML/data science intermediate files
+*.pkl
+*.npz
+*.tmp

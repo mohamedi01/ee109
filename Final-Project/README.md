@@ -158,34 +158,105 @@ To process an audio file through the full DSP-ASR-NLP pipeline (on the computer)
 
 ## Running Tests
 
-The project uses `pytest` for thorough testing of its components and the integrated pipeline. The tests are organized into subdirectories within `tests/`:
+### 1. Software Tests
 
-*   `tests/test_DSP/`: Contains tests specifically for the Digital Signal Processing frontend (`wav_to_logmel`). These verify the characteristics of the generated Mel spectrograms (e.g., shape, data type, value ranges) across different types of audio inputs (single words, short sentences, long sentences).
-*   `tests/test_DSP_to_ASR/`: Focuses on testing the ASR module when fed with spectrograms from the custom DSP frontend. These tests typically compare the transcription output against ground truth text using Word Error Rate (WER) and may also compare against a baseline Whisper model.
-*   `tests/test_NLP/`: Includes tests for the Natural Language Processing module. This involves directly testing functions like `analyze_text` with predefined text inputs to verify keyword, topic, and summary outputs. It may also include performance tests or evaluations of the NLP models if applicable.
-*   `tests/test_pipeline/`: Contains end-to-end integration tests for the full `process_audio_to_nlp` pipeline. These tests run on actual audio files, process them through all stages (DSP -> ASR -> NLP), and then check the final transcript and NLP analysis results against expected outcomes or ground truth data.
+These tests verify the correctness of the Python software implementation for each stage of the pipeline.
 
-1.  **Run all tests:**
-    From the project root directory (`Final-Project/`):
-    ```bash
-    pytest
-    ```
+- **DSP (Digital Signal Processing) Tests:**  
+  Located in `tests/test_DSP/`.  
+  Run with:
+  ```bash
+  pytest tests/test_DSP/
+  ```
+  These tests check the log-Mel spectrogram features for various audio files, ensuring correct shape, value ranges, and absence of NaNs/Infs.
 
-2.  **Run specific test files or tests with more verbose output:**
-    ```bash
-    pytest -s tests/test_DSP/test_dsp_single_words.py
-    pytest -s tests/test_DSP/test_dsp_short_sentences.py
-    pytest -s tests/test_DSP_to_ASR/test_asr_short_sentences.py
-    pytest -s tests/test_DSP_to_ASR/test_asr_single_words.py
-    pytest -s tests/test_DSP_to_ASR/test_asr_long_sentences.py
-    pytest -s tests/test_NLP/test_nlp.py
-    pytest -s tests/test_NLP/test_nlp_on_short_sentence_transcripts.py
-    pytest -s tests/test_NLP/test_nlp_on_long_sentence_transcripts.py
-    pytest -s tests/test_pipeline/test_short_sentence_pipeline.py
-    pytest -s tests/test_pipeline/test_long_sentence_pipeline.py
-    ```
-    The `-s` flag shows output from `print()` statements
+- **ASR (Automatic Speech Recognition) Tests:**  
+  Located in `tests/test_DSP_to_ASR/`.  
+  Run with:
+  ```bash
+  pytest tests/test_DSP_to_ASR/
+  ```
+  These tests compare the custom DSP+ASR pipeline against a baseline Whisper model and ground truth, using Word Error Rate (WER) as the metric.
 
+- **NLP (Natural Language Processing) Tests:**  
+  Located in `tests/test_NLP/`.  
+  Run with:
+  ```bash
+  pytest tests/test_NLP/
+  ```
+  These tests check summarization and performance functions on sample texts.
+
+  - **Pipeline Tests:**  
+  Located in `tests/test_pipeline/`.  
+  Run with:
+  ```bash
+  pytest tests/test_pipeline/
+  ```
+  These tests:
+  - Process audio files through the full pipeline.
+  - Compare the ASR transcript to ground truth using WER.
+  - Optionally compare NLP outputs (summary, etc.) to those run directly on the ground truth transcript.
+
+### 2. Hardware (FPGA/Spatial) Tests
+
+These tests verify the correctness of the hardware-accelerated DSP pipeline implemented in Spatial and run via simulation.
+
+- **Single-Frame Hardware DSP Validation:**  
+  The script `src/audiolib/dsp/spatial_dsp_single.py` runs the hardware DSP pipeline for a single frame, comparing each hardware stage's output to the Python reference for detailed validation. This is useful for debugging and verifying hardware correctness at each step.
+  Run with:
+  ```bash
+  python src/audiolib/dsp/spatial_dsp_single.py path/to/audio.wav
+  ```
+
+- **Standalone Hardware DSP Test (multi-frame):**  
+  The script `src/audiolib/dsp/spatial_dsp.py` runs the full Spatial-based DSP frontend in software simulation mode, comparing each hardware stage's output to Python reference results.
+  Run with:
+  ```bash
+  python src/audiolib/dsp/spatial_dsp.py path/to/audio.wav
+  ```
+  This will:
+  - Generate input CSVs for the Spatial kernels.
+  - Compile and simulate the hardware kernels using SBT and C++.
+  - Compare the FPGA output CSVs to Python reference outputs.
+  - Print detailed pass/fail and error analysis.
+
+  All intermediate files are saved in the `fpga_io/` directory.
+
+  **Note:** The script `spatial_dsp.py` is an attempt at optimizing the hardware DSP pipeline by combining multiple DSP stages (such as STFT, power spectrum, Mel filterbank, log compression, and Whisper scaling) into a single, streamlined hardware kernel (`MelLogScaleKernel`). Instead of running and validating each DSP stage separately, this approach feeds the entire audio through the full pipeline in one go, reducing intermediate I/O and improving simulation speed. This design is intended to more closely match the structure of a real-time, integrated hardware DSP accelerator, and to enable more efficient end-to-end testing and benchmarking of the hardware pipeline.
+
+**Note on `mel.py` vs `mel_gold.py`:**
+
+- **`mel.py`** provides a compact, high-level implementation of the Whisper-compatible log-Mel spectrogram pipeline. It is designed for direct, end-to-end conversion of audio to log-Mel features, using a single function (`wav_to_logmel`) that encapsulates all steps. This is the version typically used in the main Python pipeline for efficiency and simplicity.
+
+- **`mel_gold.py`** is a modular, reference implementation of the same pipeline. It breaks down the process into isolated, testable functions for each stage (audio loading, resampling, quantization, STFT, power spectrum, Mel filterbank, log compression, Whisper scaling, etc.). This modularity makes it ideal for debugging, hardware validation, and stage-by-stage comparison with FPGA/Spatial outputs. It is used as the "gold standard" for verifying hardware kernels and for detailed DSP testing.
+
+### 3. Full Pipeline/Integration Tests
+
+These tests run the entire DSP → ASR → NLP pipeline on real audio files and compare the results to ground truth.
+
+- **Pipeline Tests:**  
+  Located in `tests/test_pipeline/`.  
+  Run with:
+  ```bash
+  pytest tests/test_pipeline/
+  ```
+  These tests:
+  - Process audio files through the full pipeline.
+  - Compare the ASR transcript to ground truth using WER.
+  - Optionally compare NLP outputs (summary, etc.) to those run directly on the ground truth transcript.
+
+---
+
+**Pipeline Runners Overview:**
+
+- `run_pipeline.py`: Runs the full DSP → ASR → NLP pipeline entirely in Python (software-only, no hardware acceleration).
+  ```bash
+  python -m src.audiolib.run_pipeline path/to/audio.wav
+  ```
+- `run_pipeline_hw.py`: Runs the full pipeline with hardware-accelerated DSP (FPGA/Spatial) for the DSP stage, then Python for ASR and NLP.
+  ```bash
+  python -m src.audiolib.run_pipeline_hw path/to/audio.wav
+  ```
 
 *   **Hardware Acceleration of DSP Frontend using FPGA (Amazon F1 Instance):**
     *   **Objective:** Offload computationally intensive DSP kernels from the `wav_to_logmel` pipeline to an FPGA on an Amazon EC2 F1 instance to achieve significant performance gains and power efficiency for real-time or batch processing scenarios.
