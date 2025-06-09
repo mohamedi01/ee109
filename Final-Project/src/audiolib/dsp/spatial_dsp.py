@@ -41,7 +41,7 @@ def write_power_vector(audio: np.ndarray, io_dir: Path) -> int:
     flat  = power.reshape(-1)
     out   = io_dir / "power_matrix_1d.csv"
     np.savetxt(out, flat, fmt="%.9f")
-    print(f"[INFO] 💾 power_matrix_1d.csv  length={flat.size}")
+    print(f"[INFO] power_matrix_1d.csv  length={flat.size}")
     return flat.size
 
 # ── 2.  Spatial pipeline ──────────────────────────────────────────────
@@ -74,7 +74,7 @@ def run_spatial_pipeline(audio_path: str, *, skip_rtl: bool=False) -> None:
     if not out_csv.exists():
         sys.exit("[ERROR] Kernel did not produce whisperscale_output.csv")
     shape = np.loadtxt(out_csv, dtype=np.float32, delimiter=",").shape
-    print(f"[PASS] ✅ Spatial DSP finished. Output shape = {shape}")
+    print(f"[PASS] Spatial DSP finished. Output shape = {shape}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
