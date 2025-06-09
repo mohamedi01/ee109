@@ -13,7 +13,7 @@ from audiolib.dsp.mel_gold import (
 
 # ── helpers ───────────────────────────────────────────────────────────
 def run_cmd(cmd: str, cwd: Path) -> None:
-    print(f"[INFO] 🛠  {cmd}  (cwd={cwd})")
+    print(f"[INFO]  {cmd}  (cwd={cwd})")
     proc = subprocess.run(cmd, cwd=cwd, shell=True, text=True,
                           capture_output=True)
     if proc.returncode:
