@@ -135,36 +135,223 @@ The Python pipeline integrated seamlessly with Whisper and a lightweight NLP sum
 
 ## Hardware Design & Components
 
-The DSP frontend was broken into six hardware kernels:
+The DSP frontend was broken into six hardware kernels, each implemented in Spatial DSL and designed for modularity, throughput, and resource efficiency. Below, we provide a deep technical dive into each kernel, including block diagrams, algorithmic details, memory and pipelining strategies, and design tradeoffs.
 
-- `QuantizeKernel`: Fixed-point arithmetic, pipelined for throughput.
-- `STFTKernel`: Implements windowing and FFT (400-pt), uses pipelined/parallelized loops.
-- `PowerSpectrum`: Computes magnitude squared, optimized for memory access.
-- `MelFilterbank`: Applies 80-band filterbank, uses SRAM for filter coefficients.
-- `LogCompress`: Uses LUTs for log10, pipelined for speed.  
-  *Resource usage example (from reports):*  
-  - RAM36: 27  
-  - outSram: 11 RAM36 blocks
-- `WhisperScale`: Applies scaling and clamping in hardware.
+### QuantizeKernel
 
-**Data Types:**
-- Most kernels use fixed-point (e.g., FixPt[TRUE, 5, 27]) for precision and resource efficiency.
+**Purpose:**  
+Implements fixed-point quantization of floating-point audio samples to simulate 16-bit PCM (Pulse Code Modulation) as used in real-world audio codecs.
 
-**Parallelization:**
-- Foreach and Reduce controllers used for pipelining and parallel execution.
-- Memory banking and streaming for high throughput.
+**Block Diagram:**
+```
+[Input DRAM (Float)] → [SRAM (Float)] → [Scale/Clip/Cast] → [SRAM (Float)] → [Output DRAM (Float)]
+```
 
-**Resource Utilization:**
-- See `fpga/LogCompress/reports/LogCompressCORDIC/Memories.report` for detailed memory usage.
-- Example: outSram uses 11 RAM36 blocks.
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads up to 1M samples from DRAM, loaded from a CSV file.
+  - Outputs quantized samples as float (to match downstream expectations), but with int16 quantization applied.
+- **Algorithm:**  
+  - Each sample is scaled by 32767, clipped to [-32768, 32767], cast to int16, then rescaled to [-1, 1] as float.
+- **Spatial Features:**  
+  - Uses `SRAM` for fast on-chip buffering.
+  - Loops are pipelined with `Foreach` for throughput.
+  - Runtime size is read from a config file, allowing flexible batch sizes.
+- **Precision/Resource Tradeoffs:**  
+  - All arithmetic is performed in float, but the quantization step simulates fixed-point.
+  - Could be further optimized by using true fixed-point types (e.g., `FixPt`), but float is used for simplicity and compatibility.
+- **Debugging:**  
+  - Output is written to CSV for comparison with Python reference.
+  - Configurable runtime size allows for easy unit testing.
 
-**Synthesis/Simulation:**
-- All kernels tested in simulation; timing and resource reports generated.
-- Example: LogCompressCORDIC Retime.report details pipelining and control structure.
+**Bottlenecks & Solutions:**
+- **Bottleneck:** DRAM bandwidth for large audio files.
+- **Solution:** On-chip SRAM buffering and pipelined loop for high throughput.
 
-We used Spatial DSL to implement and simulate each kernel, with modular SRAM/DRAM memory interfaces and `Foreach`/`Reduce` controllers for performance. Each kernel was tested independently before chaining them together.
+---
 
-We used lookup tables (LUTs) for log compression and normalized outputs using a fixed Whisper scale factor. The entire frontend produces log-Mel spectrograms formatted for Whisper.
+### STFTKernel
+
+**Purpose:**  
+Computes the Short-Time Fourier Transform (STFT) of windowed audio frames, producing real and imaginary frequency bins for each frame.
+
+**Block Diagram:**
+```
+[Input DRAM (Frame)] + [Hann Window DRAM] → [SRAMs] → [Windowing] → [DFT (Nested Foreach/Reduce)] → [SRAMs] → [Output DRAMs (Real, Imag)]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads a windowed frame and Hann window from DRAM (CSV).
+  - Outputs real and imaginary FFT bins to DRAM.
+- **Algorithm:**  
+  - Applies Hann window to input frame.
+  - Computes DFT for each frequency bin using nested `Foreach` and `Reduce` (400-pt FFT, but supports up to 1024).
+  - Scales output to match Python amplitude.
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for input, window, and output buffers.
+  - Loops are pipelined for throughput.
+  - Runtime FFT size is configurable via a config file.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Double` for high precision, but could be optimized to `Float` or `FixPt` for resource savings.
+- **Debugging:**  
+  - Stores windowed input to DRAM for comparison with Python.
+  - Outputs are written to CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** DFT is compute-intensive for large N.
+- **Solution:** Pipelined loops; could be further optimized with FFT algorithms.
+
+---
+
+### PowerSpectrum
+
+**Purpose:**  
+Computes the power spectrum (magnitude squared) from real and imaginary FFT outputs.
+
+**Block Diagram:**
+```
+[Real DRAM] + [Imag DRAM] → [SRAMs] → [Elementwise Square/Add] → [SRAM] → [Output DRAM]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads real and imaginary FFT bins from DRAM.
+  - Outputs power spectrum to DRAM.
+- **Algorithm:**  
+  - For each bin: power = real² + imag².
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for input and output.
+  - Fully pipelined elementwise operation.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Float` for all arithmetic; could use `FixPt` for further optimization.
+- **Debugging:**  
+  - Outputs written to CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** Memory bandwidth for large bin counts.
+- **Solution:** On-chip SRAM and pipelined elementwise loop.
+
+---
+
+### MelFilterbank
+
+**Purpose:**  
+Applies an 80-band Mel filterbank to the power spectrum, producing Mel-frequency energies.
+
+**Block Diagram:**
+```
+[Mel Filterbank DRAM (80x201)] + [Power Spectrum DRAM (201)] → [SRAMs] → [Matrix-Vector Multiply] → [SRAM] → [Output DRAM]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads Mel filterbank matrix and power spectrum vector from DRAM.
+  - Outputs Mel energies to DRAM.
+- **Algorithm:**  
+  - For each Mel band, computes dot product with power spectrum.
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for matrix, vector, and output.
+  - Double loop over bands and bins, pipelined for throughput.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Float` for all arithmetic; could use `FixPt` for further optimization.
+- **Debugging:**  
+  - Outputs written to CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** Matrix-vector multiply is memory-bound for large filterbanks.
+- **Solution:** On-chip SRAM and pipelined nested loops.
+
+---
+
+### LogCompress
+
+**Purpose:**  
+Applies log10 compression and dynamic range clamping to Mel energies, using a LUT for efficient log computation.
+
+**Block Diagram:**
+```
+[Input DRAM] + [LUT DRAMs] → [SRAMs] → [Log10 via LUT/Interp] → [Dynamic Range Clamp] → [SRAM] → [Output DRAM]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads Mel energies and LUTs from DRAM.
+  - Outputs log-compressed, clamped values to DRAM.
+- **Algorithm:**  
+  - For each value: take abs, clamp to min, normalize to [1,10), compute log10 via LUT and linear interpolation, add decade, clamp to (max-8.0).
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for input, LUTs, and output.
+  - Pipelined loop for throughput.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Float` for all arithmetic; LUT-based log10 is a tradeoff between accuracy and resource usage.
+- **Debugging:**  
+  - Outputs both raw and clamped log values to CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** Log10 is expensive in hardware.
+- **Solution:** LUT with linear interpolation for fast, resource-efficient log10.
+
+---
+
+### WhisperScale
+
+**Purpose:**  
+Applies Whisper's final scaling: (x + 4) / 4, to match the input range expected by the ASR model.
+
+**Block Diagram:**
+```
+[Input DRAM] → [SRAM] → [Affine Transform] → [SRAM] → [Output DRAM]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads log-compressed values from DRAM.
+  - Outputs scaled values to DRAM.
+- **Algorithm:**  
+  - For each value: out = (in + 4) / 4.
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for input and output.
+  - Fully pipelined, single loop.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Float` for all arithmetic; could use `FixPt` for further optimization.
+- **Debugging:**  
+  - Outputs written to CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** None; simple affine transform is not compute-bound.
+- **Solution:** Fully pipelined loop.
+
+---
+
+### MelLogScaleKernel (Top-level)
+
+**Purpose:**  
+Chains Mel filtering, log compression, dynamic range clamping, and Whisper scaling into a single kernel for efficient batch processing of audio frames.
+
+**Block Diagram:**
+```
+[Power Matrix DRAM] + [Mel Filterbank DRAM] → [SRAMs] → [Mel Filtering] → [Log10/Clamp/Scale] → [SRAM] → [Output DRAM]
+```
+
+**Implementation Details:**
+- **Input/Output:**  
+  - Reads a flat power matrix and Mel filterbank from DRAM.
+  - Outputs Whisper-scaled log-Mel spectrograms to DRAM/CSV.
+- **Algorithm:**  
+  - For each frame: load power spectrum, apply Mel filterbank, compute log10, clamp dynamic range, apply Whisper scaling, store output.
+- **Spatial Features:**  
+  - Uses on-chip `SRAM` for all intermediate buffers.
+  - Loops are pipelined over frames and Mel bands.
+  - Handles runtime frame count and memory management.
+- **Precision/Resource Tradeoffs:**  
+  - Uses `Float` for all arithmetic; could be further optimized with `FixPt`.
+- **Debugging:**  
+  - Debug prints for runtime sizes, output CSV for validation.
+
+**Bottlenecks & Solutions:**
+- **Bottleneck:** Memory bandwidth and on-chip buffer size for large audio clips.
+- **Solution:** Batching, pipelined loops, and careful memory management.
 
 ---
 
