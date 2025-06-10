@@ -189,6 +189,42 @@ Our transition from a monolithic script (`mel.py`) to a modular, function-based 
 
 The DSP frontend was broken into six hardware kernels, each implemented in Spatial DSL and designed for modularity, throughput, and resource efficiency. Below, we provide a deep technical dive into each kernel, including block diagrams, algorithmic details, memory and pipelining strategies, and design tradeoffs.
 
+**Code Locations for Hardware Design:**
+- Each hardware DSP kernel is implemented in its own folder under `fpga/` (e.g., `fpga/QuantizeKernel/`, `fpga/STFTKernel/`, etc.), containing kernel-specific code, reports, and logs.
+- The main Spatial DSL implementations for the kernels are in `fpga/spatial_dsp.py` (multi-frame/batched kernels) and `fpga/spatial_dsp_single.py` (single-frame kernels for rapid testing).
+- Input and output data for hardware simulation are exchanged via CSV files, typically located in `Final-Project/data/` and its subdirectories.
+- Hardware resource and timing reports are found in each kernel's `reports/` subfolder (e.g., `fpga/QuantizeKernel/reports/`).
+
+### Design and Validation Workflow: Single-Frame Kernels, CSV I/O, and Kernel Integration
+
+#### Simulation Bottlenecks and the Single-Frame Approach
+
+Early in hardware development, we encountered significant timing and simulation bottlenecks when attempting to process large numbers of audio frames through the full DSP pipeline. Simulating the entire pipeline for long audio clips (hundreds or thousands of frames) was prohibitively slow in the Spatial simulator, especially when using fixed-point arithmetic and large on-chip buffers. This made rapid iteration and debugging nearly impossible.
+
+To address this, we adopted a single-frame kernel design for each DSP stage. By focusing on processing one frame at a time, we could:
+- Dramatically reduce simulation time (from hours to seconds per test)
+- Isolate and debug each stage independently
+- Achieve high accuracy and tight error bounds by directly comparing hardware output to the Python reference for the same frame
+
+#### CSV-Based I/O and Python Integration
+
+Each hardware kernel was designed to read its input from a CSV file and write its output to a new CSV file. This approach enabled seamless integration with the Python reference pipeline:
+- Python scripts generate input CSVs for each kernel, using the modular reference functions (see `mel_gold.py`)
+- After hardware simulation, Python scripts parse the output CSVs and compare them to the expected reference outputs
+- This workflow allowed for automated, per-stage validation and error analysis
+
+Python modifications included:
+- Utility functions to format NumPy arrays as CSVs with precise float formatting and correct shape (e.g., 1D for frames, 2D for spectrograms)
+- Parsing functions to read hardware output CSVs and reshape them for direct comparison
+- Automated test scripts to run the full suite of per-stage comparisons and report error metrics (e.g., mean absolute error, max error, relative error)
+
+#### Per-Stage Validation and Error Rates
+
+This modular, CSV-driven workflow enabled us to achieve very low error rates at each stage:
+- For floating-point kernels, outputs typically matched the Python reference within <1% relative error (often much lower)
+- Tight tolerances (e.g., `np.allclose` with `rtol=1e-4`) were used to ensure hardware correctness
+- Debugging was highly efficient: any mismatch could be traced to a specific kernel and input frame
+
 ### QuantizeKernel
 
 **Purpose:**  
@@ -376,36 +412,6 @@ Applies Whisper's final scaling: (x + 4) / 4, to match the input range expected 
 
 ---
 
-### MelLogScaleKernel (Top-level)
-
-**Purpose:**  
-Chains Mel filtering, log compression, dynamic range clamping, and Whisper scaling into a single kernel for efficient batch processing of audio frames.
-
-**Block Diagram:**
-```
-[Power Matrix DRAM] + [Mel Filterbank DRAM] → [SRAMs] → [Mel Filtering] → [Log10/Clamp/Scale] → [SRAM] → [Output DRAM]
-```
-
-**Implementation Details:**
-- **Input/Output:**  
-  - Reads a flat power matrix and Mel filterbank from DRAM.
-  - Outputs Whisper-scaled log-Mel spectrograms to DRAM/CSV.
-- **Algorithm:**  
-  - For each frame: load power spectrum, apply Mel filterbank, compute log10, clamp dynamic range, apply Whisper scaling, store output.
-- **Spatial Features:**  
-  - Uses on-chip `SRAM` for all intermediate buffers.
-  - Loops are pipelined over frames and Mel bands.
-  - Handles runtime frame count and memory management.
-- **Precision/Resource Tradeoffs:**  
-  - Uses `Float` for all arithmetic; could be further optimized with `FixPt`.
-- **Debugging:**  
-  - Debug prints for runtime sizes, output CSV for validation.
-
-**Bottlenecks & Solutions:**
-- **Bottleneck:** Memory bandwidth and on-chip buffer size for large audio clips.
-- **Solution:** Batching, pipelined loops, and careful memory management.
-
----
 
 ## Testing & Validation
 
@@ -432,6 +438,24 @@ We validated each kernel in isolation, then verified the chained pipeline end-to
 Whisper successfully accepted hardware-generated spectrograms, producing accurate transcriptions, which confirmed that the precision and format of our hardware outputs met the ASR model's expectations.
 
 ---
+
+#### Attempting Kernel Integration and Fixed-Point Challenges
+
+After validating each stage in isolation, we attempted to combine multiple kernels into larger, batched hardware modules (e.g., chaining Mel filtering, log compression, and scaling in a single kernel). The goal was to improve simulation efficiency and more closely match the intended hardware deployment.
+
+However, this integration introduced new challenges:
+- Simulation speed again became a bottleneck, especially when using fixed-point arithmetic and large input sizes
+- Debugging was more difficult, as errors could propagate across multiple stages, making it harder to localize issues
+- Achieving the same low error rates as the single-frame, per-stage approach proved challenging, particularly for fixed-point implementations where quantization and rounding errors accumulated
+
+In practice, running the full pipeline with fixed-point arithmetic and large input sizes was often too slow to be practical for iterative development. As a result, most validation and tuning was performed using the single-frame, floating-point kernels, with only limited end-to-end testing of the integrated, fixed-point pipeline.
+
+**Summary:**
+- The single-frame, modular kernel approach—using CSV I/O and tight Python integration—was essential for rapid, accurate hardware validation
+- Per-stage testing enabled us to achieve and verify very low error rates for each DSP component
+- While kernel integration is necessary for deployment, simulation and debugging constraints made it difficult to fully validate large, fixed-point pipelines within project timelines
+
+
 
 ## Results, Limitations & Future Work
 
