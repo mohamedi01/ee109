@@ -122,6 +122,7 @@ Our system is divided into three main stages:
 - Hardware and software pipelines exchange data via CSV files and DRAM buffers.
 
 **Diagram:**
+```
         ┌────────────────────┐
         │     Audio File     │
         └────────┬───────────┘
@@ -169,7 +170,7 @@ Our system is divided into three main stages:
 ┌──────────────────────┐
 │    Final Summary     │
 └──────────────────────┘
-
+```
 ---
 
 ### Hardware Design & Components
