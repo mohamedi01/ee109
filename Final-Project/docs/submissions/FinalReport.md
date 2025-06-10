@@ -87,6 +87,7 @@ To address these needs, we refactored the pipeline into a new, modular script: `
   - Detailed error messages and visualizations aid debugging.
 
 **Impact:**  
+
 Modularizing the software pipeline significantly improved debugging efficiency by allowing us to isolate and identify mismatches at specific stages of the DSP flow. This modular structure enabled a streamlined co-design workflow in which each hardware kernel was developed alongside and validated against its corresponding Python function. By ensuring stage-level correctness throughout, we maintained high fidelity between the hardware and the software reference implementations.
 ---
 
