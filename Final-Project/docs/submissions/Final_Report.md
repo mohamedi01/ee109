@@ -602,4 +602,4 @@ This limitation highlights the need for further development and debugging of the
 - **Code:**  
   - Python DSP: `src/audiolib/dsp/`  
   - Hardware kernels: `fpga/`  
-  - Tests: `
+  - Tests: `src/audiolib/`, `tests/test_*/`
