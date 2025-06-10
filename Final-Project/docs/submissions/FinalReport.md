@@ -1,7 +1,7 @@
 # EE109 Digital System Lab Final Report  
 Will Briger, Mohamed Ismail, Chris Gutierrez
 
-Table of Contents  
+# Table of Contents  
 - Application Overview  
 - Software Simulation  
 - Hardware Implementation  
