@@ -26,7 +26,7 @@ Offload the entire log-Mel spectrogram pipeline to an FPGA, enabling real-time, 
 - Edge AI/IoT speech interfaces  
 
 **GitHub Repository:**  
-The code of the project can be found at the following [GitHub Repo]([https://github.com/mohamedi01/ee109/tree/main]). The `README.md` and `docs/architecture.md` files describe how to set up the requirements, run the different parts of the code, and outline the high-level architecture.
+The code of the project can be found at the following [GitHub Repo](https://github.com/mohamedi01/ee109/tree/main). The `README.md` and `docs/architecture.md` files describe how to set up the requirements, run the different parts of the code, and outline the high-level architecture.
 
 ### Project Directory Structure
 
