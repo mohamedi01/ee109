@@ -45,7 +45,7 @@ The code of the project can be found at the following [GitHub Repo](https://gith
 
 We first implemented a complete Python version of the pipeline using NumPy and librosa. This software reference served as our gold standard for correctness.
 
-Each DSP stage—quantization, STFT, power spectrum, Mel filtering, log compression, and scaling—was implemented in Python and validated by visualizing outputs. These results were used to verify the accuracy of hardware kernels during simulation.
+Each DSP stage (quantization, STFT, power spectrum, Mel filtering, log compression, and scaling) was implemented in Python and validated by visualizing outputs. These results were used to verify the accuracy of hardware kernels during simulation.
 
 **Key Implementation Details:**  
 - **Quantization:** Simulates PCM S16LE by scaling, clipping, casting to int16, and rescaling to float32. See `quantize_int16(x_np: np.ndarray)` in `mel_gold.py`.  
@@ -76,7 +76,7 @@ Our first implementation of the DSP pipeline was in a single Python script, `mel
 
 #### Need for Modularization
 
-As hardware development progressed, a monolithic software pipeline proved insufficient. Each hardware kernel needed isolated verification against a software "golden" reference. This drove the need to refactor the software into modular functions for each DSP stage.
+As hardware development progressed, a monolithic software pipeline proved insufficient. Each hardware kernel needed isolated verification against a software gold reference. This drove the need to refactor the software into modular functions for each DSP stage.
 
 #### Refactoring: Creation of `mel_gold.py`
 
