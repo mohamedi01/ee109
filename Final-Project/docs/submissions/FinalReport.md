@@ -16,14 +16,10 @@ Modern speech recognition systems rely on robust, low-latency digital signal pro
 Offload the entire log-Mel spectrogram pipeline to an FPGA, enabling real-time, low-power speech preprocessing for edge AI. We modularized the DSP stack in both software (Python) and hardware (Spatial/FPGA), validated correctness, and analyzed performance and resource tradeoffs.
 
 **Key challenges addressed:**  
-- Matching Whisper's reference pipeline (quantization, STFT, Mel, log, scaling)  
-- Achieving high accuracy with fixed-point hardware  
-- Efficient memory and compute resource usage on FPGA  
+We faced three primary challenges: matching the precise behavior of Whisper’s reference DSP pipeline, maintaining high accuracy with fixed-point hardware implementations, and ensuring efficient use of FPGA resources. These informed both our software modularization and our hardware design choices.
 
 **Applications:**  
-- On-device voice assistants  
-- Medical/wearable devices  
-- Edge AI/IoT speech interfaces
+This work has practical implications for applications like smart voice assistants, medical wearables, and embedded speech interfaces in IoT devices, all of which benefit from low-latency, low-power DSP.
   
 **GitHub Repository:**  
 The code of the project can be found at the following [GitHub Repo](https://github.com/mohamedi01/ee109/tree/main/Final-Project). The `README.md` and `docs/architecture.md` files describe how to set up the requirements, run the different parts of the code, and outline the high-level architecture.
@@ -336,10 +332,7 @@ To verify correctness, we wrote unit tests comparing hardware kernel outputs to 
 - Each hardware kernel output compared using `np.testing.assert_allclose` (rtol=1e-4).
 
 **End-to-End Tests:**  
-- Full pipeline tested on real audio (`tests/test_pipeline/test_long_sentence_pipeline.py`).  
-- ASR output compared to ground truth WER:  
-  - Long sentences: WER ≤ 0.16  
-  - Short sentences: WER ≤ 0.05
+We validated our design through rigorous unit tests comparing hardware kernel outputs to their Python equivalents, ensuring <1% relative error. End-to-end evaluations using real audio inputs confirmed compatibility with Whisper ASR, yielding WERs as low as 0.05 for short sentences and 0.17 with long setences.
 
 **NLP Validation:**  
 - Summarization and keyword extraction consistency checks.
@@ -356,9 +349,7 @@ Whisper accepted hardware-generated spectrograms, confirming precision and forma
 After validating each stage in isolation, we attempted to combine multiple kernels into larger, batched hardware modules (e.g., chaining Mel filtering, log compression, and scaling). The goals were improved simulation efficiency and closer alignment with deployment.
 
 **Challenges:**  
-- Simulation bottlenecks returned with fixed-point arithmetic and large inputs.  
-- Debugging was harder as errors propagated across stages.  
-- Maintaining low error rates became difficult due to accumulated quantization.
+While we successfully validated individual kernels, integrating them introduced new challenges—especially with timing and fixed-point precision across stages. Debugging became more complex, leading us to reserve integrated kernels for final validation runs rather than development.
 
 **Summary:**  
 - Single-frame, per-stage approach was essential for rapid iteration and precise error analysis.  
