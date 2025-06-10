@@ -351,7 +351,7 @@ Whisper accepted hardware-generated spectrograms, confirming precision and forma
 
 ---
 
-#### Attempting Kernel Integration and Fixed-Point Challenges
+#### Attempting Kernel Integration
 
 After validating each stage in isolation, we attempted to combine multiple kernels into larger, batched hardware modules (e.g., chaining Mel filtering, log compression, and scaling). The goals were improved simulation efficiency and closer alignment with deployment.
 
