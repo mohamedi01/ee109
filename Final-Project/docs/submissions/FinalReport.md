@@ -1,4 +1,4 @@
-EE109 Digital System Lab Final Report  
+# EE109 Digital System Lab Final Report  
 Will Briger, Mohamed Ismail, Chris Gutierrez
 
 Table of Contents  
