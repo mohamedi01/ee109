@@ -106,7 +106,7 @@ Our system is divided into three main stages:
 2. **ASR using Whisper (Software)**  
 3. **NLP Summarization (Software)**  
 
-#### PDSP Breakdown
+#### DSP Breakdown
 
 | Stage           | Description                                 | Parameters/Notes                |
 |-----------------|---------------------------------------------|---------------------------------|
