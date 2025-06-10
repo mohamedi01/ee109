@@ -525,6 +525,38 @@ With further improvements to the MelLogScaleKernel, there is significant potenti
 
 If these optimizations were implemented, the MelLogScaleKernel could serve as a highly efficient, real-time DSP frontend for ASR systems, capable of meeting the demands of edge AI and embedded applications. This would enable true streaming audio support and further reduce end-to-end system latency.
 
+To achieve a fully functioning, real-time hardware pipeline capable of processing entire audio files or continuous streams, several architectural improvements and optimizations would be required:
+
+#### Architectural Enhancements for Full Pipeline Support
+- **Multi-Frame and Streaming Support:**
+  - The integrated kernel must be redesigned to handle batches of frames or continuous audio streams, rather than single-frame processing.
+  - This involves implementing robust memory management for input and output buffers, as well as support for variable-length audio and dynamic batching.
+- **Stateful Processing:**
+  - For streaming audio, the hardware must maintain state across frames (e.g., overlap-add buffers for STFT, running normalization statistics) to ensure seamless, real-time operation.
+
+#### Run-Time Optimization Strategies
+- **Deep Pipelining:**
+  - All DSP stages (quantization, STFT, Mel filtering, log compression, scaling) should be pipelined so that each stage processes a new frame every clock cycle, maximizing throughput.
+- **Parallel Frame and Band Processing:**
+  - Multiple frames and/or Mel bands can be processed in parallel using additional processing elements, reducing per-frame latency and increasing overall throughput.
+- **Double-Buffering and Burst Memory Access:**
+  - Implementing double-buffered SRAMs and burst DRAM transfers allows computation and memory access to overlap, minimizing idle cycles and maximizing data throughput.
+- **Resource Allocation and Scheduling:**
+  - Careful allocation of FPGA resources (SRAM, LUTs, DSPs) and scheduling of operations is required to balance parallelism, pipelining depth, and hardware constraints.
+- **Fixed-Point Optimization:**
+  - Tuning fixed-point widths and scaling factors for each stage can reduce resource usage and power consumption while maintaining accuracy.
+
+#### Real-Time and Edge Deployment Impact
+- **Low-Latency Operation:**
+  - With these optimizations, the hardware pipeline could achieve frame latencies on the order of microseconds to milliseconds, suitable for real-time speech recognition and edge AI applications.
+- **Scalability:**
+  - The design could be scaled up or down depending on available FPGA resources, supporting a range of deployment scenarios from embedded devices to high-throughput servers.
+- **Power and Complexity Tradeoffs:**
+  - Increased parallelism and pipelining improve performance but also increase resource usage and design complexity. Power-efficient design techniques (e.g., clock gating, resource sharing) would be important for battery-powered or embedded deployments.
+
+#### Summary
+A fully optimized hardware pipeline would combine deep pipelining, parallel processing, and efficient memory management to deliver real-time, end-to-end speech feature extraction. These improvements would enable deployment in latency-sensitive, resource-constrained environments, unlocking the full potential of FPGA-based speech preprocessing for modern ASR systems.
+
 ## Results, Limitations & Future Work
 
 ### Results
