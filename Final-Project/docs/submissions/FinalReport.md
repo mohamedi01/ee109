@@ -87,9 +87,7 @@ To address these needs, we refactored the pipeline into a new, modular script: `
   - Detailed error messages and visualizations aid debugging.
 
 **Impact:**  
-- **Debugging Efficiency:** Modularization reduced debugging time by pinpointing stage-specific mismatches.  
-- **Co-Design Workflow:** Each hardware kernel was developed and validated against its matching Python function, ensuring correctness at every step.
-
+Modularizing the software pipeline significantly improved debugging efficiency by allowing us to isolate and identify mismatches at specific stages of the DSP flow. This modular structure enabled a streamlined co-design workflow in which each hardware kernel was developed alongside and validated against its corresponding Python function. By ensuring stage-level correctness throughout, we maintained high fidelity between the hardware and the software reference implementations.
 ---
 
 ## Hardware Implementation
@@ -184,9 +182,7 @@ The DSP frontend was broken into six hardware kernels, each implemented in Spati
 Early in hardware development, we encountered timing and simulation bottlenecks processing many audio frames. Simulating the full pipeline for long clips was slow. We adopted a single-frame kernel design:
 
 - **Benefits:**  
-  - Simulation time reduced from hours to seconds per test.  
-  - Isolated debugging of each stage.  
-  - High accuracy via direct comparison to Python reference.
+The benefits of this approach were substantial, including a significant reduction in simulation time, which dropped from hours to mere seconds per test. Additionally, the modular design allowed for isolated debugging of each stage, making it easier to pinpoint issues and fix them efficiently. The approach also ensured high accuracy, as we were able to directly compare the hardware implementation to the Python reference, verifying correctness at every stage of the pipeline.
 
 **CSV-Based I/O:**  
 - Python scripts generate input CSVs per kernel using `mel_gold.py`.  
@@ -329,16 +325,16 @@ Applies Whisper's final scaling: (x + 4) / 4.
 To verify correctness, we wrote unit tests comparing hardware kernel outputs to the Python baseline. Most results matched within <1% error, with small deviations due to float vs fixed-point rounding.
 
 **Unit Tests:**  
-- Each hardware kernel output compared using `np.testing.assert_allclose` (rtol=1e-4).
+- Each hardware kernel output is compared using `np.testing.assert_allclose` (rtol=1e-4).
 
 **End-to-End Tests:**  
-We validated our design through rigorous unit tests comparing hardware kernel outputs to their Python equivalents, ensuring <1% relative error. End-to-end evaluations using real audio inputs confirmed compatibility with Whisper ASR, yielding WERs as low as 0.05 for short sentences and 0.17 with long setences.
+We validated our design through rigorous unit tests comparing hardware kernel outputs to their Python equivalents, ensuring <1% relative error. End-to-end evaluations using real audio inputs confirmed compatibility with Whisper ASR, yielding WERs as low as 0.05 for short sentences and 0.17 with long sentences.
 
 **NLP Validation:**  
 - Summarization and keyword extraction consistency checks.
 
 **Sources of Error:**  
-- Differences due to float vs fixed-point, quantization, rounding.
+- Differences due to float vs fixed-point, quantization, and rounding.
 
 Whisper accepted hardware-generated spectrograms, confirming precision and format met ASR requirements.
 
@@ -349,7 +345,7 @@ Whisper accepted hardware-generated spectrograms, confirming precision and forma
 After validating each stage in isolation, we attempted to combine multiple kernels into larger, batched hardware modules (e.g., chaining Mel filtering, log compression, and scaling). The goals were improved simulation efficiency and closer alignment with deployment.
 
 **Challenges:**  
-While we successfully validated individual kernels, integrating them introduced new challenges—especially with timing and fixed-point precision across stages. Debugging became more complex, leading us to reserve integrated kernels for final validation runs rather than development.
+While we successfully validated individual kernels, integrating them introduced new challenges, especially with timing and fixed-point precision across stages. Debugging became more complex, leading us to reserve integrated kernels for final validation runs rather than development.
 
 **Summary:**  
 - Single-frame, per-stage approach was essential for rapid iteration and precise error analysis.  
@@ -363,9 +359,7 @@ While we successfully validated individual kernels, integrating them introduced 
 Chains Mel filtering, log compression, dynamic range clamping, and Whisper scaling into one kernel for batch processing.
 
 **Motivation:**  
-- Reduce intermediate DRAM/SRAM transfers.  
-- Exploit data locality and pipelining.  
-- Align with real-time audio streaming deployment.
+This kernel was designed to reduce intermediate DRAM and SRAM transfers by chaining multiple stages into a single module. By doing so, we were able to better exploit data locality and pipelining opportunities, which are critical for achieving efficient hardware utilization. These design choices also aligned the architecture more closely with the demands of real-time audio streaming deployment.
 
 **Architectural Design:**  
 1. Load power matrix and Mel filterbank from DRAM.  
@@ -377,9 +371,7 @@ Chains Mel filtering, log compression, dynamic range clamping, and Whisper scali
 3. Write outputs back to DRAM/CSV.
 
 **Pipelining & Memory:**  
-- Pipelined loops over frames and Mel bands.  
-- On-chip SRAM for all intermediate data.  
-- Parameterized batch size and Mel band count.
+The kernel employs pipelined loops over both audio frames and Mel frequency bands to maximize throughput. All intermediate data is stored in on-chip SRAM, minimizing latency and external memory access. Additionally, the design supports parameterized batch sizes and Mel band counts, offering flexibility for different deployment scenarios and hardware constraints.
 
 **LUT-Based Log10:**  
 - Normalize input to [1,10), LUT + linear interp, add integer decade.
@@ -396,14 +388,10 @@ Chains Mel filtering, log compression, dynamic range clamping, and Whisper scali
 - Fixed-point errors higher; required careful tuning.
 
 **Challenges:**  
-- Precision management (fixed-point widths).  
-- Slow simulation for large batches.  
-- Debug instrumentation for integrated pipeline.
+We encountered several challenges during development, including the need for careful precision management when working with fixed-point widths to prevent overflow and maintain accuracy. Simulating large batches proved to be slow and resource-intensive, which limited our ability to test full-length audio inputs efficiently. To address these issues, we implemented additional debug instrumentation within the integrated pipeline to better trace errors and monitor intermediate values across stages.
 
 **Lessons Learned:**  
-- Modular kernels for development; integrated kernels for final validation.  
-- Future designs should balance modularity and integration.
-
+We adopted a strategy of using modular kernels during development to facilitate isolated testing and rapid iteration, while reserving integrated kernels for final validation of the full pipeline. This approach allowed us to debug individual components efficiently without the complexity of cross-stage interactions. Looking ahead, future designs should aim to balance this modularity with deeper integration to optimize for deployment performance without sacrificing maintainability.
 ---
 
 #### Potential for Optimization and Parallelization
