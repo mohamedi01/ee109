@@ -392,7 +392,7 @@ We encountered several challenges during development, including the need for car
 
 **Lessons Learned:**  
 
-We adopted a strategy of using modular kernels during development to facilitate isolated testing and rapid iteration, while reserving integrated kernels for final validation of the full pipeline. This approach allowed us to debug individual components efficiently without the complexity of cross-stage interactions. Looking ahead, future designs should aim to balance this modularity with deeper integration to optimize for deployment performance without sacrificing maintainability.
+- We adopted a strategy of using modular kernels during development to facilitate isolated testing and rapid iteration, while reserving integrated kernels for final validation of the full pipeline. This approach allowed us to debug individual components efficiently without the complexity of cross-stage interactions. Looking ahead, future designs should aim to balance this modularity with deeper integration to optimize for deployment performance without sacrificing maintainability.
 ---
 
 #### Potential for Optimization and Parallelization
