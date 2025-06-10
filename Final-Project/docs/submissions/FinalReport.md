@@ -391,6 +391,7 @@ The kernel employs pipelined loops over both audio frames and Mel frequency band
 We encountered several challenges during development, including the need for careful precision management when working with fixed-point widths to prevent overflow and maintain accuracy. Simulating large batches proved to be slow and resource-intensive, which limited our ability to test full-length audio inputs efficiently. To address these issues, we implemented additional debug instrumentation within the integrated pipeline to better trace errors and monitor intermediate values across stages.
 
 **Lessons Learned:**  
+
 We adopted a strategy of using modular kernels during development to facilitate isolated testing and rapid iteration, while reserving integrated kernels for final validation of the full pipeline. This approach allowed us to debug individual components efficiently without the complexity of cross-stage interactions. Looking ahead, future designs should aim to balance this modularity with deeper integration to optimize for deployment performance without sacrificing maintainability.
 ---
 
