@@ -412,7 +412,6 @@ Applies Whisper's final scaling: (x + 4) / 4, to match the input range expected 
 
 ---
 
-
 ## Testing & Validation
 
 To verify correctness, we wrote unit tests comparing hardware kernel outputs to the Python baseline. Most results matched within <1% error, with small deviations due to float vs. fixed-point rounding.
@@ -455,34 +454,98 @@ In practice, running the full pipeline with fixed-point arithmetic and large inp
 - Per-stage testing enabled us to achieve and verify very low error rates for each DSP component
 - While kernel integration is necessary for deployment, simulation and debugging constraints made it difficult to fully validate large, fixed-point pipelines within project timelines
 
+### MelLogScaleKernel (Top-level)
 
+**Purpose:**  
+Chains Mel filtering, log compression, dynamic range clamping, and Whisper scaling into a single kernel for efficient batch processing of audio frames. This kernel was designed to more closely mirror the end-to-end DSP pipeline required for real-time ASR, reducing memory transfers and improving hardware efficiency.
+
+**Motivation:**
+- Integrating multiple DSP stages into a single kernel reduces the need for intermediate memory transfers between DRAM and on-chip SRAM, which is a major bottleneck in hardware pipelines.
+- By processing entire batches of frames in one invocation, the kernel can exploit data locality and pipelining, improving throughput and making the design more suitable for real-time, low-latency applications.
+- This approach also aligns with the deployment scenario, where the FPGA is expected to process continuous streams of audio data efficiently.
+
+**Architectural Design:**
+- **Input/Output:**
+  - The kernel reads a flat power matrix (shape: [num_frames, num_bins]) and the Mel filterbank matrix ([num_mels, num_bins]) from DRAM.
+  - Outputs a batch of Whisper-scaled log-Mel spectrograms ([num_frames, num_mels]) to DRAM or CSV.
+- **Processing Flow:**
+  1. For each frame, load the power spectrum from DRAM into on-chip SRAM.
+  2. Apply the Mel filterbank via a matrix-vector multiply (dot product for each Mel band).
+  3. For each Mel energy, apply log10 compression using a LUT (lookup table) with linear interpolation for efficiency.
+  4. Clamp the log-compressed value to the dynamic range expected by Whisper (max-8.0 to max).
+  5. Apply Whisper scaling: (x + 4) / 4.
+  6. Store the result in output SRAM, then write back to DRAM/CSV.
+- **Pipelining:**
+  - Loops are pipelined over frames and Mel bands to maximize throughput.
+  - All intermediate results are kept in on-chip SRAM to minimize DRAM access latency.
+- **Memory Management:**
+  - The kernel is parameterized for batch size and Mel band count, allowing flexible testing and deployment.
+  - Handles runtime frame count and memory management for variable-length audio.
+
+**LUT-Based Log10 Implementation:**
+- Logarithm computation is expensive in hardware, so a LUT is used to approximate log10 values.
+- The input is normalized to [1, 10), and the LUT provides log10 values for this range.
+- Linear interpolation between LUT entries improves accuracy.
+- The decade (integer part of the log) is computed separately and added to the interpolated value.
+- This approach balances resource usage and computational accuracy.
+
+**Dynamic Range Clamping and Scaling:**
+- After log10 compression, values are clamped to the range [max-8.0, max] to match Whisper's dynamic range requirements.
+- The final scaling step, (x + 4) / 4, normalizes the output to the range expected by the ASR model.
+
+**CSV I/O for Batch Processing:**
+- Input CSVs contain flattened power matrices for all frames in a batch, as well as the Mel filterbank matrix.
+- Output CSVs contain the resulting log-Mel spectrograms, one row per frame.
+- Python scripts handle the formatting and parsing of these CSVs, ensuring compatibility between hardware and software reference outputs.
+
+**Validation Methodology and Error Analysis:**
+- For floating-point arithmetic, the kernel's output was compared to the Python reference pipeline using tight tolerances (e.g., rtol=1e-4).
+- Error rates were typically <1% relative error, but could increase for longer pipelines or larger batch sizes due to accumulated rounding errors.
+- For fixed-point arithmetic, error rates increased further, especially when quantization effects compounded across multiple stages. Careful tuning of fixed-point widths and scaling factors was required to balance resource usage and accuracy.
+- Debugging was more complex than in the single-stage approach, as errors could propagate across the integrated pipeline.
+
+**Challenges Encountered:**
+- **Precision Management:** Selecting appropriate fixed-point widths and scaling factors for each stage was critical to avoid overflow, underflow, and excessive quantization error.
+- **Simulation Speed:** Simulating the integrated kernel with large input sizes and fixed-point arithmetic was extremely slow, limiting the ability to iterate quickly.
+- **Debugging:** With multiple stages integrated, localizing the source of errors required additional instrumentation and intermediate output dumps.
+- **Resource Utilization:** The integrated kernel required more on-chip SRAM and LUT resources, necessitating careful design tradeoffs.
+
+**Lessons Learned and Implications:**
+- While the MelLogScaleKernel demonstrated the feasibility of integrating multiple DSP stages for hardware efficiency, the complexity of debugging and simulation speed constraints made it impractical as the primary development workflow.
+- The single-frame, per-stage approach remained essential for rapid iteration and precise error analysis, while the integrated kernel was reserved for final, end-to-end validation and resource/timing analysis.
+- Future hardware designs should consider hybrid approaches: modular kernels for development and debugging, with integrated kernels for deployment and performance evaluation.
+
+**Potential for Optimization and Parallelization:**
+
+With further improvements to the MelLogScaleKernel, there is significant potential for optimization and parallelization. A more advanced implementation could leverage deeper pipelining and parallel processing at multiple levels:
+- **Frame-Level Parallelism:** Multiple audio frames could be processed simultaneously, with each frame handled by a separate processing element or pipeline stage. This would dramatically increase throughput, especially for batch processing or streaming applications.
+- **Mel Band Parallelism:** Within each frame, the computation of Mel filterbank outputs and subsequent log/scale operations for different Mel bands could be parallelized, as these operations are independent. This would reduce per-frame latency and make the kernel more suitable for real-time, low-latency systems.
+- **Hardware Resource Tradeoffs:** Such parallelization would require more on-chip SRAM, LUTs, and DSP blocks, so careful resource management and scheduling would be necessary to fit within FPGA constraints.
+- **Optimized Memory Access:** Improved memory access patterns, such as burst reads/writes and double-buffering, could further reduce DRAM bottlenecks and enable continuous data streaming.
+
+If these optimizations were implemented, the MelLogScaleKernel could serve as a highly efficient, real-time DSP frontend for ASR systems, capable of meeting the demands of edge AI and embedded applications. This would enable true streaming audio support and further reduce end-to-end system latency.
 
 ## Results, Limitations & Future Work
 
 ### Results
 
-| Metric         | Software (Python) | Hardware (FPGA/Spatial) |
-|----------------|-------------------|-------------------------|
-| Accuracy       | <1% error vs gold | <1% error vs gold       |
-| ASR WER        | ~0.05-0.16        | ~0.05-0.16              |
-| Latency        | [fill in]         | [fill in, from reports] |
-| Resource Usage | N/A               | RAM36: 27, see reports  |
 
-- Hardware pipeline matches software within <1% error.
-- ASR and NLP work on hardware-generated features.
+*Software latency measured on a modern CPU; hardware latency is from simulation, not real FPGA.
+
+#### Accuracy
+- **Per-Stage Error:** Each hardware kernel output was compared to the Python reference using `np.allclose` with `rtol=1e-4`. Most single frame test stages achieved <1% relative error, with hardware matching software almost exactly.
+- **End-to-End Error:** The full hardware pipeline produced log-Mel spectrograms that matched the software reference within <1% error, as measured by mean absolute and relative error across all frames and Mel bands. This only function in the pipeline for the first frame, accurately getting the correct first word, but not being able to transcribe the entire audio file due to the frame restrictions.
+- **Scalability:** Resource usage scales with batch size, Mel band count, and degree of parallelism. Optimizations such as pipelining and parallel frame/band processing could increase resource requirements but also improve throughput.
 
 ### Limitations
 
+- The combined (integrated) kernel is not yet fully functional for processing entire audio pipelines; only the single-frame kernels have been thoroughly validated and achieve high accuracy.
+- As a result, end-to-end hardware deployment is currently limited to single-frame or first-frame processing, preventing full real-time transcription of long audio files on hardware.
 - No deployment on physical FPGA (simulation only).
 - Only static `.wav` files tested (no live streaming).
 - Log compression uses float-based approximations; fixed-point tuning could improve further.
 
-### Future Work
-
-- Deploy on real FPGA (e.g., AWS F1, Xilinx).
-- Add streaming audio/microphone support.
-- Optimize precision and resource usage for synthesis.
-- Explore hardware acceleration for ASR/NLP stages.
+This limitation highlights the need for further development and debugging of the integrated kernel to enable robust, real-time, end-to-end speech processing on hardware.
 
 ---
 
