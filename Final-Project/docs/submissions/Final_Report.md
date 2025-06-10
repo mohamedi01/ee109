@@ -117,7 +117,6 @@ Our system is divided into three main stages:
              ↓
     ┌──────────────────────┐
     │  NLP Summarizer      │
-    │                      │
     └────────┬─────────────┘
              ↓
     ┌──────────────────────┐
