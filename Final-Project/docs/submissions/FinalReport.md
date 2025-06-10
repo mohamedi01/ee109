@@ -22,7 +22,7 @@ We faced three primary challenges: matching the precise behavior of Whisper’s 
 This work has practical implications for applications like smart voice assistants, medical wearables, and embedded speech interfaces in IoT devices, all of which benefit from low-latency, low-power DSP.
   
 **GitHub Repository:**  
-The code of the project can be found at the following [GitHub Repo](https://github.com/mohamedi01/ee109/tree/main/Final-Project).Navigate to the `Final-Project/` for all the contents of this final project. The `README.md` and `docs/architecture.md` files describe how to set up the requirements, run the different parts of the code, and outline the high-level architecture.
+The code of the project can be found at the following [GitHub Repo](https://github.com/mohamedi01/ee109/tree/main/Final-Project). Navigate to the `Final-Project/` for all the contents of this final project. To specifically see this final report in github or an IDE, navigate to  `Final-Project/docs/submissions/FinalReport.md`. The `README.md` and `docs/architecture.md` files describe how to set up the requirements, run the different parts of the code, and outline the high-level architecture.
 
 ### Project Directory Structure
 
