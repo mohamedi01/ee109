@@ -59,11 +59,6 @@ As part of the project, key DSP frontend components are being implemented in Spa
     *   `LogCompress.scala`
     *   `WhisperScale.scala`
     *   `STFTKernel.scala` (Hann windowing implemented; FFT component is a work in progress)
-*   **Testing:** Each Spatial kernel has a corresponding test (`*Test.scala`) in `Final-Project/fpga/src/test/scala/spatial/tests/`.
-    *   **Current Status (as of May 28, 2025):**
-        *   `MelFilterbankTest`, `PowerSpectrumTest`, `QuantizeKernelTest` are passing functional simulations.
-        *   `LogCompressTest` and `WhisperScaleTest` have been implemented and are undergoing final verification.
-        *   `STFTKernelTest` is pending the completion of the FFT implementation within `STFTKernel.scala`.
 
 ## Main Features
 
@@ -73,13 +68,6 @@ As part of the project, key DSP frontend components are being implemented in Spa
 *   **Integrated End-to-End Pipeline**: `audiolib.pipeline.process_audio_to_nlp` provides a single interface for DSP, ASR, and NLP.
 *   **Comprehensive Testing Suite**: Utilizes `pytest` for unit, integration, and pipeline tests, with WER as a key ASR metric.
 *   **Spatial DSP Kernels for FPGA Acceleration**: Implementations of key DSP tasks in Spatial, with ongoing testing and development.
-*   **Complete FPGA DSP Frontend:**
-    *   Finalize and verify all individual Spatial DSP kernels, including the FFT implementation within `STFTKernel.scala` and its corresponding test.
-    *   Implement pre-emphasis filter in Spatial if deemed necessary.
-    *   Integrate the individual Spatial DSP kernels into a single, cohesive hardware pipeline.
-    *   Thoroughly test the integrated Spatial DSP pipeline against the golden Python implementation.
-*   **FPGA Integration with Host:** Develop the mechanisms (e.g., using DMA and AXI-Lite on an AWS F1 instance) to stream data to/from the FPGA and control the accelerated DSP pipeline from the Python host application.
-*   **Performance Evaluation:** Measure end-to-end latency, throughput, and resource utilization of the FPGA-accelerated pipeline.
 
 ## Data Sources
 
@@ -258,16 +246,6 @@ These tests run the entire DSP → ASR → NLP pipeline on real audio files and 
   python -m src.audiolib.run_pipeline_hw path/to/audio.wav
   ```
 
-*   **Hardware Acceleration of DSP Frontend using FPGA (Amazon F1 Instance):**
-    *   **Objective:** Offload computationally intensive DSP kernels from the `wav_to_logmel` pipeline to an FPGA on an Amazon EC2 F1 instance to achieve significant performance gains and power efficiency for real-time or batch processing scenarios.
-    *   **Target Kernels for Hardware Implementation:**
-        *   Resampling (if input audio is not 16 kHz).
-        *   Short-Time Fourier Transform (STFT): Including windowing (Hann) and the 400-point FFT.
-        *   Power Spectrum Calculation.
-        *   Mel Filterbank Application: Dot products for 80 Mel bands.
-        *   Logarithmic Compression and Whisper Scaling.
-*   Further refine ASR decoding parameters for optimal accuracy across diverse audio.
-*   Expand CLI functionality for easier use and batch processing.
 
  BLOCK DIAGRAM FOR SOFTWARE + HARDWARE
 
@@ -340,87 +318,6 @@ EE109 Audio Transcription & Analysis Pipeline – Block Diagram
 }
 </pre>
 
-## Milestone 2: Hardware Implementation and FPGA DSP Frontend Verification (`spatial_dsp.py`)
-
-To verify the hardware DSP pipeline, a standalone test script (`src/audiolib/dsp/spatial_dsp.py`) was developed. This script runs the complete Spatial-based DSP frontend in software simulation mode and validates its correctness by comparing the outputs of each hardware stage against Python reference results computed using `mel_gold.py`, which replicates Whisper's preprocessing pipeline.
-
-The purpose of this test is to ensure that each Spatial kernel behaves identically to its Python counterpart. It validates that the entire DSP pipeline—from raw audio to Whisper-scaled log-Mel spectrogram—produces numerically equivalent output for the first frame of audio input.
-
-The Spatial kernels involved are:
-
-- Power Spectrum: `fpga/PowerSpectrum/PowerSpectrum.scala`
-  - Computes magnitude squared of complex FFT bins
-  - Input: 512 real/imaginary pairs
-  - Output: 512 power values
-  
-- Mel Filterbank: `fpga/MelFilterbank/MelFilterbank.scala`
-  - Projects linear frequency bins to Mel scale
-  - Input: 512 power spectrum values
-  - Output: 80 Mel-filtered bands
-  
-- Log Compression: `fpga/LogCompress/LogCompress.scala`
-  - Applies log10 and minimum value clamping
-  - Input: 80 Mel band values
-  - Output: 80 log-compressed values
-  
-- Whisper Scaling: `fpga/WhisperScale/WhisperScale.scala`
-  - Normalizes values to Whisper's expected range
-  - Input: 80 log values
-  - Output: 80 scaled values
-
-The script performs the following sequence of actions:
-
-1. Loads and resamples a test audio file using `mel_gold.py`.
-2. Computes Python gold reference outputs for quantization, STFT, Mel filtering, log compression, and Whisper scaling.
-3. Generates input `.csv` files for the Spatial kernels, such as `real.csv`, `imag.csv`, `power_bins.csv`, and `mel_filterbank.csv`.
-4. For each Spatial kernel:
-   - Compiles using `sbt "run --sim"` to generate simulation artifacts in `fpga/<KernelName>/gen/`
-   - The compilation produces:
-     - C++ simulation code
-     - `run.sh` script for execution
-     - Memory initialization files
-     - Chisel/FIRRTL intermediate representations
-   - Executes the generated `./run.sh` script which:
-     - Sets up the simulation environment variables (SPATIAL_HOME, JVM settings)
-     - Configures the C++ simulator parameters
-     - Loads input data from CSV files into simulated memories
-     - Runs the kernel simulation with cycle-accurate timing
-     - Captures performance metrics (cycles, throughput)
-     - Writes output data and statistics to CSV files
-     - Performs automated cleanup of temporary files
-5. Collects the FPGA output `.csv` files and compares them to the Python reference outputs using `np.testing.assert_allclose`, with strict relative and absolute tolerances.
-6. Logs and prints detailed mismatches, including:
-   - Exact numerical differences between FPGA and reference values
-   - Index positions of mismatches
-   - Statistical analysis (mean error, std dev)
-   - Potential causes like clamping issues or filter misalignment
-   - Visualization of error patterns when applicable
-
-All intermediate files are saved in the `fpga_io/` directory. Key outputs include:
-
-- `real.csv`, `imag.csv`: STFT input components (512 values each)
-- `power_spectrum_output.csv`: Power spectrum values (512 bins)
-- `mel_filterbank.csv`: 512x80 filterbank matrix coefficients
-- `melfilterbank_output.csv`: Mel-filtered output (80 bands)
-- `logcompress_output.csv`: Log-compressed values (80 values)
-- `whisperscale_output.csv`: Final scaled output (80 values)
-
-Each kernel's `run.sh` also generates:
-- Cycle count and timing reports in `fpga/<KernelName>/logs/`
-- Memory traces in `fpga/<KernelName>/gen/`
-- Simulation waveforms for debugging
-- Resource utilization estimates
-
-On successful execution, the test confirms correct behavior with messages such as:
-
-[INFO] QuantizeKernel FPGA output matches Python Scipy STFT power path. 
-[INFO] PowerSpectrum FPGA output matches Python Scipy STFT power path.  
-[INFO] MelFilterbank FPGA output matches mel_gold.py/torchaudio output.  
-[INFO] LogCompress Final FPGA output matches mel_gold.py pipeline's 1st frame.  
-[INFO] WhisperScale FPGA output matches mel_gold.py pipeline output.  
-[INFO] FINAL OUTPUT MATCHES: Full FPGA pipeline output matches mel_gold.py equivalent output.
-
-This test provides high-confidence validation that the Spatial kernels correctly reproduce Whisper-compatible DSP behavior and are ready for integration into an end-to-end hardware deployment.
 
 ### Requirements
 

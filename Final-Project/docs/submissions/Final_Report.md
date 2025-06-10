@@ -33,6 +33,22 @@ Offload the entire log-Mel spectrogram pipeline to an FPGA, enabling real-time, 
 - Medical/wearable devices  
 - Edge AI/IoT speech interfaces
 
+**GitHub Repository:** 
+The code of the project can be found at the following [Github Repo](https://github.com/your-repo-link-here). The `README.md` and `docs\architecture.md` files have a description on how to set up the requirements, run the different parts of the code, and the high level architecture of the files. 
+
+## Project Directory Structure
+
+| Directory/File         | Description                                                      |
+|-----------------------|------------------------------------------------------------------|
+| `src/`                | All Python source code for DSP, ASR, and NLP pipelines           |
+| `fpga/`               | Hardware kernel implementations (Spatial DSL), reports, and logs  |
+| `tests/`              | Python test scripts for unit and end-to-end validation            |
+| `data/`               | Audio files, intermediate CSVs, and reference transcripts         |
+| `docs/`               | Project documentation and final report                            |
+| `README.md`           | Project overview and setup instructions                           |
+
+---
+
 ---
 
 ## System Architecture & Pipeline
