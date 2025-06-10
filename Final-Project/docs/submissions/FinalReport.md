@@ -454,8 +454,6 @@ A fully optimized pipeline would deliver end-to-end real-time DSP for ASR on res
 
 ## Design Tradeoffs
 
-Discuss your tradeoffs between the design choices you've made
-
 ### Results, Limitations & Future Work
 
 #### Results
