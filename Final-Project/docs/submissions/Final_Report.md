@@ -43,7 +43,7 @@ Our system is divided into three main stages:
 2. **ASR using Whisper (Software)**
 3. **NLP Summarization (Software)**
 
-### Pipeline Stages and Parameters
+### PDSP Breakfown
 
 | Stage           | Description                                 | Parameters/Notes                |
 |-----------------|---------------------------------------------|---------------------------------|
@@ -130,6 +130,58 @@ Each DSP stage—quantization, STFT, power spectrum, Mel filtering, log compress
 - End-to-end tests use Word Error Rate (WER) for ASR accuracy.
 
 The Python pipeline integrated seamlessly with Whisper and a lightweight NLP summarizer. This allowed us to test the full speech-to-summary path and measure accuracy and latency at each step.
+
+All Python code for the project can be found in the `src/` or `tests/` directory of the repository.
+
+### Evolution of the Software Reference: From `mel.py` to `mel_gold.py`
+
+#### Initial Approach: Monolithic Pipeline in `mel.py`
+
+Our first implementation of the DSP pipeline was in a single Python script, `mel.py`. This script encapsulated the entire log-Mel spectrogram computation—from raw audio loading through quantization, STFT, power spectrum, Mel filtering, log compression, and Whisper scaling—in a single, linear function. The primary goal at this stage was to quickly validate the end-to-end pipeline and ensure that our software output matched Whisper's expectations.
+
+- **Testing Structure:**  
+  - We wrote basic tests that compared the final log-Mel spectrogram output to reference outputs.
+  - The focus was on end-to-end correctness, not on the behavior of individual stages.
+  - This approach was sufficient for initial validation, but it had limitations:
+    - **Debugging:** If a mismatch occurred, it was difficult to isolate which stage was responsible.
+    - **Hardware Validation:** As we began developing hardware kernels for each DSP stage, we needed a way to compare intermediate outputs, not just the final result.
+
+#### Need for Modularization
+
+As hardware development progressed, it became clear that a monolithic software pipeline was insufficient for rigorous validation. Each hardware kernel (Quantize, STFT, Power Spectrum, Mel Filterbank, Log Compression, Whisper Scale) needed to be tested in isolation against a software "golden" reference. This required the ability to run and compare each stage independently.
+
+- **Motivation:**
+  - **Isolated Testing:** To verify the correctness of each hardware kernel, we needed to generate reference outputs for every intermediate stage.
+  - **Debugging:** Modular functions made it easier to pinpoint and fix discrepancies.
+  - **Reusability:** Modular code could be reused in unit tests and for generating test vectors for hardware simulation.
+
+#### Refactoring: Creation of `mel_gold.py`
+
+To address these needs, we refactored the pipeline into a new, modular script: `mel_gold.py`.
+
+- **Design:**
+  - Each DSP stage was implemented as a standalone function (e.g., `quantize_int16`, `compute_stft`, `compute_power_spectrum`, `apply_mel_filterbank`, `whisper_scale`).
+  - Functions were designed to accept and return NumPy arrays or PyTorch tensors, making them easy to compose and test.
+  - The script could be run end-to-end or stage-by-stage, enabling flexible testing.
+
+- **Testing Structure:**
+  - We built a Python testing framework (see `tests/test_pipeline/`) that:
+    - Runs each stage independently.
+    - Compares hardware kernel outputs to the corresponding software reference using tight numerical tolerances.
+    - Provides detailed error messages and visualizations for debugging.
+  - This modular approach enabled us to:
+    - Validate each hardware kernel in isolation.
+    - Rapidly iterate on hardware designs, knowing that any mismatch could be traced to a specific stage.
+
+#### Impact
+
+- **Debugging Efficiency:**  
+  Modularization dramatically reduced debugging time. When a hardware kernel failed a test, we could immediately compare its output to the software reference for that stage, rather than sifting through the entire pipeline.
+- **Hardware-Software Co-Design:**  
+  The modular software reference became the "golden" standard for hardware development. Each hardware kernel was developed and validated against its corresponding Python function, ensuring correctness at every step.
+
+**In summary:**  
+Our transition from a monolithic script (`mel.py`) to a modular, function-based reference (`mel_gold.py`) was crucial for robust hardware validation. This modularization enabled precise, stage-by-stage testing, streamlined debugging, and ensured that each hardware kernel could be rigorously compared to a trusted software "golden" output.
 
 ---
 
@@ -415,16 +467,4 @@ Whisper successfully accepted hardware-generated spectrograms, producing accurat
 - **Code:**  
   - Python DSP: `src/audiolib/dsp/`  
   - Hardware kernels: `fpga/`  
-  - Tests: `tests/`
-- **Reports:**  
-  - Hardware resource/timing: `fpga/[kernel]/reports/`
-- **Data:**  
-  - Audio: `data/`  
-  - Transcripts: `data/transcripts/`
-- **References:**  
-  - [1] J. Park et al., "A Low-Latency Streaming On-Device Automatic Speech Recognition System Using a CNN Acoustic Model on FPGA and a Language Model on Smartphone," Electronics, 2022.  
-  - [2] Y.-K. Choi et al., "FPGA-Based Implementation of a Real-Time 5000-Word Continuous Speech Recognizer," EUSIPCO 2008.  
-  - [3] M. Lee et al., "FPGA-Based Low-Power Speech Recognition with Recurrent Neural Networks," arXiv:1610.00552, 2016.  
-  - [4] S. Han et al., "ESE: Efficient Speech Recognition Engine with Sparse LSTM on FPGA," arXiv:1612.00694, 2016.
-
-
+  - Tests: `
